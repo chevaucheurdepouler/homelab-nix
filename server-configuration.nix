@@ -46,7 +46,12 @@ in
     # firewall rules
     firewall = {
       enable = true;
-      allowedTCPPorts = [ 22 5030 8080 9091 ];
+      allowedTCPPorts = [
+        22
+        5030
+        8080
+        9091
+      ];
       allowedUDPPorts = [ ];
     };
   };
@@ -88,7 +93,7 @@ in
   sops.age.keyFile = "/var/lib/sops-nix/key.txt";
   sops.age.generateKey = true;
 
-  sops.secrets."searx.env" = { 
+  sops.secrets."searx.env" = {
     sopsFile = ./secrets/searx.env;
     format = "dotenv";
   };
@@ -162,7 +167,7 @@ in
     openFirewall = true;
     openRPCPort = true;
     settings = {
-      rpc-bind-address = "0.0.0.0"; #Bind to own IP
+      rpc-bind-address = "0.0.0.0";
       rpc-whitelist-enabled = false;
       download-dir = "${driveMountPoint}/Torrents";
     };
@@ -204,10 +209,10 @@ in
       flaresolverr = {
         ports = [ "8181:8181" ];
         image = "ghcr.io/flaresolverr/flaresolverr:latest";
-	environment = {};
+        environment = { };
       };
     };
-};
+  };
 
   services.homepage-dashboard = {
     enable = true;
@@ -242,12 +247,14 @@ in
           }
           {
             "slskd" = {
+              icon = "slskd";
               description = "Pour télécharger/partager de la musique";
               href = "http://${ip}:5030";
             };
           }
           {
             "Readarr" = {
+              icon = "readarr";
               description = "Moteur de recherche de livres";
               href = "http://${ip}:8787/";
             };
@@ -265,6 +272,13 @@ in
               icon = "sonarr";
               description = "Moteur de recherche pour les séries";
               href = "http://${ip}:8989";
+            };
+          }
+          {
+            "Radarr" = {
+              icon = "radarr";
+              description = "Moteur de recherche pour les films";
+              href = "http://${ip}:7878";
             };
           }
           {
@@ -290,9 +304,5 @@ in
       }
     ];
 
-
-
   };
-
-  };
-
+}
