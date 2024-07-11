@@ -6,6 +6,7 @@
 }:
 let
   ip = "192.168.1.207";
+  gateway = "192.168.1.1";
   driveMountPoint = "/mnt/hdd1";
   authentik-version = "2024.2.3";
   authentik-nix-src = builtins.fetchTarball {
@@ -15,17 +16,6 @@ let
   authentik-nix = import authentik-nix-src;
 in
 {
-  # mounting external hard drives !
-  fileSystems."/mnt/hdd1" = {
-    device = "/dev/disk/by-uuid/008e5b16-5620-4fd5-a506-ef8d9bdec0c7";
-    fsType = "ext4";
-    options = [
-      "defaults"
-      "nofail"
-      "rw"
-    ];
-  };
-
   # setting up networking!!
   networking = {
     interfaces = {
@@ -37,7 +27,7 @@ in
       ];
     };
 
-    defaultGateway = "192.168.1.1";
+    defaultGateway = gateway;
     nameservers = [
       "1.1.1.1"
       "1.0.0.1"
@@ -56,6 +46,18 @@ in
     };
   };
 
+  users.groups.multimedia = {
+    members = [
+      "slskd"
+      "radarr"
+      "readarr"
+      "sonarr"
+      "transmission"
+      "jellyfin"
+      "cypherpunk"
+    ];
+  };
+
   # enable samba
   services.samba = {
     enable = true;
@@ -69,7 +71,7 @@ in
     '';
     shares = {
       music = {
-        path = "${driveMountPoint}/Music";
+        path = "${driveMountPoint}/Musique";
         browseable = "yes";
         "read only" = "no";
         "create mask" = "0644";
@@ -93,14 +95,23 @@ in
   sops.age.keyFile = "/var/lib/sops-nix/key.txt";
   sops.age.generateKey = true;
 
-  sops.secrets."searx.env" = {
+  # define your secrets with 
+  # `nix-shell -p sops --run "sops ./secrets/yoursecret.env"`
+
+  sops.secrets."searx" = {
     sopsFile = ./secrets/searx.env;
     format = "dotenv";
   };
 
-  sops.secrets."slskd.env" = {
+  sops.secrets."slskd" = {
     sopsFile = ./secrets/slskd.env;
     format = "dotenv";
+  };
+
+  sops.secrets."authentik" = {
+    sopsFile = ./secrets/authentik.env;
+    format = "dotenv";
+    disable_startup_analytics = true;
   };
 
   environment.systemPackages = with pkgs; [
@@ -124,6 +135,7 @@ in
     user = "cypherpunk";
   };
 
+  # -arr suite
   services.sonarr = {
     enable = true;
     openFirewall = true;
@@ -139,19 +151,6 @@ in
     openFirewall = true;
   };
 
-  services.slskd = {
-    enable = true;
-    openFirewall = true;
-    environmentFile = config.sops.secrets."slskd.env".path;
-    domain = null;
-    settings = {
-      shares.directories = [ "${driveMountPoint}/Music" ];
-      soulseek.description = "i luv katz n mewsik";
-      directories.files.downloads = "${driveMountPoint}/Music/clean";
-      directories.files.incomplete = "${driveMountPoint}/Music/incomplete";
-    };
-  };
-
   services.prowlarr = {
     enable = true;
     openFirewall = true;
@@ -162,21 +161,38 @@ in
     enable = true;
   };
 
+  # torrenting apps
   services.transmission = {
     enable = true;
     openFirewall = true;
     openRPCPort = true;
+    credentialsFile = "";
     settings = {
       rpc-bind-address = "0.0.0.0";
       rpc-whitelist-enabled = false;
+      rpc-authentication-required = true;
       download-dir = "${driveMountPoint}/Torrents";
+      ratio-limit-enabled = true;
+    };
+  };
+
+  services.slskd = {
+    enable = true;
+    openFirewall = true;
+    environmentFile = config.sops.secrets."slskd".path;
+    domain = null;
+    settings = {
+      shares.directories = [ "${driveMountPoint}/Music" ];
+      soulseek.description = "i luv katz n mewsik";
+      directories.files.downloads = "${driveMountPoint}/Music/clean";
+      directories.files.incomplete = "${driveMountPoint}/Music/incomplete";
     };
   };
 
   services.searx = {
     enable = true;
     settings = {
-      server.secret_key = builtins.toJSON config.sops.secrets."searx.env";
+      server.secret_key = builtins.toJSON config.sops.secrets."searx";
     };
   };
 
@@ -188,35 +204,56 @@ in
     };
   };
 
+  services.caddy = {
+    enable = true;
+    virtualHosts."localhost".extraConfig = ''
+      reverse_proxy :8082
+    '';
+  };
+
   /*
     services.authentik = {
       enable = true;
+      environmentFile = config.sops.secrets."authentik".path;
     };
 
-      services.photoprism = {
-
+    services.photoprism = {
         enable = true;
-        originalsPath = "/mnt/hdd1/photoprism";
         settings = {
           PHOTOPRISM_DEFAULT_LOCALE = "fr";
         };
       };
   */
 
+  # docker containers, for apps that aren't avaiable on Nix.  (yet)
   virtualisation.oci-containers = {
     backend = "docker";
     containers = {
       flaresolverr = {
         ports = [ "8181:8181" ];
         image = "ghcr.io/flaresolverr/flaresolverr:latest";
-        environment = { };
+        environment = {
+          "LOG_LEVEL" = "info";
+        };
+      };
+      crafty-controller = {
+        image = "registry.gitlab.com/crafty-controller/crafty-4:latest";
+        ports = [
+          "8443:8443"
+          "8123:8123"
+          "19132:19132/udp"
+          "25500-25600:25500-25600"
+        ];
+        volumes = [ ];
+        environment = {
+          "TZ" = "Europe/Paris";
+        };
       };
     };
   };
 
   services.homepage-dashboard = {
     enable = true;
-    openFirewall = true;
     services = [
       {
         "Divertissement" = [
@@ -229,7 +266,7 @@ in
           }
           {
             "calibre-web" = {
-              icon = "calibre";
+              icon = "Calibre";
               description = "Serveur de livres";
               href = "http://${ip}:8083";
             };
@@ -240,7 +277,7 @@ in
         "Téléchargement" = [
           {
             "Jellyseerr" = {
-              icon = "jellyseerr";
+              icon = "Jellyseerr";
               description = "Moteur de recherche de films/séries";
               href = "http://${ip}:5055";
             };
