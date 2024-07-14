@@ -1,9 +1,0 @@
-keys:
-  - &admin_cypherpunk age1c8kr95dc7cqq34qyjgpnsgfgyntqnt5rlrq2c025ehp32f8h3sjqkf8k3s
-  - &server_cypherpunk age1k9297jq43kjmqcau62rt7pz0fc8uqkyshpm6kvw2tky4997r6flqmx8cce
-creation_rules:
-  - path_regex: secrets/[^/]+\.(yaml|json|env)$
-    key_groups:
-    - age:
-      - *admin_cypherpunk
-      - *server_cypherpunk

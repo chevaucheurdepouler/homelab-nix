@@ -13,69 +13,87 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    "${(import ./nix/sources.nix).sops-nix}/modules/sops"
     ./server-configuration.nix
+    "${(import ./nix/sources.nix).sops-nix}/modules/sops"
   ];
 
   # Use the GRUB 2 boot loader.
-  boot = {
-    loader.grub = {
-      enable = true;
-      device = "/dev/sda";
-    };
-    kernelParams = [ "console=ttyS0" ];
-  };
+  boot.loader.grub.enable = true;
+  boot.loader.grub.device = "/dev/sda"; # or "nodev" for efi only
+  boot.kernelParams = [ "console=ttyS0" ];
 
-  networking.hostName = "hypervirtualworld"; # Define your hostname.
+  services.qemuGuest.enable = true;
+  networking.hostName = "sisyphe"; # Define your hostname.
+  # Pick only one of the below networking options.
+  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  # networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
 
   # Set your time zone.
   time.timeZone = lib.mkDefault "Europe/Paris";
 
-  # Select internationalisation properties.
   i18n.defaultLocale = "fr_FR.UTF-8";
   console = {
     font = "Lat2-Terminus16";
     keyMap = "fr";
+    #   useXkbConfig = true; # use xkb.options in tty.
   };
 
-  services.qemuGuest.enable = true;
-  services.cloud-init.network.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.cypherpunk = {
+  users.users.homelab = {
     isNormalUser = true;
     extraGroups = [
       "wheel"
-      "docker"
       "dialout"
     ]; # Enable ‘sudo’ for the user.
-    packages = with pkgs; [ btop ];
+
+    packages = with pkgs; [
+      neovim
+      btop
+      tree
+      git
+    ];
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA8sdToNavEQv7PTMJ97HIGM6UlChwGS3x9O8hFilzui harryh@ik.me"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAII/pj2uTGRHkYwP/EqIfgHP+MQavBuDMnWMXtOedkwIQ harryh@ik.me"
     ];
+
+    initialHashedPassword = "$y$j9T$H0D6NpMw1EU.oDhbMWrwL.$wDGGBKKGQdzeDRTzq0gWhoLdyUpQ2w6PMmGl.nuQ11/";
   };
+
+  users.users.root.initialHashedPassword = "$y$j9T$99/NEnBGoewbrl5eHvTw7/$87rjPrvqs0Ys72338SxZJDibi8p7Fe8Can37rJyhcQ.";
 
   # List packages installed in system profile. To search, run:
+  # $ nix search wget
   environment.systemPackages = with pkgs; [
-    neovim
+    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     curl
-    git
+    niv
   ];
 
-  # enable docker
-  virtualisation.docker = {
-    enable = true;
-  };
+  # Some programs need SUID wrappers, can be configured further or are
+  # started in user sessions.
+  # programs.mtr.enable = true;
+  # programs.gnupg.agent = {
+  #   enable = true;
+  #   enableSSHSupport = true;
+  # };
 
-  # configure openssh
+  # List services that you want to enable:
+
   services.openssh = {
     enable = true;
-    # require public key authentication for better security
-    settings.PasswordAuthentication = false;
-    settings.KbdInteractiveAuthentication = false;
-    settings.PermitRootLogin = "no";
+    settings = {
+      PasswordAuthentication = false;
+      KbdInteractiveAuthentication = false;
+      PermitRootLogin = "no";
+    };
   };
+
+  # Open ports in the firewall.
+  networking.firewall.allowedTCPPorts = [
+    22
+    80
+    443
+    8080
+  ];
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
