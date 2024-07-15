@@ -1,10 +1,14 @@
 { config, lib, ... }:
 {
-  sops.defaultSopsFile = ../secrets/freshrss.json;
-  sops.defaultSopsFormat = "json";
   sops.secrets = {
-    freshrss_username = { };
-    freshrss_password = { };
+    freshrss_username = {
+      path = ../secrets/freshrss.json;
+      format = "json";
+    };
+    freshrss_password = {
+      path = ../secrets/freshrss.json;
+      format = "json";
+    };
   };
 
   services.freshrss = {
