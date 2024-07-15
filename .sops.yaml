@@ -1,0 +1,9 @@
+keys:
+   - &homelab_serv age17pq9xyrcv6tlms9sznnhql6pejue33r0aukn72hzpcn4jykrg33q4u0a3m
+   - &admin_homelab age1c8kr95dc7cqq34qyjgpnsgfgyntqnt5rlrq2c025ehp32f8h3sjqkf8k3s
+creation_rules:
+  - path_regex: secrets/[^/]+\.(yaml|json|env)$
+    key_groups:
+    - age:
+      - *admin_homelab
+      - *homelab_serv
