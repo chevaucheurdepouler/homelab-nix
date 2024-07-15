@@ -5,8 +5,8 @@ let
   cfg = config.containers;
 in
 {
-  options.containers = {
-    minecraft.path = mkOption {
+  options = {
+    containers.minecraft.path = mkOption {
       type = types.str;
       default = "/srv/Minecraft";
     };

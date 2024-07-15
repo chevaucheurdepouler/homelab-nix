@@ -5,10 +5,12 @@ let
   cfg = config.transmission;
 in
 {
-  options.transmission = {
-    directory = mkOption {
-      type = lib.types.str;
-      default = "/srv/Multimedia";
+  options = {
+    transmission = {
+      directory = mkOption {
+        type = lib.types.str;
+        default = "/srv/Multimedia";
+      };
     };
   };
 

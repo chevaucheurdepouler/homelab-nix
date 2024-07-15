@@ -5,10 +5,12 @@ let
   cfg = config.samba;
 in
 {
-  options.samba = {
-    dir = mkOption {
-      type = types.str;
-      default = "/srv/Multimedia";
+  options = {
+    samba = {
+      dir = mkOption {
+        type = types.str;
+        default = "/srv/Multimedia";
+      };
     };
   };
   config = {
