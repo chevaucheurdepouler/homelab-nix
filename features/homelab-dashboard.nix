@@ -34,16 +34,16 @@ in
   config = {
     sops.defaultSopsFile = ../secrets/services-keys.json;
     sops.defaultSopsFormat = "json";
-    sops.secrets.service-key = {
-      "sonarr" = { };
-      "radarr" = { };
-      "jellyfin" = { };
-      "jellyseerr" = { };
-      "pihole" = { };
-      "transmission" = { };
-      "prowlarr" = { };
-      "proxmoxPassword" = { };
-      "proxmoxUsername" = { };
+    sops.secrets = {
+      sonarr = { };
+      radarr = { };
+      jellyfin = { };
+      jellyseerr = { };
+      pihole = { };
+      transmission = { };
+      prowlarr = { };
+      proxmoxPassword = { };
+      proxmoxUsername = { };
     };
 
     services.homepage-dashboard = {
@@ -79,7 +79,7 @@ in
                 widget = {
                   type = "jellyfin";
                   url = "http://${ip}:8096";
-                  key = config.sops.secrets.service-key."jellyfin";
+                  key = config.sops.secrets.jellyfin;
                 };
               };
             }
@@ -109,7 +109,7 @@ in
                 widget = {
                   type = "jellyseerr";
                   url = "http://${ip}:5055";
-                  key = config.sops.secrets.service-key."jellyseerr";
+                  key = config.sops.secrets.jellyseerr;
                 };
               };
             }
@@ -128,7 +128,7 @@ in
                 widget = {
                   type = "readarr";
                   url = "http://$ip:8787";
-                  key = config.sops.secrets.service-key."readarr";
+                  key = config.sops.secrets.readarr;
                 };
               };
             }
@@ -139,7 +139,7 @@ in
                 href = "http://${ip}:9696/";
                 widget = {
                   type = "prowlarr";
-                  key = config.sops.secrets.service-key."prowlarr";
+                  key = config.sops.secrets.prowlarr;
                 };
               };
             }
@@ -151,7 +151,7 @@ in
                 href = "http://${ip}:8989";
                 widget = {
                   type = "sonarr";
-                  key = config.sops.secrets.service-key."sonarr";
+                  key = config.sops.secrets.sonarr;
                 };
               };
             }
@@ -162,7 +162,7 @@ in
                 href = "http://${ip}:7878";
                 widget = {
                   type = "radarr";
-                  key = config.sops.secrets.service-key."radarr";
+                  key = config.sops.secrets.radarr;
                 };
               };
             }
@@ -216,8 +216,8 @@ in
                 href = "https://${cfg.proxmoxVEIp}:8006";
                 widget = {
                   type = "proxmox";
-                  username = config.sops.secrets.service-key."proxmoxUsername";
-                  key = config.sops.secrets.service-key."proxmoxPassword";
+                  username = config.sops.secrets.proxmoxUsername;
+                  key = config.sops.secrets.proxmoxPassword;
                   url = "https://${cfg.proxmoxVEIp}:8006";
                   node = "pve";
                 };
@@ -230,7 +230,7 @@ in
                 href = "http://${cfg.piholeURL}";
                 widget = {
                   type = "pihole";
-                  key = config.sops.secrets.service-key."pihole";
+                  key = config.sops.secrets.pihole;
                   url = "http://${cfg.piholeURL}";
                 };
               };
