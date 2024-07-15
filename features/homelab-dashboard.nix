@@ -32,7 +32,7 @@ in
 
   #TODO: add Radarr/Sonarr/... api key support
   config = {
-    sops.defaultSopsFile = ../secrets/services-keys.json;
+    sops.defaultSopsFile = ../secrets/service-key.json;
     sops.defaultSopsFormat = "json";
     sops.secrets = {
       sonarr = { };
