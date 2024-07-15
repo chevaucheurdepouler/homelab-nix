@@ -6,7 +6,10 @@ let
 in
 {
   options.transmission = {
-    directory = mkOption { type = lib.types.str; };
+    directory = mkOption {
+      type = lib.types.str;
+      default = "/srv/Multimedia";
+    };
   };
 
   config = {

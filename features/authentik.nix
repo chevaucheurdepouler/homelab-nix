@@ -6,9 +6,9 @@ let
     sha256 = "15b9a2csd2m3vwhj3xc24nrqnj1hal60jrd69splln0ynbnd9ki4";
   };
   authentik-nix = import authentik-nix-src;
+  cfg = config.authentik;
 in
 {
-
   imports = [ authentik-nix.nixosModules.default ];
 
   sops.secrets."authentik" = {
@@ -16,16 +16,25 @@ in
     format = "dotenv";
   };
 
+  /*
+    sops.secrets.mail-server = {
+      sopsFile = ./secrets/mail.json;
+      format = "json";
+    };
+  */
+
   services.authentik = {
     enable = true;
     environmentFile = config.sops.secrets."authentik".path;
     settings = {
-      email = {
-
-      };
+      /*
+        email = {
+          host = config.sops.secrets.mail-server."host";
+          username = config.sops.secrets.mail-server."username";
+        };
+      */
 
       disable_startup_analytics = true;
-
       avatars = "initials";
     };
   };

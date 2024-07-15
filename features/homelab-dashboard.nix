@@ -7,22 +7,66 @@
 
 with lib;
 let
-
-  ip = config.homelab-dashboard.defaultAddress;
+  cfg = config.homepage-dashboard;
+  ip = cfg.baseURL;
 in
 {
   options = {
-    homelab-dashboard.defaultAddress = mkOption { type = types.str; };
-    homelab-dashboard.proxmoxVEIp = mkOption { type = types.str; };
-    homelab-dashboard.proxmoxBSIp = mkOption { type = types.str; };
+    homelab-dashboard.baseURL = mkOption {
+      type = types.str;
+      default = "192.168.1.177";
+    };
+    homelab-dashboard.proxmoxVEIp = mkOption {
+      type = types.str;
+      default = "192.168.1.10";
+    };
+    homelab-dashboard.proxmoxBSIp = mkOption {
+      type = types.str;
+      default = "";
+    };
+    homelab-dashboard.piholeURL = mkOption {
+      type = types.str;
+      default = "192.168.1.25";
+    };
   };
+
+  #TODO: add Radarr/Sonarr/... api key support
   config = {
+    sops.defaultSopsFile = ./secrets/services-keys.json;
+    sops.secrets.service-key = {
+      sonarr = { };
+      radarr = { };
+      jellyfin = { };
+      jellyseerr = { };
+      pihole = { };
+      transmission = { };
+      prowlarr = { };
+      proxmoxPassword = { };
+      proxmoxUsername = { };
+    };
+
     services.homepage-dashboard = {
       enable = true;
       settings = {
         "headerStyle" = "boxed";
         "language" = "fr";
       };
+      widgets = [
+        {
+          resources = {
+            cpu = true;
+            disk = "/";
+            memory = true;
+          };
+        }
+        {
+          search = {
+            provider = "duckduckgo";
+            target = "_blank";
+          };
+        }
+      ];
+
       services = [
         {
           "Divertissement" = [
@@ -31,6 +75,11 @@ in
                 icon = "jellyfin";
                 description = "Permet de regarder ou écouter du contenu.";
                 href = "http://${ip}:8096/";
+                widget = {
+                  type = "jellyfin";
+                  url = "http://${ip}:8096";
+                  key = config.sops.service-key.jellyfin;
+                };
               };
             }
             {
@@ -38,6 +87,12 @@ in
                 icon = "calibre";
                 description = "Serveur de livres";
                 href = "http://${ip}:8083";
+              };
+            }
+            {
+              "Serveur Minecraft poulet" = {
+                icon = "minecraft";
+                description = "serveur des trois poulets";
               };
             }
           ];
@@ -49,6 +104,12 @@ in
                 icon = "jellyseerr";
                 description = "Moteur de recherche de films/séries";
                 href = "http://${ip}:5055";
+
+                widget = {
+                  type = "jellyseerr";
+                  url = "http://${ip}:5055";
+                  key = config.sops.secrets.service-key.jellyseerr;
+                };
               };
             }
             {
@@ -63,6 +124,11 @@ in
                 icon = "readarr";
                 description = "Moteur de recherche de livres";
                 href = "http://${ip}:8787/";
+                widget = {
+                  type = "readarr";
+                  url = "http://$ip:8787";
+                  key = config.sops.secrets.service-key.readarr;
+                };
               };
             }
             {
@@ -70,6 +136,10 @@ in
                 icon = "prowlarr";
                 description = "Indexe les différents sites de téléchargement";
                 href = "http://${ip}:9696/";
+                widget = {
+                  type = "prowlarr";
+                  key = config.sops.secrets.service-key.prowlarr;
+                };
               };
             }
             {
@@ -78,6 +148,10 @@ in
                 icon = "sonarr";
                 description = "Moteur de recherche pour les séries";
                 href = "http://${ip}:8989";
+                widget = {
+                  type = "sonarr";
+                  key = config.sops.secrets.service-key.sonarr;
+                };
               };
             }
             {
@@ -85,6 +159,10 @@ in
                 icon = "radarr";
                 description = "Moteur de recherche pour les films";
                 href = "http://${ip}:7878";
+                widget = {
+                  type = "radarr";
+                  key = config.sops.secrets.service-key.radarr;
+                };
               };
             }
             {
@@ -93,6 +171,9 @@ in
                 icon = "transmission";
                 description = "s'occupe du téléchargement des fichiers";
                 href = "http://${ip}:9091";
+                widget = {
+                  type = "transmission";
+                };
               };
             }
           ];
@@ -118,15 +199,59 @@ in
         }
         {
           "Administration" = [
+            /*
+              {
+                "Proxmox Backup Server" = {
+                  icon = "proxmox-light";
+                  description = "Permet de sauvegarder le serveur.";
+                  href = "https://${cfg.proxmoxBSIp}:8007";
+                };
+              }
+            */
             {
-              "Proxmox Backup Server" = {
-                description = "Permet de sauvegarder le serveur.";
+              "Proxmox VE" = {
+                icon = "proxmox";
+                description = "Panneau de controle des machines virtuelles";
+                href = "https://${cfg.proxmoxVEIp}:8006";
+                widget = {
+                  type = "proxmox";
+                  username = config.sops.secrets.service-key.proxmoxUsername;
+                  key = config.sops.secrets.service-key.proxmoxPassword;
+                  url = "https://${cfg.proxmoxVEIp}:8006";
+                  node = "pve";
+                };
               };
-
             }
             {
+              "Pi.hole" = {
+                icon = "pihole";
+                description = "Bloqueur de pubs DNS/DHCP";
+                href = "http://${cfg.piholeURL}";
+                widget = {
+                  type = "pihole";
+                  key = config.sops.secrets.service-key.pihole;
+                  url = "http://${cfg.piholeURL}";
+                };
+              };
+            }
+            {
+              "Grafana" = {
+                icon = "grafana";
+                description = "Visualiseur de graphiques";
+                href = "";
+              };
+            }
+            {
+              "InfluxDB" = {
+                description = "Traite les statistiques du serveur Proxmox";
 
-              "Proxmox VE" = { };
+              };
+            }
+            {
+              "Uptime Kuma" = {
+                icon = "uptimekuma";
+                description = "Surveille l'état des différents services";
+              };
             }
           ];
         }
@@ -134,5 +259,4 @@ in
 
     };
   };
-
 }

@@ -7,18 +7,23 @@
 let
   ip = "192.168.1.177";
   gateway = "192.168.1.1";
-  driveMountPoint = "/srv/Multimedia";
   username = "homelab";
 in
 {
   imports = [
-    ./features/authentik.nix
-    ./features/slskd.nix
     ./features/arr-suite.nix
-    ./features/samba-shares.nix
+    ./features/authentik.nix
+    ./features/calibre-web.nix
     ./features/containers.nix
+    ./features/freshrss.nix
+    ./features/grafana.nix
     ./features/homelab-dashboard.nix
+    ./features/samba-shares.nix
+    ./features/searx.nix
+    # ./features/synapse-matrix.nix
+    ./features/slskd.nix
     ./features/transmission.nix
+    ./features/uptime-kuma.nix
   ];
 
   # setting up networking!!
@@ -43,14 +48,23 @@ in
       enable = true;
       allowedTCPPorts = [
         22
-        5030
-        8080
-        9091
+        5030 # slskd
+        8080 # searxng
+        8083 # calibre-web
+        8443 # crafty-controller
+        9091 # transmission
       ];
       allowedUDPPorts = [ ];
     };
   };
 
+  #TODO: setup fail2ban
+  services.fail2ban = {
+    enable = true;
+    ignoreIP = [ "192.168.1.0/24" ];
+    extraPackages = [ ];
+    jails = { };
+  };
   users.groups.multimedia = {
     members = [
       "slskd"
@@ -59,6 +73,7 @@ in
       "sonarr"
       "transmission"
       "jellyfin"
+      "bazarr"
       username
     ];
   };
@@ -69,11 +84,6 @@ in
 
   # define your secrets with 
   # `nix-shell -p sops --run "sops ./secrets/yoursecret.env"`
-
-  sops.secrets."searx" = {
-    sopsFile = ./secrets/searx.env;
-    format = "dotenv";
-  };
 
   environment.systemPackages = with pkgs; [
     jellyfin
@@ -87,6 +97,7 @@ in
     jellyseerr
     homepage-dashboard
     slskd
+    bazarr
   ];
 
   services.jellyfin = {
@@ -94,38 +105,10 @@ in
     openFirewall = true;
   };
 
-  # -arr suite
-
-  services.searx = {
-    enable = true;
-    settings = {
-      server.secret_key = builtins.toJSON config.sops.secrets."searx";
-    };
-  };
-
-  services.calibre-web = {
-    enable = true;
-    openFirewall = true;
-    options = {
-      enableBookUploading = true;
-    };
-  };
-
   services.caddy = {
     enable = true;
-    virtualHosts.":80".extraConfig = ''
+    virtualHosts."homelab.localhost".extraConfig = ''
       reverse_proxy :8082
     '';
-
   };
-
-  /*
-    services.photoprism = {
-      enable = true;
-      settings = {
-        PHOTOPRISM_DEFAULT_LOCALE = "fr";
-      };
-    };
-  */
-
 }

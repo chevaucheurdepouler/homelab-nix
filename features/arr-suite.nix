@@ -1,4 +1,9 @@
-{ pkgs }:
+{ pkgs, lib }:
+with lib;
+
+let
+  cfg = config.arrSuite;
+in
 {
   services.sonarr = {
     enable = true;
@@ -26,11 +31,29 @@
     enable = true;
   };
 
-  systemd.services.sonarrAnime = {
+  services.bazarr = {
     enable = true;
+    openFirewall = true;
+  };
+
+  #TODO: create duplicated instances of Sonarr.
+  systemd.services."sonarrAnime" = {
+    enable = true;
+    description = "Duplicated Sonarr instance, for animes";
+    after = [
+      "syslog.target"
+      "network.target"
+    ];
+
     path = [ pkgs.sonarr ];
     serviceConfig = {
-      ExecStart = "Sonarr -nobrowser -data=/var/lib/sonarrAnime";
+      Type = "simple";
+      User = "sonarr";
+      ExecStart = "${pkgs.sonarr}/bin/Sonarr -nobrowser -data=/var/lib/sonarrAnime";
+      TimeoutStopSec = "20";
+      KillMode = "process";
+      Restart = "on-failure";
     };
+    wantedBy = [ "multi-user.target" ];
   };
 }
