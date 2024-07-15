@@ -12,7 +12,7 @@ in
   imports = [ authentik-nix.nixosModules.default ];
 
   sops.secrets."authentik" = {
-    sopsFile = ./secrets/authentik.env;
+    sopsFile = ../secrets/authentik.env;
     format = "dotenv";
   };
 

@@ -1,7 +1,7 @@
 { config, ... }:
 {
   sops.secrets."searx" = {
-    sopsFile = ./secrets/searx.env;
+    sopsFile = ../secrets/searx.env;
     format = "dotenv";
   };
 
