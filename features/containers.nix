@@ -2,11 +2,11 @@
 with lib;
 
 let
-  cfg = config.containers;
+  cfg = config.docker;
 in
 {
   options = {
-    containers.minecraft.path = mkOption {
+    docker.minecraft.path = mkOption {
       type = types.str;
       default = "/srv/Minecraft";
     };
