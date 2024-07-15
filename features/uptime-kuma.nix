@@ -1,4 +1,4 @@
-{ }:
+{ ... }:
 {
   #TODO: implement uptime-kama
   services.uptime-kama = {
