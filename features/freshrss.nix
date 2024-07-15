@@ -2,6 +2,7 @@
 {
   sops.secrets = {
     path = ../secrets/freshrss.json;
+    format = "json";
     freshrss_username = { };
     freshrss_password = { };
   };
