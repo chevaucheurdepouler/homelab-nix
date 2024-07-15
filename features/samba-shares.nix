@@ -1,4 +1,4 @@
-{ lib }:
+{ config, lib, ... }:
 with lib;
 # TODO: add access to series and TV folders.
 let

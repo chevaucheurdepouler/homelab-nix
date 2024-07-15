@@ -1,4 +1,4 @@
-{ config }:
+{ config, ... }:
 {
   sops.secrets."searx" = {
     sopsFile = ./secrets/searx.env;

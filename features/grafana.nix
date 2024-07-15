@@ -1,4 +1,4 @@
-{ }:
+{ ... }:
 {
   services.grafana = {
     enable = true;
