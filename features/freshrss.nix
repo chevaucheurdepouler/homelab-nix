@@ -14,7 +14,7 @@
   services.freshrss = {
     enable = true;
     language = "fr";
-    defaultUser = config.sops.secrets.freshrss_username;
+    defaultUser = builtins.toString config.sops.secrets.freshrss_username;
     baseUrl = "http://localhost:3005";
     passwordFile = "/run/secrets/freshrss_password";
     database = {
