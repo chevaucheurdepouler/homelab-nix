@@ -107,7 +107,7 @@ in
 
   services.caddy = {
     enable = true;
-    virtualHosts."homelab.localhost".extraConfig = ''
+    virtualHosts.":80".extraConfig = ''
       reverse_proxy :8082
     '';
   };
