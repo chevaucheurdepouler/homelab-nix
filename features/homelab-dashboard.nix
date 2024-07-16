@@ -121,18 +121,6 @@ in
               };
             }
             {
-              "Readarr" = {
-                icon = "readarr";
-                description = "Moteur de recherche de livres";
-                href = "http://${ip}:8787/";
-                widget = {
-                  type = "readarr";
-                  url = "http://$ip:8787";
-                  key = config.sops.secrets.readarr;
-                };
-              };
-            }
-            {
               "Prowlarr" = {
                 icon = "prowlarr";
                 description = "Indexe les différents sites de téléchargement";
