@@ -48,8 +48,8 @@ in
       enable = true;
       allowedTCPPorts = [
         22 # ssh
-        3000 # grafana
-        4000 # uptime-kuma
+        3001 # grafana
+        4001 # uptime-kuma
         5030 # slskd
         8080 # searxng
         8083 # calibre-web
