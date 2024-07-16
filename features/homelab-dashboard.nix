@@ -124,10 +124,11 @@ in
               "Prowlarr" = {
                 icon = "prowlarr";
                 description = "Indexe les différents sites de téléchargement";
-                href = "http://${ip}:9696/api/";
+                href = "http://${ip}:9696/";
                 widget = {
                   type = "prowlarr";
                   key = config.sops.secrets.prowlarr;
+                  url = "http://${ip}:9696/";
                 };
               };
             }
@@ -136,9 +137,10 @@ in
               "Sonarr" = {
                 icon = "sonarr";
                 description = "Moteur de recherche pour les séries";
-                href = "http://${ip}:8989/api";
+                href = "http://${ip}:8989/";
                 widget = {
                   type = "sonarr";
+                  url = "http://${ip}:9696/";
                   key = config.sops.secrets.sonarr;
                 };
               };
@@ -151,6 +153,7 @@ in
                 widget = {
                   type = "radarr";
                   key = config.sops.secrets.radarr;
+                  url = "http://${ip}:7878/";
                 };
               };
             }
@@ -232,8 +235,9 @@ in
             }
             {
               "InfluxDB" = {
+                icon = "influxdb";
                 description = "Traite les statistiques du serveur Proxmox";
-
+                href = "http://${ip}:8006";
               };
             }
             {
