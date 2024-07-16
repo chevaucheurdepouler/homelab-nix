@@ -24,10 +24,10 @@ in
       environmentFile = config.sops.secrets."slskd".path;
       domain = null;
       settings = {
-        shares.directories = [ "${cfg.slskd.directory}" ];
+        shares.directories = [ "${cfg.directory}" ];
         soulseek.description = "i luv katz n mewsik";
-        directories.files.downloads = "${cfg.slskd.directory}/clean";
-        directories.files.incomplete = "${cfg.slskd.directory}/incomplete";
+        directories.files.downloads = "${cfg.directory}/clean";
+        directories.files.incomplete = "${cfg.directory}/incomplete";
       };
     };
   };
