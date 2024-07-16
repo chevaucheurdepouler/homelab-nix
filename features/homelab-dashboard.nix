@@ -75,7 +75,7 @@ in
               "Jellyfin" = {
                 icon = "jellyfin";
                 description = "Permet de regarder ou écouter du contenu.";
-                href = "http://${ip}:8096/";
+                href = "http://${ip}:8096";
                 widget = {
                   type = "jellyfin";
                   url = "http://${ip}:8096";
@@ -128,7 +128,7 @@ in
                 widget = {
                   type = "prowlarr";
                   key = config.sops.secrets.prowlarr;
-                  url = "http://${ip}:9696/";
+                  url = "http://${ip}:9696";
                 };
               };
             }
@@ -140,7 +140,7 @@ in
                 href = "http://${ip}:8989/";
                 widget = {
                   type = "sonarr";
-                  url = "http://${ip}:9696/";
+                  url = "http://${ip}:9696";
                   key = config.sops.secrets.sonarr;
                 };
               };
@@ -149,11 +149,11 @@ in
               "Radarr" = {
                 icon = "radarr";
                 description = "Moteur de recherche pour les films";
-                href = "http://${ip}:7878/api";
+                href = "http://${ip}:7878/";
                 widget = {
                   type = "radarr";
                   key = config.sops.secrets.radarr;
-                  url = "http://${ip}:7878/";
+                  url = "http://${ip}:7878";
                 };
               };
             }
@@ -237,7 +237,7 @@ in
               "InfluxDB" = {
                 icon = "influxdb";
                 description = "Traite les statistiques du serveur Proxmox";
-                href = "http://${ip}:8006";
+                href = "http://192.168.1.157:8086";
               };
             }
             {
