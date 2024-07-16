@@ -230,7 +230,7 @@ in
               "Grafana" = {
                 icon = "grafana";
                 description = "Visualiseur de graphiques";
-                href = "http://${ip}:3000";
+                href = "http://${ip}:3001";
               };
             }
             {
@@ -244,7 +244,7 @@ in
               "Uptime Kuma" = {
                 icon = "uptimekuma";
                 description = "Surveille l'état des différents services";
-                href = "http://${ip}:4000";
+                href = "http://${ip}:4001";
               };
             }
           ];
