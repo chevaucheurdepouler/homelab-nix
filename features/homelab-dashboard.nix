@@ -12,19 +12,19 @@ let
 in
 {
   options = {
-    homelab-dashboard.baseURL = mkOption {
+    homepage-dashboard.baseURL = mkOption {
       type = types.str;
       default = "192.168.1.177";
     };
-    homelab-dashboard.proxmoxVEIp = mkOption {
+    homepage-dashboard.proxmoxVEIp = mkOption {
       type = types.str;
       default = "192.168.1.10";
     };
-    homelab-dashboard.proxmoxBSIp = mkOption {
+    homepage-dashboard.proxmoxBSIp = mkOption {
       type = types.str;
       default = "";
     };
-    homelab-dashboard.piholeURL = mkOption {
+    homepage-dashboard.piholeURL = mkOption {
       type = types.str;
       default = "192.168.1.25";
     };
