@@ -53,7 +53,7 @@ in
         5030 # slskd
         8080 # searxng
         8083 # calibre-web
-        8443 # crafty-controller
+        8400 # crafty-controller
         9000 # authentik
         9091 # transmission
       ];
@@ -119,6 +119,9 @@ in
     '';
     virtualHosts.":4001".extraConfig = ''
       reverse_proxy :4000
+    '';
+    virtualHosts.":8400".extraConfig = ''
+      reverse_proxy :8443
     '';
   };
 }
