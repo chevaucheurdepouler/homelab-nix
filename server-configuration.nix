@@ -47,11 +47,14 @@ in
     firewall = {
       enable = true;
       allowedTCPPorts = [
-        22
+        22 # ssh
+        3000 # grafana
+        4000 # uptime-kuma
         5030 # slskd
         8080 # searxng
         8083 # calibre-web
         8443 # crafty-controller
+        9000 # authentik
         9091 # transmission
       ];
       allowedUDPPorts = [ ];
