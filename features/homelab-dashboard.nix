@@ -222,7 +222,7 @@ in
                 widget = {
                   type = "pihole";
                   key = config.sops.secrets.pihole;
-                  url = "http://${cfg.piholeURL}/admin/api.php";
+                  url = "http://${cfg.piholeURL}/admin";
                 };
               };
             }
