@@ -124,7 +124,7 @@ in
               "Prowlarr" = {
                 icon = "prowlarr";
                 description = "Indexe les différents sites de téléchargement";
-                href = "http://${ip}:9696/";
+                href = "http://${ip}:9696/api/";
                 widget = {
                   type = "prowlarr";
                   key = config.sops.secrets.prowlarr;
@@ -136,7 +136,7 @@ in
               "Sonarr" = {
                 icon = "sonarr";
                 description = "Moteur de recherche pour les séries";
-                href = "http://${ip}:8989";
+                href = "http://${ip}:8989/api";
                 widget = {
                   type = "sonarr";
                   key = config.sops.secrets.sonarr;
@@ -147,7 +147,7 @@ in
               "Radarr" = {
                 icon = "radarr";
                 description = "Moteur de recherche pour les films";
-                href = "http://${ip}:7878";
+                href = "http://${ip}:7878/api";
                 widget = {
                   type = "radarr";
                   key = config.sops.secrets.radarr;
@@ -219,7 +219,7 @@ in
                 widget = {
                   type = "pihole";
                   key = config.sops.secrets.pihole;
-                  url = "http://${cfg.piholeURL}/admin";
+                  url = "http://${cfg.piholeURL}/admin/api.php";
                 };
               };
             }
@@ -227,7 +227,7 @@ in
               "Grafana" = {
                 icon = "grafana";
                 description = "Visualiseur de graphiques";
-                href = "";
+                href = "http://${ip}:3000";
               };
             }
             {
@@ -240,6 +240,7 @@ in
               "Uptime Kuma" = {
                 icon = "uptimekuma";
                 description = "Surveille l'état des différents services";
+                href = "http://${ip}:4000";
               };
             }
           ];
