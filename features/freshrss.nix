@@ -16,7 +16,7 @@
     language = "fr";
     defaultUser = config.sops.secrets.freshrss_username;
     baseUrl = "http://localhost:3005";
-    passwordFile = builtins.toPath config.sops.secrets.freshrss_password.path;
+    passwordFile = "/run/secrets/freshrss_password";
     database = {
       type = "sqlite";
     };
