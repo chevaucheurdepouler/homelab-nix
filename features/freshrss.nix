@@ -14,8 +14,8 @@
   services.freshrss = {
     enable = true;
     language = "fr";
-    defaultUser = config.sops.freshrss_username;
-    passwordFile = config.sops.freshrss_password.path;
+    defaultUser = config.sops.secrets.freshrss_username;
+    passwordFile = config.sops.secrets.freshrss_password.path;
     database = {
       type = "sqlite";
     };
