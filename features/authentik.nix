@@ -3,7 +3,7 @@ let
   authentik-version = "2024.6.1";
   authentik-nix-src = builtins.fetchTarball {
     url = "https://github.com/nix-community/authentik-nix/archive/version/${authentik-version}.tar.gz";
-    sha256 = "15b9a2csd2m3vwhj3xc24nrqnj1hal60jrd69splln0ynbnd9ki4";
+    sha256 = "10ss29nzifyrq44080mjqa6xl6qw9mz755xcrla3kjxjl7d0mvlz";
   };
   authentik-nix = import authentik-nix-src;
   cfg = config.authentik;
