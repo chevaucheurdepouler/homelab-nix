@@ -215,11 +215,11 @@ in
               "Pi.hole" = {
                 icon = "pihole";
                 description = "Bloqueur de pubs DNS/DHCP";
-                href = "http://${cfg.piholeURL}";
+                href = "http://${cfg.piholeURL}/admin";
                 widget = {
                   type = "pihole";
                   key = config.sops.secrets.pihole;
-                  url = "http://${cfg.piholeURL}";
+                  url = "http://${cfg.piholeURL}/admin";
                 };
               };
             }
