@@ -15,7 +15,7 @@
     enable = true;
     language = "fr";
     defaultUser = config.sops.secrets.freshrss_username;
-    passwordFile = builtins.toString config.sops.secrets.freshrss_password.path;
+    passwordFile = "/run/secrets/freshrss";
     database = {
       type = "sqlite";
     };
