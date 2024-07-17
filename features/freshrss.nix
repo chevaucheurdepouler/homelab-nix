@@ -1,24 +1,36 @@
 { config, lib, ... }:
+with lib;
+
+let
+  cfg = config.freshrss;
+in
 {
-  sops.secrets = {
-    freshrss_username = {
-      path = ../secrets/freshrss.json;
-      format = "json";
-    };
-    freshrss_password = {
-      path = ../secrets/freshrss.json;
-      format = "json";
+  options = {
+    freshrss.url = mkOption {
+      type = types.str;
+      default = "http://192.168.1.177:3005";
     };
   };
+  config = {
 
-  services.freshrss = {
-    enable = true;
-    language = "fr";
-    defaultUser = builtins.toString config.sops.secrets.freshrss_username;
-    baseUrl = "http://localhost:3005";
-    passwordFile = "/run/secrets/freshrss_password";
-    database = {
-      type = "sqlite";
+    sops.secrets = {
+      freshrss_username = {
+        path = ../secrets/freshrss.json;
+      };
+      freshrss_password = {
+        path = ../secrets/freshrss.json;
+      };
+    };
+
+    services.freshrss = {
+      enable = true;
+      language = "fr";
+      defaultUser = config.sops.secrets.freshrss_username;
+      baseUrl = cfg.url;
+      passwordFile = config.sops.secrets.freshrss_password.path;
+      database = {
+        type = "sqlite";
+      };
     };
   };
 }
