@@ -13,6 +13,7 @@ in
   imports = [
     ./features/arr-suite.nix
     ./features/authentik.nix
+    ./features/caddy.nix
     ./features/calibre-web.nix
     ./features/containers.nix
     ./features/freshrss.nix
@@ -108,20 +109,4 @@ in
     openFirewall = true;
   };
 
-  services.caddy = {
-    enable = true;
-    virtualHosts.":80".extraConfig = ''
-      reverse_proxy :8082
-    '';
-
-    virtualHosts.":3001".extraConfig = ''
-      reverse_proxy :3000
-    '';
-    virtualHosts.":4001".extraConfig = ''
-      reverse_proxy :4000
-    '';
-    virtualHosts.":8400".extraConfig = ''
-      reverse_proxy :8443
-    '';
-  };
 }

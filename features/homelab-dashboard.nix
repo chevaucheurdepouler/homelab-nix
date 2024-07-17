@@ -44,13 +44,21 @@ in
       prowlarr = { };
       proxmoxPassword = { };
       proxmoxUsername = { };
+      uptimekuma = { };
     };
 
     services.homepage-dashboard = {
       enable = true;
       settings = {
-        "headerStyle" = "boxed";
+        headerStyle = boxed;
         "language" = "fr";
+        title = "sillybox home !!";
+        layout = {
+          "Vidéos & Séries" = {
+            style = row;
+            columns = 4;
+          };
+        };
       };
       widgets = [
         {
@@ -71,18 +79,27 @@ in
       services = [
         {
           "Divertissement" = [
+
             {
-              "Jellyfin" = {
-                icon = "jellyfin";
-                description = "Permet de regarder ou écouter du contenu.";
-                href = "http://${ip}:8096";
+              "Serveur Minecraft poulet" = {
+                icon = "minecraft";
+                description = "serveur des trois poulets";
                 widget = {
-                  type = "jellyfin";
-                  url = "http://${ip}:8096";
-                  key = config.sops.secrets.jellyfin;
+                  type = "minecraft";
+                  url = "udp://${ip}:25565";
                 };
               };
             }
+            {
+              "Crafty-controller" = {
+                description = "Gestionnaire de serveur Minecraft";
+                href = "https://192.168.1.177:8443";
+              };
+            }
+          ];
+        }
+        {
+          "Lecture" = [
             {
               "Calibre-web" = {
                 icon = "calibre";
@@ -91,15 +108,30 @@ in
               };
             }
             {
-              "Serveur Minecraft poulet" = {
-                icon = "minecraft";
-                description = "serveur des trois poulets";
+              "Freshrss" = {
+                icon = "freshrss";
+                description = "Récupère les articles";
+
               };
             }
           ];
         }
         {
-          "Téléchargement" = [
+          "Vidéos & Séries" = [
+            {
+
+              "Jellyfin" = {
+                icon = "jellyfin";
+                description = "Permet de regarder ou écouter du contenu.";
+                href = "http://${ip}:8096";
+                widget = {
+                  type = "jellyfin";
+                  url = "http://${ip}:8096";
+                  enableBlocks = true;
+                  key = config.sops.secrets.jellyfin;
+                };
+              };
+            }
             {
               "Jellyseerr" = {
                 icon = "jellyseerr";
@@ -149,11 +181,22 @@ in
               "Radarr" = {
                 icon = "radarr";
                 description = "Moteur de recherche pour les films";
-                href = "http://${ip}:7878/";
+                href = "http://${ip}:7878";
                 widget = {
                   type = "radarr";
                   key = config.sops.secrets.radarr;
                   url = "http://${ip}:7878";
+                };
+              };
+            }
+            {
+              "Bazarr" = {
+                icon = "bazarr";
+                description = "Vérifie les sous titres des films/séries.";
+                href = "http://${ip}:6767";
+                widget = {
+                  type = "bazarr";
+                  key = config.sops.secrets.bazarr;
                 };
               };
             }
@@ -222,7 +265,7 @@ in
                 widget = {
                   type = "pihole";
                   key = config.sops.secrets.pihole;
-                  url = "http://${cfg.piholeURL}/admin";
+                  url = "http://${cfg.piholeURL}";
                 };
               };
             }
@@ -245,6 +288,17 @@ in
                 icon = "uptimekuma";
                 description = "Surveille l'état des différents services";
                 href = "http://${ip}:4001";
+              };
+            }
+            {
+              "Uptime Robot" = {
+                icon = "uptimerobot";
+                description = "Surveille l'état des sites (hors réseau maison)";
+                widget = {
+                  type = "uptimerobot";
+                  url = "https://api.uptimerobot.com";
+                  key = config.sops.secrets.uptimekuma;
+                };
               };
             }
           ];
