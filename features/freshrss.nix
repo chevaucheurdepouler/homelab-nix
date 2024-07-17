@@ -14,12 +14,8 @@ in
 
   config = {
     sops.secrets = {
-      freshrss_username = {
-        sopsFile = ../secrets/freshrss.json;
-      };
-      freshrss_password = {
-        sopsFile = ../secrets/freshrss.json;
-      };
+      freshrss_username = { };
+      freshrss_password = { };
     };
 
     services.freshrss = {
