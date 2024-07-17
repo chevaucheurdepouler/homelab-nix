@@ -194,10 +194,12 @@ in
                 icon = "bazarr";
                 description = "Vérifie les sous titres des films/séries.";
                 href = "http://${ip}:6767";
-                widget = {
-                  type = "bazarr";
-                  key = config.sops.secrets.bazarr;
-                };
+                /*
+                  widget = {
+                    type = "bazarr";
+                    key = config.sops.secrets.bazarr;
+                  };
+                */
               };
             }
             {

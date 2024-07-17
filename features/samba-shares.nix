@@ -13,8 +13,8 @@ in
       };
     };
   };
-  config = {
 
+  config = {
     services.samba = {
       enable = true;
       securityType = "user";

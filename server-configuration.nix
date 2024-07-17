@@ -16,7 +16,7 @@ in
     ./features/caddy.nix
     ./features/calibre-web.nix
     ./features/containers.nix
-    ./features/freshrss.nix
+    # ./features/freshrss.nix using the docker container instead
     ./features/grafana.nix
     ./features/homelab-dashboard.nix
     ./features/samba-shares.nix

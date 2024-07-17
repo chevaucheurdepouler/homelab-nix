@@ -44,6 +44,17 @@ in
             "TZ" = "Europe/Paris";
           };
         };
+        freshrss = {
+          image = "lscr.io/linuxserver/freshrss:latest";
+          volumes = [ "/srv/freshrss/config:/config" ];
+          ports = [ "8888:80" ];
+          restart = "unless-stopped";
+          environment = {
+            "PUID" = "1000";
+            "GUID" = "1000";
+            "TZ" = "Europe/Paris";
+          };
+        };
       };
     };
   };
