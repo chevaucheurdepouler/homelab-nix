@@ -50,12 +50,12 @@ in
     services.homepage-dashboard = {
       enable = true;
       settings = {
-        headerStyle = boxed;
+        headerStyle = "boxed";
         "language" = "fr";
         title = "sillybox home !!";
         layout = {
           "Vidéos & Séries" = {
-            style = row;
+            style = "row";
             columns = 4;
           };
         };
