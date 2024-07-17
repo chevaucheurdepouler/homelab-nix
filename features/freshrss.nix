@@ -11,14 +11,14 @@ in
       default = "http://192.168.1.177:3005";
     };
   };
-  config = {
 
+  config = {
     sops.secrets = {
       freshrss_username = {
-        path = ../secrets/freshrss.json;
+        sopsFile = ../secrets/freshrss.json;
       };
       freshrss_password = {
-        path = ../secrets/freshrss.json;
+        sopsFile = ../secrets/freshrss.json;
       };
     };
 
