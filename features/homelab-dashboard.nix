@@ -32,23 +32,14 @@ in
 
   #TODO: add Radarr/Sonarr/... api key support
   config = {
-    sops.defaultSopsFile = ../secrets/service-key.json;
-    sops.defaultSopsFormat = "json";
-    sops.secrets = {
-      sonarr = { };
-      radarr = { };
-      jellyfin = { };
-      jellyseerr = { };
-      pihole = { };
-      transmission = { };
-      prowlarr = { };
-      proxmoxPassword = { };
-      proxmoxUsername = { };
-      uptimekuma = { };
+    sops.secrets."homepage" = {
+      sopsFile = ../secrets/homepage.env;
+      format = "dotenv";
     };
 
     services.homepage-dashboard = {
       enable = true;
+      environmentFile = config.sops.secrets."homepage".path;
       settings = {
         headerStyle = "boxed";
         "language" = "fr";
@@ -75,6 +66,8 @@ in
           };
         }
       ];
+
+      bookmarks = [ { code = [ { "Github" = [ { href = "https://github.com"; } ]; } ]; } ];
 
       services = [
         {
@@ -128,7 +121,7 @@ in
                   type = "jellyfin";
                   url = "http://${ip}:8096";
                   enableBlocks = true;
-                  key = config.sops.secrets.jellyfin;
+                  key = "{{HOMEPAGE_VAR_JELLYFIN}}";
                 };
               };
             }
@@ -141,7 +134,7 @@ in
                 widget = {
                   type = "jellyseerr";
                   url = "http://${ip}:5055";
-                  key = config.sops.secrets.jellyseerr;
+                  key = "{{HOMEPAGE_VAR_JELLYSEERR}}";
                 };
               };
             }
@@ -159,13 +152,12 @@ in
                 href = "http://${ip}:9696/";
                 widget = {
                   type = "prowlarr";
-                  key = config.sops.secrets.prowlarr;
+                  key = "{{HOMEPAGE_VAR_PROWLARR}}";
                   url = "http://${ip}:9696";
                 };
               };
             }
             {
-
               "Sonarr" = {
                 icon = "sonarr";
                 description = "Moteur de recherche pour les séries";
@@ -173,7 +165,7 @@ in
                 widget = {
                   type = "sonarr";
                   url = "http://${ip}:9696";
-                  key = config.sops.secrets.sonarr;
+                  key = "{{HOMEPAGE_VAR_SONARR}}";
                 };
               };
             }
@@ -184,7 +176,7 @@ in
                 href = "http://${ip}:7878";
                 widget = {
                   type = "radarr";
-                  key = config.sops.secrets.radarr;
+                  key = "{{HOMEPAGE_VAR_RADARR}}";
                   url = "http://${ip}:7878";
                 };
               };
@@ -210,6 +202,9 @@ in
                 href = "http://${ip}:9091";
                 widget = {
                   type = "transmission";
+                  url = "http://${ip}:9091";
+                  username = "{{HOMEPAGE_VAR_TRANSMISSIONUSERNAME}}";
+                  password = "{{HOMEPAGE_VAR_TRANSMISSIONPASSWORD}}";
                 };
               };
             }
@@ -252,8 +247,8 @@ in
                 href = "https://${cfg.proxmoxVEIp}:8006";
                 widget = {
                   type = "proxmox";
-                  username = config.sops.secrets.proxmoxUsername;
-                  key = config.sops.secrets.proxmoxPassword;
+                  username = "{{HOMEPAGE_VAR_PROXMOXUSERNAME}}";
+                  password = "{{HOMEPAGE_VAR_PROXMOXPASSWORD}}";
                   url = "https://${cfg.proxmoxVEIp}:8006";
                   node = "pve";
                 };
@@ -266,7 +261,7 @@ in
                 href = "http://${cfg.piholeURL}/admin";
                 widget = {
                   type = "pihole";
-                  key = config.sops.secrets.pihole;
+                  key = "{{HOMEPAGE_VAR_PIHOLE}}";
                   url = "http://${cfg.piholeURL}";
                 };
               };
@@ -299,7 +294,7 @@ in
                 widget = {
                   type = "uptimerobot";
                   url = "https://api.uptimerobot.com";
-                  key = config.sops.secrets.uptimekuma;
+                  key = "{{HOMEPAGE_VAR_UPTIMEROBOT}}";
                 };
               };
             }
