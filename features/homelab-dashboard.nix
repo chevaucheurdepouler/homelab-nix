@@ -42,7 +42,7 @@ in
       environmentFile = config.sops.secrets."homepage".path;
       settings = {
         headerStyle = "boxed";
-        "language" = "fr";
+        language = "fr";
         title = "sillybox home !!";
         layout = {
           "Vidéos & Séries" = {
@@ -164,7 +164,7 @@ in
                 href = "http://${ip}:8989/";
                 widget = {
                   type = "sonarr";
-                  url = "http://${ip}:9696";
+                  url = "http://${ip}:8989";
                   key = "{{HOMEPAGE_VAR_SONARR}}";
                 };
               };
@@ -256,7 +256,7 @@ in
             }
             {
               "Pi.hole" = {
-                icon = "pihole";
+                icon = "pi-hole";
                 description = "Bloqueur de pubs DNS/DHCP";
                 href = "http://${cfg.piholeURL}/admin";
                 widget = {
@@ -282,14 +282,14 @@ in
             }
             {
               "Uptime Kuma" = {
-                icon = "uptimekuma";
+                icon = "uptime-kuma";
                 description = "Surveille l'état des différents services";
                 href = "http://${ip}:4001";
               };
             }
             {
               "Uptime Robot" = {
-                icon = "uptimerobot";
+                icon = "uptime-kuma";
                 description = "Surveille l'état des sites (hors réseau maison)";
                 widget = {
                   type = "uptimerobot";
