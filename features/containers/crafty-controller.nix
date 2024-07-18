@@ -17,13 +17,6 @@ in
     virtualisation.oci-containers = {
       backend = "docker";
       containers = {
-        flaresolverr = {
-          ports = [ "8191:8191" ];
-          image = "ghcr.io/flaresolverr/flaresolverr:latest";
-          environment = {
-            "LOG_LEVEL" = "info";
-          };
-        };
         #TODO: move to Nix crafty controller bundle
         crafty-controller = {
           image = "registry.gitlab.com/crafty-controller/crafty-4:latest";
@@ -41,16 +34,6 @@ in
             "${cfg.minecraft.path}/docker/import:/crafty/import"
           ];
           environment = {
-            "TZ" = "Europe/Paris";
-          };
-        };
-        freshrss = {
-          image = "lscr.io/linuxserver/freshrss:latest";
-          volumes = [ "/srv/freshrss/config:/config" ];
-          ports = [ "8888:80" ];
-          environment = {
-            "PUID" = "1000";
-            "GUID" = "1000";
             "TZ" = "Europe/Paris";
           };
         };
