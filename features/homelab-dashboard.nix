@@ -44,12 +44,20 @@ in
         headerStyle = "boxed";
         language = "fr";
         title = "sillybox home !!";
-        layout = {
-          "Vidéos & Séries" = {
-            style = "row";
-            columns = 4;
-          };
-        };
+        layout = [
+          {
+            "Vidéos & Séries" = {
+              style = "row";
+              columns = 2;
+            };
+          }
+          {
+            "Administration" = {
+              style = "row";
+              columns = 4;
+            };
+          }
+        ];
       };
       widgets = [
         {
