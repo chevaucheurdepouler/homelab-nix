@@ -48,7 +48,7 @@ in
           {
             "Vidéos & Séries" = {
               style = "row";
-              columns = 2;
+              columns = 4;
             };
           }
           {
@@ -194,12 +194,11 @@ in
                 icon = "bazarr";
                 description = "Vérifie les sous titres des films/séries.";
                 href = "http://${ip}:6767";
-                /*
-                  widget = {
-                    type = "bazarr";
-                    key = config.sops.secrets.bazarr;
-                  };
-                */
+                widget = {
+                  type = "bazarr";
+                  key = "{{HOMEPAGE_VAR_BAZARR}}";
+                  url = "http://${ip}:6767";
+                };
               };
             }
             {
