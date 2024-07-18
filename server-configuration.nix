@@ -15,7 +15,7 @@ in
     ./features/authentik.nix
     ./features/caddy.nix
     ./features/calibre-web.nix
-    ./features/containers.nix
+    ./features/containers/default.nix
     # ./features/freshrss.nix using the docker container instead
     ./features/grafana.nix
     ./features/homelab-dashboard.nix
