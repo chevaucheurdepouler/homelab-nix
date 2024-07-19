@@ -20,7 +20,7 @@ in
     enable = true;
 
     settings = {
-      serverName = "hypervirtual.world";
+      server_name = "hypervirtual.world";
       public_baseurl = baseUrl;
       enable_registration = false;
       listeners = [
