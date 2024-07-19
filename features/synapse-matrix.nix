@@ -9,9 +9,7 @@
       serverName = "talk.hypervirtual.world";
     };
 
-    redis = {
-      enabled = true;
-    };
+    configureRedisLocally = true;
 
     extras = [
       "systemd"
