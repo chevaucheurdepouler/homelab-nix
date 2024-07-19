@@ -3,10 +3,10 @@
 {
   services.matrix-synapse = {
     enable = true;
-    enable_registration = false;
 
     settings = {
       serverName = "talk.hypervirtual.world";
+      enable_registration = false;
     };
 
     configureRedisLocally = true;
