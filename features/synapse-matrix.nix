@@ -12,6 +12,7 @@
     redis = {
       enabled = true;
     };
+
     extras = [
       "systemd"
       "postgres"
