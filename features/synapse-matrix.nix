@@ -22,9 +22,25 @@ in
       serverName = baseUrl;
       public_baseurl = baseUrl;
       enable_registration = false;
+      listeners = [
+        {
+          port = 8008;
+          bind_addresses = [ "::1" ];
+          type = "http";
+          tls = false;
+          x_forwarded = true;
+          resources = [
+            {
+              names = [
+                "client"
+                "federation"
+              ];
+              compress = true;
+            }
+          ];
+        }
+      ];
     };
-
-    configureRedisLocally = true;
 
     extras = [
       "systemd"
@@ -35,24 +51,6 @@ in
 
     extraConfigFiles = [ "/run/secrets/matrix-shared-secret" ];
 
-    listeners = [
-      {
-        port = 8008;
-        bind_addresses = [ "::1" ];
-        type = "http";
-        tls = false;
-        x_forwarded = true;
-        resources = [
-          {
-            names = [
-              "client"
-              "federation"
-            ];
-            compress = true;
-          }
-        ];
-      }
-    ];
   };
 
   services.postgresql = {
