@@ -10,9 +10,10 @@ let
 in
 {
 
-  sops.secrets.matrix-shared-secret = {
+  sops.secrets.registration_shared_secret = {
     sopsFile = ../secrets/matrix.yaml;
     format = "yaml";
+    user = "matrix-synapse";
   };
 
   services.matrix-synapse = {
@@ -49,7 +50,7 @@ in
       "user-search"
     ];
 
-    extraConfigFiles = [ "/run/secrets/matrix-shared-secret" ];
+    extraConfigFiles = [ "/run/secrets/registration_shared_secret" ];
 
   };
 
