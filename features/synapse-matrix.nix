@@ -13,7 +13,7 @@ in
   sops.secrets.data = {
     sopsFile = ../secrets/matrix.yaml;
     format = "yaml";
-    user = "matrix-synapse";
+    owner = "matrix-synapse";
   };
 
   services.matrix-synapse = {

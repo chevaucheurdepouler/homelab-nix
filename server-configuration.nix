@@ -54,6 +54,8 @@ in
         5030 # slskd
         8080 # searxng
         8083 # calibre-web
+        8009 # matrix
+        8449
         8400 # crafty-controller
         9000 # authentik
         9091 # transmission

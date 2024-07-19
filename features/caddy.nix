@@ -14,4 +14,12 @@
     '';
   };
 
+  virtualHosts.":8009".extraConfig = ''
+    reverse_proxy :8008
+  '';
+
+  virtualHosts.":8449".extraConfig = ''
+    reverse_proxy :8448
+  '';
+
 }
