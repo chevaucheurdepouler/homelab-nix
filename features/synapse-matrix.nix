@@ -6,7 +6,7 @@
 }:
 #TODO: implement 
 let
-  baseUrl = "talk.hypervirtual.world";
+  baseUrl = "https://talk.hypervirtual.world";
 in
 {
 
