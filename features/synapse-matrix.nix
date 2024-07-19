@@ -28,7 +28,7 @@ in
           port = 8008;
           bind_addresses = [
             "::1"
-            "127.0.0.1"
+            "0.0.0.0"
           ];
           type = "http";
           tls = false;
