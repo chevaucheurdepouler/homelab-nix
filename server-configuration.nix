@@ -83,6 +83,7 @@ in
       "transmission"
       "jellyfin"
       "bazarr"
+      "calibre-web"
       username
     ];
   };
