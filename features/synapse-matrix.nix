@@ -38,10 +38,16 @@ in
               names = [
                 "client"
                 "federation"
+                "metrics"
               ];
               compress = true;
             }
           ];
+        }
+        {
+          port = 9000;
+          type = "metrics";
+          bind_addresses = ["::1" "0.0.0.0" ]
         }
       ];
     };
@@ -56,6 +62,32 @@ in
     extraConfigFiles = [ "/run/secrets/data" ];
 
   };
+
+  /*
+    services.mautrix-discord = {
+      enable = true;
+      environmentFile = "";
+
+      settings = {
+        homeserver = {
+          address = "http://localhost:8008";
+          domain = "hypervirtual.world";
+        };
+        appservice = {
+          provisioning.enabled = false;
+          id = "discord";
+          public = {
+
+          };
+
+          database = "";
+        };
+
+      };
+    };
+
+    services.mautrix-whatsapp = { };
+  */
 
   services.postgresql = {
     enable = true;
