@@ -19,6 +19,9 @@ in
     # ./features/freshrss.nix using the docker container instead
     ./features/grafana.nix
     ./features/homelab-dashboard.nix
+    # ./features/nextcloud.nix
+    # ./features/photoprism.nix
+    ./features/prometheus.nix
     ./features/samba-shares.nix
     ./features/searx.nix
     ./features/synapse-matrix.nix
@@ -53,9 +56,9 @@ in
         4001 # uptime-kuma
         5030 # slskd
         8080 # searxng
-        8008
-        8448
-        8083 # calibre-web
+        8008 # matrix-synapse
+        8448 # matrix-synapse
+        5050 # calibre-web
         8400 # crafty-controller
         9000 # authentik
         9091 # transmission
@@ -111,4 +114,7 @@ in
     openFirewall = true;
   };
 
+  services.tailscale = {
+    enable = true;
+  };
 }
