@@ -13,6 +13,10 @@
     virtualHosts.":4001".extraConfig = ''
       reverse_proxy :4000
     '';
+
+    virtualHosts.":5050".extraConfig = ''
+      reverse_proxy :8083
+    '';
   };
 
 }

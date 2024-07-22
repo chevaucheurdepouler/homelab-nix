@@ -6,6 +6,7 @@
     openFirewall = true;
     options = {
       enableBookUploading = true;
+      enableKepubify = true;
     };
   };
 }

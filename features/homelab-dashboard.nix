@@ -105,7 +105,7 @@ in
               "Calibre-web" = {
                 icon = "calibre";
                 description = "Serveur de livres";
-                href = "http://${ip}:8083";
+                href = "http://${ip}:5050";
               };
             }
             {
