@@ -47,6 +47,7 @@ in
         {
           port = 9000;
           type = "metrics";
+          tls = false;
           bind_addresses = [
             "::1"
             "0.0.0.0"
