@@ -12,7 +12,7 @@ in
 {
   imports = [
     ./features/arr-suite.nix
-    ./features/authentik.nix
+    # ./features/authentik.nix
     ./features/caddy.nix
     ./features/calibre-web.nix
     ./features/containers/default.nix
