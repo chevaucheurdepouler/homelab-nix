@@ -47,7 +47,10 @@ in
         {
           port = 9000;
           type = "metrics";
-          bind_addresses = ["::1" "0.0.0.0" ]
+          bind_addresses = [
+            "::1"
+            "0.0.0.0"
+          ];
         }
       ];
     };
