@@ -1,7 +1,7 @@
 # my nix homelab config
 
 **THIS CONFIG IS STILL EXPERIMENTAL !! IT MIGHT WONT WORK OR JUST BREAK YOUR CURRENT INSTALL**
-Hosted on a Proxmox VM (9Go RAM + 300Gb storage). It is not using the flake.nix because i don't see the use for it, as much than home-manager...
+Hosted on a Proxmox VM (8Go RAM + 300Gb storage). It is not using the flake.nix because i don't see the use for it, as much than home-manager...
 
 The goal of this config is to include :
 
@@ -18,7 +18,7 @@ The goal of this config is to include :
 
 # TODO
 
-- [ ] fix homepage-dashboard secrets
+- [x] fix homepage-dashboard secrets
 - [ ] use Docker for Sonarr, seems to be a cleaner approach for double instances
 - [ ] move crafty-controller to a nix build
 - [ ] figure out how to use secrets with freshrss
