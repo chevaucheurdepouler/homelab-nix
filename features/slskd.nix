@@ -24,9 +24,9 @@ in
       environmentFile = config.sops.secrets."slskd".path;
       domain = null;
       settings = {
-        shares.directories = [ "${cfg.directory}" ];
+        shares.directories = [ "${cfg.directory}/clean" ];
         soulseek.description = "i luv katz n mewsik";
-        directories.files.downloads = "${cfg.directory}/clean";
+        directories.files.downloads = "${cfg.directory}/downloads";
         directories.files.incomplete = "${cfg.directory}/incomplete";
       };
     };
