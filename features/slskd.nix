@@ -8,7 +8,7 @@ in
   options = {
     slskd.directory = mkOption {
       type = types.str;
-      default = "/srv/Multimedia/Music";
+      default = "/srv/media/Music";
     };
   };
   config = {
