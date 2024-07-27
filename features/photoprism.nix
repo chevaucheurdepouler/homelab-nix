@@ -1,7 +1,8 @@
 { pkgs, config, ... }:
 {
-  sops.secrets.photoprism = { 
-    sopsFile 
+  sops.secrets.adminPassword = {
+    sopsFile = ../secrets/photoprism.env;
+    format = "dotenv";
   };
 
   services.photoprism = {
@@ -9,8 +10,8 @@
     port = 2342;
     originalsPath = "/var/lib/private/photoprism/originals";
     settings = {
-      PHOTOPRISM_ADMIN_USER = "admin";
-      PHOTOPRISM_ADMIN_PASSWORD = "...";
+      PHOTOPRISM_ADMIN_USER = "lospussyadminos";
+      PHOTOPRISM_ADMIN_PASSWORD = config.sops.secrets.adminPassword;
       PHOTOPRISM_DEFAULT_LOCALE = "fr";
       PHOTOPRISM_DATABASE_DRIVER = "mysql";
       PHOTOPRISM_DATABASE_NAME = "photoprism";
