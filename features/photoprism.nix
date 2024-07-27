@@ -1,7 +1,7 @@
 { pkgs, config, ... }:
 {
   sops.secrets.adminPassword = {
-    sopsFile = ../secrets/photoprism.env;
+    sopsFile = ../secrets/photoprism.yaml;
     format = "dotenv";
   };
 
