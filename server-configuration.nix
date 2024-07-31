@@ -23,7 +23,7 @@ in
     # ./features/photoprism.nix
     ./features/prometheus.nix
     ./features/samba-shares.nix
-    ./features/searx.nix
+    # ./features/searx.nix
     ./features/synapse-matrix.nix
     ./features/slskd.nix
     ./features/transmission.nix
