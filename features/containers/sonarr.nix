@@ -6,7 +6,7 @@
       sonarrAnime = {
         image = "lscr.io/linuxserver/sonarr:latest";
         volumes = [ "sonarr_data:/config" "/srv/Multimedia/SeriesTV:/tv"  "/srv/Multimedia/Torrents:/downloads" ];
-        ports = [ "8999:80" ];
+        ports = [ "8999:8989" ];
         environment = {
           "PUID" = "1000";
           "GUID" = "1000";
