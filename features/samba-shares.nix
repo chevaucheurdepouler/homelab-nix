@@ -27,7 +27,7 @@ in
       '';
       shares = {
         music = {
-          path = "${cfg.dir}/Music";
+          path = "/srv/media/Music";
           browseable = "yes";
           "read only" = "no";
           "create mask" = "0644";
