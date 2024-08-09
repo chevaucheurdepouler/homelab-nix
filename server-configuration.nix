@@ -52,7 +52,7 @@ in
       enable = true;
       allowedTCPPorts = [
         22 # ssh
-        3001 # grafana
+        3000 # grafana
         4001 # uptime-kuma
         5030 # slskd
         8080 # searxng
@@ -74,6 +74,7 @@ in
     extraPackages = [ ];
     jails = { };
   };
+
   users.groups.multimedia = {
     members = [
       "slskd"
@@ -123,6 +124,7 @@ in
     enable = true;
     useRoutingFeatures = "server";
   };
+
   services = {
     networkd-dispatcher = {
       enable = true;
