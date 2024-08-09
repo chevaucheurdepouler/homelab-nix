@@ -11,22 +11,18 @@
 
 {
   imports = [
-    # Include the results of the hardware scan.
-    ./hardware-configuration.nix
+    ./vm-hardware.nix # or hardware-configuration.nix
     ./server-configuration.nix
     "${(import ./nix/sources.nix).sops-nix}/modules/sops"
   ];
 
   # Use the GRUB 2 boot loader.
   boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/sda"; # or "nodev" for efi only
+  boot.loader.grub.device = "/dev/sda";
   boot.kernelParams = [ "console=ttyS0" ];
 
   services.qemuGuest.enable = true;
   networking.hostName = "sisyphe"; # Define your hostname.
-  # Pick only one of the below networking options.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  # networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
 
   # Set your time zone.
   time.timeZone = lib.mkDefault "Europe/Paris";
@@ -35,7 +31,6 @@
   console = {
     font = "Lat2-Terminus16";
     keyMap = "fr";
-    #   useXkbConfig = true; # use xkb.options in tty.
   };
 
   users.users.homelab = {
@@ -52,6 +47,7 @@
       tree
       git
     ];
+
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA8sdToNavEQv7PTMJ97HIGM6UlChwGS3x9O8hFilzui harryh@ik.me"
     ];
