@@ -112,6 +112,8 @@ in
     networkd-dispatcher
   ];
 
+  system.autoUpgrade.enable = true;
+  system.autoUpgrade.allowReboot = true;
   services.jellyfin = {
     enable = true;
     openFirewall = true;
