@@ -43,6 +43,7 @@
     extraGroups = [
       "wheel"
       "dialout"
+      "docker"
     ]; # Enable ‘sudo’ for the user.
 
     packages = with pkgs; [
