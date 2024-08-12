@@ -15,8 +15,8 @@ in
   };
 
   config = {
-    sops.secrets."transmission" = {
-      sopsFile = ../secrets/transmission.json;
+    sops.secrets.transmission = {
+      sopsFile = ../../secrets/transmission.json;
       path = "/var/lib/secrets/transmission/settings.json";
     };
 
@@ -25,7 +25,7 @@ in
       enable = true;
       openFirewall = true;
       openRPCPort = true;
-      credentialsFile = config.sops.secrets."transmission".path;
+      credentialsFile = config.sops.secrets.transmission.path;
       settings = {
         rpc-bind-address = "0.0.0.0";
         rpc-whitelist-enabled = false;

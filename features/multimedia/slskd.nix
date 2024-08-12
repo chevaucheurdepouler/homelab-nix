@@ -13,15 +13,15 @@ in
   };
   config = {
 
-    sops.secrets."slskd" = {
-      sopsFile = ../secrets/slskd.env;
+    sops.secrets.slskd = {
+      sopsFile = ../../secrets/slskd.env;
       format = "dotenv";
     };
 
     services.slskd = {
       enable = true;
       openFirewall = true;
-      environmentFile = config.sops.secrets."slskd".path;
+      environmentFile = config.sops.secrets.slskd.path;
       domain = null;
       settings = {
         shares.directories = [ "${cfg.directory}/clean" ];
