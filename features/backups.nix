@@ -2,7 +2,7 @@
 {
   sops.secrets.borgRepoPassword = {};
   
-  opt.services.borgbackup.jobs = {
+  services.borgbackup.jobs = {
     localBackup = {
       paths = "/";
       exclude = [
