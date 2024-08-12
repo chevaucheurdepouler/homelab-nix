@@ -9,6 +9,7 @@
         "/nix"
         "/srv/Multimedia"
         "/srv/media"
+        "/srv/backups/serverBackups"
       ];
       repo = "/srv/backups/serverBackups";
       doInit = true;
