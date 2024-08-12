@@ -6,10 +6,11 @@
     virtualHosts.":5050".extraConfig = ''
       reverse_proxy :8083
     '';
-
-    virtualHosts."sisyphe.normandy.hypervirtual.world".extraConfig = ''
-      reverse_proxy :8003
-    '';
+    /*
+        virtualHosts."sisyphe.normandy.hypervirtual.world".extraConfig = ''
+          reverse_proxy :8003
+        '';
+    */
 
     virtualHosts."git.hypervirtual.world".extraConfig = ''
       reverse_proxy :3333
@@ -26,6 +27,11 @@
     virtualHosts."fish.hypervirtual.world".extraConfig = ''
       reverse_proxy :3030
     '';
+    /*
+        virtualHosts."jellyfin.normandy.hypervirtual.world".extraConfig = ''
+          reverse_proxy :8096
+        '';
+    */
   };
 
 }
