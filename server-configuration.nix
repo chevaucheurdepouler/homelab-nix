@@ -47,7 +47,7 @@ in
         8448 # matrix-synapse
         3030
         3333
-        2342
+        2344
         4000
         5050 # calibre-web
         9091 # transmission

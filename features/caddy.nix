@@ -27,6 +27,11 @@
     virtualHosts."fish.hypervirtual.world".extraConfig = ''
       reverse_proxy :3030
     '';
+
+    virtualHosts.":2342".extraConfig = ''
+
+      reverse_proxy :2344
+    '';
     /*
         virtualHosts."jellyfin.normandy.hypervirtual.world".extraConfig = ''
           reverse_proxy :8096
