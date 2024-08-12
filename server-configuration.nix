@@ -97,6 +97,7 @@ in
     bazarr
     ethtool
     networkd-dispatcher
+    transcrypt
   ];
 
   system.autoUpgrade.enable = true;
