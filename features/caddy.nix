@@ -28,9 +28,8 @@
       reverse_proxy :3030
     '';
 
-    virtualHosts.":2342".extraConfig = ''
-
-      reverse_proxy :2344
+    virtualHosts.":2344".extraConfig = ''
+      reverse_proxy :2342
     '';
     /*
         virtualHosts."jellyfin.normandy.hypervirtual.world".extraConfig = ''
