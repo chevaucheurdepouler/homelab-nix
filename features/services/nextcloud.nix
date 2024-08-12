@@ -12,6 +12,7 @@
   sops.secrets.adminNextcloudPass = {
     owner = "nextcloud";
   };
+
   services.nextcloud = {
     enable = true;
     hostName = "cloud.hypervirtual.world";
