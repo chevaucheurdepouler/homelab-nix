@@ -8,7 +8,7 @@
     database.createLocally = true;
     config = {
       dbtype = "pgsql";
-      adminpassFile = config.services.nextcloud.adminNextcloudPass;
+      adminpassFile = config.sops.secrets.adminNextcloudPass;
     };
   };
 }
