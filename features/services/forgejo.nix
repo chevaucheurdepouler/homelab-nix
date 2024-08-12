@@ -2,7 +2,9 @@
 {
   imports = [ ./forgejo-smtp.nix ];
   sops.secrets.smtp_address = { };
-  sops.secrets.smtp_password = { };
+  sops.secrets.smtp_password = {
+    owner = "forgejo";
+  };
 
   services.forgejo = {
     enable = true;
