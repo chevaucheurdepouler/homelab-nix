@@ -20,7 +20,7 @@
       dbtype = "pgsql";
       adminpassFile = config.sops.secrets.adminNextcloudPass.path;
     };
-    extraOptions.enabledPreviewProviders = [
+    settings.enabledPreviewProviders = [
       "OC\\Preview\\BMP"
       "OC\\Preview\\GIF"
       "OC\\Preview\\JPEG"
