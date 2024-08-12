@@ -1,6 +1,6 @@
 { config, ... }:
 {
-  services.nextcould = {
+  services.nextcloud = {
     enable = true;
     hostName = "cloud.hypervirtual.world";
     database.createLocally = true;
