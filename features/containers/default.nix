@@ -6,6 +6,6 @@
     ./flaresolverr.nix
     # ./freshrss.nix
     ./sonarr.nix
-    ./pihole-exporter.nix
+    #./pihole-exporter.nix
   ];
 }
