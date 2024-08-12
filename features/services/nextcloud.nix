@@ -9,7 +9,9 @@
     }/nextcloud-extras.nix"
   ]; # adding caddy support
 
-  sops.secrets.adminNextcloudPass = { };
+  sops.secrets.adminNextcloudPass = {
+    owner = "nextcloud";
+  };
   services.nextcloud = {
     enable = true;
     hostName = "cloud.hypervirtual.world";
