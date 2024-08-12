@@ -1,6 +1,6 @@
 { pkgs, config, ... }:
 {
-  sops.secrets.photoprismUser = { };
+  sops.secrets.photoprismAdmin = { };
   sops.secrets.photoprismPassword = { };
 
   services.photoprism = {
