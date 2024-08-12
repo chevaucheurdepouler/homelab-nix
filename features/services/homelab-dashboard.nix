@@ -228,10 +228,10 @@ in
 
             }
             {
-              "Searx" = {
+              "4get" = {
                 icon = "searx";
                 description = "Moteur de recherche privé pour remplacer Google.";
-                href = "http://${ip}:8080";
+                href = "https://4get.hypervirtual.world";
               };
             }
           ];

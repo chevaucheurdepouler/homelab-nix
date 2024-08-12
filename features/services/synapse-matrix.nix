@@ -4,14 +4,12 @@
   lib,
   ...
 }:
-#TODO: implement 
 let
   baseUrl = "https://talk.hypervirtual.world";
 in
 {
   networking.domain = "hypervirtual.world";
-  sops.secrets.data = {
-    sopsFile = ../secrets/matrix.yaml;
+  sops.secrets.matrix_data = {
     format = "yaml";
     owner = "matrix-synapse";
   };
@@ -64,8 +62,7 @@ in
       "user-search"
     ];
 
-    extraConfigFiles = [ "/run/secrets/data" ];
-
+    extraConfigFiles = [ "/run/secrets/matrix_data" ];
   };
 
   /*
@@ -91,11 +88,6 @@ in
       };
     };
 
-    services.mautrix-whatsapp = { };
   */
 
-  services.postgresql = {
-    enable = true;
-    package = pkgs.postgresql_15;
-  };
 }

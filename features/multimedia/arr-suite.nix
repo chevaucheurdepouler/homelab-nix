@@ -35,7 +35,7 @@ in
     enable = true;
     openFirewall = true;
   };
-  /*
+/*
     #TODO: create duplicated instances of Sonarr.
     systemd.services."sonarrAnime" = {
       enable = true;
@@ -56,5 +56,6 @@ in
       };
       wantedBy = [ "multi-user.target" ];
     };
-  */
+*/
+
 }

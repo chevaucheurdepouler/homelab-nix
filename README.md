@@ -10,9 +10,9 @@ The goal of this config is to include :
 - [x] slskd
 - [ ] a cloud solution, to backup family files
 - [x] crafty controller\*
-- [ ] a matrix server
+- [x] a matrix server
 - [x] tt-rss / freshrss\*
-- [ ] tailscale
+- [x] tailscale
 
 \*Not using the "Nix" way (i prefer using Docker atm, i currently lack time)
 
@@ -20,8 +20,8 @@ The goal of this config is to include :
 
 - [x] fix homepage-dashboard secrets
 - [ ] use Docker for Sonarr, seems to be a cleaner approach for double instances
-- [ ] move crafty-controller to a nix build
-- [ ] figure out how to use secrets with freshrss
+- [ ] move crafty-controller / fressrss to nix
+- [ ] setup mautrix-whatsapp / mautrix-discord
 
 ## Installation
 
