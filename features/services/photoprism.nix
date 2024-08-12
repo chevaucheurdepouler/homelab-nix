@@ -1,15 +1,14 @@
 { pkgs, config, ... }:
 {
-  sops.secrets.photoprismUser = {};
-  sops.secrets.photoprismPassword = {};
+  sops.secrets.photoprismUser = { };
+  sops.secrets.photoprismPassword = { };
 
   services.photoprism = {
     enable = true;
     port = 2342;
     originalsPath = "/srv/cloud/photoprism/originals";
     settings = {
-      PHOTOPRISM_ADMIN_USER = config.sops.secrets.photoprismUser;
-      PHOTOPRISM_ADMIN_PASSWORD = config.sops.secrets.photoprismPassword;
+      PHOTOPRISM_ADMIN_USER = "admin";
       PHOTOPRISM_DEFAULT_LOCALE = "fr";
       PHOTOPRISM_DATABASE_DRIVER = "mysql";
       PHOTOPRISM_DATABASE_NAME = "photoprism";
@@ -18,5 +17,6 @@
       PHOTOPRISM_SITE_URL = "http://photos.hypervirtual.world";
       PHOTOPRISM_SITE_TITLE = "hyperreal photoprism???";
     };
+    passwordFile = config.sops.secrets.photoprismPassword.path;
   };
 }
