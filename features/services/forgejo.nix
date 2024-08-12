@@ -1,5 +1,6 @@
 { config, ... }:
 {
+  imports = [ ./forgejo-smtp.nix ];
   sops.secrets.smtp_address = { };
   sops.secrets.smtp_password = { };
 
@@ -21,7 +22,6 @@
       };
       mailer = {
         ENABLED = true;
-        SMTP_ADDR = config.sops.secrets.smtp_address;
       };
       service.DISABLE_REGISTRATION = true;
     };
