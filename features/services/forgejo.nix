@@ -6,7 +6,6 @@
   services.forgejo = {
     enable = true;
     lfs.enable = true;
-    service.DISABLE_REGISTRATION = true;
     database = {
       type = "postgres";
     };
@@ -24,6 +23,7 @@
         ENABLED = true;
         SMTP_ADDR = config.sops.secrets.smtp_address;
       };
+      service.DISABLE_REGISTRATION = true;
     };
     mailerPasswordFile = config.sops.secrets.smtp_password.path;
   };
