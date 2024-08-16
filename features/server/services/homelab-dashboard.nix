@@ -33,7 +33,7 @@ in
   #TODO: add Radarr/Sonarr/... api key support
   config = {
     sops.secrets."homepage" = {
-      sopsFile = ../../secrets/homepage.env;
+      sopsFile = ../../../secrets/homepage.env;
       format = "dotenv";
     };
 
