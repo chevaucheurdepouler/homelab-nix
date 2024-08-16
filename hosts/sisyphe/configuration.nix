@@ -10,6 +10,7 @@
     ./hardware-configuration.nix
     ./server-configuration.nix
     ../../features/server/default.nix
+    ../../features/shared/ssh.nix
   ];
 
   # Use the GRUB 2 boot loader.

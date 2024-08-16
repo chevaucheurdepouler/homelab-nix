@@ -9,7 +9,6 @@
     ./caddy.nix
     ./prometheus.nix
     ./samba-shares.nix
-    ./ssh.nix
     ./tailscale.nix
   ];
 
