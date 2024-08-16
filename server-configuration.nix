@@ -11,14 +11,14 @@ let
 in
 {
   imports = [
-    ./features/containers/default.nix
-    ./features/multimedia/default.nix
-    ./features/databases/default.nix
-    ./features/services/default.nix
-    ./features/backups.nix
-    ./features/caddy.nix
-    ./features/prometheus.nix
-    ./features/samba-shares.nix
+    ./features/server/containers/default.nix
+    ./features/server/multimedia/default.nix
+    ./features/server/databases/default.nix
+    ./features/server/services/default.nix
+    ./features/server/backups.nix
+    ./features/server/caddy.nix
+    ./features/server/prometheus.nix
+    ./features/server/samba-shares.nix
   ];
 
   # setting up networking!!
@@ -36,7 +36,10 @@ in
     nameservers = [
       "1.1.1.1"
       "1.0.0.1"
+      "2606:4700:4700::1111"
+      "2606:4700:4700::1001"
     ];
+
     nftables.enable = true;
     # firewall rules
     firewall = {
@@ -110,11 +113,6 @@ in
   services.jellyfin = {
     enable = true;
     openFirewall = true;
-  };
-
-  services.tailscale = {
-    enable = true;
-    useRoutingFeatures = "server";
   };
 
   services = {

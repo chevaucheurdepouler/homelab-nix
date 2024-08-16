@@ -14,7 +14,7 @@ in
   config = {
 
     sops.secrets.slskd = {
-      sopsFile = ../../secrets/slskd.env;
+      sopsFile = ../../../secrets/slskd.env;
       format = "dotenv";
     };
 

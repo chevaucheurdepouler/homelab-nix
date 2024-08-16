@@ -11,7 +11,7 @@
 
 {
   imports = [
-    ./vm-hardware.nix # or hardware-configuration.nix
+    ./hardware/vm-hardware.nix # or hardware-configuration.nix
     ./server-configuration.nix
     "${(import ./nix/sources.nix).sops-nix}/modules/sops"
   ];
@@ -33,6 +33,11 @@
     keyMap = "fr";
   };
 
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
+
   users.users.homelab = {
     isNormalUser = true;
     extraGroups = [
@@ -45,7 +50,6 @@
       neovim
       btop
       tree
-      git
     ];
 
     openssh.authorizedKeys.keys = [
@@ -60,10 +64,13 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    git
+    nvim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     curl
     niv
   ];
+
+  environment.variables.EDITOR = "nvim";
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
