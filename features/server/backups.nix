@@ -10,6 +10,11 @@
         "/srv/Multimedia"
         "/srv/media"
         "/srv/backups/serverBackups"
+        "/srv/backups/localComputerBackups"
+        "/var/cache"
+        "/tmp"
+        "/proc"
+        "/sys"
       ];
       repo = "/srv/backups/serverBackups";
       doInit = true;
