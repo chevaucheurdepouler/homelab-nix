@@ -1,7 +1,3 @@
-# Edit this configuration file to define what should be installed on
-# your system. Help is available in the configuration.nix(5) man page, on
-# https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
-
 {
   config,
   lib,
@@ -11,9 +7,9 @@
 
 {
   imports = [
-    ./hardware/vm-hardware.nix # or hardware-configuration.nix
+    ./hardware-configuration.nix
     ./server-configuration.nix
-    "${(import ./nix/sources.nix).sops-nix}/modules/sops"
+    ../../features/server/default.nix
   ];
 
   # Use the GRUB 2 boot loader.
@@ -38,18 +34,19 @@
     "flakes"
   ];
 
+  system.autoUpgrade.enable = true;
+  system.autoUpgrade.allowReboot = true;
+
   users.users.homelab = {
     isNormalUser = true;
     extraGroups = [
       "wheel"
       "dialout"
       "docker"
-    ]; # Enable ‘sudo’ for the user.
+    ];
 
     packages = with pkgs; [
-      neovim
       btop
-      tree
     ];
 
     openssh.authorizedKeys.keys = [
@@ -61,35 +58,13 @@
 
   users.users.root.initialHashedPassword = "$y$j9T$99/NEnBGoewbrl5eHvTw7/$87rjPrvqs0Ys72338SxZJDibi8p7Fe8Can37rJyhcQ.";
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
   environment.systemPackages = with pkgs; [
     git
-    nvim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    nvim
     curl
-    niv
   ];
 
   environment.variables.EDITOR = "nvim";
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
-
-  services.openssh = {
-    enable = true;
-    settings = {
-      PasswordAuthentication = false;
-      KbdInteractiveAuthentication = false;
-      PermitRootLogin = "no";
-    };
-  };
 
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [

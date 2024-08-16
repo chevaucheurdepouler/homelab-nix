@@ -4,5 +4,6 @@
     ./calibre-web.nix
     ./slskd.nix
     ./transmission.nix
+    ./jellyfin.nix
   ];
 }

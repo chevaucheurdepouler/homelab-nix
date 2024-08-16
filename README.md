@@ -16,13 +16,6 @@ The goal of this config is to include :
 
 \*Not using the "Nix" way (i prefer using Docker atm, i currently lack time)
 
-# TODO
-
-- [x] fix homepage-dashboard secrets
-- [ ] use Docker for Sonarr, seems to be a cleaner approach for double instances
-- [ ] move crafty-controller / fressrss to nix
-- [ ] setup mautrix-whatsapp / mautrix-discord
-
 ## Installation
 
 You will need to do a basic NixOS install with my config files placed @ `/etc/nixos`.
