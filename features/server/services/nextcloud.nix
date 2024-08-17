@@ -53,7 +53,7 @@
         calendar
         ;
       memories = pkgs.fetchNextcloudApp {
-        sha256 = "";
+        sha256 = "sha256-DJPskJ4rTECTaO1XJFeOD1EfA3TQR4YXqG+NIti0UPE=";
         url = "https://github.com/pulsejet/memories/releases/download/v7.3.1/memories.tar.gz";
         license = "agpl3Only";
 
