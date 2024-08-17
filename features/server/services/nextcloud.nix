@@ -7,6 +7,7 @@
         sha256 = "0gzd0276b8da3ykapgqks2zhsqdv4jjvbv97dsxg0hgrhb74z0fs";
       }
     }/nextcloud-extras.nix"
+    ./nextcloud-network.nix
   ]; # adding caddy support
 
   sops.secrets.adminNextcloudPass = {
@@ -36,5 +37,10 @@
       "OC\\Preview\\XBitmap"
       "OC\\Preview\\HEIC"
     ];
+
+    settings.trustedDomains = [ "cloud.hypervirtual.world" ];
+    settings.overwriteprotocol = "https";
+    settings.log_type = "file";
+
   };
 }
