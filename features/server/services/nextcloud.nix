@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 {
   imports = [
     "${
@@ -24,25 +24,41 @@
       dbtype = "pgsql";
       adminpassFile = config.sops.secrets.adminNextcloudPass.path;
     };
-    settings.enabledPreviewProviders = [
-      "OC\\Preview\\BMP"
-      "OC\\Preview\\GIF"
-      "OC\\Preview\\JPEG"
-      "OC\\Preview\\Krita"
-      "OC\\Preview\\MarkDown"
-      "OC\\Preview\\MP3"
-      "OC\\Preview\\OpenDocument"
-      "OC\\Preview\\PNG"
-      "OC\\Preview\\TXT"
-      "OC\\Preview\\XBitmap"
-      "OC\\Preview\\HEIC"
-    ];
 
-    settings.trustedDomains = [ "cloud.hypervirtual.world" ];
-    settings.overwriteprotocol = "https";
-    settings.log_type = "file";
-    settings.default_phone_region = "FR";
+    settings = {
+      enabledPreviewProviders = [
+        "OC\\Preview\\BMP"
+        "OC\\Preview\\GIF"
+        "OC\\Preview\\JPEG"
+        "OC\\Preview\\Krita"
+        "OC\\Preview\\MarkDown"
+        "OC\\Preview\\MP3"
+        "OC\\Preview\\OpenDocument"
+        "OC\\Preview\\PNG"
+        "OC\\Preview\\TXT"
+        "OC\\Preview\\XBitmap"
+        "OC\\Preview\\HEIC"
+      ];
+
+      trustedDomains = [ "cloud.hypervirtual.world" ];
+      overwriteprotocol = "https";
+      log_type = "file"; # temporary fix for https://nixos.org/manual/nixos/stable/#module-services-nextcloud-warning-logreader
+      default_phone_region = "FR";
+    };
+
     phpOptions."opcache.interned_strings_buffer" = "23";
+    extraApps = {
+      inherit (config.services.nextcloud.package.packages.apps)
+        contacts
+        calendar
+        ;
+      memories = pkgs.fetchNextcloudApp {
+        sha256 = "";
+        url = "https://github.com/pulsejet/memories/releases/download/v7.3.1/memories.tar.gz";
+        license = "agpl3Only";
 
+      };
+    };
+    extraAppsEnable = true;
   };
 }

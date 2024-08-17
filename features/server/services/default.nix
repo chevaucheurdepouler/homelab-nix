@@ -1,9 +1,9 @@
-{config, ...}:
+{ config, ... }:
 {
   imports = [
     ./homelab-dashboard.nix
     ./nextcloud.nix
-    ./photoprism.nix
+    # ./photoprism.nix
     ./grafana.nix
     ./forgejo.nix
     ./synapse-matrix.nix
