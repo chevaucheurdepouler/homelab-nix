@@ -53,7 +53,6 @@
         calendar
         previewgenerator
         twofactor_nextcloud_notification
-        photos
         ;
 
       memories = pkgs.fetchNextcloudApp {
@@ -63,12 +62,13 @@
       };
 
       registration = pkgs.fetchNextcloudApp {
-        sha256 = "";
+        sha256 = "sha256-dDaQHyHdkkd8ZammLdck2HNGqqfEaunwevdPzbWzB8Y=";
         url = "https://github.com/nextcloud-releases/registration/releases/download/v2.4.0/registration-v2.4.0.tar.gz";
         license = "agpl3Only";
       };
 
       facerecognition = pkgs.fetchNextcloudApp {
+        sha256 = "sha256-1dfpmnyyrjyn7wbjfj3w072rzfl7zwm8ppphgsg8ampw2dy7y6yk";
         url = "https://github.com/matiasdelellis/facerecognition/releases/download/v0.9.51/facerecognition.tar.gz";
         license = "agpl3Only";
       };
