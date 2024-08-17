@@ -3,9 +3,14 @@
   sops.secrets.photoprismAdmin = { };
   sops.secrets.photoprismPassword = { };
 
+  environment.systemPackages = with pkgs; [
+    photoprism
+  ];
+
   services.photoprism = {
     enable = true;
     port = 2342;
+    originalsPath = "/var/lib/private/photoprism/originals";
     settings = {
       PHOTOPRISM_ADMIN_USER = "admin";
       PHOTOPRISM_DEFAULT_LOCALE = "fr";
