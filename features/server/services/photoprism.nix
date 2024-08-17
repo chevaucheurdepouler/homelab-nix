@@ -6,7 +6,6 @@
   services.photoprism = {
     enable = true;
     port = 2342;
-    originalsPath = "/srv/cloud/photoprism/originals";
     settings = {
       PHOTOPRISM_ADMIN_USER = "admin";
       PHOTOPRISM_DEFAULT_LOCALE = "fr";
