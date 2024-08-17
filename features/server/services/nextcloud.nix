@@ -20,7 +20,6 @@
     database.createLocally = true;
     webserver = "caddy";
     configureRedis = true;
-    https = true;
     config = {
       dbtype = "pgsql";
       adminpassFile = config.sops.secrets.adminNextcloudPass.path;
