@@ -51,13 +51,28 @@
       inherit (config.services.nextcloud.package.packages.apps)
         contacts
         calendar
+        previewgenerator
+        twofactor_nextcloud_notification
+        photos
         ;
+
       memories = pkgs.fetchNextcloudApp {
         sha256 = "sha256-DJPskJ4rTECTaO1XJFeOD1EfA3TQR4YXqG+NIti0UPE=";
         url = "https://github.com/pulsejet/memories/releases/download/v7.3.1/memories.tar.gz";
         license = "agpl3Only";
-
       };
+
+      registration = pkgs.fetchNextcloudApp {
+        sha256 = "";
+        url = "https://github.com/nextcloud-releases/registration/releases/download/v2.4.0/registration-v2.4.0.tar.gz";
+        license = "agpl3Only";
+      };
+
+      facerecognition = pkgs.fetchNextcloudApp {
+        url = "https://github.com/matiasdelellis/facerecognition/releases/download/v0.9.51/facerecognition.tar.gz";
+        license = "agpl3Only";
+      };
+
     };
     extraAppsEnable = true;
   };
