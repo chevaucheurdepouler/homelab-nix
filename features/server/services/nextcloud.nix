@@ -20,6 +20,7 @@
     database.createLocally = true;
     webserver = "caddy";
     configureRedis = true;
+    https = true;
     config = {
       dbtype = "pgsql";
       adminpassFile = config.sops.secrets.adminNextcloudPass.path;
@@ -41,6 +42,8 @@
     settings.trustedDomains = [ "cloud.hypervirtual.world" ];
     settings.overwriteprotocol = "https";
     settings.log_type = "file";
+    settings.default_phone_region = "FR";
+    phpOptions."opcache.interned_strings_buffer" = "23";
 
   };
 }
