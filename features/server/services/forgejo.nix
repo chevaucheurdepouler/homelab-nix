@@ -1,10 +1,12 @@
-{ config, ... }:
+{ config, lib, ... }:
 {
   imports = [ ./forgejo-smtp.nix ];
   sops.secrets.smtp_address = { };
   sops.secrets.smtp_password = {
     owner = "forgejo";
   };
+  sops.secrets.forgejoInitialMail = { };
+  sops.secrets.forgejoInitialPassword = { };
 
   services.forgejo = {
     enable = true;
@@ -29,4 +31,9 @@
     };
     mailerPasswordFile = config.sops.secrets.smtp_password.path;
   };
+
+  systemd.services.forgejo.preStart = ''
+    create="${lib.getExe config.services.forgejo.package} admin user create"
+    $create --admin --email "`cat ${config.sops.secrets.forgejoInitialMail}`" --username you --password "`cat ${config.sops.secrets.forgejoInitialPassword.path}`" &>/dev/null || true
+  '';
 }
