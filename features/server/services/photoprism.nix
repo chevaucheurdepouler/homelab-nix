@@ -26,7 +26,7 @@
   };
 
   systemd.tmpfiles.rules = [
-    "d /srv/cloud/photoprism/originals 0755 photoprism photoprism"
-    "d /srv/cloud/photoprism/imports 0755 photoprism photoprism"
+    "d /srv/cloud/photoprism/originals 0755 photoprism photoprism -"
+    "d /srv/cloud/photoprism/imports 0755 photoprism photoprism -"
   ];
 }
