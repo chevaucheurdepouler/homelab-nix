@@ -10,7 +10,8 @@
   services.photoprism = {
     enable = true;
     port = 2342;
-    originalsPath = "/var/lib/private/photoprism/originals";
+    originalsPath = "/srv/cloud/photoprism/originals";
+    importPath = "/srv/cloud/photoprism/imports";
     settings = {
       PHOTOPRISM_ADMIN_USER = "admin";
       PHOTOPRISM_DEFAULT_LOCALE = "fr";
@@ -23,4 +24,9 @@
     };
     passwordFile = config.sops.secrets.photoprismPassword.path;
   };
+
+  systemd.tmpfiles.rules = [
+    "d /srv/cloud/photoprism/originals 0755 photoprism photoprism"
+    "d /srv/cloud/photoprism/imports 0755 photoprism photoprism"
+  ];
 }
