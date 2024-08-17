@@ -5,8 +5,12 @@
   sops.secrets.smtp_password = {
     owner = "forgejo";
   };
-  sops.secrets.forgejoInitialMail = { };
-  sops.secrets.forgejoInitialPassword = { };
+  sops.secrets.forgejoInitialMail = {
+    owner = "forgejo";
+  };
+  sops.secrets.forgejoInitialPassword = {
+    owner = "forgejo";
+  };
 
   services.forgejo = {
     enable = true;
