@@ -21,7 +21,7 @@
     settings = {
       server = {
         DOMAIN = "git.hypervirtual.world";
-        ROOT_URL = "https://hypervirtual.world";
+        ROOT_URL = "https://git.hypervirtual.world";
         HTTP_PORT = 3333;
       };
       actions = {
