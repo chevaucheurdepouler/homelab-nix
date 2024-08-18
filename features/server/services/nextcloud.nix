@@ -73,7 +73,7 @@
            };
       */
       facerecognition = pkgs.fetchNextcloudApp {
-        sha256 = "sha256-1dfpmnyyrjyn7wbjfj3w072rzfl7zwm8ppphgsg8ampw2dy7y6yk";
+        sha256 = "1dfpmnyyrjyn7wbjfj3w072rzfl7zwm8ppphgsg8ampw2dy7y6yk";
         url = "https://github.com/matiasdelellis/facerecognition/releases/download/v0.9.51/facerecognition.tar.gz";
         license = "agpl3Only";
       };
