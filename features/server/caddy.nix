@@ -51,6 +51,10 @@
       "http://status.normandy.hypervirtual.world".extraConfig = ''
         reverse_proxy :4000
       '';
+
+      "http://transmission.normandy.hypervirtual.world".extraConfig = ''
+        reverse_proxy :9091
+      '';
     };
   };
 
