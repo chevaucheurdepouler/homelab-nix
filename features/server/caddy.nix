@@ -4,10 +4,6 @@
     enable = true;
 
     virtualHosts = {
-      ":5050".extraConfig = ''
-        reverse_proxy :8083
-      '';
-
       "http://sisyphe.normandy.hypervirtual.world".extraConfig = ''
         reverse_proxy :8003
       '';
@@ -16,20 +12,12 @@
         reverse_proxy :3333
       '';
 
-      "http://photos.hypervirtual.world".extraConfig = ''
-        reverse_proxy :2342
-      '';
-
       "http://books.hypervirtual.world".extraConfig = ''
         reverse_proxy :8083
       '';
 
       "http://fish.hypervirtual.world".extraConfig = ''
         reverse_proxy :3030
-      '';
-
-      ":2344".extraConfig = ''
-        reverse_proxy :2342
       '';
 
       "http://jellyfin.sisyphe.normandy.hypervirtual.world".extraConfig = ''

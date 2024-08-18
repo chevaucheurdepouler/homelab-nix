@@ -38,12 +38,6 @@ in
         22 # ssh
         8008 # matrix-synapse
         8448 # matrix-synapse
-        3030
-        3333
-        2344
-        4000
-        5050 # calibre-web
-        9091 # transmission
       ];
       allowedUDPPorts = [ ];
     };
