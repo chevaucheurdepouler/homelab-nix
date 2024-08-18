@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 {
   imports = [
     "${
@@ -44,7 +49,11 @@
       overwriteprotocol = "https";
       log_type = "file"; # temporary fix for https://nixos.org/manual/nixos/stable/#module-services-nextcloud-warning-logreader
       default_phone_region = "FR";
+      default_locale = "fr_FR";
+      default_language = "fr";
+      default_timezone = "Europe/Paris";
     };
+
     phpExtraExtensions = all: [
       all.pdlib
       all.redis
@@ -80,5 +89,8 @@
 
     };
     extraAppsEnable = true;
+    appstoreEnable = true; # why i would want appstore to be disabled ???
+    autoUpdateApps.enable = true;
+    extraOptions."memories.exiftool" = "${lib.getExe pkgs.exiftool}";
   };
 }
