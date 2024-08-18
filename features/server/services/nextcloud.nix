@@ -45,7 +45,11 @@
       log_type = "file"; # temporary fix for https://nixos.org/manual/nixos/stable/#module-services-nextcloud-warning-logreader
       default_phone_region = "FR";
     };
-
+    phpExtraExtensions = all: [
+      all.pdlib
+      all.redis
+      all.bz2
+    ];
     phpOptions."opcache.interned_strings_buffer" = "23";
     extraApps = {
       inherit (config.services.nextcloud.package.packages.apps)
@@ -60,13 +64,14 @@
         url = "https://github.com/pulsejet/memories/releases/download/v7.3.1/memories.tar.gz";
         license = "agpl3Only";
       };
-
-      registration = pkgs.fetchNextcloudApp {
-        sha256 = "sha256-dDaQHyHdkkd8ZammLdck2HNGqqfEaunwevdPzbWzB8Y=";
-        url = "https://github.com/nextcloud-releases/registration/releases/download/v2.4.0/registration-v2.4.0.tar.gz";
-        license = "agpl3Only";
-      };
-
+      /*
+        not useful for me
+           registration = pkgs.fetchNextcloudApp {
+             sha256 = "sha256-dDaQHyHdkkd8ZammLdck2HNGqqfEaunwevdPzbWzB8Y=";
+             url = "https://github.com/nextcloud-releases/registration/releases/download/v2.4.0/registration-v2.4.0.tar.gz";
+             license = "agpl3Only";
+           };
+      */
       facerecognition = pkgs.fetchNextcloudApp {
         sha256 = "sha256-1dfpmnyyrjyn7wbjfj3w072rzfl7zwm8ppphgsg8ampw2dy7y6yk";
         url = "https://github.com/matiasdelellis/facerecognition/releases/download/v0.9.51/facerecognition.tar.gz";
