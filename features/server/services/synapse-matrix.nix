@@ -21,6 +21,7 @@ in
       server_name = "hypervirtual.world";
       public_baseurl = baseUrl;
       enable_registration = false;
+      enable_metrics = true;
       listeners = [
         {
           port = 8008;
@@ -36,7 +37,6 @@ in
               names = [
                 "client"
                 "federation"
-                "metrics"
               ];
               compress = true;
             }
@@ -48,7 +48,7 @@ in
           tls = false;
           bind_addresses = [
             "::1"
-            "0.0.0.0"
+            "127.0.0.1"
           ];
           resources = [ ];
         }
@@ -87,7 +87,6 @@ in
 
       };
     };
-
   */
 
 }
