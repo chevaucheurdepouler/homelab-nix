@@ -7,7 +7,7 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./x75s.nix
+      ./hardware-configuration.nix
     ];
 
   # Use the GRUB 2 boot loader.
