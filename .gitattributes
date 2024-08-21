@@ -1,0 +1,3 @@
+#pattern  filter=crypt diff=crypt merge=crypt
+features/server/services/forgejo-smtp.nix filter=crypt diff=crypt 
+features/server/services/nextcloud-network.nix filter=crypt diff=crypt 
