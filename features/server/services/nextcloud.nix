@@ -52,6 +52,7 @@
       default_locale = "fr_FR";
       default_language = "fr";
       default_timezone = "Europe/Paris";
+      "memories.exiftool" = "${lib.getExe pkgs.exiftool}";
     };
 
     phpExtraExtensions = all: [
@@ -59,6 +60,7 @@
       all.redis
       all.bz2
     ];
+
     phpOptions."opcache.interned_strings_buffer" = "23";
     extraApps = {
       inherit (config.services.nextcloud.package.packages.apps)
@@ -91,6 +93,13 @@
     extraAppsEnable = true;
     appstoreEnable = true; # why i would want appstore to be disabled ???
     autoUpdateApps.enable = true;
-    extraOptions."memories.exiftool" = "${lib.getExe pkgs.exiftool}";
   };
+
+  environment.systemPackages =
+    let
+      php = pkgs.php.buildEnv { extraConfig = "memory_limit = 2G"; };
+    in
+    [
+      php
+    ];
 }
