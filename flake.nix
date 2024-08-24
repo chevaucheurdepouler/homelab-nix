@@ -7,6 +7,9 @@
 
     alejandra.url = "github:kamadorueda/alejandra/3.0.0";
     alejandra.inputs.nixpkgs.follows = "nixpkgs";
+
+    nix-secrets.url = "git.hypervirtual.world:harry123/nix-secrets.git";
+    nix-secrets.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
