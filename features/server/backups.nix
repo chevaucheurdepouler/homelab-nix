@@ -64,7 +64,7 @@
           "/srv/freshrss"
           "/srv/Minecraft"
         ];
-        postgres_databases = [
+        postgresql_databases = [
           "forgejo"
           "nextcloud"
           "matrix-synapse"
