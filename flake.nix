@@ -9,7 +9,7 @@
     alejandra.inputs.nixpkgs.follows = "nixpkgs";
 
     nix-secrets = {
-      url = "git.hypervirtual.world:harry123/nix-secrets.git";
+      url = "git+https://git.hypervirtual.world/harry123/nix-secrets.git";
       flake = false;
     };
   };
