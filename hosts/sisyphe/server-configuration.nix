@@ -3,12 +3,14 @@
   config,
   lib,
   pkgs,
+  inputs,
   ...
 }:
 let
   ip = "192.168.1.177";
   gateway = "192.168.1.1";
   username = "homelab";
+  secrets = builtins.toString inputs.nix-secrets;
 in
 {
   # setting up networking!!
@@ -61,5 +63,5 @@ in
   sops.age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
   sops.age.keyFile = "/var/lib/sops-nix/key.txt";
   sops.age.generateKey = true;
-  sops.defaultSopsFile = ../../secrets/secrets.yaml;
+  sops.defaultSopsFile = "${secrets}/secrets/secrets.yaml";
 }
