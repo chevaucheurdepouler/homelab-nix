@@ -83,7 +83,7 @@
           { name = "matrix-synapse"; }
         ];
         exclude_patterns = [ "/home/*/.cache" ];
-        encryption_passcommand = "cat /run/secrets/borgRemoteServerPassword";
+        encryption_passcommand = "${pkgs.coreutils}/bin/cat /run/secrets/borgRemoteServerPassword";
         ssh_command = "ssh -o GlobalKnownHostsFile=${config.sops.secrets.borgOffsiteBackupHostKeys.path} -i ${config.sops.secrets.sshBorgOffsiteBackup.path}";
       };
     };
