@@ -1,10 +1,23 @@
-{ config, secrets, ... }:
+{
+  config,
+  secrets,
+  pkgs,
+  ...
+}:
 {
   imports = [
     ./backups-repos.nix
   ];
   sops.secrets.borgRepoPassword = { };
   sops.secrets.borgRemoteServerPassword = {
+    sopsFile = "${secrets}/secrets/backup.yaml";
+  };
+
+  sops.secrets.sshBorgOffsiteBackup = {
+    sopsFile = "${secrets}/secrets/backup.yaml";
+  };
+
+  sops.secrets.borgOffsiteBackupHostKeys = {
     sopsFile = "${secrets}/secrets/backup.yaml";
   };
 
@@ -71,7 +84,7 @@
         ];
         exclude_patterns = [ "/home/*/.cache" ];
         encryption_passcommand = "cat /run/secrets/borgRemoteServerPassword";
-        ssh_command = "ssh -i /home/homelab/.ssh/backup/id_ed25519";
+        ssh_command = "ssh -o GlobalKnownHostsFile=${config.sops.secrets.borgOffsiteBackupHostKeys.path} -i ${config.sops.secrets.sshBorgOffsiteBackup.path}";
       };
     };
   };
