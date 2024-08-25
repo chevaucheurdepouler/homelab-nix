@@ -16,6 +16,7 @@
       intel-media-sdk # QSV up to 11th gen
     ];
   };
+
   services.jellyfin = {
     enable = true;
     openFirewall = true;

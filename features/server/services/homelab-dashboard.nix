@@ -220,12 +220,11 @@ in
         {
           "Utilitaires" = [
             {
-              "Photoprism" = {
-                icon = "photoprism";
-                description = "Sauvegarde de photos";
-                href = "http://${ip}:2342";
+              "Nextcloud" = {
+                icon = "nextcloud";
+                description = "Sauvegarde de données";
+                href = "https://cloud.hypervirtual.world";
               };
-
             }
             {
               "4get" = {

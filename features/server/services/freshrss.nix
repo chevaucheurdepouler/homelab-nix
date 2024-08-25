@@ -14,18 +14,14 @@ in
 
   config = {
     sops.secrets = {
-      freshrss_username = {
-        sopsFile = ../../secrets/freshrss.yaml;
-      };
-      freshrss_password = {
-        sopsFile = ../../secrets/freshrss.yaml;
-      };
+      freshrss_username = { };
+      freshrss_password = { };
     };
 
     services.freshrss = {
       enable = true;
       language = "fr";
-      defaultUser = config.sops.secrets.freshrss_username;
+      defaultUser = "";
       baseUrl = cfg.url;
       passwordFile = config.sops.secrets.freshrss_password.path;
       database = {

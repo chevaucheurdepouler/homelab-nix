@@ -24,6 +24,10 @@
         reverse_proxy :8096
       '';
 
+      "http://media.hypervirtual.world".extraConfig = ''
+        reverse_proxy :8096
+      '';
+
       "http://slskd.sisyphe.normandy.hypervirtual.world".extraConfig = ''
         reverse_proxy :5030
       '';
@@ -48,7 +52,7 @@
         reverse_proxy :3000
       '';
 
-      "http://status.normandy.hypervirtual.world".extraConfig = ''
+      "http://status.hypervirtual.world".extraConfig = ''
         reverse_proxy :4000
       '';
 

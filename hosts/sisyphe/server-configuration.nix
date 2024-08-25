@@ -36,6 +36,7 @@ in
       enable = true;
       allowedTCPPorts = [
         22 # ssh
+        80 # http
         8008 # matrix-synapse
         8448 # matrix-synapse
       ];

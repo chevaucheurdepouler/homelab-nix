@@ -2,11 +2,11 @@
 with lib;
 
 let
-  cfg = config.transmission;
+  cfg = config.downloads.transmission;
 in
 {
   options = {
-    transmission = {
+    downloads.transmission = {
       directory = mkOption {
         type = lib.types.str;
         default = "/srv/Multimedia";

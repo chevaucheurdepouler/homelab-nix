@@ -2,11 +2,11 @@
 with lib;
 
 let
-  cfg = config.slskd;
+  cfg = config.downloads.music;
 in
 {
   options = {
-    slskd.directory = mkOption {
+    downloads.music.directory = mkOption {
       type = types.str;
       default = "/srv/media/Music";
     };
