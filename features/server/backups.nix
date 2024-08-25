@@ -65,9 +65,9 @@
           "/srv/Minecraft"
         ];
         postgresql_databases = [
-          "forgejo"
-          "nextcloud"
-          "matrix-synapse"
+          { name = "forgejo"; }
+          { name = "nextcloud"; }
+          { name = "matrix-synapse"; }
         ];
         exclude_patterns = [ "/home/*/.cache" ];
         encryption_passcommand = "cat /run/secrets/borgRemoteServerPassword";
