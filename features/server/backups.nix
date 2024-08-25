@@ -77,12 +77,12 @@
 
   systemd.timers."borgmatic" = {
     enable = true;
-    Unit = "borgmatic.service";
     wantedBy = [ "timers.target" ];
     timerConfig = {
       OnCalendar = "*-*-* 03:00:00";
       Persistent = true;
       WakeSystem = true;
+      Unit = "borgmatic.service";
     };
   };
 }
