@@ -77,7 +77,7 @@
 
   systemd.timers."borgmatic" = {
     enable = true;
-    unit = "borgmatic.service";
+    Unit = "borgmatic.service";
     wantedBy = [ "timers.target" ];
     timerConfig = {
       OnCalendar = "*-*-* 03:00:00";
