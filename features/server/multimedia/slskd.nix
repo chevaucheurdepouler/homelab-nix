@@ -1,4 +1,9 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  secrets,
+  ...
+}:
 with lib;
 
 let
@@ -14,7 +19,7 @@ in
   config = {
 
     sops.secrets.slskd = {
-      sopsFile = ../../../secrets/slskd.env;
+      sopsFile = "${secrets}/secrets/slskd.env";
       format = "dotenv";
     };
 

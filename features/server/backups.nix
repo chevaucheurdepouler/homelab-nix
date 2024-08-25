@@ -1,11 +1,11 @@
-{ config, ... }:
+{ config, secrets, ... }:
 {
   imports = [
     ./backups-repos.nix
   ];
   sops.secrets.borgRepoPassword = { };
   sops.secrets.borgRemoteServerPassword = {
-    sopsFile = "/home/homelab/secrets/backup.yaml";
+    sopsFile = "${secrets}/secrets/backup.yaml";
   };
 
   services.borgbackup.jobs = {

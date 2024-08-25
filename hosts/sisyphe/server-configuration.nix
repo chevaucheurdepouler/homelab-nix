@@ -3,14 +3,13 @@
   config,
   lib,
   pkgs,
-  inputs,
+  secrets,
   ...
 }:
 let
   ip = "192.168.1.177";
   gateway = "192.168.1.1";
   username = "homelab";
-  secrets = builtins.toString inputs.nix-secrets;
 in
 {
   # setting up networking!!

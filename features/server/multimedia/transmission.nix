@@ -1,4 +1,9 @@
-{ config, lib, ... }:
+{
+  config,
+  secrets,
+  lib,
+  ...
+}:
 with lib;
 
 let
@@ -16,7 +21,7 @@ in
 
   config = {
     sops.secrets.transmission = {
-      sopsFile = ../../../secrets/transmission.json;
+      sopsFile = "${secrets}/secrets/transmission.json";
       path = "/var/lib/secrets/transmission/settings.json";
     };
 

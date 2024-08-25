@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  secrets,
   pkgs,
   ...
 }:
@@ -33,7 +34,7 @@ in
   #TODO: add Radarr/Sonarr/... api key support
   config = {
     sops.secrets."homepage" = {
-      sopsFile = ../../../secrets/homepage.env;
+      sopsFile = "${secrets}/secrets/homepage.env";
       format = "dotenv";
     };
 
