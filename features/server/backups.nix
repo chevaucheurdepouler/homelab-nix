@@ -71,6 +71,7 @@
         ];
         exclude_patterns = [ "/home/*/.cache" ];
         encryption_passcommand = "cat /run/secrets/borgRemoteServerPassword";
+        ssh_command = "ssh -i /home/homelab/.ssh/backup/id_ed25519";
       };
     };
   };
