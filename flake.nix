@@ -32,6 +32,9 @@
       nixosConfigurations = {
         sisyphe = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
+          specialArgs = {
+            inherit inputs;
+          };
           modules = [
             ./hosts/sisyphe/configuration.nix
             sops-nix.nixosModules.sops
