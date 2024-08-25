@@ -75,7 +75,7 @@
     };
   };
 
-  systemd.timers.borgmatic = {
+  systemd.timers."borgmatic" = {
     enable = true;
     unit = "borgmatic.service";
     wantedBy = [ "timers.target" ];
