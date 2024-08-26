@@ -75,6 +75,10 @@
       "http://bazarr.sisyphe.normandy.hypervirtual.world".extraConfig = ''
         reverse_proxy :6767
       '';
+
+      "http://bazarr-anime.sisyphe.normandy.hypervirtual.world".extraConfig = ''
+        reverse_proxy :6777
+      '';
     };
   };
 
