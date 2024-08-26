@@ -58,7 +58,6 @@
 
       "http://transmission.sisyphe.normandy.hypervirtual.world".extraConfig = ''
         reverse_proxy :9091
-        basicauth / {$USER} {$PASS}
       '';
 
       "http://uptime.sisyphe.normandy.hypervirtual.world".extraConfig = ''
