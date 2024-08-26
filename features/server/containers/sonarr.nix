@@ -24,7 +24,7 @@
           "bazarr_data:/config"
           "/srv/Multimedia/DessinsAnime:/tv"
         ];
-        ports = [ "6777:6777" ];
+        ports = [ "6777:6767" ];
         environment = {
           "PUID" = "1000";
           "GUID" = "1000";

@@ -215,6 +215,19 @@ in
               };
             }
             {
+              "Bazarr anime" = {
+                icon = "bazarr";
+                description = "Vérifie les sous titres des séries animées.";
+                href = "http://bazarr-anime.sisyphe.normandy.hypervirtual.world";
+                widget = {
+                  type = "bazarr";
+                  key = "{{HOMEPAGE_VAR_BAZARRANIME}}";
+                  url = "http://${ip}:6768";
+                };
+
+              };
+            }
+            {
 
               "Transmission" = {
                 icon = "transmission";
