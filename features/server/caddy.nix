@@ -5,7 +5,7 @@
 
     virtualHosts = {
       "http://sisyphe.normandy.hypervirtual.world".extraConfig = ''
-        reverse_proxy :8003
+        reverse_proxy :8082
       '';
 
       "http://git.hypervirtual.world".extraConfig = ''
@@ -56,8 +56,17 @@
         reverse_proxy :4000
       '';
 
-      "http://transmission.normandy.hypervirtual.world".extraConfig = ''
+      "http://transmission.sisyphe.normandy.hypervirtual.world".extraConfig = ''
         reverse_proxy :9091
+        basicauth / {$USER} {$PASS}
+      '';
+
+      "http://uptime.sisyphe.normandy.hypervirtual.world".extraConfig = ''
+        reverse_proxy :4000
+      '';
+
+      "http://mc.sisyphe.normandy.hypervirtual.world".extraConfig = ''
+        reverse_proxy :8443
       '';
     };
   };
