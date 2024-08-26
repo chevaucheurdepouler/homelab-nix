@@ -67,6 +67,14 @@
       "http://mc.sisyphe.normandy.hypervirtual.world".extraConfig = ''
         reverse_proxy :8443
       '';
+
+      "http://katflix.sisyphe.normandy.hypervirtual.world".extraConfig = ''
+        reverse_proxy :5055
+      '';
+
+      "http://bazarr.sisyphe.normandy.hypervirtual.world".extraConfig = ''
+        reverse_proxy :6767
+      '';
     };
   };
 

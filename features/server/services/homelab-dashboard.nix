@@ -106,14 +106,14 @@ in
               "Calibre-web" = {
                 icon = "calibre";
                 description = "Serveur de livres";
-                href = "http://${ip}:5050";
+                href = "http://books.hypervirtual.world";
               };
             }
             {
               "Freshrss" = {
                 icon = "freshrss";
                 description = "Récupère les articles";
-
+                href = "http://freshrss.hypervirtual.world";
               };
             }
           ];
@@ -125,7 +125,7 @@ in
               "Jellyfin" = {
                 icon = "jellyfin";
                 description = "Permet de regarder ou écouter du contenu.";
-                href = "http://${ip}:8096";
+                href = "http://media.hypervirtual.world";
                 widget = {
                   type = "jellyfin";
                   url = "http://${ip}:8096";
@@ -138,7 +138,7 @@ in
               "Jellyseerr" = {
                 icon = "jellyseerr";
                 description = "Moteur de recherche de films/séries";
-                href = "http://${ip}:5055";
+                href = "http://katflix.sisyphe.normandy.hypervirtual.world";
 
                 widget = {
                   type = "jellyseerr";
@@ -151,14 +151,14 @@ in
               "slskd" = {
                 icon = "slskd";
                 description = "Pour télécharger/partager de la musique";
-                href = "http://${ip}:5030";
+                href = "http://slskd.sisyphe.normandy.hypervirtual.world";
               };
             }
             {
               "Prowlarr" = {
                 icon = "prowlarr";
                 description = "Indexe les différents sites de téléchargement";
-                href = "http://${ip}:9696/";
+                href = "http://prowlarr.sisyphe.normandy.hypervirtual.world";
                 widget = {
                   type = "prowlarr";
                   key = "{{HOMEPAGE_VAR_PROWLARR}}";
@@ -170,7 +170,7 @@ in
               "Sonarr" = {
                 icon = "sonarr";
                 description = "Moteur de recherche pour les séries";
-                href = "http://${ip}:8989/";
+                href = "http://sonarr.sisyphe.normandy.hypervirtual.world";
                 widget = {
                   type = "sonarr";
                   url = "http://${ip}:8989";
@@ -179,10 +179,22 @@ in
               };
             }
             {
+              "Sonarr anime" = {
+                icon = "sonarr";
+                description = "Moteur de recherche pour les séries animées";
+                href = "http://sonarr-anime.sisyphe.normandy.hypervirtual.world";
+                widget = {
+                  type = "sonarr";
+                  url = "http://${ip}:8999";
+                  key = "{{HOMEPAGE_VAR_SONARRANIME}}";
+                };
+              };
+            }
+            {
               "Radarr" = {
                 icon = "radarr";
                 description = "Moteur de recherche pour les films";
-                href = "http://${ip}:7878";
+                href = "http://radarr.sisyphe.normandy.hypervirtual.world";
                 widget = {
                   type = "radarr";
                   key = "{{HOMEPAGE_VAR_RADARR}}";
@@ -194,7 +206,7 @@ in
               "Bazarr" = {
                 icon = "bazarr";
                 description = "Vérifie les sous titres des films/séries.";
-                href = "http://${ip}:6767";
+                href = "http://bazarr.sisyphe.normandy.hypervirtual.world";
                 widget = {
                   type = "bazarr";
                   key = "{{HOMEPAGE_VAR_BAZARR}}";
@@ -207,7 +219,7 @@ in
               "Transmission" = {
                 icon = "transmission";
                 description = "s'occupe du téléchargement des fichiers";
-                href = "http://${ip}:9091";
+                href = "http://transmission.sisyphe.normandy.hypervirtual.world";
                 widget = {
                   type = "transmission";
                   url = "http://${ip}:9091";
@@ -277,7 +289,7 @@ in
               "Grafana" = {
                 icon = "grafana";
                 description = "Visualiseur de graphiques";
-                href = "http://${ip}:3001";
+                href = "http://grafana.sisyphe.normandy.hypervirtual.world";
               };
             }
             {
@@ -291,7 +303,7 @@ in
               "Uptime Kuma" = {
                 icon = "uptime-kuma";
                 description = "Surveille l'état des différents services";
-                href = "http://${ip}:4001";
+                href = "http://uptime.sisyphe.normandy.hypervirtual.world";
               };
             }
             {
