@@ -31,8 +31,8 @@ in
       settings = {
         shares.directories = [ "${cfg.directory}/clean" ];
         soulseek.description = "i luv katz n mewsik";
-        directories.files.downloads = "${cfg.directory}/downloads";
-        directories.files.incomplete = "${cfg.directory}/incomplete";
+        directories.downloads = "${cfg.directory}/downloads";
+        directories.incomplete = "${cfg.directory}/incomplete";
       };
     };
   };
