@@ -61,6 +61,22 @@
         "type": "github"
       }
     },
+    "nix-secrets": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1724661327,
+        "narHash": "sha256-NQ+PmZwUJdDh0d1WiP7ibqw7aFd2Xn+2Xu6wOZV3E8E=",
+        "ref": "refs/heads/main",
+        "rev": "750285c41d23803be0b66571296e1f1685939511",
+        "revCount": 8,
+        "type": "git",
+        "url": "https://git.hypervirtual.world/harry123/nix-secrets.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://git.hypervirtual.world/harry123/nix-secrets.git"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1723688146,
@@ -112,6 +128,7 @@
     "root": {
       "inputs": {
         "alejandra": "alejandra",
+        "nix-secrets": "nix-secrets",
         "nixpkgs": "nixpkgs",
         "sops-nix": "sops-nix"
       }
