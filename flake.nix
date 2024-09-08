@@ -47,6 +47,14 @@
             ./hosts/labouse/configuration.nix
           ];
         };
+
+        goober = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            ./features/isos/goober.nix
+          ];
+        };
       };
+
     };
 }
