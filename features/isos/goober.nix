@@ -56,6 +56,9 @@
     # Add your own packages here
     neovim
     git
+    # required for ios tethering
+    libimobiledevice
+    ifuse # optional, to mount using 'ifuse'
   ];
   boot.kernelModules = [ "wl" ];
 
@@ -89,4 +92,8 @@
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
+
+  # ios tethering
+  services.usbmuxd.enable = true;
+
 }
