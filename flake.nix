@@ -24,6 +24,7 @@
       self,
       nixpkgs,
       sops-nix,
+      nixos-generators,
       ...
     }@inputs:
     let
@@ -84,6 +85,18 @@
           modules = [
             ./hosts/sisyphe/configuration.nix
             sops-nix.nixosModules.sops
+          ];
+          format = "proxmox";
+        };
+
+        dionysos = nixos-generators.nixosGenerate {
+          system = "x86_64-linux";
+          specialArgs = {
+            diskSize = 20 * 1024;
+            inherit specialArgs;
+          };
+          modules = [
+            ./hosts/dionysos/configuration.nix
           ];
           format = "proxmox";
         };
