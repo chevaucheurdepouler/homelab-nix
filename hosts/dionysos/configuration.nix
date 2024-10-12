@@ -1,9 +1,11 @@
 {
   config,
   pkgs,
-  username,
   ...
 }:
+let
+  username = "harry123";
+in
 {
   environment.systemPackages = with pkgs; [
     weechat

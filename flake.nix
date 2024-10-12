@@ -96,6 +96,12 @@
             inherit specialArgs;
           };
           modules = [
+            (
+              { ... }:
+              {
+                nix.registry.nixpkgs.flake = nixpkgs;
+              }
+            )
             ./hosts/dionysos/configuration.nix
           ];
           format = "proxmox";
