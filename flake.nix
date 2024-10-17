@@ -64,6 +64,16 @@
           ];
         };
 
+        dionysos = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = {
+            inherit specialArgs;
+          };
+          modules = [
+
+            ./hosts/dionysos/configuration.nix
+          ];
+        };
       };
 
       isos = {
