@@ -5,6 +5,9 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
     sops-nix.url = "github:Mic92/sops-nix";
 
+    home-manager.url = "github:nix-community/home-manager/release-24.05";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
     alejandra.url = "github:kamadorueda/alejandra/3.0.0";
     alejandra.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -20,6 +23,13 @@
 
     nix-darwin.url = "github:LnL7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+    anyrun = {
+      url = "github:anyrun-org/anyrun";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.4.1"; 
+    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
   };
 
   outputs =
@@ -29,6 +39,9 @@
       sops-nix,
       nixos-generators,
       nix-darwin,
+      nix-flatpak,
+      anyrun,
+      home-manager,
       ...
     }@inputs:
     let
@@ -38,6 +51,7 @@
       specialArgs = {
         inherit username;
         inherit secrets;
+        inherit inputs;
       };
     in
     {
@@ -65,6 +79,17 @@
           specialArgs = specialArgs;
           modules = [
             ./hosts/goober/configuration.nix
+            nix-flatpak.nixosModules.nix-flatpak
+
+            {environment.systemPackages = [ anyrun.packages."x86_64-linux".anyrun ];}
+
+            home-manager.nixosModules.home-manager {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.${username} = import ./home-manager/home.nix;
+              
+              home-manager.extraSpecialArgs = {inherit inputs;};
+            }
           ];
         };
 
@@ -74,7 +99,6 @@
             inherit specialArgs;
           };
           modules = [
-
             ./hosts/dionysos/configuration.nix
           ];
         };

@@ -2,3 +2,4 @@
 features/server/services/forgejo-smtp.nix filter=crypt diff=crypt 
 features/server/services/nextcloud-network.nix filter=crypt diff=crypt 
 features/server/backups-repos.nix filter=crypt diff=crypt 
+hosts/dionysos/features/znc-infos.nix filter=crypt diff=crypt
