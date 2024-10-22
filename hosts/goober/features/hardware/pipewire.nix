@@ -1,4 +1,4 @@
-{config, ...}:
+{config, pkgs, ...}:
 {
   security.rtkit.enable = true;
   services.pipewire = {
@@ -6,8 +6,8 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
     jack.enable = true;
+
     wireplumber.extraConfig."10-bluez" = {
         "monitor.bluez.properties" = {
           "bluez5.enable-sbc-xq" = true;
@@ -22,4 +22,8 @@
         };
       };
   };
+
+  environment.systemPackages = [
+    pkgs.pwvucontrol
+  ];
 }

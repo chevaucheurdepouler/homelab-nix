@@ -1,0 +1,19 @@
+* {
+  font-family: "CodeNewRoman Nerd Font";
+  font-weight: bold;
+  font-size: 14px;
+  color: #fff;
+}
+
+window#waybar {
+  background-color: rgba(254, 254, 254, 0.6);
+
+}
+
+#clock, #battery, #cpu, #wireplumber, #bluetooth {
+  padding: 0 12px;
+}
+
+#workspaces button.focused {
+    background-color: #7b002c;
+}

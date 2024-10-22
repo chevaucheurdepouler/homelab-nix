@@ -1,4 +1,4 @@
-{ config, pkgs, osConfig, inputs, ... }:
+{ config, pkgs, lib, osConfig, inputs, ... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -85,6 +85,12 @@
   imports = [
     inputs.anyrun.homeManagerModules.default
   ];
+
+  programs.direnv = {
+    enable = true;
+    enableBashIntegration = true; # see note on other shells below
+    nix-direnv.enable = true;
+  };
 
   programs.anyrun = {
       enable = true;

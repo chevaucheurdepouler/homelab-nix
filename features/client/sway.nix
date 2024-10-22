@@ -4,9 +4,11 @@
     grim
     slurp
     wl-clipboard
+    xdg-utils
+    sway-contrib.grimshot
   ];
 
- services.gnome.gnome-keyring.enable = true;
+  services.gnome.gnome-keyring.enable = true;
   programs.sway = { 
     enable = true;
     wrapperFeatures.gtk = true;
@@ -16,4 +18,5 @@
   security.pam.loginLimits = [
   { domain = "@users"; item = "rtprio"; type = "-"; value = 1; }
 ];
+
   }
