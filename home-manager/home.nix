@@ -74,6 +74,7 @@
     ".profile".source = dotfiles/.profile;
     ".config/waybar".source = dotfiles/waybar;
     ".config/cava".source = dotfiles/cava;
+    ".bashrc".source = dotfiles/bash/.bashrc;
 
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
