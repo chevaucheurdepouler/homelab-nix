@@ -40,7 +40,7 @@ in
       };
     };
 
-    services.caddt.virtualHosts."http://transmission.sisyphe.normandy.hypervirtual.world".extraConfig = ''
+    services.caddy.virtualHosts."http://transmission.sisyphe.normandy.hypervirtual.world".extraConfig = ''
         reverse_proxy :9091
       '';
   };
