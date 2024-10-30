@@ -123,7 +123,10 @@
       };
 
     darwinConfigurations."iMac-de-Eddie" = nix-darwin.lib.darwinSystem {
-      modules = [ ./hosts/dadarwin/configuration.nix ];
+      modules = [ ./hosts/dadarwin/configuration.nix 
+      
+      {system.configurationRevision = self.rev or self.dirtyRev or null;}
+      ];
     };
 
     # Expose the package set, including overlays, for convenience.
