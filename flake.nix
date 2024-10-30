@@ -17,6 +17,9 @@
       url = "github:nix-community/nixos-generators";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nix-darwin.url = "github:LnL7/nix-darwin";
+    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
@@ -25,6 +28,7 @@
       nixpkgs,
       sops-nix,
       nixos-generators,
+      nix-darwin,
       ...
     }@inputs:
     let
@@ -117,5 +121,12 @@
           format = "proxmox";
         };
       };
+
+    darwinConfigurations."iMac-de-Eddie" = nix-darwin.lib.darwinSystem {
+      modules = [ ./hosts/dadarwin/configuration.nix ];
+    };
+
+    # Expose the package set, including overlays, for convenience.
+    darwinPackages = self.darwinConfigurations."iMac-de-Eddie".pkgs;
     };
 }
