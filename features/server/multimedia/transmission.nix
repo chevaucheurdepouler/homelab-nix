@@ -39,5 +39,9 @@ in
         ratio-limit-enabled = true;
       };
     };
+
+    services.caddt.virtualHosts."http://transmission.sisyphe.normandy.hypervirtual.world".extraConfig = ''
+        reverse_proxy :9091
+      '';
   };
 }

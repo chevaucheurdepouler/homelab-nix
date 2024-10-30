@@ -35,5 +35,9 @@ in
         directories.incomplete = "${cfg.directory}/incomplete";
       };
     };
+
+    services.caddy.virtualHosts."http://slskd.sisyphe.normandy.hypervirtual.world".extraConfig = ''
+        reverse_proxy :5030
+      '';
   };
 }

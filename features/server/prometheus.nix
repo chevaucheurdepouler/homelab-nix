@@ -1,6 +1,5 @@
 { config, ... }:
 {
-
   services.prometheus = {
     enable = true;
     exporters = {

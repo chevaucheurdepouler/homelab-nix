@@ -78,7 +78,6 @@
           "/srv/Minecraft"
         ];
         postgresql_databases = [
-          { name = "forgejo"; }
           { name = "nextcloud"; }
           { name = "matrix-synapse"; }
         ];

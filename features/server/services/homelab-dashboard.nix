@@ -38,6 +38,10 @@ in
       format = "dotenv";
     };
 
+    services.caddy.virtualHosts."http://sisyphe.normandy.hypervirtual.world".extraConfig = ''
+        reverse_proxy :8082
+      '';
+
     services.homepage-dashboard = {
       enable = true;
       environmentFile = config.sops.secrets."homepage".path;

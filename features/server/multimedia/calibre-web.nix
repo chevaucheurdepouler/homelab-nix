@@ -10,4 +10,8 @@
       enableKepubify = true;
     };
   };
+
+  services.caddy.virtualHosts."http://books.hypervirtual.world".extraConfig = ''
+        reverse_proxy :8083
+      '';
 }

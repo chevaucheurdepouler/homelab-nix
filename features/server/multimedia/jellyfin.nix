@@ -21,4 +21,14 @@
     enable = true;
     openFirewall = true;
   };
+
+  services.caddy.virtualHosts = {
+      "http://jellyfin.sisyphe.normandy.hypervirtual.world".extraConfig = ''
+        reverse_proxy :8096
+      '';
+
+      "http://media.hypervirtual.world".extraConfig = ''
+        reverse_proxy :8096
+      '';
+  };
 }
