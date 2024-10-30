@@ -32,7 +32,7 @@
   };
 
   fileSystems."/srv/media" = {
-    device = "/dev/sdb1";
+    device = "/dev/disk/by-uuid/bc4cf2f6-23ca-4d37-87d3-1b30148ab24b";
     fsType = "ext4";
   };
 
