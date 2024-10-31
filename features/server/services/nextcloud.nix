@@ -97,7 +97,7 @@
 
   environment.systemPackages =
     let
-      php = pkgs.php.buildEnv { extraConfig = "memory_limit = 2G"; };
+      php = pkgs.php.buildEnv { extraConfig = "memory_limit = 4G"; };
     in
     [
       php

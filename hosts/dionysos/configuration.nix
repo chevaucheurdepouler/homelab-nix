@@ -30,4 +30,37 @@ in
 
   users.users.${username}.initialHashedPassword = "$y$j9T$s4isXqWcg4N8TEPjmj0fD/$zog2cpUwstnvwDnQsFmH3br/WAeD2Uu/L7ePr00cKkA";
   environment.variables.EDITOR = "nvim";
+
+    services.nginx = {
+    enable = true;
+    recommendedGzipSettings = true;
+    recommendedOptimisation = true;
+    recommendedProxySettings = true;
+    # You'd think this is a good idea, but Safari doesn't support 1.3 on websockets yet from my testing in 2020.  If one is only using Chrome, consider it.
+    # sslProtocols = "TLSv1.3";
+    virtualHosts = {
+      "irc.hypervirtual.world" = {
+        forceSSL = true;
+        enableACME = true;
+        locations."^~ /weechat" = {
+          proxyPass = "http://127.0.0.1:9000/weechat/";
+          proxyWebsockets = true;
+        };
+        locations."/" = {
+          root = pkgs.glowing-bear;
+        };
+      };
+    };
+
+    services.oauth2.proxy = {
+      enable = true;
+      email.addresses = ''
+        # your email goes here for authorization
+      '';
+      nginx.virtualhosts = [
+        "irc.hypervirtual.world"
+      ];
+      clientID = "";
+      keyFile = "";
+    };
 }
