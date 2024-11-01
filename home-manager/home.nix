@@ -114,6 +114,13 @@
       };
 
     };
+  programs.zoxide.enable = true;
+  programs.zoxide.enableBashIntegration= true;
+  programs.zoxide.options = [
+    "--cmd cd"
+  ];
+
+  services.mpris-proxy.enable = true;
 
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. These will be explicitly sourced when using a

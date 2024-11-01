@@ -6,7 +6,7 @@
     alsa.enable = true;
     alsa.support32Bit = true;
     pulse.enable = true;
-    jack.enable = true;
+    #jack.enable = true;
 
     wireplumber.extraConfig."10-bluez" = {
         "monitor.bluez.properties" = {
@@ -22,7 +22,11 @@
         };
       };
   };
-
+ services.pipewire.wireplumber.extraConfig."11-bluetooth-policy" = {
+    "wireplumber.settings" = {
+      "bluetooth.autoswitch-to-headset-profile" = false;
+    };
+  };
   environment.systemPackages = [
     pkgs.pwvucontrol
   ];
