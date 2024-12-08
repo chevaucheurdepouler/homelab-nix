@@ -97,6 +97,7 @@
 
   services.udisks2.enable = true ;
 
+  security.pam.services.swaylock = {};
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.

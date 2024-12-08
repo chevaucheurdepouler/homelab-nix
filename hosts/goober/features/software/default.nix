@@ -3,6 +3,6 @@
   imports = [
     ./neovim.nix
     ./flatpak.nix
-    ./discord.nix
+    # ./discord.nix
   ];
 }

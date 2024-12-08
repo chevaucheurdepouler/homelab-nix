@@ -1,12 +1,12 @@
 * {
   font-family: "CodeNewRoman Nerd Font";
   font-weight: bold;
-  font-size: 14px;
+  font-size: 12px;
   color: #fff;
 }
 
 window#waybar {
-  background-color: rgba(254, 254, 254, 0.6);
+  background-color: #000;
 
 }
 
@@ -16,4 +16,8 @@ window#waybar {
 
 #workspaces button.focused {
     background-color: #7b002c;
+}
+
+#workspaces {
+  padding: 4px 0;
 }

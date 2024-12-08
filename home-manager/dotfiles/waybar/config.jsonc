@@ -2,7 +2,7 @@
   "layer": "top",
   "modules-left": ["sway/workspaces", "sway/mode"],
   "modules-center": ["wireplumber", "mpris"],
-  "modules-right": ["bluetooth", "clock", "privacy"],
+  "modules-right": ["cpu", "bluetooth", "network", "clock", "privacy"],
   "clock": {
       "format-alt": "{:%a, %d. %b  %H:%M}"
   },
@@ -33,5 +33,6 @@
         "tooltip-icon-size": 24
       }
     ]
-  },
+  }
+
 }

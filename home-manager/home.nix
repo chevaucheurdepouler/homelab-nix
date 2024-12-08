@@ -59,6 +59,10 @@
     pkgs.vscode
 
     pkgs.zathura
+    pkgs.tor-browser
+
+    pkgs.gammastep
+    pkgs.lazygit
     # # You can also create simple shell scripts directly inside your
     # # configuration. For example, this adds a command 'my-hello' to your
     # # environment:
@@ -118,6 +122,7 @@
       };
 
     };
+
   programs.zoxide.enable = true;
   programs.zoxide.enableBashIntegration= true;
   programs.zoxide.options = [
@@ -125,6 +130,10 @@
   ];
 
   services.mpris-proxy.enable = true;
+
+  programs.swaylock = {
+    enable = true;
+  };
 
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. These will be explicitly sourced when using a
@@ -153,6 +162,13 @@
     extraConfig = {
         credential.helper = "${pkgs.git.override { withLibsecret = true; }}/bin/git-credential-libsecret";
     };
+  };
+
+  services.gammastep = {
+    enable = true;
+    provider = "manual";
+    latitude = 49.0;
+    longitude = 8.4;
   };
 
   # Let Home Manager install and manage itself.
