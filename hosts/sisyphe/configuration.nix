@@ -53,6 +53,7 @@
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA8sdToNavEQv7PTMJ97HIGM6UlChwGS3x9O8hFilzui harryh@ik.me"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHjz5MUSmc1ahtUJWuvzG7PHH432nx6a0Nj2zfxt3oTP geekcat@protonmail.com"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIP9Yp7TbDhYJ27Sh+LcPXT569bMVwbFrkE4zksfU84l+ harry123@goober"
     ];
 
     initialHashedPassword = "$y$j9T$H0D6NpMw1EU.oDhbMWrwL.$wDGGBKKGQdzeDRTzq0gWhoLdyUpQ2w6PMmGl.nuQ11/";
