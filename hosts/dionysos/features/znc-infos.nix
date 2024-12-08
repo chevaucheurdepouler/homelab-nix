@@ -10,7 +10,7 @@
         LoadModule = "simple_away";
         Chan = {
           "#nixos" = {Detached = false;};
-        }
+        };
       };
       koshkairc = {
         Server = "irc.koshka.love +6697";

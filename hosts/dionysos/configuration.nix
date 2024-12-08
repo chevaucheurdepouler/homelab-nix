@@ -7,6 +7,7 @@ let
   username = "harry123";
 in
 {
+  imports = [../../features/server/tailscale.nix];
   environment.systemPackages = with pkgs; [
     weechat
     tmux
@@ -30,10 +31,9 @@ in
 
   users.users.${username}.initialHashedPassword = "$y$j9T$s4isXqWcg4N8TEPjmj0fD/$zog2cpUwstnvwDnQsFmH3br/WAeD2Uu/L7ePr00cKkA";
 
-
   environment.variables.EDITOR = "nvim";
 
-    services.nginx = {
+  services.nginx = {
     enable = true;
     recommendedGzipSettings = true;
     recommendedOptimisation = true;

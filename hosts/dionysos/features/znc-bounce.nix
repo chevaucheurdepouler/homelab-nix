@@ -8,11 +8,8 @@
     config = {
       Listener = {
         "Motd" = "welcome to hypervirtual's irc bouncer - using znc";
-        "SSLProtocols" = "-SSLv2 -SSLv3 -TLSv1 +TLSv1.1 +TLSv1.2"
+        "SSLProtocols" = "-SSLv2 -SSLv3 -TLSv1 +TLSv1.1 +TLSv1.2";
       };
-
-      ;
     };
-
   };
 }
