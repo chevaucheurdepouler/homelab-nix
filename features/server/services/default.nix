@@ -8,7 +8,7 @@
     ./irc-server.nix
     ./grafana.nix
     ./forgejo.nix
-    ./synapse-matrix.nix
+    # ./synapse-matrix.nix
     ./uptime-kuma.nix
   ];
 }
