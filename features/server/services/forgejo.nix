@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 {
   imports = [ ./forgejo-smtp.nix ];
   sops.secrets.smtp_address = { };
@@ -34,6 +34,30 @@
       service.DISABLE_REGISTRATION = true;
     };
     mailerPasswordFile = config.sops.secrets.smtp_password.path;
+  };
+
+  sops.secrets.forgejo-runner-token = {
+    owner = "forgejo";
+  };
+
+  services.gitea-actions-runner = {
+    package = pkgs.forgejo-actions-runner;
+    instances.default = {
+      enable = true;
+      name = "monolith";
+      url = "https://git.hypervirtual.world";
+      # Obtaining the path to the runner token file may differ
+      # tokenFile should be in format TOKEN=<secret>, since it's EnvironmentFile for systemd
+      tokenFile = config.sops.secrets.forgejo-runner-token.path;
+      labels = [
+        "ubuntu-latest:docker://node:16-bullseye"
+        "ubuntu-22.04:docker://node:16-bullseye"
+        ## optionally provide native execution on the host:
+        # "native:host"
+      ];
+    };
+  };
+
   };
 
   systemd.services.forgejo.preStart = ''
