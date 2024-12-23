@@ -31,12 +31,16 @@ in
       openFirewall = true;
       openRPCPort = true;
       credentialsFile = config.sops.secrets.transmission.path;
+      webHome = pkgs.flood-for-transmission;
       settings = {
         rpc-bind-address = "0.0.0.0";
         rpc-whitelist-enabled = false;
         rpc-authentication-required = true;
         download-dir = "${cfg.directory}/Torrents";
         ratio-limit-enabled = true;
+        alt-speed-time-enabled = true;
+        alt-speed-time-begin = "480";
+        alt-speed-time-end = "1320";
       };
     };
 
