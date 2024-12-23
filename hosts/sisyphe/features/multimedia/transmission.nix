@@ -2,6 +2,7 @@
   config,
   secrets,
   lib,
+  pkgs,
   ...
 }:
 with lib;
