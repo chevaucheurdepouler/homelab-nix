@@ -1,5 +1,5 @@
 #pattern  filter=crypt diff=crypt merge=crypt
-features/server/services/forgejo-smtp.nix filter=crypt diff=crypt 
-features/server/services/nextcloud-network.nix filter=crypt diff=crypt 
-features/server/backups-repos.nix filter=crypt diff=crypt 
+hosts/sisyphe/features/services/forgejo-smtp.nix filter=crypt diff=crypt 
+hosts/sisyphe/features/services/nextcloud-network.nix filter=crypt diff=crypt 
+hosts/sisyphe/features/backups-repos.nix filter=crypt diff=crypt 
 hosts/dionysos/features/znc-infos.nix filter=crypt diff=crypt
