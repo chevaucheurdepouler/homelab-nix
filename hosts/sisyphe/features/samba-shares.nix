@@ -1,4 +1,5 @@
 { config, lib, ... }:
+with lib;
 let
   cfg = config.samba;
 in
