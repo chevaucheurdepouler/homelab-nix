@@ -36,10 +36,10 @@
     mailerPasswordFile = config.sops.secrets.smtp_password.path;
   };
 
+/*
   sops.secrets.forgejo-runner-token = {
     owner = "forgejo";
   };
-
   services.gitea-actions-runner = {
     package = pkgs.forgejo-actions-runner;
     instances.default = {
@@ -57,7 +57,7 @@
       ];
     };
   };
-
+*/
   systemd.services.forgejo.preStart = ''
     create="${lib.getExe config.services.forgejo.package} admin user create"
     $create --admin --email "`cat ${config.sops.secrets.forgejoInitialMail.path}`" --username you --password "`cat ${config.sops.secrets.forgejoInitialPassword.path}`" &>/dev/null || true
