@@ -1,24 +1,13 @@
-{config, ...}: {
-  services.znc.config.User."computemadness_" = {
-    Admin = true;
-    Nick = "computemadness_";
-    AltNick = "kumputemadness_";
-    LoadModule = [ "chanserver" "controlpanel" ];
-    Network = { 
-      libera = {
-        Server = "irc.libera.chat +6697";
-        LoadModule = "simple_away";
-        Chan = {
-          "#nixos" = {Detached = false;};
-        };
-      };
-      koshkairc = {
-        Server = "irc.koshka.love +6697";
-        Chan = {
-            "#" = {Detached = false;};
-            "#speakez" = {Detached = false;};
-          };
-      };
-    }; 
-  };
-}
+U2FsdGVkX1/KBXWMpf1DqMWCTOr3Ao7hJ9RPX9WEeGdi5pwsUZu50275uByg/fku
+dStEPuVPKHU35mVvLMi938hIAjHb0Vqt3MKjMxwhp0SgbxevnVpWK79AUMzkaNel
+mMGYTMrarL/aRDvlw+l2TiH2/4Pq0DsL/4oMgXQSE6xh9G4jSzmMRV9AEKcs8mSK
+SW+WDg8lLeKi8Y/c7KVx6ZP6TVLpDX4xRToxy9SbyNpSads4cZJLGnLALRYdJl46
+PQKmV2xOnKLAYTN36yzrbZZBXtvURUFKObyhGKVLwdDwfarxG7fi/PAH9A7FIE8B
+xIUU6mPUHy0FdQ/vUh4NeJounTr9i4wmhfJo/aRXB/HlmZA5/zihZwcIv9/GM3gM
+B+nud++PfTVB3M1LXMyCyBOEWqcyADdxSeN4LwdBMAsrufs2gB/gdv3JNhqqJdXa
+E2sEq4OXW/A+1w2ADUZ1l490s7RpQSxWv0JHXgRsm91TIdT6YpNpq8AMHEfLSxE5
+SSX7Yynh1dqgYqzWqFkHIzZ2UYlzrCyCRVLX2Jwcyf6L9Qa62SGhKj5Yml4p7zga
+U2U5Y96GPvKD+WzxliCVxmLSkH1mrnCk4oI5OgEcQzUVLmgfyrDTH+FT6l1IgpFn
+3k7BbuiZtqB9i8pOGf2mluj7+Fi7ppZserh6wwDtrPoGllls8CtbpmOagNwnxzVE
+kZ9IKUbYs0Sy7kMbZD0Ss03zeuBCWHSbikDJ0bg+p9IjtpYcoorLccIztnjmZkDn
+H1cj342muViFyWe8jfpVD1wYzkiscvg3H1CzeI+aQ58=
