@@ -1,6 +1,4 @@
 { config, lib, ... }:
-with lib;
-# TODO: add access to series and TV folders.
 let
   cfg = config.samba;
 in
@@ -31,20 +29,20 @@ in
           browseable = "yes";
           "read only" = "no";
           "create mask" = "0644";
-          "directory mask" = "0755";
+          "directory mask" = "0655";
         };
         ebooks = {
           path = "${cfg.dir}/Ebooks";
           browseable = "yes";
           "read only" = "no";
           "create mask" = "0644";
-          "directory mask" = "0755";
+          "directory mask" = "0655";
         };
         movies = {
           path = "${cfg.dir}/Films";
           browseable = "yes";
           "create mask" = "0644";
-          "directory mask" = "0755";
+          "directory mask" = "0655";
           "read only" = "no";
         };
         shows = {
@@ -52,6 +50,12 @@ in
           "read only" = "no";
           "create mask" = "0644";
           "directory mask" = "0755";
+          browseable = "yes";
+        };
+        torrents = {
+          path = "${cfg.dir}/Torrents";
+          "read only" = "yes";
+          "create mask" = "644";
           browseable = "yes";
         };
       };

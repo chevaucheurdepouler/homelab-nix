@@ -79,7 +79,6 @@
         ];
         postgresql_databases = [
           { name = "nextcloud"; }
-          { name = "matrix-synapse"; }
         ];
         exclude_patterns = [ "/home/*/.cache" ];
         encryption_passcommand = "${pkgs.coreutils}/bin/cat /run/secrets/borgRemoteServerPassword";

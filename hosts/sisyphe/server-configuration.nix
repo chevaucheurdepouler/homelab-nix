@@ -38,8 +38,7 @@ in
       allowedTCPPorts = [
         22 # ssh
         80 # http
-        8008 # matrix-synapse
-        8448 # matrix-synapse
+        443 # ssh
       ];
       allowedUDPPorts = [ ];
     };
