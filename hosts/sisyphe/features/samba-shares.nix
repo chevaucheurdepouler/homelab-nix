@@ -18,7 +18,7 @@ in
       enable = true;
       securityType = "user";
       openFirewall = true;
-      extraConfig = ''
+      settings = ''
         workgroup = WORKGROUP
         server string = hyperserver
         netbios name = hyperserver
