@@ -2,11 +2,12 @@
 {
       # List packages installed in system profile. To search by name, run:
       # $ nix-env -qaP | grep wget
-      environment.systemPackages =
+      environment.systemPackages = with pkgs;
         [
-          pkgs.neovim
-          pkgs.kitty
-          pkgs.kittysay
+          neovim
+          kitty
+          kittysay
+          terraform
         ];
 
       programs.direnv.enable = true;
