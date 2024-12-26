@@ -2,9 +2,14 @@
   config,
   lib,
   pkgs,
+  secrets,
   ...
 }:
-
+let 
+  ip = "192.168.1.177";
+  gateway = "192.168.1.1";
+  username = "homelab";
+in
 {
   imports = [
     ./hardware-configuration.nix
@@ -69,13 +74,57 @@
 
   environment.variables.EDITOR = "nvim";
 
-  # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [
-    22
-    80
-    443
-    8080
-  ];
+  # setting up networking!!
+  networking = {
+    interfaces = {
+      ens18.ipv4.addresses = [
+        {
+          address = ip;
+          prefixLength = 24;
+        }
+      ];
+    };
+
+    defaultGateway = gateway;
+    nameservers = [
+      "1.1.1.1"
+      "1.0.0.1"
+      "2606:4700:4700::1111"
+      "2606:4700:4700::1001"
+    ];
+
+    nftables.enable = true;
+    # firewall rules
+    firewall = {
+      enable = true;
+      allowedTCPPorts = [
+        22 # ssh
+        80 # http
+        443 # ssh
+        8080
+      ];
+      allowedUDPPorts = [ ];
+    };
+  };
+
+  users.groups.multimedia = {
+    members = [
+      "slskd"
+      "radarr"
+      "readarr"
+      "sonarr"
+      "transmission"
+      "jellyfin"
+      "bazarr"
+      "calibre-web"
+      username
+    ];
+  };
+
+  sops.age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
+  sops.age.keyFile = "/var/lib/sops-nix/key.txt";
+  sops.age.generateKey = true;
+  sops.defaultSopsFile = "${secrets}/secrets/secrets.yaml";
 
   # reducing disk usage
   boot.loader.systemd-boot.configurationLimit = 10;
@@ -93,6 +142,7 @@
     "dotnet-sdk-6.0.428"
     "dotnet-sdk-wrapped-6.0.428"
   ];
+
 
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.

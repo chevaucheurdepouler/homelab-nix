@@ -5,7 +5,7 @@
     vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
   };
 
-  hardware.opengl = {
+  hardware.graphics = {
     # hardware.opengl in 24.05
     enable = true;
     extraPackages = with pkgs; [
