@@ -13,7 +13,6 @@ in
 {
   imports = [
     ./hardware-configuration.nix
-    ./server-configuration.nix
     ./features/default.nix
     ../../features/shared/ssh.nix
   ];
