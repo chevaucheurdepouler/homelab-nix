@@ -71,7 +71,7 @@
         ;
 
       memories = pkgs.fetchNextcloudApp {
-        sha256 = "sha256-DJPskJ4rTECTaO1XJFeOD1EfA3TQR4YXqG+NIti0UPE=";
+        sha256 = "sha256-tzxeffvwMwthvBRG+/cLCXZkVS32rlf5v7XOKTbGoOo=";
         url = "https://github.com/pulsejet/memories/releases/download/v7.3.1/memories.tar.gz";
         license = "agpl3Only";
       };
