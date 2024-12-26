@@ -62,8 +62,6 @@ in
         };
       };
     };
-  };
-
   services.samba-wsdd = {
     enable = true;
     openFirewall = true;
@@ -76,4 +74,7 @@ in
     publish.userServices = true;
     openFirewall = true;
   };
+  };
+
+
 }
