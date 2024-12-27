@@ -25,6 +25,7 @@
     database.createLocally = true;
     webserver = "caddy";
     configureRedis = true;
+    package = pkgs.nextcloud30;
     config = {
       dbtype = "pgsql";
       adminpassFile = config.sops.secrets.adminNextcloudPass.path;
@@ -93,6 +94,7 @@
     extraAppsEnable = true;
     appstoreEnable = true; # why i would want appstore to be disabled ???
     autoUpdateApps.enable = true;
+    cli.memoryLimit = "4G";
   };
 
   environment.systemPackages =
