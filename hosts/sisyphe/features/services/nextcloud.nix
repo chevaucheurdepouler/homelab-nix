@@ -63,34 +63,6 @@
     ];
 
     phpOptions."opcache.interned_strings_buffer" = "23";
-    extraApps = {
-      inherit (pkgs.nextcloud30Packages.apps)
-        contacts
-        calendar
-        previewgenerator
-        ;
-
-      memories = pkgs.fetchNextcloudApp {
-        sha256 = "sha256-tzxeffvwMwthvBRG+/cLCXZkVS32rlf5v7XOKTbGoOo=";
-        url = "https://github.com/pulsejet/memories/releases/download/v7.3.1/memories.tar.gz";
-        license = "agpl3Only";
-      };
-      /*
-        not useful for me
-           registration = pkgs.fetchNextcloudApp {
-             sha256 = "sha256-dDaQHyHdkkd8ZammLdck2HNGqqfEaunwevdPzbWzB8Y=";
-             url = "https://github.com/nextcloud-releases/registration/releases/download/v2.4.0/registration-v2.4.0.tar.gz";
-             license = "agpl3Only";
-           };
-      */
-      facerecognition = pkgs.fetchNextcloudApp {
-        sha256 = "sha256-FtYItN0Iy2QpSNf0GPs7fIPYgBdEuKHJGwZ7GQNySZE=";
-        url = "https://github.com/matiasdelellis/facerecognition/releases/download/v0.9.60/facerecognition.tar.gz";
-        license = "agpl3Only";
-      };
-
-    };
-    extraAppsEnable = true;
     appstoreEnable = true; # why i would want appstore to be disabled ???
     autoUpdateApps.enable = true;
     cli.memoryLimit = "4G";
