@@ -142,6 +142,11 @@ in
     "dotnet-sdk-wrapped-6.0.428"
   ];
 
+  # seems like sabnzbd needs some unfree pkgs...
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+    "unrar"
+  ];
+
 
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
