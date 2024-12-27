@@ -64,7 +64,7 @@
 
     phpOptions."opcache.interned_strings_buffer" = "23";
     extraApps = {
-      inherit (config.services.nextcloud.package.packages.apps)
+      inherit (pkgs.nextcloud30Packages.apps)
         contacts
         calendar
         previewgenerator
