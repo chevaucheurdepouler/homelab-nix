@@ -68,7 +68,6 @@
         contacts
         calendar
         previewgenerator
-        twofactor_nextcloud_notification
         ;
 
       memories = pkgs.fetchNextcloudApp {
