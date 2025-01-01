@@ -2,10 +2,11 @@
   description = "the silliest NixOS config!";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11-small";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
+    nixpkgsSmall.url = "github:NixOS/nixpkgs/nixos-24.11-small";
     sops-nix.url = "github:Mic92/sops-nix";
 
-    home-manager.url = "github:nix-community/home-manager/release-24.05";
+    home-manager.url = "github:nix-community/home-manager/release-24.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     alejandra.url = "github:kamadorueda/alejandra/3.0.0";
@@ -36,6 +37,7 @@
     {
       self,
       nixpkgs,
+      nixpkgsSmall,
       sops-nix,
       nixos-generators,
       nix-darwin,
@@ -56,7 +58,7 @@
     in
     {
       nixosConfigurations = {
-        sisyphe = nixpkgs.lib.nixosSystem {
+        sisyphe = nixpkgsSmall.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = specialArgs;
           modules = [

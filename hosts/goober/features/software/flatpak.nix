@@ -3,7 +3,6 @@
 
   services.flatpak.packages = [
     "io.github.zen_browser.zen"
-    "dev.vencord.Vesktop"
     "com.unicornsonlsd.finamp"
   ];
 
