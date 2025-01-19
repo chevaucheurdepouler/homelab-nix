@@ -1,13 +1,13 @@
 {
   "layer": "top",
   "modules-left": ["sway/workspaces", "sway/mode"],
-  "modules-center": ["wireplumber", "mpris"],
-  "modules-right": ["cpu", "bluetooth", "network", "clock", "privacy"],
+  "modules-center": [ ],
+  "modules-right": ["mpris", "wireplumber","cpu", "bluetooth", "network", "clock", "privacy"],
   "clock": {
       "format-alt": "{:%a, %d. %b  %H:%M}"
   },
   "wireplumber": {
-      "format": " {volume}%",
+      "format": "{volume}% ",
       "format-muted": "",
       "max-volume": 120,
       "scroll-step": 0.2
@@ -33,6 +33,26 @@
         "tooltip-icon-size": 24
       }
     ]
+  },
+  "cpu": {
+    "format": "{}%  "
+  },
+  "network": {
+    "interface": "wlp3s0",
+    "format": "{ifname}",
+    "format-wifi": "{essid} ({signalStrength}%)  ",
+    "format-ethernet": "{ipaddr}/{cidr} 󰊗",
+    "format-disconnected": "", //An empty format will hide the module.
+    "tooltip-format": "{ifname} via {gwaddr} 󰊗",
+    "tooltip-format-wifi": "{essid} ({signalStrength}%)  ",
+    "tooltip-format-ethernet": "{ifname}  ",
+    "tooltip-format-disconnected": "Disconnected",
+    "max-length": 50
+  }, 
+  "bluetooth": {
+    "format": "",
+    "format-disabled": "",
+    "format-connected": ""
   }
 
 }

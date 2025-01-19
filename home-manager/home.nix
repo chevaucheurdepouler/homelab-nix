@@ -63,6 +63,17 @@
 
     pkgs.gammastep
     pkgs.lazygit
+    pkgs.xfce.thunar
+    pkgs.gimp-with-plugins
+    pkgs.fzf
+    pkgs.why3
+    pkgs.alt-ergo
+    pkgs.cvc4
+    pkgs.z3
+    pkgs.prismlauncher
+
+    pkgs.audacious
+    pkgs.audacious-plugins
     # # You can also create simple shell scripts directly inside your
     # # configuration. For example, this adds a command 'my-hello' to your
     # # environment:
