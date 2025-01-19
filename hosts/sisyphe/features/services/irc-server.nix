@@ -1,5 +1,7 @@
 {config, pkgs, ...}: 
 {
+  environment.systemPackages = with pkgs; [ ircdHybrid ];
+
   services.ircdHybrid = {
     enable = true;
     serverName = "irc.hypervirtual.world";
