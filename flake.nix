@@ -56,6 +56,9 @@
         inherit secrets;
         inherit inputs;
       };
+
+      system = "x86_64-linux";
+      pkgs = import nixpkgs {inherit system;};
     in
     {
       nixosConfigurations = {
@@ -158,5 +161,8 @@
 
     # Expose the package set, including overlays, for convenience.
     darwinPackages = self.darwinConfigurations."iMac-de-Eddie".pkgs;
+
+    defaultPackage.x86_64-linux = pkgs.callPackage ./packages/miku-cursor.nix {};
     };
+
 }
