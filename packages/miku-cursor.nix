@@ -10,4 +10,8 @@ stdenv.mkDerivation {
     hash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
   };
 
+  postInstall = ''
+    mkdir $out
+  '';
+
 }
