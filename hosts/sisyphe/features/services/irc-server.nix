@@ -8,5 +8,13 @@
     description = "welcome to the silly kittens hut !! meow:3";
     adminEmail = "admin@hypervirtual.world";
   };
+
+  /**environment.etc = {
+    "ircd.conf" = {
+      text =''
+      '';
+      mode = "440";
+    };
+  };**/
 }
 
