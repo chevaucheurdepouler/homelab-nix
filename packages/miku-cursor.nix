@@ -6,12 +6,13 @@ stdenv.mkDerivation {
   src = fetchFromGitHub {
     owner = "supermariofps";
     repo = "hatsune-miku-windows-linux-cursors";
-    rev = "v${1.2.6}";
-    hash = "sha256-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=";
+    rev = "1.2.6";
+    hash = "sha256-OQjjOc9VnxJ7tWNmpHIMzNWX6WsavAOkgPwK1XAMwtE=";
   };
 
   postInstall = ''
-    mkdir $out
+    mkdir -p $out/share/icons/miku-cursor-linux
+    cp -r * $out/share/icons/miku-cursor-linux
   '';
 
 }

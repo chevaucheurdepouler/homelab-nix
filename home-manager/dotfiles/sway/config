@@ -224,5 +224,6 @@ bar {
   swaybar_command waybar
 }
 
+seat seat0 xcursor_theme "miku-cursor-linux" 36
 
 include /etc/sway/config.d/*

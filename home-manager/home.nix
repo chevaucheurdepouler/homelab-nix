@@ -18,6 +18,7 @@
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "vscode"
   ];
+
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
@@ -66,6 +67,7 @@
     pkgs.xfce.thunar
     pkgs.gimp-with-plugins
     pkgs.fzf
+    pkgs.nnn
     pkgs.why3
     pkgs.alt-ergo
     pkgs.cvc4
@@ -166,6 +168,13 @@
   #
   home.sessionVariables = {
     EDITOR = "nvim";
+  };
+
+  home.pointerCursor = {
+    name = "miku-cursor-linux";
+    size = 32;
+    gtk.enable = true;
+    package = pkgs.callPackage ../packages/miku-cursor.nix {};
   };
 
   programs.git = {
