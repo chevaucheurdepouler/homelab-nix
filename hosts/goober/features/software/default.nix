@@ -7,4 +7,5 @@
     ./flatpak.nix
     ./discord.nix
   ];
+
 }

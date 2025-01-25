@@ -1,3 +1,7 @@
+:root {
+  --primary-color: #7b002c;
+}
+
 * {
   font-family: "CodeNewRoman Nerd Font";
   font-weight: bold;
@@ -6,24 +10,27 @@
 }
 
 window#waybar {
+  margin: 12px 24px;
   background-color: #fff;
-
+  border: solid 2px var(--primary-color);
+  min-height: 14px; /* set waybar's height to 14px */
+  font-size: 14px; /* set only the font size to be bigger, which in turn will adjust the height of other elements */
+  border-radius: 12px;
 }
 
-#clock, #battery, #cpu, #wireplumber, #bluetooth {
+#clock,
+#battery,
+#cpu,
+#wireplumber,
+#bluetooth {
   padding: 0 12px;
 }
 
 #workspaces button.focused {
-    border-bottom: solid 2px #7b002c;
-    border-radius: 0;
+  border-bottom: solid 2px var(--primary-color);
+  border-radius: 0;
 }
 
 #workspaces {
   padding: 4px 0;
-}
-
-window#waybar {
-  min-height: 14px; /* set waybar's height to 18px */
-  font-size: 14px; /* set only the font size to be bigger, which in turn will adjust the height of other elements */
 }

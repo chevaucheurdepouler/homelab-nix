@@ -6,6 +6,8 @@
     wl-clipboard
     xdg-utils
     sway-contrib.grimshot
+    swaylock
+    swaynotificationcenter
   ];
 
   services.gnome.gnome-keyring.enable = true;
