@@ -33,6 +33,7 @@
     # # fonts?
     (pkgs.nerdfonts.override { fonts = [ "CodeNewRoman" ]; })
     
+    pkgs.dm-sans
     pkgs.zoxide
     pkgs.btop
     #pkgs.bitwarden
@@ -99,6 +100,7 @@
     ".config/waybar".source = dotfiles/waybar;
     ".config/cava".source = dotfiles/cava;
     ".bashrc".source = dotfiles/bash/.bashrc;
+    ".config/hyfetch.json".source = dotfiles/hyfetch/hyfetch.json;
 
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
