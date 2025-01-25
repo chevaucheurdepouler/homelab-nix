@@ -78,6 +78,7 @@
     pkgs.audacious-plugins
 
     pkgs.krita
+    pkgs.udiskie
     # # You can also create simple shell scripts directly inside your
     # # configuration. For example, this adds a command 'my-hello' to your
     # # environment:
@@ -145,6 +146,12 @@
   ];
 
   services.mpris-proxy.enable = true;
+
+  services.udiskie = {
+    enable = true;
+    tray = "auto";
+    automount = true;
+  };
 
   programs.swaylock = {
     enable = true;

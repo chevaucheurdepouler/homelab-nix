@@ -85,6 +85,7 @@
     grim
     slurp
     wl-clipboard
+    udiskie
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -96,6 +97,7 @@
   };
 
   services.udisks2.enable = true ;
+
 
   security.pam.services.swaylock = {};
   # List services that you want to enable:

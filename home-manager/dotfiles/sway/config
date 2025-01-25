@@ -29,7 +29,7 @@ set $screenshot_folder ~/Images/Captures\ d\'écrans/
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /run/current-system/sw/share/backgrounds/sway/)
-output * bg wallpapers/577806.jpg fill
+output * bg wallpapers/wipeout_1.jpg fill
 #
 # Example configuration:
 #
