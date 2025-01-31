@@ -23,5 +23,8 @@
 
   # native wayland support (unstable)
   wineWowPackages.waylandFull
+
+  # for easy games gestion
+  lutris
 ];
 }

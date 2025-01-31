@@ -6,6 +6,7 @@
     ./neovim.nix
     ./flatpak.nix
     ./discord.nix
+    ./ollama.nix
   ];
 
 }
