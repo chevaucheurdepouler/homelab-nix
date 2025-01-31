@@ -1,8 +1,8 @@
 {
   "layer": "top",
-  "modules-left": ["sway/workspaces", "sway/mode"],
+  "modules-left": ["custom/launcher", "sway/workspaces", "sway/mode"],
   "modules-center": [],
-  "modules-right": ["wireplumber", "bluetooth", "network", "clock", "privacy"],
+  "modules-right": ["tray", "bluetooth", "network", "clock", "privacy"],
   "clock": {
     "format-alt": "{:%a, %d. %b  %H:%M}"
   },
@@ -40,7 +40,7 @@
   "network": {
     "interface": "wlp3s0",
     "format": "{ifname}",
-    "format-wifi": " ",
+    "format-wifi": "",
     "format-ethernet": "󰈀",
     "format-disconnected": "", //An empty format will hide the module.
     "tooltip-format": "{ifname} via {gwaddr} 󰈀",
@@ -50,7 +50,7 @@
     "max-length": 50
   },
   "bluetooth": {
-    "format": "",
+    "format": "",
     "format-disabled": "",
     "format-connected": ""
   },
@@ -74,5 +74,7 @@
     "on-click": "swaync-client -t -sw",
     "on-click-right": "swaync-client -d -sw",
     "escape": true
-  }
+  },
+  "custom/launcher": {},
+  "custom/controlpanel": {}
 }
