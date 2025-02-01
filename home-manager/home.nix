@@ -68,7 +68,7 @@
     pkgs.xfce.thunar
     pkgs.gimp-with-plugins
     pkgs.fzf
-    pkgs.nnn
+    pkgs.lf
     pkgs.why3
     pkgs.alt-ergo
     pkgs.cvc4
@@ -80,6 +80,8 @@
 
     pkgs.krita
     pkgs.udiskie
+
+    pkgs.libsixel
     # # You can also create simple shell scripts directly inside your
     # # configuration. For example, this adds a command 'my-hello' to your
     # # environment:
@@ -200,6 +202,23 @@
     provider = "manual";
     latitude = 49.0;
     longitude = 8.4;
+  };
+
+  xdg.mimeApps = {
+      enable = true;
+      defaultApplications = {
+        "text/html" = "firefox.desktop";
+        "x-scheme-handler/http" = "firefox.desktop";
+        "x-scheme-handler/https" = "firefox.desktop";
+        "x-scheme-handler/about" = "firefox.desktop";
+        "x-scheme-handler/unknown" = "firefox.desktop";
+        "application/pdf" = "org.pwmt.zathura-pdf-mupdf.desktop";
+    };
+  };
+
+  programs.foot = {
+    enable = true;
+    server.enable = true;
   };
 
   # Let Home Manager install and manage itself.
