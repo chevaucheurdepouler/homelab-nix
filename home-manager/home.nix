@@ -82,6 +82,7 @@
     pkgs.udiskie
 
     pkgs.libsixel
+    pkgs.walker
     # # You can also create simple shell scripts directly inside your
     # # configuration. For example, this adds a command 'my-hello' to your
     # # environment:
@@ -120,28 +121,6 @@
     enableBashIntegration = true; # see note on other shells below
     nix-direnv.enable = true;
   };
-
-  programs.anyrun = {
-      enable = true;
-      config = {
-        hideIcons = false;
-        showResultsImmediately = true;
-        maxEntries = 10;
-        closeOnClick = true;
-        x = { fraction = 0.5; };
-        y = { fraction = 0.3; };
-        width = { fraction = 0.3; };
-        layer = "overlay";
-        plugins = [
-          inputs.anyrun.packages.${pkgs.system}.applications
-          inputs.anyrun.packages.${pkgs.system}.rink
-          inputs.anyrun.packages.${pkgs.system}.translate
-          inputs.anyrun.packages.${pkgs.system}.dictionary
-          inputs.anyrun.packages.${pkgs.system}.websearch
-        ];
-      };
-
-    };
 
   programs.zoxide.enable = true;
   programs.zoxide.enableBashIntegration= true;
