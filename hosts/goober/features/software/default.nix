@@ -7,6 +7,7 @@
     ./flatpak.nix
     ./discord.nix
     ./ollama.nix
+    ./steam.nix
   ];
 
 }
