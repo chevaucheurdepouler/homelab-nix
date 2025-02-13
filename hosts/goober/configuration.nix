@@ -100,6 +100,13 @@
 
 
   security.pam.services.swaylock = {};
+
+  # cleaning old builds
+  nix.gc = {
+    automatic = true;
+    randomizedDelaySec = "14m";
+    options = "--delete-older-than 10d";
+  };
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
