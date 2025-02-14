@@ -46,6 +46,7 @@
     pkgs.thunderbird-bin
     pkgs.feh
     pkgs.waybar
+    pkgs.p7zip
 
     pkgs.playerctl
     pkgs.wf-recorder
@@ -182,7 +183,7 @@
     latitude = 49.0;
     longitude = 8.4;
   };
-
+/*
   xdg.mimeApps = {
       enable = true;
       defaultApplications = {
@@ -194,7 +195,7 @@
         "application/pdf" = "org.pwmt.zathura-pdf-mupdf.desktop";
     };
   };
-
+*/
   programs.foot = {
     enable = true;
     server.enable = true;

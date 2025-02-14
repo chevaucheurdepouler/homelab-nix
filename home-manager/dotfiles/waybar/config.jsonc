@@ -2,7 +2,14 @@
   "layer": "top",
   "modules-left": ["custom/launcher", "sway/workspaces", "sway/mode"],
   "modules-center": [],
-  "modules-right": ["tray", "bluetooth", "network", "clock", "privacy"],
+  "modules-right": [
+    "tray",
+    "bluetooth",
+    "network",
+    "wireplumber",
+    "clock",
+    "privacy"
+  ],
   "clock": {
     "format-alt": "{:%a, %d. %b  %H:%M}"
   },
