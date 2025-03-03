@@ -17,7 +17,6 @@
     ../../features/client/tailscale.nix
     ../../features/client/sway.nix
     ./features/default.nix
-    ./overlays/foot-overlay.nix
   ];
 
   nixpkgs.config.allowUnfree = true;

@@ -7,7 +7,7 @@
     nixpkgsUnstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     sops-nix.url = "github:Mic92/sops-nix";
 
-    home-manager.url = "github:nix-community/home-manager/release-24.11";
+    home-manager.url = "github:nix-community/home-manager/";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     alejandra.url = "github:kamadorueda/alejandra/3.0.0";
@@ -30,7 +30,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.4.1"; 
+    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.4.1";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
   };
 
@@ -39,6 +39,7 @@
       self,
       nixpkgs,
       nixpkgsSmall,
+      nixpkgsUnstable,
       sops-nix,
       nixos-generators,
       nix-darwin,
@@ -58,7 +59,7 @@
       };
 
       system = "x86_64-linux";
-      pkgs = import nixpkgs {inherit system;};
+      pkgs = import nixpkgs { inherit system; };
     in
     {
       nixosConfigurations = {
@@ -80,21 +81,22 @@
           ];
         };
 
-        goober = nixpkgs.lib.nixosSystem {
+        goober = nixpkgsUnstable.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = specialArgs;
           modules = [
             ./hosts/goober/configuration.nix
             nix-flatpak.nixosModules.nix-flatpak
 
-            {environment.systemPackages = [ anyrun.packages."x86_64-linux".anyrun ];}
+            { environment.systemPackages = [ anyrun.packages."x86_64-linux".anyrun ]; }
 
-            home-manager.nixosModules.home-manager {
+            home-manager.nixosModules.home-manager
+            {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users.${username} = import ./home-manager/home.nix;
-              
-              home-manager.extraSpecialArgs = {inherit inputs;};
+
+              home-manager.extraSpecialArgs = { inherit inputs; };
             }
           ];
         };
@@ -152,17 +154,18 @@
         };
       };
 
-    darwinConfigurations."iMac-de-Eddie" = nix-darwin.lib.darwinSystem {
-      modules = [ ./hosts/dadarwin/configuration.nix 
-      
-      {system.configurationRevision = self.rev or self.dirtyRev or null;}
-      ];
-    };
+      darwinConfigurations."iMac-de-Eddie" = nix-darwin.lib.darwinSystem {
+        modules = [
+          ./hosts/dadarwin/configuration.nix
 
-    # Expose the package set, including overlays, for convenience.
-    darwinPackages = self.darwinConfigurations."iMac-de-Eddie".pkgs;
+          { system.configurationRevision = self.rev or self.dirtyRev or null; }
+        ];
+      };
 
-   packages.miku-cursor-linux = pkgs.callPackage ./packages/miku-cursor.nix {};
+      # Expose the package set, including overlays, for convenience.
+      darwinPackages = self.darwinConfigurations."iMac-de-Eddie".pkgs;
+
+      packages.miku-cursor-linux = pkgs.callPackage ./packages/miku-cursor.nix { };
     };
 
 }
