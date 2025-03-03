@@ -2,32 +2,39 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, inputs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ../../features/client/tailscale.nix
-      ../../features/client/sway.nix
-      ./features/default.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ../../features/client/tailscale.nix
+    ../../features/client/sway.nix
+    ./features/default.nix
+    ./overlays/foot-overlay.nix
+  ];
 
   nixpkgs.config.allowUnfree = true;
   boot.loader = {
     efi.canTouchEfiVariables = true;
     grub = {
       enable = true;
-      devices = ["nodev"];
+      devices = [ "nodev" ];
       efiSupport = true;
       useOSProber = true;
     };
   };
-  
+
   time.hardwareClockInLocalTime = true;
 
   networking.hostName = "goober"; # Define your hostname.
-  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
 
   # Set your time zone.
   time.timeZone = "Europe/Paris";
@@ -37,21 +44,27 @@
   console = {
     font = "Lat2-Terminus16";
     keyMap = "fr";
-  #   useXkbConfig = true; # use xkb.options in tty.
+    #   useXkbConfig = true; # use xkb.options in tty.
   };
 
   # mount compression
   fileSystems = {
-    "/".options = ["compress=zstd"];
-    "/home".options = ["compress=zstd"];
-    "/nix".options = ["compress=zstd" "noatime"];
+    "/".options = [ "compress=zstd" ];
+    "/home".options = [ "compress=zstd" ];
+    "/nix".options = [
+      "compress=zstd"
+      "noatime"
+    ];
     #"/swap".options = ["compress=zstd"];
   };
-  
+
   services.btrfs.autoScrub.enable = true;
   services.btrfs.autoScrub.interval = "weekly";
 
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
   # Configure keymap in X11
   # services.xserver.xkb.layout = "us";
   # services.xserver.xkb.options = "eurosign:e,caps:escape";
@@ -65,7 +78,11 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.harry123 = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "audio" "video" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [
+      "wheel"
+      "audio"
+      "video"
+    ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
       firefox
       tailscale
@@ -96,10 +113,9 @@
     enableSSHSupport = true;
   };
 
-  services.udisks2.enable = true ;
+  services.udisks2.enable = true;
 
-
-  security.pam.services.swaylock = {};
+  security.pam.services.swaylock = { };
 
   # cleaning old builds
   nix.gc = {
@@ -107,6 +123,7 @@
     randomizedDelaySec = "14m";
     options = "--delete-older-than 10d";
   };
+
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
@@ -138,4 +155,3 @@
   system.stateVersion = "24.05"; # Did you read the comment?
 
 }
-

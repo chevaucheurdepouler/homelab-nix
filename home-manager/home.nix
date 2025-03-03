@@ -1,4 +1,11 @@
-{ config, pkgs, lib, osConfig, inputs, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  osConfig,
+  inputs,
+  ...
+}:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -15,9 +22,11 @@
   # release notes.
   home.stateVersion = "24.05"; # Please read the comment before changing.
 
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    "vscode"
-  ];
+  nixpkgs.config.allowUnfreePredicate =
+    pkg:
+    builtins.elem (lib.getName pkg) [
+      "vscode"
+    ];
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
@@ -25,14 +34,13 @@
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
-    
-    
+
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
     # # fonts?
     (pkgs.nerdfonts.override { fonts = [ "CodeNewRoman" ]; })
-    
+
     pkgs.dm-sans
     pkgs.zoxide
     pkgs.btop
@@ -84,8 +92,12 @@
 
     pkgs.libsixel
     pkgs.walker
+    pkgs.unzip
+    pkgs.p7zip
+
+    pkgs.nixfmt-rfc-style
     # # You can also create simple shell scripts directly inside your
-    # # configuration. For example, this adds a command 'my-hello' to your
+    #  # configuration. For example, this adds a command 'my-hello' to your
     # # environment:
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
@@ -124,7 +136,7 @@
   };
 
   programs.zoxide.enable = true;
-  programs.zoxide.enableBashIntegration= true;
+  programs.zoxide.enableBashIntegration = true;
   programs.zoxide.options = [
     "--cmd cd"
   ];
@@ -165,15 +177,15 @@
     name = "miku-cursor-linux";
     size = 32;
     gtk.enable = true;
-    package = pkgs.callPackage ../packages/miku-cursor.nix {};
+    package = pkgs.callPackage ../packages/miku-cursor.nix { };
   };
 
   programs.git = {
     userName = "harry123";
-    userEmail = "harryh@ik.me";     
+    userEmail = "harryh@ik.me";
     enable = true;
     extraConfig = {
-        credential.helper = "${pkgs.git.override { withLibsecret = true; }}/bin/git-credential-libsecret";
+      credential.helper = "${pkgs.git.override { withLibsecret = true; }}/bin/git-credential-libsecret";
     };
   };
 
@@ -183,19 +195,19 @@
     latitude = 49.0;
     longitude = 8.4;
   };
-/*
-  xdg.mimeApps = {
-      enable = true;
-      defaultApplications = {
-        "text/html" = "firefox.desktop";
-        "x-scheme-handler/http" = "firefox.desktop";
-        "x-scheme-handler/https" = "firefox.desktop";
-        "x-scheme-handler/about" = "firefox.desktop";
-        "x-scheme-handler/unknown" = "firefox.desktop";
-        "application/pdf" = "org.pwmt.zathura-pdf-mupdf.desktop";
+  /*
+    xdg.mimeApps = {
+        enable = true;
+        defaultApplications = {
+          "text/html" = "firefox.desktop";
+          "x-scheme-handler/http" = "firefox.desktop";
+          "x-scheme-handler/https" = "firefox.desktop";
+          "x-scheme-handler/about" = "firefox.desktop";
+          "x-scheme-handler/unknown" = "firefox.desktop";
+          "application/pdf" = "org.pwmt.zathura-pdf-mupdf.desktop";
+      };
     };
-  };
-*/
+  */
   programs.foot = {
     enable = true;
     server.enable = true;
