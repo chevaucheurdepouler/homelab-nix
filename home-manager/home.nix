@@ -30,72 +30,71 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = [
+  home.packages = with pkgs; [
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
 
-    # # It is sometimes useful to fine-tune packages, for example, by applying
-    # # overrides. You can do that directly here, just don't forget the
-    # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
-    # # fonts?
-    (pkgs.nerdfonts.override { fonts = [ "CodeNewRoman" ]; })
+    nerd-fonts.code-new-roman
 
-    pkgs.dm-sans
-    pkgs.zoxide
-    pkgs.btop
+    dm-sans
+    zoxide
+    btop
     #pkgs.bitwarden
-    pkgs.weechat
-    pkgs.eclipses.eclipse-java # school wants us to use it...
-    pkgs.cava
-    pkgs.hyfetch
-    pkgs.kittysay
-    pkgs.nextcloud-client
-    pkgs.thunderbird-bin
-    pkgs.feh
-    pkgs.waybar
-    pkgs.p7zip
+    weechat
+    eclipses.eclipse-java # school wants us to use it...
+    cava
+    hyfetch
+    kittysay
+    nextcloud-client
+    thunderbird-bin
+    feh
+    waybar
+    p7zip
 
-    pkgs.playerctl
-    pkgs.wf-recorder
+    playerctl
+    wf-recorder
 
-    pkgs.file
-    pkgs.osu-lazer-bin
+    file
+    osu-lazer-bin
 
-    pkgs.qbittorrent
+    qbittorrent
 
-    pkgs.i2pd
+    i2pd
 
-    pkgs.ripgrep
-    pkgs.vscode
+    ripgrep
+    vscode
 
-    pkgs.zathura
-    pkgs.tor-browser
+    zathura
+    tor-browser
 
-    pkgs.gammastep
-    pkgs.lazygit
-    pkgs.xfce.thunar
-    pkgs.gimp-with-plugins
-    pkgs.fzf
-    pkgs.lf
-    pkgs.why3
-    pkgs.alt-ergo
-    pkgs.cvc4
-    pkgs.z3
-    pkgs.prismlauncher
+    gammastep
+    lazygit
+    xfce.thunar
+    gimp-with-plugins
+    fzf
+    lf
+    why3
+    alt-ergo
+    cvc4
+    z3
+    prismlauncher
 
-    pkgs.audacious
-    pkgs.audacious-plugins
+    audacious
+    audacious-plugins
 
-    pkgs.krita
-    pkgs.udiskie
+    krita
+    udiskie
 
-    pkgs.libsixel
-    pkgs.walker
-    pkgs.unzip
-    pkgs.p7zip
+    libsixel
+    walker
+    unzip
+    p7zip
 
-    pkgs.nixfmt-rfc-style
+    nixfmt-rfc-style
+    signal-desktop
+    gajim
+    blender
     # # You can also create simple shell scripts directly inside your
     #  # configuration. For example, this adds a command 'my-hello' to your
     # # environment:

@@ -25,13 +25,13 @@
 
     nix-darwin.url = "github:LnL7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
-    anyrun = {
-      url = "github:anyrun-org/anyrun";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.4.1";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+    inputs.nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -44,8 +44,8 @@
       nixos-generators,
       nix-darwin,
       nix-flatpak,
-      anyrun,
       home-manager,
+      nixvim,
       ...
     }@inputs:
     let
@@ -87,9 +87,6 @@
           modules = [
             ./hosts/goober/configuration.nix
             nix-flatpak.nixosModules.nix-flatpak
-
-            { environment.systemPackages = [ anyrun.packages."x86_64-linux".anyrun ]; }
-
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
@@ -98,6 +95,8 @@
 
               home-manager.extraSpecialArgs = { inherit inputs; };
             }
+
+            nixvim.homeManagerModules.nixvim
           ];
         };
 
