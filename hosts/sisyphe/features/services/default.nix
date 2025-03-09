@@ -2,10 +2,12 @@
 {
   imports = [
     # ./akkoma.nix
+    ./archivebox.nix
     ./homelab-dashboard.nix
     ./nextcloud.nix
     # ./photoprism.nix
-    ./irc-server.nix
+    # TODO: configure irc server correctly
+    # ./irc-server.nix
     ./grafana.nix
     ./forgejo.nix
     # ./synapse-matrix.nix

@@ -13,12 +13,14 @@
       };
     };
     scrapeConfigs = [
-      {
-        job_name = "synapse";
-        scrape_interval = "15s";
-        metrics_path = "/_synapse/metrics";
-        static_configs = [ { targets = [ "localhost:9000" ]; } ];
-      }
+      /*
+        {
+          job_name = "synapse";
+          scrape_interval = "15s";
+          metrics_path = "/_synapse/metrics";
+          static_configs = [ { targets = [ "localhost:9000" ]; } ];
+        }
+      */
       {
         job_name = "homelab-stats";
         static_configs = [
