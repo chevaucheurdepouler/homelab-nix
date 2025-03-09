@@ -4,6 +4,7 @@
   lib,
   osConfig,
   inputs,
+  nixvim,
   ...
 }:
 
@@ -123,10 +124,6 @@
     #   org.gradle.daemon.idletimeout=3600000
     # '';
   };
-
-  imports = [
-    inputs.anyrun.homeManagerModules.default
-  ];
 
   programs.direnv = {
     enable = true;

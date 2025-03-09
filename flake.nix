@@ -28,7 +28,7 @@
 
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.4.1";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
-    inputs.nixvim = {
+    nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -92,11 +92,11 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users.${username} = import ./home-manager/home.nix;
-
               home-manager.extraSpecialArgs = { inherit inputs; };
+              home-manager.sharedModules = [
+                nixvim.homeManagerModules.nixvim
+              ];
             }
-
-            nixvim.homeManagerModules.nixvim
           ];
         };
 
