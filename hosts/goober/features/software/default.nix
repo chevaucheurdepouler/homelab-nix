@@ -1,4 +1,4 @@
-{config, ...}:
+{ config, ... }:
 {
   imports = [
     ./wine.nix
@@ -8,6 +8,7 @@
     ./discord.nix
     ./ollama.nix
     ./steam.nix
+    ./workstation.nix
   ];
 
 }

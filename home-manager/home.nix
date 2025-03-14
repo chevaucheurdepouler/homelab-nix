@@ -9,6 +9,7 @@
 }:
 
 {
+  imports = [ inputs.walker.homeManagerModules.default ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "harry123";
@@ -37,11 +38,12 @@
     # pkgs.hello
 
     nerd-fonts.code-new-roman
-
+    ffmpegthumbnailer
+    xfce.tumbler
     dm-sans
     zoxide
     btop
-    #pkgs.bitwarden
+    bitwarden-cli
     weechat
     eclipses.eclipse-java # school wants us to use it...
     cava
@@ -53,6 +55,8 @@
     waybar
     p7zip
 
+    libreoffice-qt
+
     playerctl
     wf-recorder
 
@@ -62,7 +66,6 @@
     qbittorrent
 
     i2pd
-
     ripgrep
     vscode
 
@@ -84,18 +87,13 @@
     audacious
     audacious-plugins
 
-    krita
     udiskie
 
     libsixel
-    walker
     unzip
     p7zip
 
     nixfmt-rfc-style
-    signal-desktop
-    gajim
-    blender
     # # You can also create simple shell scripts directly inside your
     #  # configuration. For example, this adds a command 'my-hello' to your
     # # environment:
@@ -164,7 +162,7 @@
   # or
   #
   #  /etc/profiles/per-user/harry123/etc/profile.d/hm-session-vars.sh
-  #
+
   home.sessionVariables = {
     EDITOR = "nvim";
   };
@@ -191,6 +189,7 @@
     latitude = 49.0;
     longitude = 8.4;
   };
+
   /*
     xdg.mimeApps = {
         enable = true;
@@ -207,6 +206,23 @@
   programs.foot = {
     enable = true;
     server.enable = true;
+  };
+
+  programs.walker = {
+    enable = true;
+    runAsService = true;
+
+    # All options from the config.json can be used here.
+    config = {
+      search.placeholder = "Example";
+      ui.fullscreen = true;
+      list = {
+        height = 200;
+      };
+      websearch.prefix = "?";
+      switcher.prefix = "/";
+    };
+
   };
 
   # Let Home Manager install and manage itself.
