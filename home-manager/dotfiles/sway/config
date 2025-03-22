@@ -21,7 +21,7 @@ set $term footclient
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu walker | xargs swaymsg exec --
+set $menu walker --modules applications,ssh,calculator | xargs swaymsg exec --
 
 # screenshot folder
 set $screenshot_folder ~/Images/Captures\ d\'écrans/
@@ -213,6 +213,7 @@ mode "resize" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
+
 bindsym $mod+r mode "resize"
 
 #
@@ -231,8 +232,10 @@ include /etc/sway/config.d/*
 input type:keyboard xkb_numlock enabled
 
 # floating bitwarden
-for_window [app_id="^firefox$" title="^Extension: \(Bitwarden - Free Password Manager\) - Bitwarden — Mozilla Firefox$"] floating enable
+for_window [app_id="^firefox$" title="^Extension: \(Bitwarden - Free Password Manager\) - Bitwarden — Mozilla Firefox"] floating enable
+for_window [app_id="^firefox$" title="^Incrustation vidéo$"] floating enable
 
+assign [class="firefox"] -> 2
 # notification daemon
 exec swaync
 

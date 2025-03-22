@@ -1,5 +1,7 @@
 { pkgs, lib, ... }:
 {
+  # for java development on vscode
+  programs.nix-ld.enable = true;
 
   nixpkgs.config.allowUnfreePredicate =
     pkg:
@@ -30,5 +32,11 @@
 
     signal-desktop
     gajim
+    weechat
+
+    gvfs
+    xfce.thunar
+
+    eclipses.eclipse-java # school wants us to use it...
   ];
 }

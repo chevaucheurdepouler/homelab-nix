@@ -45,7 +45,6 @@
     btop
     bitwarden-cli
     weechat
-    eclipses.eclipse-java # school wants us to use it...
     cava
     hyfetch
     kittysay
@@ -190,6 +189,19 @@
     longitude = 8.4;
   };
 
+  xdg = {
+    userDirs = {
+      enable = true;
+      createDirectories = true;
+      desktop = "${config.home.homeDirectory}/Bureau";
+      download = "${config.home.homeDirectory}/Téléchargements";
+      music = "${config.home.homeDirectory}/Musique";
+      pictures = "${config.home.homeDirectory}/Images";
+      extraConfig = {
+        XDG_SCREENSHOTS_DIR = "${config.home.homeDirectory}/Images/Captures\ d\'écrans";
+      };
+    };
+  };
   /*
     xdg.mimeApps = {
         enable = true;
@@ -200,9 +212,12 @@
           "x-scheme-handler/about" = "firefox.desktop";
           "x-scheme-handler/unknown" = "firefox.desktop";
           "application/pdf" = "org.pwmt.zathura-pdf-mupdf.desktop";
+          "image/jpeg" = "feh.desktop";
+          "image/png" = "feh.desktop";
       };
     };
   */
+
   programs.foot = {
     enable = true;
     server.enable = true;

@@ -16,7 +16,8 @@
   "wireplumber": {
     "format": "{volume}% ",
     "format-muted": "",
-    "max-volume": 120,
+    "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINC@ toggle",
+    "max-volume": 100,
     "scroll-step": 0.2
   },
   "privacy": {
@@ -26,11 +27,6 @@
     "modules": [
       {
         "type": "screenshare",
-        "tooltip": true,
-        "tooltip-icon-size": 24
-      },
-      {
-        "type": "audio-out",
         "tooltip": true,
         "tooltip-icon-size": 24
       },
@@ -81,7 +77,5 @@
     "on-click": "swaync-client -t -sw",
     "on-click-right": "swaync-client -d -sw",
     "escape": true
-  },
-  "custom/launcher": {},
-  "custom/controlpanel": {}
+  }
 }
