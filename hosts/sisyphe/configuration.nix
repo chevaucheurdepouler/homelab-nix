@@ -5,7 +5,7 @@
   secrets,
   ...
 }:
-let 
+let
   ip = "192.168.1.177";
   gateway = "192.168.1.1";
   username = "homelab";
@@ -13,8 +13,8 @@ in
 {
   imports = [
     ./hardware-configuration.nix
-    ./features/default.nix
-    ../../features/shared/ssh.nix
+    ./features
+    ../shared
   ];
 
   # Use the GRUB 2 boot loader.
@@ -24,23 +24,6 @@ in
 
   services.qemuGuest.enable = true;
   networking.hostName = "sisyphe"; # Define your hostname.
-
-  # Set your time zone.
-  time.timeZone = lib.mkDefault "Europe/Paris";
-
-  i18n.defaultLocale = "fr_FR.UTF-8";
-  console = {
-    font = "Lat2-Terminus16";
-    keyMap = "fr";
-  };
-
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
-
-  system.autoUpgrade.enable = true;
-  system.autoUpgrade.allowReboot = true;
 
   users.users.homelab = {
     isNormalUser = true;
@@ -68,10 +51,7 @@ in
   environment.systemPackages = with pkgs; [
     git
     neovim
-    curl
   ];
-
-  environment.variables.EDITOR = "nvim";
 
   # setting up networking!!
   networking = {
@@ -125,15 +105,6 @@ in
   sops.age.generateKey = true;
   sops.defaultSopsFile = "${secrets}/secrets/secrets.yaml";
 
-  # reducing disk usage
-  boot.loader.systemd-boot.configurationLimit = 10;
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 1w";
-  };
-  nix.settings.auto-optimise-store = true;
-
   # sonarr needs some EoL packages to be build
   nixpkgs.config.permittedInsecurePackages = [
     "aspnetcore-runtime-6.0.36"
@@ -143,10 +114,11 @@ in
   ];
 
   # seems like sabnzbd needs some unfree pkgs...
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    "unrar"
-  ];
-
+  nixpkgs.config.allowUnfreePredicate =
+    pkg:
+    builtins.elem (lib.getName pkg) [
+      "unrar"
+    ];
 
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
@@ -166,5 +138,4 @@ in
   #
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
   system.stateVersion = "24.05"; # Did you read the comment?
-
 }

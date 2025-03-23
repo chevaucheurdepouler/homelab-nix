@@ -18,6 +18,10 @@
       flake = false;
     };
 
+    miovim = {
+      url = "https://git.hypervirtual.world/harry123/miovim";
+    };
+
     nixos-generators = {
       url = "github:nix-community/nixos-generators";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -25,13 +29,8 @@
 
     nix-darwin.url = "github:LnL7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
-
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.4.1";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
     walker.url = "github:abenz1267/walker";
   };
@@ -48,6 +47,7 @@
       nix-flatpak,
       home-manager,
       nixvim,
+      miovim,
       ...
     }@inputs:
     let
@@ -150,6 +150,18 @@
               }
             )
             ./hosts/dionysos/configuration.nix
+          ];
+          format = "proxmox";
+        };
+
+        diva = nixos-generators.nixosGenerate {
+          system = "x86_64-linux";
+          specialArgs = {
+            diskSize = 20 * 1024;
+            inherit specialArgs;
+          };
+          modules = [
+            ./hosts/diva/configuration.nix
           ];
           format = "proxmox";
         };

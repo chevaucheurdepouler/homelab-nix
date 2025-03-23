@@ -1,0 +1,4 @@
+{ ... }:
+{
+  services.borgmatic.enable = true;
+}

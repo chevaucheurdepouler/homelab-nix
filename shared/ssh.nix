@@ -1,4 +1,8 @@
-{ config, ... }:
+{
+  config,
+
+  ...
+}:
 {
   services.openssh = {
     enable = true;
@@ -11,11 +15,12 @@
 
   services.fail2ban.jails.sshd.settings = {
     ssh = ''
-    enabled = true
-    port = ssh
-    filter = sshd
-    logpath = %(sshd_log)s
-    maxretry = 5
+      enabled = true
+      port = ssh
+      filter = sshd
+      logpath = %(sshd_log)s
+      maxretry = 5
     '';
   };
+
 }

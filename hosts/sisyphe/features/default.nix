@@ -1,10 +1,10 @@
 { config, pkgs, ... }:
 {
   imports = [
-    ./containers/default.nix
-    ./multimedia/default.nix
-    ./databases/default.nix
-    ./services/default.nix
+    ./containers
+    ./multimedia
+    ./databases
+    ./services
     ./backups.nix
     ./caddy.nix
     ./prometheus.nix
