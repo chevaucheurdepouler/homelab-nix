@@ -9,7 +9,7 @@ provider "hcloud" {
 
 resource "hcloud_server" {
     name = "athena"
-    type = "cax11"
+    type = "cx32"
     image = "debian-12"
     datacenter = "nbg1-dc3"
 }
