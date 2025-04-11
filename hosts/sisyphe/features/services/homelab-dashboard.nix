@@ -85,8 +85,9 @@ in
       ];
 
       bookmarks = [
+        { social = [ 
+          { "Bluesky" = [ { href = "https://bsky.app"; } ];} { "mastodon" = [{ href = "https://fish.hypervirtual.world" }]; } ]; }
         { code = [ { "Github" = [ { href = "https://github.com"; } ]; } ]; }
-        { social = [ { "Bluesky" = [ { href = "https://bsky.app"; } ]; { "mastodon" = [{ href = "https://fish.hypervirtual.world" }]; } } ]; }
       ];
 
       services = [
