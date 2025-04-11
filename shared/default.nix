@@ -17,6 +17,7 @@
     pkgs.kitty.terminfo
     pkgs.foot.terminfo
     pkgs.kittysay
+    pkgs.tmux
   ];
 
   environment.variables.EDITOR = "nvim";
