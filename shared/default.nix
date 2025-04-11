@@ -6,10 +6,6 @@
   ...
 }:
 {
-  imports = [
-    ../shared
-  ];
-
   environment.systemPackages = [
     inputs.miovim.packages.${system}.default
     pkgs.curl
