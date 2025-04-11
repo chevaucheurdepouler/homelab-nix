@@ -10,11 +10,13 @@
   '';
 
   services.prometheus.exporters.sabnzbd = {
-      enable = true;
-      servers = [
-        { sisyphe = {
+    enable = true;
+    servers = [
+      {
+        sisyphe = {
 
-        }; }
-      ]
+        };
+      }
+    ];
   };
 }

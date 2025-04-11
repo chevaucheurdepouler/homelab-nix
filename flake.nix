@@ -18,10 +18,12 @@
       flake = false;
     };
 
-    nix-secrets-next = {
-      url = "git+https://git.hypervirtual.world/harry123/nix-secrets-next.git";
-      flake = false;
-    };
+    /*
+      nix-secrets-next = {
+        url = "git+https://git.hypervirtual.world/harry123/nix-secrets-next.git";
+        flake = false;
+      };
+    */
 
     miovim = {
       url = "git+https://git.hypervirtual.world/harry123/miovim";
@@ -165,14 +167,16 @@
 
       darwinConfigurations."iMac-de-Eddie" = nix-darwin.lib.darwinSystem {
         modules = [
+          sops-nix.darwinModules.sops
           ./hosts/dadarwin/configuration.nix
-          home-manager.darwinModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.harry123 = ./home-manager/home.nix;
-          }
-
+          /*
+            home-manager.darwinModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.harry123 = ./home-manager/home.nix;
+            }
+          */
           { system.configurationRevision = self.rev or self.dirtyRev or null; }
         ];
       };
