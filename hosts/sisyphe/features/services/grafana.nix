@@ -1,4 +1,4 @@
-{ config, ... }:
+{ ... }:
 {
   services.grafana = {
     enable = true;
@@ -10,6 +10,6 @@
   };
 
   services.caddy.virtualHosts."http://grafana.sisyphe.normandy.hypervirtual.world".extraConfig = ''
-        reverse_proxy :3000
-      '';
+    reverse_proxy :3000
+  '';
 }

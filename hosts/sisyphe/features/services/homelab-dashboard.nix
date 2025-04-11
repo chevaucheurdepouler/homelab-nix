@@ -84,12 +84,14 @@ in
         }
       ];
 
-      bookmarks = [ { code = [ { "Github" = [ { href = "https://github.com"; } ]; } ]; } ];
+      bookmarks = [
+        { code = [ { "Github" = [ { href = "https://github.com"; } ]; } ]; }
+        { social = [ { "Bluesky" = [ { href = "https://bsky.app"; } ]; { "mastodon" = [{ href = "https://fish.hypervirtual.world" }]; } } ]; }
+      ];
 
       services = [
         {
           "Divertissement" = [
-
             {
               "Serveur Minecraft poulet" = {
                 icon = "minecraft";
@@ -236,7 +238,6 @@ in
               };
             }
             {
-
               "Transmission" = {
                 icon = "transmission";
                 description = "s'occupe du téléchargement des fichiers";
@@ -278,15 +279,6 @@ in
         }
         {
           "Administration" = [
-            /*
-              {
-                "Proxmox Backup Server" = {
-                  icon = "proxmox-light";
-                  description = "Permet de sauvegarder le serveur.";
-                  href = "https://${cfg.proxmoxBSIp}:8007";
-                };
-              }
-            */
             {
               "Proxmox VE" = {
                 icon = "proxmox";

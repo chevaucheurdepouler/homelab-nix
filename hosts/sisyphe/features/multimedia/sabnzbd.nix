@@ -9,14 +9,16 @@
     reverse_proxy 8080
   '';
 
-  services.prometheus.exporters.sabnzbd = {
-    enable = true;
-    servers = [
-      {
-        sisyphe = {
+  /*
+    services.prometheus.exporters.sabnzbd = {
+      enable = true;
+      servers = [
+        {
+          sisyphe = {
 
-        };
-      }
-    ];
-  };
+          };
+        }
+      ];
+    };
+  */
 }
