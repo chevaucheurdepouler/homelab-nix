@@ -5,8 +5,7 @@
     builtins.elem (lib.getName pkg) [
       "terraform"
     ];
-  # List packages installed in system profile. To search by name, run:
-  # $ nix-env -qaP | grep wget
+
   environment.systemPackages = with pkgs; [
     neovim
     kitty
@@ -16,6 +15,7 @@
     direnv
     zoxide
     git-crypt
+    nil
   ];
 
   programs.direnv = {
