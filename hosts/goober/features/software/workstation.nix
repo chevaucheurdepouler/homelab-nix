@@ -10,6 +10,7 @@
       "davinci-resolve"
     ];
   environment.systemPackages = with pkgs; [
+    zathura
     # music editing software
     reaper
 

@@ -8,7 +8,7 @@
     sops-nix.url = "github:Mic92/sops-nix";
 
     home-manager.url = "github:nix-community/home-manager/";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager.inputs.nixpkgs.follows = "nixpkgsUnstable";
 
     alejandra.url = "github:kamadorueda/alejandra/3.0.0";
     alejandra.inputs.nixpkgs.follows = "nixpkgs";
@@ -18,8 +18,13 @@
       flake = false;
     };
 
+    nix-secrets-next = {
+      url = "git+https://git.hypervirtual.world/harry123/nix-secrets-next.git";
+      flake = false;
+    };
+
     miovim = {
-      url = "https://git.hypervirtual.world/harry123/miovim";
+      url = "git+https://git.hypervirtual.world/harry123/miovim";
     };
 
     nixos-generators = {
@@ -28,9 +33,17 @@
     };
 
     nix-darwin.url = "github:LnL7/nix-darwin";
-    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+    nix-darwin.inputs.nixpkgs.follows = "nixpkgsUnstable";
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.4.1";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      # If you are not running an unstable channel of nixpkgs, select the corresponding branch of nixvim.
+      # url = "github:nix-community/nixvim/nixos-24.11";
+
+      inputs.nixpkgs.follows = "nixpkgsUnstable";
+    };
 
     walker.url = "github:abenz1267/walker";
   };
@@ -136,24 +149,7 @@
           format = "proxmox";
         };
 
-        dionysos = nixos-generators.nixosGenerate {
-          system = "x86_64-linux";
-          specialArgs = {
-            diskSize = 20 * 1024;
-            inherit specialArgs;
-          };
-          modules = [
-            (
-              { ... }:
-              {
-                nix.registry.nixpkgs.flake = nixpkgs;
-              }
-            )
-            ./hosts/dionysos/configuration.nix
-          ];
-          format = "proxmox";
-        };
-
+        # vps for tracking errors
         diva = nixos-generators.nixosGenerate {
           system = "x86_64-linux";
           specialArgs = {
@@ -170,6 +166,12 @@
       darwinConfigurations."iMac-de-Eddie" = nix-darwin.lib.darwinSystem {
         modules = [
           ./hosts/dadarwin/configuration.nix
+          home-manager.darwinModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.harry123 = ./home-manager/home.nix;
+          }
 
           { system.configurationRevision = self.rev or self.dirtyRev or null; }
         ];

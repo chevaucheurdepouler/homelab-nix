@@ -32,74 +32,69 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = with pkgs; [
-    # # Adds the 'hello' command to your environment. It prints a friendly
-    # # "Hello, world!" when run.
-    # pkgs.hello
+  home.packages =
+    with pkgs;
+    [
+      # # Adds the 'hello' command to your environment. It prints a friendly
+      # # "Hello, world!" when run.
+      # pkgs.hello
 
-    nerd-fonts.code-new-roman
-    ffmpegthumbnailer
-    xfce.tumbler
-    dm-sans
-    zoxide
-    btop
-    bitwarden-cli
-    weechat
-    cava
-    hyfetch
-    kittysay
-    nextcloud-client
-    thunderbird-bin
-    feh
-    waybar
-    p7zip
+      nerd-fonts.code-new-roman
+      ffmpegthumbnailer
+      dm-sans
+      zoxide
+      btop
+      bitwarden-cli
+      weechat
+      cava
+      hyfetch
+      kittysay
+      nextcloud-client
+      thunderbird-bin
+      feh
+      waybar
+      p7zip
 
-    libreoffice-qt
+      libreoffice-qt
 
-    playerctl
-    wf-recorder
+      playerctl
+      wf-recorder
 
-    file
-    osu-lazer-bin
+      file
+      osu-lazer-bin
 
-    qbittorrent
+      qbittorrent
 
-    i2pd
-    ripgrep
-    vscode
+      i2pd
+      ripgrep
+      vscode
 
-    zathura
-    tor-browser
+      zathura
+      tor-browser
 
-    gammastep
-    lazygit
-    xfce.thunar
-    gimp-with-plugins
-    fzf
-    lf
-    why3
-    alt-ergo
-    cvc4
-    z3
-    prismlauncher
+      gammastep
+      lazygit
+      gimp-with-plugins
+      fzf
+      lf
+      why3
+      alt-ergo
+      cvc4
+      z3
+      prismlauncher
 
-    audacious
-    audacious-plugins
+      audacious
+      audacious-plugins
 
-    udiskie
+      libsixel
+      unzip
+      p7zip
 
-    libsixel
-    unzip
-    p7zip
-
-    nixfmt-rfc-style
-    # # You can also create simple shell scripts directly inside your
-    #  # configuration. For example, this adds a command 'my-hello' to your
-    # # environment:
-    # (pkgs.writeShellScriptBin "my-hello" ''
-    #   echo "Hello, ${config.home.username}!"
-    # '')
-  ];
+      nixfmt-rfc-style
+    ]
+    ++ lib.optionals pkgs.stdenv.isLinux [
+      kdePackages.dolphin
+    ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
