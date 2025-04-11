@@ -4,7 +4,6 @@
     pkg:
     builtins.elem (lib.getName pkg) [
       "terraform"
-      "beeper"
     ];
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
@@ -14,7 +13,6 @@
     kittysay
     terraform
     nixfmt-rfc-style
-    beeper
     direnv
     zoxide
     git-crypt
