@@ -85,9 +85,39 @@ in
       ];
 
       bookmarks = [
-        { social = [ 
-          { "Bluesky" = [ { href = "https://bsky.app"; } ];} { "mastodon" = [{ href = "https://fish.hypervirtual.world" }]; } ]; }
-        { code = [ { "Github" = [ { href = "https://github.com"; } ]; } ]; }
+        {
+          social = [
+            {
+              "Bluesky" = [
+                {
+                  abbr = "bsky";
+                  href = "https://bsky.app";
+                }
+              ];
+            }
+            {
+              "mastodon" = [
+                { href = "https://fish.hypervirtual.world"; }
+              ];
+            }
+            {
+              "Lemmy" = [
+                { href = "https://lemmy.world"; }
+              ];
+            }
+          ];
+        }
+        {
+          code = [
+            { "Github" = [ { href = "https://github.com"; } ]; }
+          ];
+        }
+        {
+          music = [
+            { "Deezer" = [ { href = "https://deezer.com"; } ]; }
+            { "Last.fm" = [ { href = "https://last.fm"; } ]; }
+          ];
+        }
       ];
 
       services = [
