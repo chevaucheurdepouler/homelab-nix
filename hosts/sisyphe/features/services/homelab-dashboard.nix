@@ -39,8 +39,12 @@ in
     };
 
     services.caddy.virtualHosts."http://sisyphe.normandy.hypervirtual.world".extraConfig = ''
-        reverse_proxy :8082
-      '';
+      reverse_proxy :8082
+    '';
+
+    services.caddy.virtualHosts."http://home.hypervirtual.world".extraConfig = ''
+      reverse_proxy :8082
+    '';
 
     services.homepage-dashboard = {
       enable = true;
@@ -243,6 +247,13 @@ in
                   username = "{{HOMEPAGE_VAR_TRANSMISSIONUSERNAME}}";
                   password = "{{HOMEPAGE_VAR_TRANSMISSIONPASSWORD}}";
                 };
+              };
+            }
+            {
+              "Sabnzbd" = {
+                icon = "sabnzbd";
+                description = "s'occupe de naviguer sur les réseaux usenet";
+                href = "http://nzb.sisyphe.normandy.hypervirtual.world";
               };
             }
           ];

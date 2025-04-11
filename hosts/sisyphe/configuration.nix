@@ -14,7 +14,7 @@ in
   imports = [
     ./hardware-configuration.nix
     ./features
-    ../shared
+    ../../shared
   ];
 
   # Use the GRUB 2 boot loader.
@@ -96,6 +96,7 @@ in
       "jellyfin"
       "bazarr"
       "calibre-web"
+      "sabnzbd"
       username
     ];
   };
