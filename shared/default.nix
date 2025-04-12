@@ -6,6 +6,10 @@
   ...
 }:
 {
+
+  imports = [
+    ./ssh.nix
+  ];
   environment.systemPackages = [
     pkgs.curl
     pkgs.unzip
