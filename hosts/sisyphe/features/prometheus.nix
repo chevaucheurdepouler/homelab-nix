@@ -11,23 +11,54 @@
         ];
         port = 9002;
       };
+      borgmatic = {
+        enable = true;
+      };
+      systemd = {
+        enable = true;
+      };
+      sabnzbd = {
+        enable = true;
+        servers = [
+          {
+            "sisyphe" = {
+              apiKeyFile = "/run/secrets/sabnbzd_apikey";
+            };
+          }
+        ];
+      };
+      redis = {
+        enable = true;
+      };
+      postgres = {
+        enable = true;
+      };
+      pihole = {
+        enable = true;
+        pihoeHostname = "192.168.1.25";
+      };
+      php-fpm = {
+        enable = true;
+      };
+      nextcloud = {
+        enable = true;
+        url = "https://cloud.hypervirtual.world";
+        tokenFile = "/run/secrets/nextcloudTokenFile";
+      };
     };
     scrapeConfigs = [
-      /*
-        {
-          job_name = "synapse";
-          scrape_interval = "15s";
-          metrics_path = "/_synapse/metrics";
-          static_configs = [ { targets = [ "localhost:9000" ]; } ];
-        }
-      */
+
       {
         job_name = "homelab-stats";
         static_configs = [
-          { targets = [ "localhost:${builtins.toString config.services.prometheus.exporters.node.port}" ]; }
+          {
+            targets = [
+              "localhost:${builtins.toString config.services.prometheus.exporters.node.port}"
+              "192.168.1.197:9100"
+            ];
+          }
         ];
       }
     ];
-
   };
 }

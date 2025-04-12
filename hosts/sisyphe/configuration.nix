@@ -112,6 +112,7 @@ in
     "aspnetcore-runtime-wrapped-6.0.36"
     "dotnet-sdk-6.0.428"
     "dotnet-sdk-wrapped-6.0.428"
+    "python3.12-django-3.1.14"
   ];
 
   # seems like sabnzbd needs some unfree pkgs...
