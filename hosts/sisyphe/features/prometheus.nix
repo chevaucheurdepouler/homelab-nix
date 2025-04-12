@@ -22,6 +22,7 @@
         servers = [
           {
             "sisyphe" = {
+              baseUrl = "http://nzb.sisyphe.normandy.hypervirtual.world";
               apiKeyFile = "/run/secrets/sabnbzd_apikey";
             };
           }
