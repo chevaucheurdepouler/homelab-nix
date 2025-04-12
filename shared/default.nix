@@ -7,7 +7,6 @@
 }:
 {
   environment.systemPackages = [
-    inputs.miovim.packages.${system}.default
     pkgs.curl
     pkgs.unzip
     pkgs.kitty.terminfo
