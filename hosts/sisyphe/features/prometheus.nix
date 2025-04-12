@@ -35,7 +35,7 @@
       };
       pihole = {
         enable = true;
-        pihoeHostname = "192.168.1.25";
+        piholeHostname = "192.168.1.25";
       };
       php-fpm = {
         enable = true;
