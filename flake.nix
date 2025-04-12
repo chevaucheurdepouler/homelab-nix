@@ -11,7 +11,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgsUnstable";
 
     alejandra.url = "github:kamadorueda/alejandra/3.0.0";
-    alejandra.inputs.nixpkgs.follows = "nixpkgs";
+    alejandra.inputs.nixpkgs.follows = "nixpkgsUnstable";
 
     nix-secrets = {
       url = "git+https://git.hypervirtual.world/harry123/nix-secrets.git"; # replace with your own repo
@@ -31,7 +31,7 @@
 
     nixos-generators = {
       url = "github:nix-community/nixos-generators";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgsUnstable";
     };
 
     nix-darwin.url = "github:LnL7/nix-darwin";
