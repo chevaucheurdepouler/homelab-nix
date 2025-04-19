@@ -1,4 +1,5 @@
-{config, pkgs, ...}: {
+{ config, pkgs, ... }:
+{
   environment.systemPackages = with pkgs; [
     mako
     grim
@@ -11,14 +12,19 @@
   ];
 
   services.gnome.gnome-keyring.enable = true;
-  programs.sway = { 
+  programs.sway = {
     enable = true;
     wrapperFeatures.gtk = true;
   };
 
   xdg.portal.wlr.enable = true;
   security.pam.loginLimits = [
-  { domain = "@users"; item = "rtprio"; type = "-"; value = 1; }
-];
+    {
+      domain = "@users";
+      item = "rtprio";
+      type = "-";
+      value = 1;
+    }
+  ];
 
-  }
+}
