@@ -5,7 +5,7 @@
 # Read `man 5 sway` for a complete reference.
 
 ### title bar config
-default_border none
+default_border pixel 2px
 
 ### Variables
 #
@@ -21,15 +21,14 @@ set $term footclient
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu walker --modules applications,ssh,calculator | xargs swaymsg exec --
+set $menu wofi | xargs swaymsg exec --
 
 # screenshot folder
 set $screenshot_folder ~/Images/Captures\ d\'écrans/
 
 ### Output configuration
-#
-# Default wallpaper (more resolutions are available in /run/current-system/sw/share/backgrounds/sway/)
 output * bg wallpapers/lain_1.jpg fill
+
 #
 # Example configuration:
 #

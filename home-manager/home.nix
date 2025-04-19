@@ -28,6 +28,8 @@
     pkg:
     builtins.elem (lib.getName pkg) [
       "vscode"
+      "tetrio-desktop"
+      "beeper"
     ];
 
   # The home.packages option allows you to install Nix packages into your
@@ -39,8 +41,10 @@
       # # "Hello, world!" when run.
       # pkgs.hello
 
+      beeper
       nerd-fonts.code-new-roman
       ffmpegthumbnailer
+      xfce.tumbler
       dm-sans
       zoxide
       btop
@@ -56,6 +60,7 @@
       p7zip
 
       libreoffice-qt
+      tetrio-desktop
 
       playerctl
       wf-recorder
@@ -83,6 +88,10 @@
       z3
       prismlauncher
 
+      wofi
+      wofi-emoji
+      obsidian
+
       audacious
       audacious-plugins
 
@@ -109,6 +118,7 @@
     ".config/cava".source = dotfiles/cava;
     ".bashrc".source = dotfiles/bash/.bashrc;
     ".config/hyfetch.json".source = dotfiles/hyfetch/hyfetch.json;
+    ".config/niri".source = dotfiles/niri;
 
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
@@ -218,22 +228,24 @@
     server.enable = true;
   };
 
-  programs.walker = {
-    enable = true;
-    runAsService = true;
+  /*
+    programs.walker = {
+      enable = true;
+      runAsService = true;
 
-    # All options from the config.json can be used here.
-    config = {
-      search.placeholder = "Example";
-      ui.fullscreen = true;
-      list = {
-        height = 200;
+      # All options from the config.json can be used here.
+      config = {
+        search.placeholder = "Example";
+        ui.fullscreen = true;
+        list = {
+          height = 400;
+        };
+        websearch.prefix = "?";
+        switcher.prefix = "/";
       };
-      websearch.prefix = "?";
-      switcher.prefix = "/";
-    };
 
-  };
+    };
+  */
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
