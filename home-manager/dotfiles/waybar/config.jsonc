@@ -1,6 +1,6 @@
 {
   "layer": "top",
-  "modules-left": ["custom/launcher", "sway/workspaces", "sway/mode"],
+  "modules-left": ["custom/launcher", "niri/workspaces"],
   "modules-center": [],
   "modules-right": [
     "tray",

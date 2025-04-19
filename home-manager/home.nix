@@ -228,24 +228,22 @@
     server.enable = true;
   };
 
-  /*
-    programs.walker = {
-      enable = true;
-      runAsService = true;
+  programs.walker = {
+    enable = true;
+    runAsService = true;
 
-      # All options from the config.json can be used here.
-      config = {
-        search.placeholder = "Example";
-        ui.fullscreen = true;
-        list = {
-          height = 400;
-        };
-        websearch.prefix = "?";
-        switcher.prefix = "/";
+    # All options from the config.json can be used here.
+    config = {
+      search.placeholder = "Example";
+      ui.fullscreen = true;
+      list = {
+        height = 400;
       };
-
+      websearch.prefix = "?";
+      switcher.prefix = "/";
     };
-  */
+
+  };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
