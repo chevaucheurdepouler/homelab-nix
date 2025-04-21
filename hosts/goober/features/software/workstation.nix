@@ -6,7 +6,6 @@
   nixpkgs.config.allowUnfreePredicate =
     pkg:
     builtins.elem (lib.getName pkg) [
-      "reaper"
       "davinci-resolve"
     ];
   environment.systemPackages = with pkgs; [
@@ -39,5 +38,7 @@
     xfce.thunar
 
     eclipses.eclipse-java # school wants us to use it...
+    nil
+    jetbrains.idea-ultimate
   ];
 }

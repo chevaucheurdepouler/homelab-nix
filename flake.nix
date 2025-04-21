@@ -7,8 +7,10 @@
     nixpkgsUnstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     sops-nix.url = "github:Mic92/sops-nix";
 
-    home-manager.url = "github:nix-community/home-manager/";
-    home-manager.inputs.nixpkgs.follows = "nixpkgsUnstable";
+    home-manager = {
+      url = "github:nix-community/home-manager/";
+      inputs.nixpkgs.follows = "nixpkgsUnstable";
+    };
 
     alejandra.url = "github:kamadorueda/alejandra/3.0.0";
     alejandra.inputs.nixpkgs.follows = "nixpkgsUnstable";
@@ -25,12 +27,15 @@
       };
     */
 
-    miovim = {
-      url = "git+https://git.hypervirtual.world/harry123/miovim";
-    };
+    miovim.url = "git+https://git.hypervirtual.world/harry123/miovim.git";
 
     nixos-generators = {
       url = "github:nix-community/nixos-generators";
+      inputs.nixpkgs.follows = "nixpkgsUnstable";
+    };
+
+    zen-browser = {
+      url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgsUnstable";
     };
 
@@ -39,14 +44,6 @@
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.4.1";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      # If you are not running an unstable channel of nixpkgs, select the corresponding branch of nixvim.
-      # url = "github:nix-community/nixvim/nixos-24.11";
-
-      inputs.nixpkgs.follows = "nixpkgsUnstable";
-    };
-
     walker.url = "github:abenz1267/walker";
   };
 
@@ -54,6 +51,7 @@
     {
       self,
       nixpkgs,
+      catppuccin,
       nixpkgsSmall,
       nixpkgsUnstable,
       sops-nix,
@@ -61,8 +59,8 @@
       nix-darwin,
       nix-flatpak,
       home-manager,
-      nixvim,
       miovim,
+      zen-browser,
       ...
     }@inputs:
     let
@@ -108,11 +106,13 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users.${username} = import ./home-manager/home.nix;
+              home-manager.users.${username} = {
+                imports = [
+                  ./home-manager/home.nix
+                  catppuccin.homeManagerModules.catppuccin
+                ];
+              };
               home-manager.extraSpecialArgs = { inherit inputs; };
-              home-manager.sharedModules = [
-                nixvim.homeManagerModules.nixvim
-              ];
             }
           ];
         };
@@ -185,6 +185,7 @@
       darwinPackages = self.darwinConfigurations."iMac-de-Eddie".pkgs;
 
       packages.miku-cursor-linux = pkgs.callPackage ./packages/miku-cursor.nix { };
+      packages.fourget = pkgs.callPackage ./packages/4get.nix { };
     };
 
 }

@@ -12,6 +12,7 @@
     nautilus
     libheif
     libheif.out
+    xwayland-satellite
   ];
 
   services.gvfs.enable = true;
@@ -27,6 +28,9 @@
       pkgs.xdg-desktop-portal-gnome
     ];
   };
+
+  services.xserver.displayManager.gdm.enable = true;
+
   security.pam.loginLimits = [
     {
       domain = "@users";
@@ -48,6 +52,10 @@
       });
     })
   ];
+
+  services.xserver.xkb = {
+    layout = "fr";
+  };
 
   programs.waybar = {
     enable = true;

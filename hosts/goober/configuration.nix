@@ -14,8 +14,8 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ../../features/client/tailscale.nix
-    ../../features/client/sway.nix
+    ../../shared/client/tailscale.nix
+    ../../shared/client/niri.nix
     ./features/default.nix
   ];
 
@@ -81,9 +81,11 @@
       "wheel"
       "audio"
       "video"
-    ]; # Enable ‘sudo’ for the user.
+      "networkmanager"
+    ];
+
     packages = with pkgs; [
-      firefox
+      inputs.zen-browser.packages."${system}".default
       tailscale
       mpv
       logisim-evolution

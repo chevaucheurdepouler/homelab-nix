@@ -1,6 +1,6 @@
-{config, pkgs, ...}:
+{ config, pkgs, ... }:
 {
   imports = [
     ./tailscale.nix
-  ]
+  ];
 }

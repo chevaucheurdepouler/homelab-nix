@@ -5,11 +5,11 @@
   osConfig,
   inputs,
   nixvim,
+  catppuccin,
   ...
 }:
 
 {
-  imports = [ inputs.walker.homeManagerModules.default ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "harry123";
@@ -99,7 +99,13 @@
       unzip
       p7zip
 
+      libsixel
+      unzip
+      p7zip
+
       nixfmt-rfc-style
+      fuzzel
+      zsh-syntax-highlighting
     ]
     ++ lib.optionals pkgs.stdenv.isLinux [
       kdePackages.dolphin
@@ -111,7 +117,7 @@
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
-    ".config/sway".source = dotfiles/sway;
+    # ".config/sway".source = dotfiles/sway;
     ".config/foot".source = dotfiles/foot;
     ".profile".source = dotfiles/.profile;
     ".config/waybar".source = dotfiles/waybar;
@@ -119,6 +125,7 @@
     ".bashrc".source = dotfiles/bash/.bashrc;
     ".config/hyfetch.json".source = dotfiles/hyfetch/hyfetch.json;
     ".config/niri".source = dotfiles/niri;
+    ".config/fuzzel/fuzzel.ini".source = dotfiles/fuzzel/fuzzel.ini;
 
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
@@ -228,21 +235,36 @@
     server.enable = true;
   };
 
-  programs.walker = {
-    enable = true;
-    runAsService = true;
+  catppuccin = {
+    flavor = "latte";
+    mpv.enable = true;
+    mako.enable = true;
+    lazygit.enable = true;
+    gtk.enable = true;
+    fzf.enable = true;
+    swaylock.enable = true;
+  };
 
-    # All options from the config.json can be used here.
-    config = {
-      search.placeholder = "Example";
-      ui.fullscreen = true;
-      list = {
-        height = 400;
-      };
-      websearch.prefix = "?";
-      switcher.prefix = "/";
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    autosuggestion.enable = true;
+    syntaxHighlighting.enable = true;
+
+    shellAliases = {
+      ll = "ls -l";
+      edit = "sudo -e";
+      update = "sudo nixos-rebuild switch";
     };
 
+    history.size = 10000;
+    history.ignoreAllDups = true;
+    history.path = "$HOME/.zsh_history";
+    history.ignorePatterns = [
+      "rm *"
+      "pkill *"
+      "cp *"
+    ];
   };
 
   # Let Home Manager install and manage itself.
