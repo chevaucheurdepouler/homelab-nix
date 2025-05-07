@@ -1,7 +1,16 @@
-{ inputs, ... }:
+{ inputs, username, ... }:
 {
-  imports = [ ./features ];
+  imports = [
+    ./hardware.nix
+    ./networking.nix
+    ./features
+    ../../shared
+  ];
+
   networking.hostName = "diva"; # Define your hostname.
+  networking.domain = "rougebordeaux.xyz";
+  boot.tmp.cleanOnBoot = true;
+  zramSwap.enable = true;
 
   networking.firewall = {
     enable = true;
@@ -12,14 +21,19 @@
     ];
   };
 
-  # reducing disk usage
-  boot.loader.systemd-boot.configurationLimit = 10;
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 1w";
-  };
-
-  nix.settings.auto-optimise-store = true;
   services.caddy.enable = true;
+
+  users.users.${username} = {
+    isNormalUser = true;
+    extraGroups = [
+      "wheel"
+      "dialout"
+      "docker"
+    ];
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA8sdToNavEQv7PTMJ97HIGM6UlChwGS3x9O8hFilzui harryh@ik.me"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHjz5MUSmc1ahtUJWuvzG7PHH432nx6a0Nj2zfxt3oTP geekcat@protonmail.com"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIP9Yp7TbDhYJ27Sh+LcPXT569bMVwbFrkE4zksfU84l+ harry123@goober"
+    ];
+  };
 }

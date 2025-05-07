@@ -1,9 +1,13 @@
-{ stdenv, fetchFromGitea }:
+{
+  stdenv,
+  pkgs,
+  fetchFromGitea,
+}:
 stdenv.mkDerivation {
   pname = "4get";
   version = "1.2.6";
 
-  src = {
+  src = fetchFromGitea {
     owner = "lolcat";
     domain = "git.lolcat.ca";
     repo = "4get";
@@ -14,15 +18,11 @@ stdenv.mkDerivation {
   installPhase = ''
     runHook preInstall
     cd lolcat
-
-    mkdir -p $out/share/icons/miku-cursor-linux
-    cp -r * $out/share/icons/miku-cursor-linux
-    install -m644 index.theme $out/share/icons/miku-cursor-linux/index.theme
-
-
-
-
+    mkdir -p $out/html
     runHook postInstall
   '';
 
+  buildInputs = [
+    pkgs.php84
+  ];
 }
