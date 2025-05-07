@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 {
   imports = [ ./forgejo-smtp.nix ];
   sops.secrets.smtp_address = { };
@@ -36,34 +41,50 @@
     mailerPasswordFile = config.sops.secrets.smtp_password.path;
   };
 
-/*
-  sops.secrets.forgejo-runner-token = {
-    owner = "forgejo";
-  };
-  services.gitea-actions-runner = {
-    package = pkgs.forgejo-actions-runner;
-    instances.default = {
-      enable = true;
-      name = "monolith";
-      url = "https://git.hypervirtual.world";
-      # Obtaining the path to the runner token file may differ
-      # tokenFile should be in format TOKEN=<secret>, since it's EnvironmentFile for systemd
-      tokenFile = config.sops.secrets.forgejo-runner-token.path;
-      labels = [
-        "ubuntu-latest:docker://node:16-bullseye"
-        "ubuntu-22.04:docker://node:16-bullseye"
-        ## optionally provide native execution on the host:
-        # "native:host"
-      ];
+  servuces.fail2ban = {
+    enable = true;
+    jails = {
+      forgejo = {
+        settings = {
+          logpath = "/var/log/forgejo/log/gitea.log";
+          filter = "forgejo";
+          port = "http,https,ssh";
+          maxretry = 20;
+          findtime = 300;
+          bantime = 900;
+        };
+      };
     };
   };
-*/
+
+  /*
+    sops.secrets.forgejo-runner-token = {
+      owner = "forgejo";
+    };
+    services.gitea-actions-runner = {
+      package = pkgs.forgejo-actions-runner;
+      instances.default = {
+        enable = true;
+        name = "monolith";
+        url = "https://git.hypervirtual.world";
+        # Obtaining the path to the runner token file may differ
+        # tokenFile should be in format TOKEN=<secret>, since it's EnvironmentFile for systemd
+        tokenFile = config.sops.secrets.forgejo-runner-token.path;
+        labels = [
+          "ubuntu-latest:docker://node:16-bullseye"
+          "ubuntu-22.04:docker://node:16-bullseye"
+          ## optionally provide native execution on the host:
+          # "native:host"
+        ];
+      };
+    };
+  */
   systemd.services.forgejo.preStart = ''
     create="${lib.getExe config.services.forgejo.package} admin user create"
     $create --admin --email "`cat ${config.sops.secrets.forgejoInitialMail.path}`" --username you --password "`cat ${config.sops.secrets.forgejoInitialPassword.path}`" &>/dev/null || true
   '';
 
   services.caddy.virtualHosts."http://git.hypervirtual.world".extraConfig = ''
-        reverse_proxy :3333
-      '';
+    reverse_proxy :3333
+  '';
 }

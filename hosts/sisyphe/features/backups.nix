@@ -8,6 +8,7 @@
   imports = [
     ./backups-repos.nix
   ];
+
   sops.secrets.borgRepoPassword = { };
   sops.secrets.borgRemoteServerPassword = {
     sopsFile = "${secrets}/secrets/backup.yaml";
@@ -19,42 +20,6 @@
 
   sops.secrets.borgOffsiteBackupHostKeys = {
     sopsFile = "${secrets}/secrets/backup.yaml";
-  };
-
-  services.borgbackup.jobs = {
-    /*
-            localBackup = {
-              paths = "/";
-              exclude = [
-                "/nix"
-                "/srv/Multimedia"
-                "/srv/media"
-                "/srv/backups/serverBackups"
-                "/srv/backups/localComputerBackups"
-                "/var/cache"
-                "/var/run"
-                "/tmp"
-                "/proc"
-                "/sys"
-                "/dev"
-                "/mnt"
-                "/run"
-              ];
-              repo = "/srv/backups/serverBackups";
-              doInit = true;
-              encryption = {
-                mode = "repokey";
-                passCommand = "cat /run/secrets/borgRepoPassword";
-              };
-              compression = "auto,lzma";
-              startAt = "weekly";
-            };
-
-            /*
-              serverBackup = {
-
-              };
-    */
   };
 
   services.borgbackup.repos = {
