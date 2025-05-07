@@ -7,7 +7,11 @@
     pkg:
     builtins.elem (lib.getName pkg) [
       "davinci-resolve"
+      "vscode"
+      "tetrio-desktop"
+      "beeper"
     ];
+
   environment.systemPackages = with pkgs; [
     zathura
     # music editing software
@@ -40,5 +44,24 @@
     eclipses.eclipse-java # school wants us to use it...
     nil
     jetbrains.idea-ultimate
+
+    why3
+    alt-ergo
+    cvc4
+    z3
+    bitwarden
+    kicad
   ];
+
+  programs.kdeconnect.enable = true;
+  virtualisation.containers.enable = true;
+  virtualisation = {
+    podman = {
+      enable = true;
+      # Create a `docker` alias for podman, to use it as a drop-in replacement
+      dockerCompat = true;
+      # Required for containers under podman-compose to be able to talk to each other.
+      defaultNetwork.settings.dns_enabled = true;
+    };
+  };
 }

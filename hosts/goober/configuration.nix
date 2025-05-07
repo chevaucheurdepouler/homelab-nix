@@ -65,7 +65,7 @@
     "flakes"
   ];
   # Configure keymap in X11
-  # services.xserver.xkb.layout = "us";
+  services.xserver.xkb.layout = "fr";
   # services.xserver.xkb.options = "eurosign:e,caps:escape";
 
   # Enable CUPS to print documents.
@@ -74,14 +74,19 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.libinput.enable = true;
 
+  programs.zsh.enable = true;
+  environment.pathsToLink = [ "/share/zsh" ];
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.harry123 = {
     isNormalUser = true;
+    shell = pkgs.zsh;
     extraGroups = [
       "wheel"
       "audio"
       "video"
       "networkmanager"
+      "podman"
     ];
 
     packages = with pkgs; [

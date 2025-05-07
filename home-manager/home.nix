@@ -24,92 +24,85 @@
   # release notes.
   home.stateVersion = "24.05"; # Please read the comment before changing.
 
-  nixpkgs.config.allowUnfreePredicate =
-    pkg:
-    builtins.elem (lib.getName pkg) [
-      "vscode"
-      "tetrio-desktop"
-      "beeper"
-    ];
-
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages =
-    with pkgs;
-    [
-      # # Adds the 'hello' command to your environment. It prints a friendly
-      # # "Hello, world!" when run.
-      # pkgs.hello
+  home.packages = with pkgs; [
+    # # Adds the 'hello' command to your environment. It prints a friendly
+    # # "Hello, world!" when run.
+    # pkgs.hello
 
-      beeper
-      nerd-fonts.code-new-roman
-      ffmpegthumbnailer
-      xfce.tumbler
-      dm-sans
-      zoxide
-      btop
-      bitwarden-cli
-      weechat
-      cava
-      hyfetch
-      kittysay
-      nextcloud-client
-      thunderbird-bin
-      feh
-      waybar
-      p7zip
+    beeper
+    nerd-fonts.code-new-roman
+    ffmpegthumbnailer
+    xfce.tumbler
+    dm-sans
+    zoxide
+    btop
+    bitwarden-cli
+    weechat
+    cava
+    hyfetch
+    kittysay
+    nextcloud-client
+    thunderbird-bin
+    feh
+    waybar
+    p7zip
 
-      libreoffice-qt
-      tetrio-desktop
+    libreoffice-qt
+    tetrio-desktop
 
-      playerctl
-      wf-recorder
+    playerctl
+    wf-recorder
 
-      file
-      osu-lazer-bin
+    file
+    osu-lazer-bin
 
-      qbittorrent
+    qbittorrent
 
-      i2pd
-      ripgrep
-      vscode
+    i2pd
+    ripgrep
+    vscode
 
-      zathura
-      tor-browser
+    zathura
+    tor-browser
 
-      gammastep
-      lazygit
-      gimp-with-plugins
-      fzf
-      lf
-      why3
-      alt-ergo
-      cvc4
-      z3
-      prismlauncher
+    gammastep
+    lazygit
+    gimp-with-plugins
+    fzf
+    lf
 
-      wofi
-      wofi-emoji
-      obsidian
+    prismlauncher
 
-      audacious
-      audacious-plugins
+    wofi
+    wofi-emoji
+    obsidian
 
-      libsixel
-      unzip
-      p7zip
+    audacious
+    audacious-plugins
 
-      libsixel
-      unzip
-      p7zip
+    libsixel
+    unzip
+    p7zip
 
-      nixfmt-rfc-style
-      fuzzel
-      zsh-syntax-highlighting
-    ]
-    ++ lib.optionals pkgs.stdenv.isLinux [
-      kdePackages.dolphin
-    ];
+    libsixel
+    unzip
+    p7zip
+
+    nixfmt-rfc-style
+    fuzzel
+    zsh-syntax-highlighting
+
+    obsidian
+    papirus-icon-theme
+    # # You can also create simple shell scripts directly inside your
+    #  # configuration. For example, this adds a command 'my-hello' to your
+    # # environment:
+    # (pkgs.writeShellScriptBin "my-hello" ''
+    #   echo "Hello, ${config.home.username}!"
+    # '')
+  ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
@@ -137,11 +130,13 @@
   programs.direnv = {
     enable = true;
     enableBashIntegration = true; # see note on other shells below
+    enableZshIntegration = true;
     nix-direnv.enable = true;
   };
 
   programs.zoxide.enable = true;
   programs.zoxide.enableBashIntegration = true;
+  programs.zoxide.enableZshIntegration = true;
   programs.zoxide.options = [
     "--cmd cd"
   ];
@@ -230,6 +225,14 @@
     };
   */
 
+  gtk.iconTheme = {
+    package = pkgs.papirus-icon-theme;
+  };
+
+  gtk.theme = {
+    package = pkgs.catppuccin-gtk;
+  };
+
   programs.foot = {
     enable = true;
     server.enable = true;
@@ -244,6 +247,8 @@
     fzf.enable = true;
     swaylock.enable = true;
   };
+
+  home.shell.enableZshIntegration = true;
 
   programs.zsh = {
     enable = true;
@@ -264,6 +269,19 @@
       "rm *"
       "pkill *"
       "cp *"
+    ];
+
+    plugins = [
+      {
+        name = "vi-mode";
+        src = pkgs.zsh-vi-mode;
+        file = "share/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
+      }
+      {
+        name = "powerlevel10k";
+        src = pkgs.zsh-powerlevel10k;
+        file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+      }
     ];
   };
 

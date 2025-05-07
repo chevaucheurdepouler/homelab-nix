@@ -109,7 +109,7 @@
               home-manager.users.${username} = {
                 imports = [
                   ./home-manager/home.nix
-                  catppuccin.homeManagerModules.catppuccin
+                  catppuccin.homeModules.catppuccin
                 ];
               };
               home-manager.extraSpecialArgs = { inherit inputs; };

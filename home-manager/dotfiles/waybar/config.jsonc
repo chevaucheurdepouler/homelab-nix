@@ -1,6 +1,6 @@
 {
   "layer": "top",
-  "modules-left": ["custom/launcher", "niri/workspaces"],
+  "modules-left": ["custom/launcher", "niri/workspaces", "niri/window"],
   "modules-center": [],
   "modules-right": [
     "tray",
@@ -46,7 +46,7 @@
     "format-wifi": " ",
     "format-ethernet": "󰈀",
     "format-disconnected": "", //An empty format will hide the module.
-    "tooltip-format": "{ifname} via {gwaddr} 󰈀",
+    "tooltip-format": "{ifname} via {gwaddr} 󰈀 ",
     "tooltip-format-wifi": "{essid} ({signalStrength}%)  ",
     "tooltip-format-ethernet": "{ifname}  ",
     "tooltip-format-disconnected": "Disconnected",
@@ -77,5 +77,8 @@
     "on-click": "swaync-client -t -sw",
     "on-click-right": "swaync-client -d -sw",
     "escape": true
+  },
+  "tray": {
+    "spacing": 10
   }
 }
