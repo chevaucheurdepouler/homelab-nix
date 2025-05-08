@@ -25,8 +25,8 @@
     };
     settings = {
       server = {
-        DOMAIN = "git.hypervirtual.world";
-        ROOT_URL = "https://git.hypervirtual.world";
+        DOMAIN = "git.rougebordeaux.xyz";
+        ROOT_URL = "https://git.rougebordeaux.xyz";
         HTTP_PORT = 3333;
       };
       actions = {
@@ -66,7 +66,7 @@
       instances.default = {
         enable = true;
         name = "monolith";
-        url = "https://git.hypervirtual.world";
+        url = "https://git.rougebordeaux.xyz";
         # Obtaining the path to the runner token file may differ
         # tokenFile should be in format TOKEN=<secret>, since it's EnvironmentFile for systemd
         tokenFile = config.sops.secrets.forgejo-runner-token.path;
@@ -84,7 +84,7 @@
     $create --admin --email "`cat ${config.sops.secrets.forgejoInitialMail.path}`" --username you --password "`cat ${config.sops.secrets.forgejoInitialPassword.path}`" &>/dev/null || true
   '';
 
-  services.caddy.virtualHosts."http://git.hypervirtual.world".extraConfig = ''
+  services.caddy.virtualHosts."http://git.rougebordeaux.xyz".extraConfig = ''
     reverse_proxy :3333
   '';
 }

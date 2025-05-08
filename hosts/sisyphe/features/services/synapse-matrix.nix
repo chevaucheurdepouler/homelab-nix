@@ -5,10 +5,10 @@
   ...
 }:
 let
-  baseUrl = "https://talk.hypervirtual.world";
+  baseUrl = "https://talk.rougebordeaux.xyz";
 in
 {
-  networking.domain = "hypervirtual.world";
+  networking.domain = "rougebordeaux.xyz";
   sops.secrets.matrix_data = {
     format = "yaml";
     owner = "matrix-synapse";
@@ -18,7 +18,7 @@ in
     enable = true;
 
     settings = {
-      server_name = "hypervirtual.world";
+      server_name = "rougebordeaux.xyz";
       public_baseurl = baseUrl;
       enable_registration = false;
       enable_metrics = true;
@@ -73,7 +73,7 @@ in
       settings = {
         homeserver = {
           address = "http://localhost:8008";
-          domain = "hypervirtual.world";
+          domain = "rougebordeaux.xyz";
         };
         appservice = {
           provisioning.enabled = false;

@@ -4,9 +4,9 @@
 
   services.ircdHybrid = {
     enable = true;
-    serverName = "irc.hypervirtual.world";
+    serverName = "irc.rougebordeaux.xyz";
     description = "welcome to the silly kittens hut !! meow:3";
-    adminEmail = "admin@hypervirtual.world";
+    adminEmail = "admin@rougebordeaux.xyz;
   };
 
   /**environment.etc = {

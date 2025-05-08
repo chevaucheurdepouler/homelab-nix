@@ -9,7 +9,7 @@
     };
   };
 
-  services.caddy.virtualHosts."http://grafana.sisyphe.normandy.hypervirtual.world".extraConfig = ''
+  services.caddy.virtualHosts."http://grafana.sisyphe.normandy.rougebordeaux.xyz".extraConfig = ''
     reverse_proxy :3000
   '';
 }

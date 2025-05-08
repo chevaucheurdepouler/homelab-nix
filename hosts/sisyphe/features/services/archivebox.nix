@@ -5,7 +5,7 @@
     nodejs_23
   ];
 
-  services.caddy.virtualHosts."archive.hypervirtual.world".extraConfig = ''
+  services.caddy.virtualHosts."archive.rougebordeaux.xyz".extraConfig = ''
     reverse_proxy 15632
   '';
 

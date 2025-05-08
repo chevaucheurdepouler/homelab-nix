@@ -22,7 +22,7 @@
         servers = [
           {
             "sisyphe" = {
-              baseUrl = "http://nzb.sisyphe.normandy.hypervirtual.world";
+              baseUrl = "http://nzb.sisyphe.normandy.rougebordeaux.xyz";
               apiKeyFile = "/run/secrets/sabnbzd_apikey";
             };
           }
@@ -43,7 +43,7 @@
       };
       nextcloud = {
         enable = true;
-        url = "https://cloud.hypervirtual.world";
+        url = "https://cloud.rougebordeaux.xyz";
         tokenFile = "/run/secrets/nextcloudTokenFile";
       };
     };

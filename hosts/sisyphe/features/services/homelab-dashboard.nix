@@ -38,11 +38,11 @@ in
       format = "dotenv";
     };
 
-    services.caddy.virtualHosts."http://sisyphe.normandy.hypervirtual.world".extraConfig = ''
+    services.caddy.virtualHosts."http://sisyphe.normandy.rougebordeaux.xyz".extraConfig = ''
       reverse_proxy :8082
     '';
 
-    services.caddy.virtualHosts."http://home.hypervirtual.world".extraConfig = ''
+    services.caddy.virtualHosts."http://home.rougebordeaux.xyz.extraConfig = ''
       reverse_proxy :8082
     '';
 
@@ -97,7 +97,7 @@ in
             }
             {
               "mastodon" = [
-                { href = "https://fish.hypervirtual.world"; }
+                { href = "https://fish.rougebordeaux.xyz; }
               ];
             }
             {
@@ -147,14 +147,14 @@ in
               "Calibre-web" = {
                 icon = "calibre";
                 description = "Serveur de livres";
-                href = "http://books.hypervirtual.world";
+                href = "http://books.rougebordeaux.xyz;
               };
             }
             {
               "Freshrss" = {
                 icon = "freshrss";
                 description = "Récupère les articles";
-                href = "http://freshrss.hypervirtual.world";
+                href = "http://freshrss.rougebordeaux.xyz;
               };
             }
           ];
@@ -166,7 +166,7 @@ in
               "Jellyfin" = {
                 icon = "jellyfin";
                 description = "Permet de regarder ou écouter du contenu.";
-                href = "http://media.hypervirtual.world";
+                href = "http://media.rougebordeaux.xyz;
                 widget = {
                   type = "jellyfin";
                   url = "http://${ip}:8096";
@@ -179,7 +179,7 @@ in
               "Jellyseerr" = {
                 icon = "jellyseerr";
                 description = "Moteur de recherche de films/séries";
-                href = "http://katflix.sisyphe.normandy.hypervirtual.world";
+                href = "http://katflix.sisyphe.normandy.rougebordeaux.xyz;
 
                 widget = {
                   type = "jellyseerr";
@@ -192,14 +192,14 @@ in
               "slskd" = {
                 icon = "slskd";
                 description = "Pour télécharger/partager de la musique";
-                href = "http://slskd.sisyphe.normandy.hypervirtual.world";
+                href = "http://slskd.sisyphe.normandy.rougebordeaux.xyz;
               };
             }
             {
               "Prowlarr" = {
                 icon = "prowlarr";
                 description = "Indexe les différents sites de téléchargement";
-                href = "http://prowlarr.sisyphe.normandy.hypervirtual.world";
+                href = "http://prowlarr.sisyphe.normandy.rougebordeaux.xyz;
                 widget = {
                   type = "prowlarr";
                   key = "{{HOMEPAGE_VAR_PROWLARR}}";
@@ -211,7 +211,7 @@ in
               "Sonarr" = {
                 icon = "sonarr";
                 description = "Moteur de recherche pour les séries";
-                href = "http://sonarr.sisyphe.normandy.hypervirtual.world";
+                href = "http://sonarr.sisyphe.normandy.rougebordeaux.xyz;
                 widget = {
                   type = "sonarr";
                   url = "http://${ip}:8989";
@@ -223,7 +223,7 @@ in
               "Sonarr anime" = {
                 icon = "sonarr";
                 description = "Moteur de recherche pour les séries animées";
-                href = "http://sonarr-anime.sisyphe.normandy.hypervirtual.world";
+                href = "http://sonarr-anime.sisyphe.normandy.rougebordeaux.xyz;
                 widget = {
                   type = "sonarr";
                   url = "http://${ip}:8999";
@@ -235,7 +235,7 @@ in
               "Radarr" = {
                 icon = "radarr";
                 description = "Moteur de recherche pour les films";
-                href = "http://radarr.sisyphe.normandy.hypervirtual.world";
+                href = "http://radarr.sisyphe.normandy.rougebordeaux.xyz;
                 widget = {
                   type = "radarr";
                   key = "{{HOMEPAGE_VAR_RADARR}}";
@@ -247,7 +247,7 @@ in
               "Bazarr" = {
                 icon = "bazarr";
                 description = "Vérifie les sous titres des films/séries.";
-                href = "http://bazarr.sisyphe.normandy.hypervirtual.world";
+                href = "http://bazarr.sisyphe.normandy.rougebordeaux.xyz;
                 widget = {
                   type = "bazarr";
                   key = "{{HOMEPAGE_VAR_BAZARR}}";
@@ -259,7 +259,7 @@ in
               "Bazarr anime" = {
                 icon = "bazarr";
                 description = "Vérifie les sous titres des séries animées.";
-                href = "http://bazarr-anime.sisyphe.normandy.hypervirtual.world";
+                href = "http://bazarr-anime.sisyphe.normandy.rougebordeaux.xyz;
                 widget = {
                   type = "bazarr";
                   key = "{{HOMEPAGE_VAR_BAZARRANIME}}";
@@ -272,7 +272,7 @@ in
               "Transmission" = {
                 icon = "transmission";
                 description = "s'occupe du téléchargement des fichiers";
-                href = "http://transmission.sisyphe.normandy.hypervirtual.world";
+                href = "http://transmission.sisyphe.normandy.rougebordeaux.xyz;
                 widget = {
                   type = "transmission";
                   url = "http://${ip}:9091";
@@ -285,7 +285,7 @@ in
               "Sabnzbd" = {
                 icon = "sabnzbd";
                 description = "s'occupe de naviguer sur les réseaux usenet";
-                href = "http://nzb.sisyphe.normandy.hypervirtual.world";
+                href = "http://nzb.sisyphe.normandy.rougebordeaux.xyz;
               };
             }
           ];
@@ -296,14 +296,14 @@ in
               "Nextcloud" = {
                 icon = "nextcloud";
                 description = "Sauvegarde de données";
-                href = "https://cloud.hypervirtual.world";
+                href = "https://cloud.rougebordeaux.xyz;
               };
             }
             {
               "4get" = {
                 icon = "searx";
                 description = "Moteur de recherche privé pour remplacer Google.";
-                href = "https://4get.hypervirtual.world";
+                href = "https://4get.rougebordeaux.xyz;
               };
             }
           ];
@@ -340,7 +340,7 @@ in
               "Grafana" = {
                 icon = "grafana";
                 description = "Visualiseur de graphiques";
-                href = "http://grafana.sisyphe.normandy.hypervirtual.world";
+                href = "http://grafana.sisyphe.normandy.rougebordeaux.xyz;
               };
             }
             {
@@ -354,7 +354,7 @@ in
               "Uptime Kuma" = {
                 icon = "uptime-kuma";
                 description = "Surveille l'état des différents services";
-                href = "http://uptime.sisyphe.normandy.hypervirtual.world";
+                href = "http://uptime.sisyphe.normandy.rougebordeaux.xyz;
               };
             }
             {

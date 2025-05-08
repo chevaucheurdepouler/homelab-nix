@@ -23,11 +23,11 @@
   };
 
   services.caddy.virtualHosts = {
-      "http://jellyfin.sisyphe.normandy.hypervirtual.world".extraConfig = ''
+      "http://jellyfin.sisyphe.normandy.rougebordeaux.xyz".extraConfig = ''
         reverse_proxy :8096
       '';
 
-      "http://media.hypervirtual.world".extraConfig = ''
+      "http://media.rougebordeaux.xyz.extraConfig = ''
         reverse_proxy :8096
       '';
   };

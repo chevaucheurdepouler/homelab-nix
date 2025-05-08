@@ -51,6 +51,8 @@
     z3
     bitwarden
     kicad
+    ente-auth
+    ente-web
   ];
 
   programs.kdeconnect.enable = true;

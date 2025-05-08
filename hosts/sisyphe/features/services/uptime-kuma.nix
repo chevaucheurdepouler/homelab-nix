@@ -8,11 +8,11 @@
     };
   };
 
-  services.caddy.virtualHosts."http://status.hypervirtual.world".extraConfig = ''
+  services.caddy.virtualHosts."http://status.rougebordeaux.xyz".extraConfig = ''
     reverse_proxy :4000
   '';
 
-  services.caddy.virtualHosts."http://uptime.sisyphe.normandy.hypervirtual.world".extraConfig = ''
+  services.caddy.virtualHosts."http://uptime.sisyphe.normandy.rougebordeaux.xyz.extraConfig = ''
     reverse_proxy :4000
   '';
 

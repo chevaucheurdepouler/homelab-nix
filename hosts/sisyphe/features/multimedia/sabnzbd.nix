@@ -1,11 +1,11 @@
 { ... }:
 {
   services.sabnzbd = {
-    enable = true;
-    openFirewall = true;
+    enable = false;
+    openFirewall = false;
   };
 
-  services.caddy.virtualHosts."http://nzb.sisyphe.normandy.hypervirtual.world".extraConfig = ''
+  services.caddy.virtualHosts."http://nzb.sisyphe.normandy.rougebordeaux.xyz".extraConfig = ''
     reverse_proxy 8080
   '';
 }

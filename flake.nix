@@ -12,8 +12,10 @@
       inputs.nixpkgs.follows = "nixpkgsUnstable";
     };
 
-    alejandra.url = "github:kamadorueda/alejandra/3.0.0";
-    alejandra.inputs.nixpkgs.follows = "nixpkgsUnstable";
+    alejandra = {
+      url = "github:kamadorueda/alejandra/3.0.0";
+      follows = "nixpkgsUnstable";
+    };
 
     nix-secrets = {
       url = "git+https://git.hypervirtual.world/harry123/nix-secrets.git"; # replace with your own repo
@@ -21,13 +23,12 @@
     };
 
     /*
-      nix-secrets-next = {
-        url = "git+https://git.hypervirtual.world/harry123/nix-secrets-next.git";
-        flake = false;
-      };
+        nix-secrets-next = {
+          url = "git+https://git.rougebordeaux.xyz/harry123/nix-secrets-next.git";
+          flake = false;
+        };
+      miovim.url = "git+https://git.rougebordeaux.xyz/harry123/miovim.git";
     */
-
-    miovim.url = "git+https://git.hypervirtual.world/harry123/miovim.git";
 
     nixos-generators = {
       url = "github:nix-community/nixos-generators";
@@ -43,8 +44,7 @@
     nix-darwin.inputs.nixpkgs.follows = "nixpkgsUnstable";
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.4.1";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
-
-    walker.url = "github:abenz1267/walker";
+    catppuccin.url = "github:catppuccin/nix";
   };
 
   outputs =
@@ -59,7 +59,6 @@
       nix-darwin,
       nix-flatpak,
       home-manager,
-      miovim,
       zen-browser,
       ...
     }@inputs:
@@ -87,8 +86,6 @@
           ];
         };
 
-        # athena = nixpkgs.lib.nixosSystem {}:
-
         labouse = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
@@ -102,6 +99,7 @@
           modules = [
             ./hosts/goober/configuration.nix
             nix-flatpak.nixosModules.nix-flatpak
+            catppuccin.nixosModules.catppuccin
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
