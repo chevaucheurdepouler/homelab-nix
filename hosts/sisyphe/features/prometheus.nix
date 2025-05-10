@@ -19,12 +19,12 @@
       };
       sabnzbd = {
         enable = true;
+
         servers = [
           {
             "sisyphe" = {
               baseUrl = "http://nzb.sisyphe.normandy.rougebordeaux.xyz";
               apiKeyFile = "/run/secrets/sabnbzd_apikey";
-            };
           }
         ];
       };
