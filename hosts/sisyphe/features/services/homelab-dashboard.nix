@@ -9,14 +9,10 @@
 with lib;
 let
   cfg = config.homepage-dashboard;
-  ip = cfg.baseURL;
+  ip = "192.168.1.177";
 in
 {
   options = {
-    homepage-dashboard.baseURL = mkOption {
-      type = types.str;
-      default = "192.168.1.177";
-    };
     homepage-dashboard.proxmoxVEIp = mkOption {
       type = types.str;
       default = "192.168.1.10";
@@ -30,7 +26,7 @@ in
       default = "192.168.1.25";
     };
 
-    baseUrl = mkOption {
+    homepage-dashboard.baseUrl = mkOption {
       type = types.str;
       default = "rougebordeaux.xyz";
     };
