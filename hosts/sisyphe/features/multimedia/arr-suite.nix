@@ -18,8 +18,6 @@ in
     openFirewall = true;
   };
 
-
-
   services.prowlarr = {
     enable = true;
     openFirewall = true;
@@ -58,32 +56,32 @@ in
   */
 
   services.caddy.virtualHosts = {
-      "http://radarr.sisyphe.normandy.rougebordeaux.xyz".extraConfig = ''
-        reverse_proxy :7878
-      '';
+    "http://radarr.sisyphe.normandy.rougebordeaux.xyz".extraConfig = ''
+      reverse_proxy :7878
+    '';
 
-      "http://sonarr.sisyphe.normandy.rougebordeaux.xyz.extraConfig = ''
-        reverse_proxy :8989
-      '';
+    "http://sonarr.sisyphe.normandy.rougebordeaux.xyz".extraConfig = ''
+      reverse_proxy :8989
+    '';
 
-      "http://sonarr-anime.sisyphe.normandy.rougebordeaux.xyz.extraConfig = ''
-        reverse_proxy :8999
-      '';
+    "http://sonarr-anime.sisyphe.normandy.rougebordeaux".xyz.extraConfig = ''
+      reverse_proxy :8999
+    '';
 
-      "http://prowlarr.sisyphe.normandy.rougebordeaux.xyz.extraConfig = ''
-        reverse_proxy :9696
-      '';
+    "http://prowlarr.sisyphe.normandy.rougebordeaux.xyz".extraConfig = ''
+      reverse_proxy :9696
+    '';
 
-      "http://katflix.sisyphe.normandy.rougebordeaux.xyz.extraConfig = ''
-        reverse_proxy :5055
-      '';
+    "http://katflix.sisyphe.normandy.rougebordeaux.xyz".extraConfig = ''
+      reverse_proxy :5055
+    '';
 
-      "http://bazarr.sisyphe.normandy.rougebordeaux.xyz.extraConfig = ''
-        reverse_proxy :6767
-      '';
+    "http://bazarr.sisyphe.normandy.rougebordeaux.xyz".extraConfig = ''
+      reverse_proxy :6767
+    '';
 
-      "http://bazarr-anime.sisyphe.normandy.rougebordeaux.xyz.extraConfig = ''
-        reverse_proxy :6777
-      '';
+    "http://bazarr-anime.sisyphe.normandy.rougebordeaux.xyz".extraConfig = ''
+      reverse_proxy :6777
+    '';
   };
 }
