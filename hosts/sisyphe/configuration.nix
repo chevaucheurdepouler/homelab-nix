@@ -9,6 +9,7 @@ let
   ip = "192.168.1.177";
   gateway = "192.168.1.1";
   username = "homelab";
+  # TODO: set up internal hostname config
 in
 {
   imports = [

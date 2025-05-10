@@ -46,7 +46,7 @@
         "OC\\Preview\\HEIC"
       ];
 
-      trustedDomains = [ "cloud.rougebordeaux.xyz ];
+      trustedDomains = [ "cloud.rougebordeaux.xyz" ];
       overwriteprotocol = "https";
       log_type = "file"; # temporary fix for https://nixos.org/manual/nixos/stable/#module-services-nextcloud-warning-logreader
       default_phone_region = "FR";

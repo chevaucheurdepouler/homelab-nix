@@ -11,7 +11,7 @@
     };
   };
 
-  services.caddy.virtualHosts."http://books.rougebordeaux.xyz".extraConfig = ''
+  services.caddy.virtualHosts."http://read.rougebordeaux.xyz".extraConfig = ''
     reverse_proxy :8083
   '';
 }

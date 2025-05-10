@@ -1,4 +1,4 @@
-{config, pkgs, ...}: 
+{ config, pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [ ircdHybrid ];
 
@@ -6,15 +6,16 @@
     enable = true;
     serverName = "irc.rougebordeaux.xyz";
     description = "welcome to the silly kittens hut !! meow:3";
-    adminEmail = "admin@rougebordeaux.xyz;
+    adminEmail = "admin@rougebordeaux.xyz";
   };
 
-  /**environment.etc = {
-    "ircd.conf" = {
-      text =''
-      '';
-      mode = "440";
-    };
-  };**/
+  /**
+    environment.etc = {
+      "ircd.conf" = {
+        text =''
+        '';
+        mode = "440";
+      };
+    };*
+  */
 }
-
