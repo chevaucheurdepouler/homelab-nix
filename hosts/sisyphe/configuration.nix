@@ -45,14 +45,6 @@ in
     ];
   };
 
-  users.users.deploy = {
-    isNormalUser = false;
-    extraGroups = [ "wheel" ];
-    openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIP9Yp7TbDhYJ27Sh+LcPXT569bMVwbFrkE4zksfU84l+ harry123@goober"
-    ];
-  };
-
   security.sudo.wheelNeedsPassword = false;
 
   environment.systemPackages = with pkgs; [
