@@ -53,7 +53,7 @@ in
     ];
   };
 
-  users.users.root.initialHashedPassword = "$y$j9T$99/NEnBGoewbrl5eHvTw7/$87rjPrvqs0Ys72338SxZJDibi8p7Fe8Can37rJyhcQ.";
+  security.sudo.wheelNeedsPassword = false;
 
   environment.systemPackages = with pkgs; [
     git
