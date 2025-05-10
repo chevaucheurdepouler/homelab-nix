@@ -64,7 +64,7 @@ in
       reverse_proxy :8989
     '';
 
-    "http://sonarr-anime.sisyphe.normandy.rougebordeaux".xyz.extraConfig = ''
+    "http://sonarr-anime.sisyphe.normandy.rougebordeaux.xyz".extraConfig = ''
       reverse_proxy :8999
     '';
 
