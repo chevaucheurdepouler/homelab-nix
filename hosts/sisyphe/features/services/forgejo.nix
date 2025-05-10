@@ -41,7 +41,7 @@
     mailerPasswordFile = config.sops.secrets.smtp_password.path;
   };
 
-  servuces.fail2ban = {
+  services.fail2ban = {
     enable = true;
     jails = {
       forgejo = {
