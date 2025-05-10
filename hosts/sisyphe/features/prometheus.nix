@@ -17,17 +17,21 @@
       systemd = {
         enable = true;
       };
-      sabnzbd = {
-        enable = true;
+      # TODO: enable prometheus services based on whether they are enabled or not
+      /*
+        sabnzbd = {
+          enable = true;
 
-        servers = [
-          {
-            "sisyphe" = {
-              baseUrl = "http://nzb.sisyphe.normandy.rougebordeaux.xyz";
-              apiKeyFile = "/run/secrets/sabnbzd_apikey";
-          }
-        ];
-      };
+          servers = [
+            {
+              "sisyphe" = {
+                baseUrl = "http://nzb.sisyphe.normandy.rougebordeaux.xyz";
+                apiKeyFile = "/run/secrets/sabnbzd_apikey";
+              };
+            }
+          ];
+        };
+      */
       redis = {
         enable = true;
       };
@@ -41,11 +45,14 @@
       php-fpm = {
         enable = true;
       };
-      nextcloud = {
-        enable = true;
-        url = "https://cloud.rougebordeaux.xyz";
-        tokenFile = "/run/secrets/nextcloudTokenFile";
-      };
+      /*
+        TODO: need to fix secrets before
+        nextcloud = {
+          enable = true;
+          url = "https://cloud.rougebordeaux.xyz";
+          tokenFile = "/run/secrets/nextcloudTokenFile";
+        };
+      */
     };
     scrapeConfigs = [
 

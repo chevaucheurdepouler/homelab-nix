@@ -47,6 +47,13 @@ in
     initialHashedPassword = "$y$j9T$H0D6NpMw1EU.oDhbMWrwL.$wDGGBKKGQdzeDRTzq0gWhoLdyUpQ2w6PMmGl.nuQ11/";
   };
 
+  users.users.deploy = {
+    extraGroups = [ "wheel" ];
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIP9Yp7TbDhYJ27Sh+LcPXT569bMVwbFrkE4zksfU84l+ harry123@goober"
+    ];
+  };
+
   users.users.root.initialHashedPassword = "$y$j9T$99/NEnBGoewbrl5eHvTw7/$87rjPrvqs0Ys72338SxZJDibi8p7Fe8Can37rJyhcQ.";
 
   environment.systemPackages = with pkgs; [
