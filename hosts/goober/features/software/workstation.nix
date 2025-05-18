@@ -53,6 +53,7 @@
     kicad
     ente-auth
     ente-web
+    jetbrains.rider
   ];
 
   programs.kdeconnect.enable = true;
