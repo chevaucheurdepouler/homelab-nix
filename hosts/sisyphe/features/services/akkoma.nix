@@ -10,8 +10,9 @@
       };
 
       "Pleroma.Web.Endpoint" = {
-        url.host = "fish.hypervirtual.word";
+        url.host = "eepy.rougebordeaux.xyz";
       };
     };
   };
 }
+

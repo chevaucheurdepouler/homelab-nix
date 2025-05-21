@@ -1,7 +1,7 @@
 { config, ... }:
 {
   imports = [
-    # ./akkoma.nix
+    ./akkoma.nix
     ./archivebox.nix
     ./homelab-dashboard.nix
     ./nextcloud.nix
