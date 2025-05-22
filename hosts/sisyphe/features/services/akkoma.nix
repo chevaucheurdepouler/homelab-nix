@@ -8,11 +8,10 @@
         email = "admin@babychou.me";
         registration_open = false;
       };
-
+      "Pleroma.Upload".base_url = "https://blurb.rougebordeaux.xyz";
       "Pleroma.Web.Endpoint" = {
         url.host = "eepy.rougebordeaux.xyz";
       };
     };
   };
 }
-
