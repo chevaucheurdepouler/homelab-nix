@@ -1,5 +1,6 @@
 {
   services.akkoma.enable = true;
+  services.akkoma.initDb.enable = true;
   services.akkoma.config = {
     ":pleroma" = {
       ":instance" = {
@@ -11,7 +12,28 @@
       "Pleroma.Upload".base_url = "https://blurb.rougebordeaux.xyz";
       "Pleroma.Web.Endpoint" = {
         url.host = "eepy.rougebordeaux.xyz";
+        http.port = 4004;
       };
     };
   };
+
+  services.caddy.virtualHosts."http://blurb.rougebordeaux.xyz".extraConfig = ''
+    log {
+      output file /var/log/caddy/akkoma-blurb.log
+    }
+
+    encode gzip
+
+    reverse_proxy :4004
+  '';
+
+  services.caddy.virtualHosts."http://eepy.rougebordeaux.xyz".extraConfig = ''
+    log {
+      output file /var/log/caddy/akkoma.log
+    }
+
+    encode gzip
+
+    reverse_proxy :4004
+  '';
 }
