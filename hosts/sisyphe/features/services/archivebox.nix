@@ -2,7 +2,7 @@
 {
   environment.systemPackages = with pkgs; [
     archivebox
-    nodejs_23
+    nodejs_24
   ];
 
   services.caddy.virtualHosts."archive.rougebordeaux.xyz".extraConfig = ''
