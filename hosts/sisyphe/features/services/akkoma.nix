@@ -12,7 +12,6 @@
       "Pleroma.Upload".base_url = "https://blurb.rougebordeaux.xyz";
       "Pleroma.Web.Endpoint" = {
         url.host = "eepy.rougebordeaux.xyz";
-        http.port = 4004;
       };
     };
   };
@@ -34,6 +33,6 @@
 
     encode gzip
 
-    reverse_proxy :4004
+    reverse_proxy :4000
   '';
 }
