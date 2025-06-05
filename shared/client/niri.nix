@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  inputs,
+  config,
+  pkgs,
+  ...
+}:
 {
   environment.systemPackages = with pkgs; [
     mako
@@ -13,6 +18,7 @@
     libheif
     libheif.out
     xwayland-satellite
+    inputs.swww.packages.${pkgs.system}.swww
   ];
 
   services.gvfs.enable = true;
@@ -29,7 +35,7 @@
     ];
   };
 
-  services.xserver.displayManager.gdm.enable = true;
+  services.displayManager.gdm.enable = true;
 
   security.pam.loginLimits = [
     {
