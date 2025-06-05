@@ -1,5 +1,6 @@
 {
   "layer": "top",
+  "position": "top",
   "modules-left": ["custom/launcher", "niri/workspaces", "niri/window"],
   "modules-center": [],
   "modules-right": [
