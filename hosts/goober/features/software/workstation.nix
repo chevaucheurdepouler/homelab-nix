@@ -23,7 +23,7 @@
     hunspellDicts.en-gb-large
 
     # video editing software
-    davinci-resolve
+    #davinci-resolve
 
     # recording software
     obs-studio
@@ -54,6 +54,7 @@
     ente-auth
     ente-web
     jetbrains.rider
+    revolt-desktop
   ];
 
   programs.kdeconnect.enable = true;
