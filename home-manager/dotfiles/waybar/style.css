@@ -60,6 +60,10 @@
   padding-right: 3px;
 }
 
+#bluetooth {
+  border-radius: 12px;
+  margin-right: 6px;
+}
 #workspaces button:hover {
   box-shadow: inherit;
   text-shadow: inherit;

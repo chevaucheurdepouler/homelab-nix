@@ -114,6 +114,7 @@
     ".config/hyfetch.json".source = dotfiles/hyfetch/hyfetch.json;
     ".config/niri".source = dotfiles/niri;
     ".config/fuzzel/fuzzel.ini".source = dotfiles/fuzzel/fuzzel.ini;
+    ".config/mako".source = dotfiles/mako;
 
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
