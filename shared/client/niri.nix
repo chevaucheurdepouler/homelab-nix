@@ -36,7 +36,9 @@
   };
 
   services.displayManager.gdm.enable = true;
+  services.udisks2.enable = true;
 
+  security.pam.services.swaylock = { };
   security.pam.loginLimits = [
     {
       domain = "@users";
