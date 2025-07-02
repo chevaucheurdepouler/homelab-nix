@@ -10,6 +10,7 @@
       "vscode"
       "tetrio-desktop"
       "beeper"
+      "exact-audio-copy"
     ];
 
   environment.systemPackages = with pkgs; [
@@ -55,6 +56,10 @@
     ente-web
     jetbrains.rider
     revolt-desktop
+    exactaudiocopy
+    picard
+    dysk
+    rsync
   ];
 
   virtualisation.containers.enable = true;
