@@ -23,7 +23,7 @@
 
     encode gzip
 
-    reverse_proxy :4004
+    reverse_proxy :4000
   '';
 
   services.caddy.virtualHosts."http://eepy.rougebordeaux.xyz".extraConfig = ''
