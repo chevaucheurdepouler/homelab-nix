@@ -22,11 +22,6 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = with pkgs; [
-    # # Adds the 'hello' command to your environment. It prints a friendly
-    # # "Hello, world!" when run.
-    # pkgs.hello
-
-    beeper
     nerd-fonts.code-new-roman
     ffmpegthumbnailer
     xfce.tumbler
@@ -38,24 +33,21 @@
     cava
     hyfetch
     kittysay
-    nextcloud-client
     thunderbird-bin
     feh
     waybar
     p7zip
+    tealdeer
 
     libreoffice-qt
-    tetrio-desktop
 
     playerctl
     wf-recorder
 
     file
-    osu-lazer-bin
 
     qbittorrent
 
-    i2pd
     ripgrep
     vscode
 
@@ -81,14 +73,12 @@
     unzip
     p7zip
 
-    libsixel
-    unzip
-    p7zip
-
     nixfmt-rfc-style
     fuzzel
     zsh-syntax-highlighting
 
+    dysk
+    rsync
     obsidian
     papirus-icon-theme
     # # You can also create simple shell scripts directly inside your

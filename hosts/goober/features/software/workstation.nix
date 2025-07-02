@@ -35,6 +35,7 @@
     # 3d modeling
     blender
 
+    beeper
     signal-desktop
     gajim
     weechat
@@ -46,10 +47,10 @@
     nil
     jetbrains.idea-ultimate
 
-    why3
-    alt-ergo
-    cvc4
-    z3
+    # why3
+    # alt-ergo
+    # cvc4
+    # z3
     bitwarden
     kicad
     ente-auth
@@ -58,8 +59,12 @@
     revolt-desktop
     exactaudiocopy
     picard
-    dysk
-    rsync
+    nextcloud-client
+    i2pd
+
+    # games
+    tetrio-desktop
+    osu-lazer-bin
   ];
 
   virtualisation.containers.enable = true;

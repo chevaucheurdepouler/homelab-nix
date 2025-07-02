@@ -4,6 +4,7 @@
     (discord.override {
       withVencord = true;
     })
+    vesktop
   ];
   # screen record support
   xdg = {

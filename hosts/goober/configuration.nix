@@ -5,6 +5,7 @@
 {
   config,
   lib,
+  username,
   pkgs,
   inputs,
   ...
@@ -78,7 +79,7 @@
   environment.pathsToLink = [ "/share/zsh" ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.harry123 = {
+  users.users.${username} = {
     isNormalUser = true;
     shell = pkgs.zsh;
     extraGroups = [

@@ -27,9 +27,9 @@
           url = "git+https://git.rougebordeaux.xyz/harry123/nix-secrets-next.git";
           flake = false;
         };
-      miovim.url = "git+https://git.rougebordeaux.xyz/harry123/miovim.git";
     */
 
+    miovim.url = "git+https://git.rougebordeaux.xyz/harry123/miovim.git";
     nixos-generators = {
       url = "github:nix-community/nixos-generators";
       inputs.nixpkgs.follows = "nixpkgsUnstable";
@@ -110,6 +110,10 @@
                   ./home-manager/home.nix
                   catppuccin.homeModules.catppuccin
                 ];
+
+                home.packages = [
+                  inputs.miovim.packages.${system}.default
+                ];
               };
               home-manager.extraSpecialArgs = { inherit inputs; };
             }
@@ -131,6 +135,10 @@
                 imports = [
                   ./home-manager/home.nix
                   catppuccin.homeModules.catppuccin
+                ];
+
+                home.packages = [
+                  inputs.miovim.packages.${system}.default
                 ];
               };
               home-manager.extraSpecialArgs = { inherit inputs; };
