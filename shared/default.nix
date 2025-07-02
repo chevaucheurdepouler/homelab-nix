@@ -17,9 +17,11 @@
     pkgs.foot.terminfo
     pkgs.kittysay
     pkgs.tmux
+    pkgs.fzf
   ];
 
   environment.variables.EDITOR = "nvim";
+  programs.fzf.fuzzyCompletion = true;
 
   nix.settings.experimental-features = [
     "nix-command"
@@ -30,8 +32,6 @@
     font = "Lat2-Terminus16";
     keyMap = "fr";
   };
-
-  services.tailscale.enable = true;
 
   # Set your time zone.
   time.timeZone = lib.mkDefault "Europe/Paris";

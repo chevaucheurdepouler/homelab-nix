@@ -12,8 +12,9 @@
 {
   imports = [
     # Include the results of the hardware scan.
-    ../../shared/client/niri.nix
     ./hardware-configuration.nix
+    ../../shared/client/niri.nix
+    ../../shared
     ./software
   ];
 

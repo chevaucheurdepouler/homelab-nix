@@ -70,6 +70,7 @@
     audacious-plugins
 
     libsixel
+    libnotify
     unzip
     p7zip
 
@@ -103,7 +104,6 @@
     ".bashrc".source = dotfiles/bash/.bashrc;
     ".config/hyfetch.json".source = dotfiles/hyfetch/hyfetch.json;
     ".config/niri".source = dotfiles/niri;
-    ".config/fuzzel/fuzzel.ini".source = dotfiles/fuzzel/fuzzel.ini;
     ".config/mako".source = dotfiles/mako;
 
     # # You can also set the file content immediately.
@@ -126,6 +126,34 @@
   programs.zoxide.options = [
     "--cmd cd"
   ];
+
+  programs.fuzzel = {
+    enable = true;
+    settings = {
+      main = {
+        match-mode = "fzf";
+      };
+      colors = {
+        background = "eff1f5dd";
+        text = "4c4f69ff";
+        prompt = "5c5f77ff";
+        placeholder = "8c8fa1ff";
+        input = "4c4f69ff";
+        match = "d20f39ff";
+        selection = "acb0beff";
+        selection-text = "4c4f69ff";
+        selection-match = "d20f39ff";
+        counter = "8c8fa1ff";
+        border = "d20f39ff";
+      };
+      border.radius = 0;
+    };
+  };
+
+  programs.fzf = {
+    enable = true;
+    enableZshIntegration = true;
+  };
 
   services.mpris-proxy.enable = true;
 
