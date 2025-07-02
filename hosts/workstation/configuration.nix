@@ -7,6 +7,7 @@
 {
   imports =
     [ # Include the results of the hardware scan.
+      ../../shared/client/tailscale.nix
       ./hardware-configuration.nix
     ];
 
@@ -18,7 +19,7 @@
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   boot.initrd.luks.devices."luks-11a80280-8a8c-44c0-a8be-7ef370eb37ae".device = "/dev/disk/by-uuid/11a80280-8a8c-44c0-a8be-7ef370eb37ae";
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "workstation"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -56,12 +57,19 @@
   console.keyMap = "fr";
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.rouge = {
+  users.users.misschloe777 = {
     isNormalUser = true;
-    description = "rouge";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [];
+    description = "misschloe777";
+    extraGroups = [ "networkmanager" "wheel" "audio" "video" "podman" ];
+    packages = with pkgs; [
+      inputs.zen-browser.packages."${system}".default
+    ];
   };
+
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -71,6 +79,15 @@
   environment.systemPackages = with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
+    wget
+    dwl
+    git
+    tmux
+    mako
+    grim
+    slurp
+    wl-clipboard
+    udiskie
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

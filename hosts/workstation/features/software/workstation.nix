@@ -14,47 +14,18 @@
 
   environment.systemPackages = with pkgs; [
     zathura
-    # music editing software
-    reaper
-
     libreoffice-qt
     hunspell
     hunspellDicts.fr-any
     hunspellDicts.en-gb-large
 
-    # video editing software
-    #davinci-resolve
-
     # recording software
     obs-studio
 
-    # drawing software
-    krita
-
-    # 3d modeling
-    blender
-
-    signal-desktop
-    gajim
-    weechat
-
     gvfs
-    xfce.thunar
 
-    eclipses.eclipse-java # school wants us to use it...
     nil
-    jetbrains.idea-ultimate
-
-    why3
-    alt-ergo
-    cvc4
-    z3
     bitwarden
-    kicad
-    ente-auth
-    ente-web
-    jetbrains.rider
-    revolt-desktop
   ];
 
   virtualisation.containers.enable = true;
