@@ -1,8 +1,5 @@
 { pkgs, lib, ... }:
 {
-  # for java development on vscode
-  programs.nix-ld.enable = true;
-
   nixpkgs.config.allowUnfreePredicate =
     pkg:
     builtins.elem (lib.getName pkg) [
@@ -23,7 +20,6 @@
     obs-studio
 
     gvfs
-
     nil
     bitwarden
   ];
