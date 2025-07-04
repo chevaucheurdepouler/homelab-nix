@@ -18,7 +18,7 @@
     };
 
     nix-secrets = {
-      url = "git+https://git.hypervirtual.world/harry123/nix-secrets.git"; # replace with your own repo
+      url = "git+https://git.rougebordeaux.xyz/misschloe/nix-secrets.git"; # replace with your own repo
       flake = false;
     };
 
@@ -29,7 +29,7 @@
         };
     */
 
-    miovim.url = "git+https://git.rougebordeaux.xyz/harry123/miovim.git";
+    miovim.url = "git+https://git.rougebordeaux.xyz/misschloe/miovim.git";
     nixos-generators = {
       url = "github:nix-community/nixos-generators";
       inputs.nixpkgs.follows = "nixpkgsUnstable";
@@ -143,6 +143,7 @@
               };
               home-manager.extraSpecialArgs = { inherit inputs; };
             }
+            { programs.nix-ld.enable = true; }
           ];
         };
 
