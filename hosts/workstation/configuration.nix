@@ -15,7 +15,7 @@
     ./hardware-configuration.nix
     ../../shared/client/niri.nix
     ../../shared
-    ./software
+    ./features
   ];
 
   # Bootloader.
@@ -68,6 +68,7 @@
   users.users.misschloe777 = {
     isNormalUser = true;
     description = "misschloe777";
+    shell = pkgs.zsh;
     extraGroups = [
       "networkmanager"
       "wheel"
