@@ -61,6 +61,9 @@
     picard
     nextcloud-client
     i2pd
+    nicotine-plus
+    mpd
+    mpdas
 
     # games
     tetrio-desktop

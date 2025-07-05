@@ -79,6 +79,7 @@
     fuzzel
     zsh-syntax-highlighting
 
+    cinny-desktop
     dysk
     rsync
     obsidian
@@ -303,6 +304,12 @@
         file = ".p10k.zsh";
       }
     ];
+  };
+
+  services.mpd = {
+    enable = true;
+    musicDirectory = "/home/misschloe777/Musique";
+    network.startWhenNeeded = true;
   };
 
   # Let Home Manager install and manage itself.
