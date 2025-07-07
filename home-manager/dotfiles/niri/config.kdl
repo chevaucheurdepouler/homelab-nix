@@ -572,7 +572,7 @@ binds {
 // wayland support
 spawn-at-startup "xwayland-satellite"
 spawn-at-startup "swww-daemon"
-spawn-at-startup "bash" "~/config/niri/background.sh" "~/config/niri/wallpapers"
+spawn-at-startup "bash" "~/.config/niri/background.sh" "~/.config/niri/wallpapers"
 
 environment {
   DISPLAY ":0"
