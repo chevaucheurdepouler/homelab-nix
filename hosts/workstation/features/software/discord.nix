@@ -1,9 +1,6 @@
 { config, pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
-    (discord.override {
-      withVencord = true;
-    })
     vesktop
   ];
   # screen record support
