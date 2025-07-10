@@ -3,9 +3,9 @@
 {
   imports = [
     ./crafty-controller.nix
-    ./flaresolverr.nix
+    # ./flaresolverr.nix
     ./freshrss.nix
-    ./sonarr.nix
+    # ./sonarr.nix
     #./pihole-exporter.nix
   ];
 }

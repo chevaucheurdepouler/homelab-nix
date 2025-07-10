@@ -1,17 +1,19 @@
-{pkgs, config, ...} : 
+{ pkgs, config, ... }:
 {
   services.mysql = {
-    enable = true;
+    enable = false;
     package = pkgs.mariadb;
-    ensureDatabases = [ "photoprism" ];
-    ensureUsers = [
-      {
-        name = "photoprism";
-        ensurePermissions = {
-          "photoprism.*" = "ALL PRIVILEGES";
-        };
-      }
-    ];
+    /*
+      ensureDatabases = [ "photoprism" ];
+      ensureUsers = [
+        {
+          name = "photoprism";
+          ensurePermissions = {
+            "photoprism.*" = "ALL PRIVILEGES";
+          };
+        }
+      ];
+    */
   };
 
   services.postgresql = {

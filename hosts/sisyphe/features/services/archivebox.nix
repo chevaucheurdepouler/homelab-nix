@@ -10,7 +10,7 @@
   '';
 
   systemd.services."archivebox-web" = {
-    enable = true;
+    enable = false;
     description = "Runs the archivebox web UI";
     preStart = ''
       mkdir -p /srv/archivebox

@@ -13,18 +13,8 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    jellyfin
-    jellyfin-web
-    jellyfin-ffmpeg
     transmission
-    sonarr
-    radarr
-    prowlarr
-    readarr
-    jellyseerr
     homepage-dashboard
-    slskd
-    bazarr
     ethtool
     networkd-dispatcher
     transcrypt

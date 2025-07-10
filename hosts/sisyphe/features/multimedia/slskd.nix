@@ -18,6 +18,10 @@ in
   };
   config = {
 
+    environment.systemPackages = with pkgs; [
+      slskd
+    ];
+
     sops.secrets.slskd = {
       sopsFile = "${secrets}/secrets/slskd.env";
       format = "dotenv";
