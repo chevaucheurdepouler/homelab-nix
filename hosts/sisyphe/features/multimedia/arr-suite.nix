@@ -15,6 +15,7 @@ in
     jellyseerr
     bazarr
   ];
+
   /*
     services.sonarr = {
       enable = true;

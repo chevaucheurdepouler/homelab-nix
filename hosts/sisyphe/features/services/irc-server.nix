@@ -3,7 +3,7 @@
   environment.systemPackages = with pkgs; [ ircdHybrid ];
 
   services.ircdHybrid = {
-    enable = true;
+    enable = false;
     serverName = "irc.rougebordeaux.xyz";
     description = "welcome to the silly kittens hut !! meow:3";
     adminEmail = "admin@rougebordeaux.xyz";

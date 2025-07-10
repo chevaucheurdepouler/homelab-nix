@@ -15,12 +15,12 @@
     ./nextcloud-network.nix
   ]; # adding caddy support
 
-  sops.secrets.adminNextcloudPass = {
-    owner = "nextcloud";
-  };
+#  sops.secrets.adminNextcloudPass = {
+#    owner = "nextcloud";
+#  };
 
   services.nextcloud = {
-    enable = true;
+    enable = false;
     hostName = "cloud.rougebordeaux.xyz";
     database.createLocally = true;
     webserver = "caddy";
