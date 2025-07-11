@@ -581,7 +581,7 @@ environment {
 // apps to launch at startup
 spawn-at-startup "zen-beta"
 spawn-at-startup "obsidian"
-spawn-at-startup "discord"
+spawn-at-startup "vesktop"
 spawn-at-startup "beeper"
 
 clipboard {
