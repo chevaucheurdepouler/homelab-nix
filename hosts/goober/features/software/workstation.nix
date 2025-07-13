@@ -70,6 +70,16 @@
     osu-lazer-bin
   ];
 
+  services.mpdscribble = {
+    enable = true;
+    endpoints = {
+      "last.fm" = {
+        passwordFile = "/run/secrets/lastfm_password";
+        username = "ariburnznfire";
+      };
+    };
+  };
+
   virtualisation.containers.enable = true;
   virtualisation = {
     podman = {
