@@ -17,6 +17,7 @@
     zathura
     # music editing software
     reaper
+    surge
 
     libreoffice-qt
     hunspell
