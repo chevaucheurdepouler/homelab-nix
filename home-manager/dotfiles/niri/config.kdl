@@ -594,6 +594,7 @@ workspace "chat"
 
 window-rule {
   match at-startup=true app-id=r#"^discord$"#
+  match at-startup=true app-id=r#"^vesktop$"#
   match at-startup=true app-id=r#"^Beeper$"#
   open-on-workspace "chat"
 }
