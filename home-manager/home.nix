@@ -56,7 +56,7 @@
 
     gammastep
     lazygit
-    gimp-with-plugins
+    # gimp-with-plugins
     fzf
     lf
 
