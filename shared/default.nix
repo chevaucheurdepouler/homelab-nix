@@ -18,6 +18,7 @@
     pkgs.kittysay
     pkgs.tmux
     pkgs.fzf
+    pkgs.fastfetch
   ];
 
   environment.variables.EDITOR = "nvim";

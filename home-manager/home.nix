@@ -21,76 +21,79 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = with pkgs; [
-    nerd-fonts.code-new-roman
-    ffmpegthumbnailer
-    xfce.tumbler
-    dm-sans
-    zoxide
-    btop
-    bitwarden-cli
-    weechat
-    cava
-    hyfetch
-    kittysay
-    thunderbird-bin
-    feh
-    waybar
-    p7zip
-    tealdeer
+  home.packages =
+    with pkgs;
+    [
+      nerd-fonts.code-new-roman
+      ffmpegthumbnailer
+      xfce.tumbler
+      dm-sans
+      zoxide
+      btop
+      bitwarden-cli
+      weechat
+      cava
+      hyfetch
+      kittysay
+      thunderbird-bin
+      feh
+      waybar
+      p7zip
+      tealdeer
 
-    libreoffice-qt
+      libreoffice-qt
 
-    playerctl
-    wf-recorder
+      playerctl
+      wf-recorder
 
-    file
+      file
 
-    qbittorrent
+      qbittorrent
 
-    ripgrep
-    vscode
+      ripgrep
+      vscode
 
-    zathura
-    tor-browser
+      zathura
+      tor-browser
 
-    gammastep
-    lazygit
-    # gimp-with-plugins
-    fzf
-    lf
+      gammastep
+      lazygit
+      # gimp-with-plugins
+      fzf
+      lf
 
-    prismlauncher
+      prismlauncher
 
-    wofi
-    wofi-emoji
-    obsidian
+      wofi
+      wofi-emoji
+      obsidian
 
-    cinny-desktop
-    audacious
-    audacious-plugins
+      cinny-desktop
+      audacious
+      audacious-plugins
 
-    libsixel
-    libnotify
-    unzip
-    p7zip
+      libsixel
+      libnotify
+      unzip
+      p7zip
 
-    nixfmt-rfc-style
-    fuzzel
-    zsh-syntax-highlighting
+      nixfmt-rfc-style
+      fuzzel
+      zsh-syntax-highlighting
 
-    cinny-desktop
-    dysk
-    rsync
-    obsidian
-    papirus-icon-theme
-    # # You can also create simple shell scripts directly inside your
-    #  # configuration. For example, this adds a command 'my-hello' to your
-    # # environment:
-    # (pkgs.writeShellScriptBin "my-hello" ''
-    #   echo "Hello, ${config.home.username}!"
-    # '')
-  ];
+      cinny-desktop
+      dysk
+      rsync
+      obsidian
+      papirus-icon-theme
+      # # You can also create simple shell scripts directly inside your
+      #  # configuration. For example, this adds a command 'my-hello' to your
+      # # environment:
+      # (pkgs.writeShellScriptBin "my-hello" ''
+      #   echo "Hello, ${config.home.username}!"
+      # '')
+    ]
+    ++ (if system == "aarch64-darwin" then [ ] else [ swaylock-effects ]);
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
@@ -163,10 +166,6 @@
     enable = true;
     tray = "auto";
     automount = true;
-  };
-
-  programs.swaylock = {
-    enable = true;
   };
 
   # Home Manager can also manage your environment variables through

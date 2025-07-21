@@ -12,7 +12,7 @@
     wl-clipboard
     xdg-utils
     sway-contrib.grimshot
-    swaylock
+    swaylock-effects
     swaynotificationcenter
     nautilus
     libheif

@@ -47,7 +47,7 @@
     catppuccin.url = "github:catppuccin/nix";
     swww.url = "github:LGFae/swww";
     lix-module = {
-      url = "git+https://git.lix.systems/lix-project/lix.git";
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/main.tar.gz";
       inputs.nixpkgs.follows = "nixpkgsUnstable";
     };
   };
@@ -65,6 +65,7 @@
       nix-flatpak,
       home-manager,
       zen-browser,
+      lix-module,
       ...
     }@inputs:
     let
@@ -103,6 +104,7 @@
           specialArgs = specialArgs;
           modules = [
             ./hosts/goober/configuration.nix
+            lix-module.nixosModules.default
             nix-flatpak.nixosModules.nix-flatpak
             catppuccin.nixosModules.catppuccin
             home-manager.nixosModules.home-manager
@@ -129,6 +131,7 @@
           specialArgs = specialArgs;
           modules = [
             ./hosts/workstation/configuration.nix
+            lix-module.nixosModules.default
             nix-flatpak.nixosModules.nix-flatpak
             catppuccin.nixosModules.catppuccin
             home-manager.nixosModules.home-manager
