@@ -254,7 +254,7 @@
   };
 
   catppuccin = {
-    flavor = "latte";
+    flavor = "mocha";
     mpv.enable = true;
     mako.enable = true;
     lazygit.enable = true;
@@ -283,6 +283,7 @@
         };
       }
     );
+
     config = {
       profile = "high-quality";
       ytdl-format = "bestvideo+bestaudio";
@@ -300,6 +301,9 @@
       ll = "ls -l";
       edit = "sudo -e";
       update = "sudo nixos-rebuild switch";
+      lg = "lazygit";
+      gpl = "git pull";
+      gpsh = "git push";
     };
 
     history.size = 10000;
