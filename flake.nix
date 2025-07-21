@@ -50,6 +50,9 @@
       url = "https://git.lix.systems/lix-project/nixos-module/archive/main.tar.gz";
       inputs.nixpkgs.follows = "nixpkgsUnstable";
     };
+    musnix = {
+      url = "github:musnix/musnix";
+    };
   };
 
   outputs =
@@ -65,6 +68,7 @@
       nix-flatpak,
       home-manager,
       zen-browser,
+      musnix,
       lix-module,
       ...
     }@inputs:
@@ -106,6 +110,7 @@
             ./hosts/goober/configuration.nix
             lix-module.nixosModules.default
             nix-flatpak.nixosModules.nix-flatpak
+            musnix.nixosModules.musnix
             catppuccin.nixosModules.catppuccin
             home-manager.nixosModules.home-manager
             {

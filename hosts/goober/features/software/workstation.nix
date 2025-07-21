@@ -1,4 +1,9 @@
-{ pkgs, lib, ... }:
+{
+  musnix,
+  pkgs,
+  lib,
+  ...
+}:
 {
   # for java development on vscode
   programs.nix-ld.enable = true;
@@ -11,13 +16,17 @@
       "tetrio-desktop"
       "beeper"
       "exact-audio-copy"
+      "cider-2"
     ];
 
+  musnix.enable = true;
+  musnix.rtcqs.enable = true;
   environment.systemPackages = with pkgs; [
     zathura
     # music editing software
     reaper
     surge
+    cider-2
 
     libreoffice-qt
     hunspell
@@ -44,9 +53,9 @@
     gvfs
     xfce.thunar
 
-    eclipses.eclipse-java # school wants us to use it...
+    # eclipses.eclipse-java # school wants us to use it...
     nil
-    jetbrains.idea-ultimate
+    # jetbrains.idea-ultimate
 
     # why3
     # alt-ergo

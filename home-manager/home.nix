@@ -24,6 +24,7 @@
   home.packages =
     with pkgs;
     [
+      yt-dlp
       nerd-fonts.code-new-roman
       ffmpegthumbnailer
       xfce.tumbler
@@ -284,10 +285,13 @@
       }
     );
 
-    config = {
-      profile = "high-quality";
-      ytdl-format = "bestvideo+bestaudio";
-      cache-default = 4000000;
+    profiles = {
+      "high-quality" = {
+        ytdl-format = "bestvideo+bestaudio";
+      };
+      "1080p" = {
+        ytdl-format = "bestvideo[height<=?1080]+bestaudio/best";
+      };
     };
   };
 
