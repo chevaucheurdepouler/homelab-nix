@@ -131,7 +131,7 @@
           specialArgs = specialArgs;
           modules = [
             ./hosts/workstation/configuration.nix
-            lix-module.nixosModules.default
+            # lix-module.nixosModules.default
             nix-flatpak.nixosModules.nix-flatpak
             catppuccin.nixosModules.catppuccin
             home-manager.nixosModules.home-manager
