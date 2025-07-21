@@ -46,6 +46,10 @@
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     catppuccin.url = "github:catppuccin/nix";
     swww.url = "github:LGFae/swww";
+    lix-module = {
+      url = "git+https://git.lix.systems/lix-project/lix.git";
+      inputs.nixpkgs.follows = "nixpkgsUnstable";
+    };
   };
 
   outputs =
