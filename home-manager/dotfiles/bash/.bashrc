@@ -1,4 +1,4 @@
-kittysay "meow, what r we doin 2day :3"
+# kittysay ">:3"
 eval "$(zoxide init bash)"
 eval "$(direnv hook bash)"
 
