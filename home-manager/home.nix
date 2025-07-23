@@ -262,6 +262,9 @@
     gtk.enable = true;
     fzf.enable = true;
     swaylock.enable = true;
+    foot.enable = true;
+    qutebrowser.enable = true;
+    enable = true;
   };
 
   home.shell.enableZshIntegration = true;
@@ -308,6 +311,8 @@
       lg = "lazygit";
       gpl = "git pull";
       gpsh = "git push";
+      flake = "nix flake";
+      develop = "nix develop";
     };
 
     history.size = 10000;
