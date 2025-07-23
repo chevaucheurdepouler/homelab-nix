@@ -340,11 +340,11 @@
     "lix": {
       "flake": false,
       "locked": {
-        "lastModified": 1751825501,
-        "narHash": "sha256-6Jve3xCvRJGkz0A9D8dXH/DMWYE8MkFt+KJWQs9cLkw=",
-        "rev": "378b360bf8e0d04e8dd3733acd20d7a9b70360f1",
+        "lastModified": 1753136274,
+        "narHash": "sha256-wXgEAtyxfOIyml1t2+XGh1BUVPBsGRQSJnP6WGIiZDg=",
+        "rev": "bf3d52e5bbf4bfd333b04a53e7f8937763bbda66",
         "type": "tarball",
-        "url": "https://git.lix.systems/api/v1/repos/lix-project/lix/archive/378b360bf8e0d04e8dd3733acd20d7a9b70360f1.tar.gz?rev=378b360bf8e0d04e8dd3733acd20d7a9b70360f1"
+        "url": "https://git.lix.systems/api/v1/repos/lix-project/lix/archive/bf3d52e5bbf4bfd333b04a53e7f8937763bbda66.tar.gz"
       },
       "original": {
         "type": "tarball",
@@ -355,7 +355,9 @@
       "inputs": {
         "flake-utils": "flake-utils",
         "flakey-profile": "flakey-profile",
-        "lix": "lix",
+        "lix": [
+          "lix"
+        ],
         "nixpkgs": [
           "nixpkgsUnstable"
         ]
@@ -379,11 +381,11 @@
         "nixvim": "nixvim"
       },
       "locked": {
-        "lastModified": 1753111006,
-        "narHash": "sha256-2wt/EyOv171Knn2v90jUzWNO9mmHYa59ce4oUtlnI5E=",
+        "lastModified": 1753258679,
+        "narHash": "sha256-yWhJbv8AOkEyFZWB7XybaQvnv3QRIq/hT4AQHgu/87A=",
         "ref": "refs/heads/main",
-        "rev": "64eb8715929c58fe6117ff6db3c8834881f5b2fc",
-        "revCount": 23,
+        "rev": "f8ba8fb8eee79afca7f990379acbe9697a2441f2",
+        "revCount": 25,
         "type": "git",
         "url": "https://git.rougebordeaux.xyz/misschloe/miovim.git"
       },
@@ -731,6 +733,7 @@
         ],
         "catppuccin": "catppuccin",
         "home-manager": "home-manager",
+        "lix": "lix",
         "lix-module": "lix-module",
         "miovim": "miovim",
         "neovim-nightly-overlay": "neovim-nightly-overlay",
