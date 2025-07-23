@@ -579,7 +579,7 @@ environment {
 }
 
 // apps to launch at startup
-spawn-at-startup "zen-beta"
+spawn-at-startup "qutebrowser"
 spawn-at-startup "vesktop"
 spawn-at-startup "beeper"
 spawn-at-startup "cinny"
@@ -596,12 +596,12 @@ window-rule {
   match at-startup=true app-id=r#"^discord$"#
   match at-startup=true app-id=r#"^vesktop$"#
   match at-startup=true app-id=r#"^Beeper$"#
+  match at-startup=true app-id=r#"^cinny$"#
   open-on-workspace "chat"
 }
 
 window-rule {
   match app-id=r#"^discord$"#
-  match is-active=true
   open-maximized true
 }
 
