@@ -46,9 +46,15 @@
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     catppuccin.url = "github:catppuccin/nix";
     swww.url = "github:LGFae/swww";
+    lix = {
+      url = "https://git.lix.systems/lix-project/lix/archive/main.tar.gz";
+      flake = false;
+    };
+
     lix-module = {
       url = "https://git.lix.systems/lix-project/nixos-module/archive/main.tar.gz";
       inputs.nixpkgs.follows = "nixpkgsUnstable";
+      inputs.lix.follows = "lix";
     };
     musnix = {
       url = "github:musnix/musnix";
@@ -136,7 +142,7 @@
           specialArgs = specialArgs;
           modules = [
             ./hosts/workstation/configuration.nix
-            # lix-module.nixosModules.default
+            lix-module.nixosModules.default
             nix-flatpak.nixosModules.nix-flatpak
             catppuccin.nixosModules.catppuccin
             home-manager.nixosModules.home-manager
