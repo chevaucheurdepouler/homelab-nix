@@ -27,7 +27,7 @@
     "kvm-intel"
     "wl"
   ];
-  boot.extraModulePackages = [ config.boot.kernelPackages.broadcom_sta ];
+  # boot.extraModulePackages = [ config.boot.kernelPackages.broadcom_sta ];
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/4efbf111-4cbb-4e1e-b3ee-dc3fca1f6f4a";

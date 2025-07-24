@@ -52,12 +52,13 @@
     };
 
     lix-module = {
-      url = "https://git.lix.systems/lix-project/nixos-module/archive/main.tar.gz";
+      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.93.2-1.tar.gz";
       inputs.nixpkgs.follows = "nixpkgsUnstable";
       inputs.lix.follows = "lix";
     };
     musnix = {
       url = "github:musnix/musnix";
+      inputs.nixpkgs.follows = "nixpkgsUnstable";
     };
     moonlight = {
       url = "github:moonlight-mod/moonlight/develop"; # Add `/develop` to the flake URL to use nightly.
@@ -119,7 +120,7 @@
           specialArgs = specialArgs;
           modules = [
             ./hosts/goober/configuration.nix
-            lix-module.nixosModules.default
+            # lix-module.nixosModules.default
             nix-flatpak.nixosModules.nix-flatpak
             musnix.nixosModules.musnix
             catppuccin.nixosModules.catppuccin
