@@ -23,6 +23,7 @@
   musnix.rtcqs.enable = true;
   environment.systemPackages = with pkgs; [
     zathura
+    qutebrowser
     # music editing software
     reaper
     surge
@@ -65,7 +66,7 @@
     kicad
     ente-auth
     ente-web
-    jetbrains.rider
+    # jetbrains.rider
     revolt-desktop
     exactaudiocopy
     picard
