@@ -59,6 +59,10 @@
     musnix = {
       url = "github:musnix/musnix";
     };
+    moonlight = {
+      url = "github:moonlight-mod/moonlight/develop"; # Add `/develop` to the flake URL to use nightly.
+      inputs.nixpkgs.follows = "nixpkgsUnstable";
+    };
   };
 
   outputs =
@@ -76,6 +80,7 @@
       zen-browser,
       musnix,
       lix-module,
+      moonlight,
       ...
     }@inputs:
     let
@@ -126,6 +131,7 @@
                 imports = [
                   ./home-manager/home.nix
                   catppuccin.homeModules.catppuccin
+                  moonlight.homeModules.default
                 ];
 
                 home.packages = [
@@ -153,6 +159,7 @@
                 imports = [
                   ./home-manager/home.nix
                   catppuccin.homeModules.catppuccin
+                  moonlight.homeModules.default
                 ];
 
                 home.packages = [

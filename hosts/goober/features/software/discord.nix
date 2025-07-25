@@ -1,9 +1,16 @@
-{ config, pkgs, ... }:
+{
+  inputs,
+  config,
+  pkgs,
+  ...
+}:
 {
   environment.systemPackages = with pkgs; [
-    (discord.override {
-      withVencord = true;
-    })
+    discord.override
+    {
+      withMoonlight = true;
+      moonlight = inputs.moonlight.packages.${pkgs.system}.moonlight;
+    }
     vesktop
   ];
   # screen record support

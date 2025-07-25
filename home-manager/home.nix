@@ -350,6 +350,24 @@
     network.startWhenNeeded = true;
   };
 
+  # programs.moonlight = {
+  #   enable = true;
+  #   configs.stable = {
+  #     extensions = {
+  #       allActivites.enabled = true;
+  #       alwaysFocus.enabled = true;
+  #
+  #       betterEmbedsYT = {
+  #         enabled = true;
+  #         config = {
+  #           fullDescription = false;
+  #           expandDescription = true;
+  #         };
+  #       };
+  #     };
+  #   };
+  # };
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
