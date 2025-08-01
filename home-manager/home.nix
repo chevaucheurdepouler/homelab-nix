@@ -9,7 +9,6 @@
   # manage.
   home.username = "misschloe777";
   home.homeDirectory = "/home/misschloe777";
-
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
   # introduces backwards incompatible changes.
@@ -350,6 +349,12 @@
     network.startWhenNeeded = true;
   };
 
+  programs.atuin = {
+    enable = true;
+    settings = {
+      search_mode = "fuzzy";
+    };
+  };
   # programs.moonlight = {
   #   enable = true;
   #   configs.stable = {
