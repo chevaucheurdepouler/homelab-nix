@@ -1,6 +1,10 @@
 { config, pkgs, ... }:
 
 {
+  environment.systemPackages = with pkgs; [
+    glxinfo
+  ];
+
   boot.blacklistedKernelModules = [ "nouveau" ];
   hardware.graphics = {
     enable = true;
