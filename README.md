@@ -1,22 +1,26 @@
-# my nix homelab config
+# nix dotfiles
 
-**THIS CONFIG IS STILL EXPERIMENTAL !! IT MIGHT WONT WORK OR JUST BREAK YOUR CURRENT INSTALL**
-Hosted on a Proxmox VM (8Go RAM + 300Gb storage). It is not using the flake.nix because i don't see the use for it, as much than home-manager...
+This repo hosts all my dotfiles. It includes two desktop config, one (terrible) computer config, and some server dots. It brings my own neovim config, called [miovim](https://git.rougebordeaux.xyz/misschloe/miovim).
 
-The goal of this config is to include :
+| name        | description                                       |
+| ----------- | ------------------------------------------------- |
+| `goober`    | my main desktop config. Intel 9th gen + 1660 GPU. |
+| `workspace` | my config for professional workspaces.            |
+| `sisyphe`   | proxmox server vm                                 |
+| `labouse`   | ASUS X75s (laptop) nix config. Highly experimental, as this is old hardware!  |
+| `dadarwin`   | some basic iMac 2015 config.  |
 
-- [x] -arr suite
-- [x] Authentik
-- [x] slskd
-- [ ] a cloud solution, to backup family files
-- [x] crafty controller\*
-- [x] a matrix server
-- [x] tt-rss / freshrss\*
-- [x] tailscale
+`diva`, `strawberry` are WIP. Supposed to be two servers config.
 
-\*Not using the "Nix" way (i prefer using Docker atm, i currently lack time)
+`packages` also comes with some packages bundling i made for various software i use (and too shy to put in nixpkgs).
 
-## Installation
+# Installation
+!! This config is not plug and play; it comes with some encrypted secrets and files that are not included here. !!
 
-You will need to do a basic NixOS install with my config files placed @ `/etc/nixos`.
-Then, setup and adapt the config with your secrets. I am using sops-nix here.
+Make sure flakes and nix command is enabled first in your configuration, then run : 
+
+```bash
+git clone <repo-url>
+# replace goober by whatever config interests you
+sudo nixos-rebuild switch --flake .#goober
+```
