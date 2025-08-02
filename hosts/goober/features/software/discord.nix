@@ -4,14 +4,15 @@
   pkgs,
   ...
 }:
+let
+  discord = pkgs.discord.override {
+    withMoonlight = true;
+    moonlight = inputs.moonlight.packages.${pkgs.system}.moonlight;
+  };
+in
 {
-  environment.systemPackages = with pkgs; [
-    discord.override
-    {
-      withMoonlight = true;
-      moonlight = inputs.moonlight.packages.${pkgs.system}.moonlight;
-    }
-    vesktop
+  environment.systemPackages = [
+    discord
   ];
   # screen record support
   xdg = {
