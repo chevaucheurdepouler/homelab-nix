@@ -198,7 +198,7 @@
   };
 
   programs.git = {
-    userName = "harry123";
+    userName = "chloe";
     userEmail = "harryh@ik.me";
     enable = true;
     extraConfig = {
