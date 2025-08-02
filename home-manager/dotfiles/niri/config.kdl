@@ -580,7 +580,7 @@ environment {
 
 // apps to launch at startup
 spawn-at-startup "qutebrowser"
-spawn-at-startup "vesktop"
+spawn-at-startup "discord"
 spawn-at-startup "beeper"
 spawn-at-startup "cinny"
 
