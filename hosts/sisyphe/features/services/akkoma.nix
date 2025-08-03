@@ -27,6 +27,8 @@ let
   akkoma-overlay = self: super: {
     akkoma = super.akkoma.overrideAttrs (old: {
       postPatch = ''
+        curl -Lo ${theme}.json ${themeUrl}
+        mv ${theme}.json /static/themes/
         cp ${pkgs.writeText "styles.json" styles} $out/priv/static/themes
         cp ${./akkoma/terms-of-services.html} $out/priv/static/terms-of-service.html
       '';
@@ -41,7 +43,7 @@ in
     ":pleroma" = {
       ":instance" = {
         name = "e^akkoma + 1 = 0";
-        description = "the cuntiest french akkoma instance<3. on aime la mode, les sciences, et la musique. mais ça ne vous empêche pas de parler de n'importe quoi! join us ! par contre c'est 161 ici donc nofaf ou vs serez ban";
+        description = "the cuntiest french akkoma instance<3. on aime la mode, les sciences, et la musique.";
         email = "admin@babychou.me";
         registration_open = false;
         max_pinned_statuses = 1;
@@ -64,6 +66,11 @@ in
         ];
       };
       ":configurable_from_database" = false;
+      "frontend_configurations" = {
+        "pleroma_fe" = {
+          "theme" = "${theme}";
+        };
+      };
     };
   };
 
@@ -73,16 +80,15 @@ in
     }
 
     encode zstd gzip
-
     reverse_proxy 127.0.0.1:4000
   '';
+
   services.caddy.virtualHosts."${pleromaMediaUrl}".extraConfig = ''
     log {
       output file /var/log/caddy/akkoma_media.log
     }
 
     encode zstd gzip
-
     reverse_proxy 127.0.0.1:4000
   '';
 }
