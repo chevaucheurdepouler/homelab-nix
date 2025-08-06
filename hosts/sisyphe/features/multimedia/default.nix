@@ -1,6 +1,6 @@
 {
   imports = [
-    # ./arr-suite.nix
+    ./arr-suite.nix
     ./calibre-web.nix
     ./slskd.nix
     # ./sabnzbd.nix
