@@ -243,6 +243,11 @@
 
       packages.miku-cursor-linux = pkgs.callPackage ./packages/miku-cursor.nix { };
       packages.fourget = pkgs.callPackage ./packages/4get.nix { };
-    };
 
+      homeManager = home-manager.lib.homeManagerConfiguration {
+        pkgs = import nixpkgs {};
+        modules = [./home-manager/home.nix];
+        extraSpecialArgs = specialArgs;
+      };
+    };
 }
