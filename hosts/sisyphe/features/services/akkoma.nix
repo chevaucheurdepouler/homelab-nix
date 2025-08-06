@@ -25,7 +25,7 @@ let
     }
   '';
   akkoma-overlay = self: super: {
-    akkoma = super.akkkoma.overrideAttrs (old: {
+    akkoma = super.akkoma.overrideAttrs (old: {
       postPatch = ''
         cp ${pkgs.writeText "styles.json" styles} $out/priv/static/themes
         cp ${./akkoma/terms-of-services.html} $out/priv/static/terms-of-service.html
