@@ -79,7 +79,7 @@ in
         }
         ''
           mkdir $out
-          lndir ${pkgs.akkoma-fe.akkoma-fe} $out
+          lndir ${pkgs.akkoma-fe} $out
 
           cp ${themeSrc} $out/static/themes/${theme}.json
           cp ${pkgs.writeText "styles.json" styles} $out/static/themes
