@@ -17,6 +17,7 @@
       systemd = {
         enable = true;
       };
+
       # TODO: enable prometheus services based on whether they are enabled or not
       /*
         sabnzbd = {
@@ -45,6 +46,15 @@
       php-fpm = {
         enable = true;
       };
+      exportarr-radarr = {
+        enable = true;
+        apiKeyFile = "/run/secrets/radarr";
+      };
+      exportarr-sonarr.enable = true;
+      exportarr-prowlarr.enable = true;
+      exportarr-bazarr.enable = true;
+      ping.enable = true;
+      domain.enable = true;
       /*
         TODO: need to fix secrets before
         nextcloud = {
