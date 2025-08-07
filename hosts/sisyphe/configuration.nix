@@ -43,7 +43,6 @@ in
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHjz5MUSmc1ahtUJWuvzG7PHH432nx6a0Nj2zfxt3oTP geekcat@protonmail.com"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIP9Yp7TbDhYJ27Sh+LcPXT569bMVwbFrkE4zksfU84l+ harry123@goober"
     ];
-    shell = pkgs.zsh;
   };
 
   security.sudo.wheelNeedsPassword = false;
