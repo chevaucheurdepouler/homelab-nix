@@ -13,6 +13,12 @@
            '';
       */
     };
+    sshd = ''
+      enabled = true
+      port = ssh
+      logpath = %(sshd_log)s
+      backend = %(sshd_backend)s
+    '';
   };
 
   environment.etc = {
