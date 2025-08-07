@@ -32,6 +32,10 @@ let
         cp ${pkgs.writeText "styles.json" styles} $out/priv/static/themes
         cp ${./akkoma/terms-of-services.html} $out/priv/static/terms-of-service.html
       '';
+
+      buildInputs = old.buildInputs ++ [
+        pkgs.curl
+      ];
     });
   };
 in
