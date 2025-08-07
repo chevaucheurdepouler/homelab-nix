@@ -27,7 +27,7 @@ let
     }
   '';
   akkoma-overlay = self: super: {
-    akkoma = super.akkoma.overrideAttrs (old: {
+    akkoma-fe = super.akkoma-fe.overrideAttrs (old: {
       postPatch = ''
         ${old.postPatch}
 
