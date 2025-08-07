@@ -67,7 +67,7 @@ in
         base_url = "https://blurb.rougebordeaux.xyz/media";
         link_name = true;
         filters = map (pkgs.formats.elixirConf { }).lib.mkRaw [
-          "Pleroma.Upload.Filter.Exiftool"
+          "Pleroma.Upload.Filter.Exiftool.StripMetadata"
           "Pleroma.Upload.Filter.Dedupe"
           "Pleroma.Upload.Filter.AnonymizeFilename"
         ];
