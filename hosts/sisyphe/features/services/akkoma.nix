@@ -37,7 +37,7 @@ let
         cp ${tosFile} $out/static/terms-of-service.html
       '';
 
-      buildInputs = old.buildInputs ++ [
+      buildInputs = [
         pkgs.curl
       ];
     });
