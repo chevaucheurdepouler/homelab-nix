@@ -30,6 +30,8 @@ let
     akkoma = super.akkoma.overrideAttrs (old: {
       postPatch = ''
         ${old.postPatch}
+
+        mkdir -p priv/static/themes
         cp ${themeSrc} priv/static/themes/${theme}.json
         cp ${pkgs.writeText "styles.json" styles} priv/static/themes
         cp ${tosFile} priv/static/terms-of-service.html
