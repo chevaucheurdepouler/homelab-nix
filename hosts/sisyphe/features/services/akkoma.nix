@@ -79,7 +79,8 @@ in
           lndir ${pkgs.akkoma-fe} $out
 
           cp ${themeSrc} $out/static/themes/${theme}.json
-          cp ${pkgs.writeText "styles.json" styles} $out/static/themes
+          cp ${pkgs.writeText "styles.json" styles} $out/static/styles.json
+          rm $out/static/terms-of-service.html
           cp ${tosFile} $out/static/terms-of-service.html
         '';
   };
