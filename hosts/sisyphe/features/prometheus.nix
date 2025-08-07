@@ -18,7 +18,7 @@
         enable = true;
       };
 
-      # TODO: enable prometheus services based on whether they are enabled or not
+      # TODO: set up all services config
       /*
         sabnzbd = {
           enable = true;
