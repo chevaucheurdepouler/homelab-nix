@@ -28,8 +28,8 @@ let
   '';
   akkoma-overlay = self: super: {
     akkoma-fe = super.akkoma-fe.overrideAttrs (old: {
-      postPatch = ''
-        ${old.postPatch}
+      postInstall = ''
+        ${old.postInstall}
 
         cp ${themeSrc} $out/static/themes/${theme}.json
         cp ${pkgs.writeText "styles.json" styles} $out/static/themes
