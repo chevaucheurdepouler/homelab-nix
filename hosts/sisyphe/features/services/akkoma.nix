@@ -81,7 +81,7 @@ in
     };
   };
 
-  services.caddy.virtualHosts."${pleromaUrl}".extraConfig = ''
+  services.caddy.virtualHosts."http://${pleromaUrl}".extraConfig = ''
     log {
       output file /var/log/caddy/akkoma.log
     }
@@ -90,7 +90,7 @@ in
     reverse_proxy 127.0.0.1:4000
   '';
 
-  services.caddy.virtualHosts."${pleromaMediaUrl}".extraConfig = ''
+  services.caddy.virtualHosts."http://${pleromaMediaUrl}".extraConfig = ''
     log {
       output file /var/log/caddy/akkoma_media.log
     }
