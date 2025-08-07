@@ -58,7 +58,7 @@ in
       };
       ":configurable_from_database" = false;
       ":frontend_configurations" = {
-        "pleroma_fe" = {
+        "primary" = {
           "theme" = "${theme}";
         };
       };
