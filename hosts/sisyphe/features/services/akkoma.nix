@@ -70,7 +70,12 @@ in
     package =
       pkgs.runCommand "akkoma-fe"
         {
+          config = {
+            nativeBuildInputs = with pkgs; [
+              xorg.lndir
+            ];
 
+          };
         }
         ''
           mkdir $out
