@@ -29,8 +29,6 @@ let
   akkoma-overlay = self: super: {
     akkoma-fe = super.akkoma-fe.overrideAttrs (old: {
       postInstall = ''
-        ${old.postInstall}
-
         cp ${themeSrc} $out/static/themes/${theme}.json
         cp ${pkgs.writeText "styles.json" styles} $out/static/themes
         cp ${tosFile} $out/static/terms-of-service.html
