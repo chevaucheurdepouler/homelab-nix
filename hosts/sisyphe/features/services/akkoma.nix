@@ -29,9 +29,9 @@ let
   akkoma-overlay = self: super: {
     akkoma = super.akkoma.overrideAttrs (old: {
       postPatch = ''
-        cp $themeSrc $out/priv/static/themes/${theme}.json
+        cp ${themeSrc} $out/priv/static/themes/${theme}.json
         cp ${pkgs.writeText "styles.json" styles} $out/priv/static/themes
-        cp $tosFile $out/priv/static/terms-of-service.html
+        cp ${tosFile} $out/priv/static/terms-of-service.html
       '';
 
       buildInputs = old.buildInputs ++ [
