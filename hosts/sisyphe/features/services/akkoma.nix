@@ -31,9 +31,9 @@ let
       postPatch = ''
         ${old.postPatch}
 
-        cp ${themeSrc} $out/dist/static/themes/${theme}.json
-        cp ${pkgs.writeText "styles.json" styles} $out/dist/static/themes
-        cp ${tosFile} $out/dist/static/terms-of-service.html
+        cp ${themeSrc} $out/static/themes/${theme}.json
+        cp ${pkgs.writeText "styles.json" styles} $out/static/themes
+        cp ${tosFile} $out/static/terms-of-service.html
       '';
 
     });
