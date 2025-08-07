@@ -64,19 +64,22 @@ in
       };
     };
   };
-  services.akkoma.frontends.primary.package =
-    pkgs.runCommand "akkoma-fe"
-      {
+  services.akkoma.frontends.akkoma-fe = {
+    name = "akkoma-fe";
+    package =
+      pkgs.runCommand "akkoma-fe"
+        {
 
-      }
-      ''
-        mkdir $out
-        lndir ${pkgs.akkoma-frontends.akkoma-fe} $out
+        }
+        ''
+          mkdir $out
+          lndir ${pkgs.akkoma-frontends.akkoma-fe} $out
 
-        cp ${themeSrc} $out/static/themes/${theme}.json
-        cp ${pkgs.writeText "styles.json" styles} $out/static/themes
-        cp ${tosFile} $out/static/terms-of-service.html
-      '';
+          cp ${themeSrc} $out/static/themes/${theme}.json
+          cp ${pkgs.writeText "styles.json" styles} $out/static/themes
+          cp ${tosFile} $out/static/terms-of-service.html
+        '';
+  };
 
   services.caddy.virtualHosts."http://${pleromaUrl}".extraConfig = ''
     log {
