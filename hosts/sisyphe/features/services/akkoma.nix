@@ -64,7 +64,7 @@ in
       };
     };
   };
-  services.akkoma.frontends.akkoma-fe = {
+  services.akkoma.frontends.primary = {
     name = "akkoma-fe";
     ref = "stable";
     package =
