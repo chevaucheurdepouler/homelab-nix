@@ -3,7 +3,9 @@ let
   pleromaUrl = "eepy.rougebordeaux.xyz";
   pleromaMediaUrl = "blurb.rougebordeaux.xyz";
   theme = "fantasy-scroll-blossom";
-  themeUrl = "https://plthemes.vulpes.one/themes/${theme}/${theme}.json";
+  themeSrcUrl = "https://plthemes.vulpes.one/themes/${theme}/${theme}.json";
+  themeSrc = ./akkoma/style.json;
+  tosFile = ./akkoma/terms-of-services.html;
   background = "";
   emojis = [ ];
   styles = ''
@@ -27,9 +29,9 @@ let
   akkoma-overlay = self: super: {
     akkoma = super.akkoma.overrideAttrs (old: {
       postPatch = ''
-        cp ${builtins.toString ./akkoma/style.json} $out/priv/static/themes/${theme}.json
+        cp $themeSrc $out/priv/static/themes/${theme}.json
         cp ${pkgs.writeText "styles.json" styles} $out/priv/static/themes
-        cp ${builtins.toString ./akkoma/terms-of-services.html} $out/priv/static/terms-of-service.html
+        cp $tosFile $out/priv/static/terms-of-service.html
       '';
 
       buildInputs = old.buildInputs ++ [
