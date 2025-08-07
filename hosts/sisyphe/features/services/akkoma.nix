@@ -66,6 +66,7 @@ in
   };
   services.akkoma.frontends.akkoma-fe = {
     name = "akkoma-fe";
+    ref = "stable";
     package =
       pkgs.runCommand "akkoma-fe"
         {
