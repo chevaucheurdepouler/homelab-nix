@@ -26,19 +26,8 @@ let
       "${theme}": "/static/themes/${theme}.json"
     }
   '';
-  akkoma-overlay = self: super: {
-    akkoma-fe = super.akkoma-fe.overrideAttrs (old: {
-      postInstall = ''
-        cp ${themeSrc} $out/static/themes/${theme}.json
-        cp ${pkgs.writeText "styles.json" styles} $out/static/themes
-        cp ${tosFile} $out/static/terms-of-service.html
-      '';
-
-    });
-  };
 in
 {
-  nixpkgs.overlays = [ akkoma-overlay ];
   services.akkoma.enable = true;
   services.akkoma.initDb.enable = true;
   services.akkoma.config = {
@@ -75,6 +64,19 @@ in
       };
     };
   };
+  services.akkoma.frontends.primary.package =
+    pkgs.runCommand "akkoma-fe"
+      {
+
+      }
+      ''
+        mkdir $out
+        lndir ${pkgs.akkoma-frontends.akkoma-fe} $out
+
+        cp ${themeSrc} $out/static/themes/${theme}.json
+        cp ${pkgs.writeText "styles.json" styles} $out/static/themes
+        cp ${tosFile} $out/static/terms-of-service.html
+      '';
 
   services.caddy.virtualHosts."http://${pleromaUrl}".extraConfig = ''
     log {
