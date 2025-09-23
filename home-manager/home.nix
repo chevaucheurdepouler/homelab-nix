@@ -81,7 +81,6 @@
       fuzzel
       zsh-syntax-highlighting
 
-      cinny-desktop
       dysk
       rsync
       obsidian
@@ -260,7 +259,6 @@
     mpv.enable = true;
     mako.enable = true;
     lazygit.enable = true;
-    gtk.enable = true;
     fzf.enable = true;
     swaylock.enable = true;
     foot.enable = true;
@@ -373,6 +371,11 @@
   #     };
   #   };
   # };
+
+  dconf = {
+    enable = true;
+    settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
+  };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
