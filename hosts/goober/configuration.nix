@@ -17,6 +17,7 @@
     ./hardware-configuration.nix
     ../../shared/client/tailscale.nix
     ../../shared/client/niri.nix
+    ../../shared/client/nh.nix
     ./features/default.nix
   ];
 
