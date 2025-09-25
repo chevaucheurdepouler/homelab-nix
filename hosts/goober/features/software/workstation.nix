@@ -79,6 +79,8 @@
     # games
     tetrio-desktop
     osu-lazer-bin
+    ungoogled-chromium
+    esptool
   ];
 
   services.mpdscribble = {

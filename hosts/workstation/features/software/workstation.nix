@@ -22,7 +22,6 @@
     gvfs
     nil
     bitwarden
-    qutebrowser
   ];
 
   virtualisation.containers.enable = true;
