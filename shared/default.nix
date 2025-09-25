@@ -10,15 +10,16 @@
   imports = [
     ./ssh.nix
   ];
-  environment.systemPackages = [
-    pkgs.curl
-    pkgs.unzip
-    pkgs.kitty.terminfo
-    pkgs.foot.terminfo
-    pkgs.kittysay
-    pkgs.tmux
-    pkgs.fzf
-    pkgs.fastfetch
+  environment.systemPackages = with pkgs; [
+    curl
+    unzip
+    kitty.terminfo
+    foot.terminfo
+    kittysay
+    tmux
+    fzf
+    fastfetch
+    dnsutils
   ];
 
   environment.variables.EDITOR = "nvim";
