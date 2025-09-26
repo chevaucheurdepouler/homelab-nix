@@ -144,6 +144,29 @@
           ];
         };
 
+        buldak = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = specialArgs;
+          modules = [
+            ./hosts/buldak/configuration.nix
+            catppuccin.nixosModules.catppuccin
+            home-manager.nixosModules.home-manager
+            {
+               home-manager.useGlobalPkgs = true;
+               home-manager.useUserPackages = true;
+               home-manager.users.${username} = {
+                  imports = [./home-manager/home.nix catppuccin.homeModules.catppuccin moonlight.homeModules.default];
+                  
+                  home.packages = [
+                     inputs.miovim.packages.${system}.default
+                  ];
+
+                  home-manager.extraSpecialArgs = { inherit inputs; };
+               };
+            }
+          ];
+        };
+
         workstation = nixpkgsUnstable.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = specialArgs;
