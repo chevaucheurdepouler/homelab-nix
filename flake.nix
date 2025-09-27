@@ -144,7 +144,7 @@
           ];
         };
 
-        buldak = nixpkgs.lib.nixosSystem {
+        buldak = nixpkgsUnstable.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = specialArgs;
           modules = [
@@ -161,8 +161,9 @@
                      inputs.miovim.packages.${system}.default
                   ];
 
-                  home-manager.extraSpecialArgs = { inherit inputs; };
                };
+
+                  home-manager.extraSpecialArgs = { inherit inputs; };
             }
           ];
         };

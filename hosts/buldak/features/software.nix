@@ -6,6 +6,8 @@
     nil
     obs-studio
     osu-lazer-bin
+    signal-desktop
+    cider-2
   ];
 
   virtualisation.containers.enable = true;

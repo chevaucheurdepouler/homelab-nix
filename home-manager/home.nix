@@ -68,7 +68,7 @@
       wofi-emoji
       obsidian
 
-      cinny-desktop
+      #cinny-desktop
       audacious
       audacious-plugins
 
