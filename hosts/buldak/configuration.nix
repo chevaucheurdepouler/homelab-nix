@@ -2,23 +2,30 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./features/default.nix
-      ../../shared/client/tailscale.nix
-      ../../shared/client/niri.nix
-      ../../shared/client/nh.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ../../shared/client/tailscale.nix
+    ../../shared/client/niri.nix
+    ../../shared/client/nh.nix
+    ../../shared
+    ./features
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  boot.initrd.luks.devices."luks-d265e9b2-2ef5-445a-83f2-ec022e0eec7b".device = "/dev/disk/by-uuid/d265e9b2-2ef5-445a-83f2-ec022e0eec7b";
+  boot.initrd.luks.devices."luks-d265e9b2-2ef5-445a-83f2-ec022e0eec7b".device =
+    "/dev/disk/by-uuid/d265e9b2-2ef5-445a-83f2-ec022e0eec7b";
   networking.hostName = "buldak"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -56,12 +63,24 @@
   # Configure console keymap
   console.keyMap = "fr";
 
+  programs.zsh.enable = true;
+  environment.pathsToLink = [ "/share/zsh" ];
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.misschloe777 = {
     isNormalUser = true;
     description = "misschloe777";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [];
+    shell = pkgs.zsh;
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "audio"
+      "video"
+      "podman"
+    ];
+    packages = with pkgs; [
+      inputs.zen-browser.packages."${system}".default
+    ];
   };
 
   # Allow unfree packages
@@ -70,8 +89,12 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
+    #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    #  wget
+  ];
+
+  nixpkgs.config.permittedInsecurePackages = [
+    "libsoup-2.74.3"
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
