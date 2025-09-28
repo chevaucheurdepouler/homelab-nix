@@ -24,7 +24,7 @@
   boot = {
     plymouth = {
       enable = true;
-      theme = "rings";
+      theme = "blahaj";
       themePackages = with pkgs; [
         # By default we would install all themes
         plymouth-blahaj-theme
