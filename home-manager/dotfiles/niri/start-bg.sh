@@ -1,3 +1,3 @@
 #!/bin/sh
 
-./background.sh ~/.config/niri/wallpapers/ 
+~/.config/niri/background.sh ~/.config/niri/wallpapers/ 
