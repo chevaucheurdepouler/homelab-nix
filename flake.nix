@@ -64,6 +64,11 @@
       url = "github:moonlight-mod/moonlight/develop"; # Add `/develop` to the flake URL to use nightly.
       inputs.nixpkgs.follows = "nixpkgsUnstable";
     };
+
+    matugen = {
+      url = "github:/InioX/Matugen";
+      inputs.nixpkgs.follows = "nixpkgsUnstable";
+    };
   };
 
   outputs =
@@ -149,21 +154,28 @@
           specialArgs = specialArgs;
           modules = [
             ./hosts/buldak/configuration.nix
+
+            lix-module.nixosModules.default
             catppuccin.nixosModules.catppuccin
             home-manager.nixosModules.home-manager
             {
-               home-manager.useGlobalPkgs = true;
-               home-manager.useUserPackages = true;
-               home-manager.users.${username} = {
-                  imports = [./home-manager/home.nix catppuccin.homeModules.catppuccin moonlight.homeModules.default];
-                  
-                  home.packages = [
-                     inputs.miovim.packages.${system}.default
-                  ];
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.${username} = {
+                imports = [
+                  ./home-manager/home.nix
+                  catppuccin.homeModules.catppuccin
+                  moonlight.homeModules.default
+                ];
 
-               };
+                home.packages = [
+                  inputs.miovim.packages.${system}.default
+                  inputs.matugen.nixosModules.default
+                ];
 
-                  home-manager.extraSpecialArgs = { inherit inputs; };
+              };
+
+              home-manager.extraSpecialArgs = { inherit inputs; };
             }
           ];
         };
@@ -269,8 +281,8 @@
       packages.fourget = pkgs.callPackage ./packages/4get.nix { };
 
       homeManager = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs {};
-        modules = [./home-manager/home.nix];
+        pkgs = import nixpkgs { };
+        modules = [ ./home-manager/home.nix ];
         extraSpecialArgs = specialArgs;
       };
     };
