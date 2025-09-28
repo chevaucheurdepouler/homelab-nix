@@ -1,5 +1,5 @@
 @define-color primary rgba(123, 0, 44, 1);
-@import "latte.css";
+@import "mocha.css";
 
 * {
   padding: 0;
