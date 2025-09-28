@@ -579,18 +579,18 @@ environment {
 }
 
 // apps to launch at startup
-spawn-at-startup "qutebrowser"
 spawn-at-startup "discord"
-spawn-at-startup "beeper"
-spawn-at-startup "cinny"
+spawn-at-startup "footclient" "nvim" "~/Documents/Notes"
+spawn-at-startup "cider"
 
 clipboard {
   disable-primary
 }
 
-workspace "code"
-workspace "internet"
-workspace "chat"
+workspace "code "
+workspace "internet "
+workspace "chat 󱋊"
+workspace "music 󰽱"
 
 window-rule {
   match at-startup=true app-id=r#"^discord$"#
@@ -609,6 +609,11 @@ window-rule {
   match at-startup=true app-id=r#"zen-beta$"#
   match at-startup=true app-id=r#"org.qutebrowser.qutebrowser$"#
   open-on-workspace "internet"
+}
+
+window-rule {
+  match at-startup=true app-id=r#"Cider$"#
+  open-on-workspace "music"
 }
 
 window-rule {

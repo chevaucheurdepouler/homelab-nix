@@ -8,6 +8,7 @@
     osu-lazer-bin
     signal-desktop
     cider-2
+    iamb
   ];
 
   virtualisation.containers.enable = true;

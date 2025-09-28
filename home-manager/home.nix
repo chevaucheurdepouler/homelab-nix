@@ -112,12 +112,31 @@
     ".config/hyfetch.json".source = dotfiles/hyfetch/hyfetch.json;
     ".config/niri".source = dotfiles/niri;
     ".config/mako".source = dotfiles/mako;
+  };
 
-    # # You can also set the file content immediately.
-    # ".gradle/gradle.properties".text = ''
-    #   org.gradle.console=verbose
-    #   org.gradle.daemon.idletimeout=3600000
-    # '';
+  programs.matugen = {
+    enable = true;
+    variant = "dark";
+
+    config = {
+      wallpaper = {
+        command = "swww";
+        arguments = [
+          "img"
+          "--transition-type"
+          "center"
+        ];
+        set = true;
+      };
+    };
+
+    templates = {
+      waybar = {
+        input_path = "./templates/colors.css";
+        output_path = "~/.config/waybar/colors.css";
+        post_hook = "pkill -SIGUSR2 waybar";
+      };
+    };
   };
 
   programs.direnv = {
@@ -198,7 +217,7 @@
   };
 
   programs.git = {
-    userName = "chloe";
+    userName = "misschloe777";
     userEmail = "harryh@ik.me";
     enable = true;
     extraConfig = {
@@ -355,6 +374,7 @@
       search_mode = "fuzzy";
     };
   };
+
   # programs.moonlight = {
   #   enable = true;
   #   configs.stable = {

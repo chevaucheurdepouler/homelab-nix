@@ -9,7 +9,8 @@
     "network",
     "wireplumber",
     "clock",
-    "privacy"
+    "privacy",
+    "battery"
   ],
   "clock": {
     "format-alt": "{:%a, %d. %b  %H:%M}"
@@ -81,5 +82,14 @@
   },
   "tray": {
     "spacing": 10
+  },
+  "battery": {
+    "bat": "BAT0",
+    "states": {
+      "warning": 20,
+      "critical": 10
+    },
+    "format": "{capacity}% {icon}"
+    "format-icons": ["", "", "", "", ""],
   }
 }
