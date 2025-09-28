@@ -9,6 +9,7 @@
     signal-desktop
     cider-2
     iamb
+    qutebrowser
   ];
 
   virtualisation.containers.enable = true;
