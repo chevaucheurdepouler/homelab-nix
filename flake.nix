@@ -64,9 +64,8 @@
       url = "github:moonlight-mod/moonlight/develop"; # Add `/develop` to the flake URL to use nightly.
       inputs.nixpkgs.follows = "nixpkgsUnstable";
     };
-
-    matugen = {
-      url = "github:/InioX/Matugen";
+    auto-cpufreq = {
+      url = "github:AdnanHodzic/auto-cpufreq";
       inputs.nixpkgs.follows = "nixpkgsUnstable";
     };
   };
@@ -87,6 +86,7 @@
       musnix,
       lix-module,
       moonlight,
+      auto-cpufreq,
       ...
     }@inputs:
     let
@@ -154,8 +154,8 @@
           specialArgs = specialArgs;
           modules = [
             ./hosts/buldak/configuration.nix
-
-            lix-module.nixosModules.default
+            # lix-module.nixosModules.default
+            auto-cpufreq.nixosModules.default
             catppuccin.nixosModules.catppuccin
             home-manager.nixosModules.home-manager
             {
@@ -170,7 +170,6 @@
 
                 home.packages = [
                   inputs.miovim.packages.${system}.default
-                  inputs.matugen.nixosModules.default
                 ];
 
               };
