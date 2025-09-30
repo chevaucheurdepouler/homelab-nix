@@ -1,4 +1,5 @@
 {
+  inputs,
   config,
   pkgs,
   ...
@@ -23,6 +24,7 @@
   home.packages =
     with pkgs;
     [
+      forgejo-cli
       yt-dlp
       nerd-fonts.code-new-roman
       ffmpegthumbnailer
@@ -88,6 +90,8 @@
       nvimpager
       mpc
       fastfetch
+      matugen
+
       # # You can also create simple shell scripts directly inside your
       #  # configuration. For example, this adds a command 'my-hello' to your
       # # environment:
@@ -114,31 +118,31 @@
     ".config/mako".source = dotfiles/mako;
   };
 
-  programs.matugen = {
-    enable = true;
-    variant = "dark";
-
-    config = {
-      wallpaper = {
-        command = "swww";
-        arguments = [
-          "img"
-          "--transition-type"
-          "center"
-        ];
-        set = true;
-      };
-    };
-
-    templates = {
-      waybar = {
-        input_path = "./templates/colors.css";
-        output_path = "~/.config/waybar/colors.css";
-        post_hook = "pkill -SIGUSR2 waybar";
-      };
-    };
-  };
-
+  # programs.matugen = {
+  #   enable = true;
+  #   variant = "dark";
+  #
+  #   config = {
+  #     wallpaper = {
+  #       command = "swww";
+  #       arguments = [
+  #         "img"
+  #         "--transition-type"
+  #         "center"
+  #       ];
+  #       set = true;
+  #     };
+  #   };
+  #
+  #   templates = {
+  #     waybar = {
+  #       input_path = "./templates/colors.css";
+  #       output_path = "~/.config/waybar/colors.css";
+  #       post_hook = "pkill -SIGUSR2 waybar";
+  #     };
+  #   };
+  # };
+  #
   programs.direnv = {
     enable = true;
     enableBashIntegration = true; # see note on other shells below
@@ -332,6 +336,7 @@
       gpsh = "git push";
       flake = "nix flake";
       develop = "nix develop";
+      fj = "fj --host git.rougebordeaux.xyz";
     };
 
     history.size = 10000;

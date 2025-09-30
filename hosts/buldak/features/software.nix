@@ -10,6 +10,7 @@
     cider-2
     iamb
     qutebrowser
+    ente-desktop
   ];
 
   virtualisation.containers.enable = true;

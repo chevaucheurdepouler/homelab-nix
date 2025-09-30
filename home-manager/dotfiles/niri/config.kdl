@@ -571,6 +571,7 @@ binds {
 
 // wayland support
 spawn-at-startup "xwayland-satellite"
+spawn-at-startup "poweralertd"
 spawn-at-startup "swww-daemon"
 spawn-at-startup "~/config/niri/start-bg.sh"
 
@@ -581,7 +582,7 @@ environment {
 // apps to launch at startup
 spawn-at-startup "discord"
 spawn-at-startup "footclient" "nvim" "~/Documents/Notes"
-spawn-at-startup "cider"
+spawn-at-startup "cider-2"
 
 clipboard {
   disable-primary

@@ -52,7 +52,7 @@
   boot.initrd.luks.devices."luks-d265e9b2-2ef5-445a-83f2-ec022e0eec7b".device =
     "/dev/disk/by-uuid/d265e9b2-2ef5-445a-83f2-ec022e0eec7b";
   networking.hostName = "buldak"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  # networking.wireless.enable = true; # Enables wireless support via wpa_supplicant.
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -111,9 +111,17 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     poweralertd
+    upower
     matugen
+    networkmanagerapplet
   ];
 
+  services.upower = {
+    enable = true;
+    percentageLow = 20;
+    percentageCritical = 10;
+    percentageAction = 5;
+  };
   nixpkgs.config.permittedInsecurePackages = [
     "libsoup-2.74.3"
   ];

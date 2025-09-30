@@ -23,8 +23,7 @@
     "scroll-step": 0.2
   },
   "privacy": {
-    "icon-spacing": 4,
-    "icon-size": 18,
+    "icon-spacing": 4, "icon-size": 18,
     "transition-duration": 250,
     "modules": [
       {
@@ -43,7 +42,7 @@
     "format": "{}%  "
   },
   "network": {
-    "interface": "wlp3s0",
+    "interface": "wlo1",
     "format": "{ifname}",
     "format-wifi": " ",
     "format-ethernet": "󰈀",
@@ -77,7 +76,7 @@
     "exec-if": "which swaync-client",
     "exec": "swaync-client -swb",
     "on-click": "swaync-client -t -sw",
-    "on-click-right": "swaync-client -d -sw",
+
     "escape": true
   },
   "tray": {
@@ -89,7 +88,7 @@
       "warning": 20,
       "critical": 10
     },
-    "format": "{capacity}% {icon}"
-    "format-icons": ["", "", "", "", ""],
+    "format": "{capacity}% {icon}",
+    "format-icons": ["", "", "", "", ""]
   }
 }
