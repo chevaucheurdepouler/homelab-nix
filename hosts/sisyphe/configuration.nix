@@ -21,6 +21,8 @@ in
   # Use the GRUB 2 boot loader.
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sda";
+
+  # Support for xterm.js in Proxmox
   boot.kernelParams = [ "console=ttyS0" ];
 
   services.qemuGuest.enable = true;
@@ -122,6 +124,11 @@ in
     builtins.elem (lib.getName pkg) [
       "unrar"
     ];
+
+  # log shouldnt eat all my hard drive
+  services.logrotate = {
+    enable = true;
+  };
 
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
