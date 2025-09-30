@@ -383,11 +383,11 @@
         "nixvim": "nixvim"
       },
       "locked": {
-        "lastModified": 1753435585,
-        "narHash": "sha256-RP5gyJlkvZYE67ZFh92X/Y43KiAoe6PENEVLolNriYM=",
+        "lastModified": 1759228895,
+        "narHash": "sha256-9Ft4D1DFjSBSPd6OB3mRRQeF6epF4nlZBAvDKcZDjNw=",
         "ref": "refs/heads/main",
-        "rev": "05ad03cb362b42b9c6e463864a90fbeea06c93ba",
-        "revCount": 27,
+        "rev": "3283a7f9e1f33c0c0d91718754cfc42c47d925e0",
+        "revCount": 28,
         "type": "git",
         "url": "https://git.rougebordeaux.xyz/misschloe/miovim.git"
       },
