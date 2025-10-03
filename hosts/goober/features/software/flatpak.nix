@@ -3,7 +3,6 @@
   services.flatpak.enable = true;
 
   services.flatpak.packages = [
-    "com.unicornsonlsd.finamp"
   ];
 
   services.flatpak.update.onActivation = true;
