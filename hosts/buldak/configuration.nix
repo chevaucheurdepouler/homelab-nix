@@ -114,6 +114,7 @@
     upower
     matugen
     networkmanagerapplet
+    nicotine-plus
   ];
 
   services.upower = {
