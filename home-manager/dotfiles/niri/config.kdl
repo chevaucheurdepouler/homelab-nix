@@ -561,7 +561,7 @@ binds {
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 
     // The quit action will show a confirmation dialog to avoid accidental exits.
-    Mod+Shift+E { quit; }
+    Mod+Shift+E { spawn "wleave"; }
     Ctrl+Alt+Delete { quit; }
 
     // Powers off the monitors. To turn them back on, do any input like
@@ -598,7 +598,7 @@ window-rule {
   match at-startup=true app-id=r#"^vesktop$"#
   match at-startup=true app-id=r#"^Beeper$"#
   match at-startup=true app-id=r#"^cinny$"#
-  open-on-workspace "chat"
+  open-on-workspace "chat 󱋊"
 }
 
 window-rule {
@@ -609,12 +609,12 @@ window-rule {
 window-rule {
   match at-startup=true app-id=r#"zen-beta$"#
   match at-startup=true app-id=r#"org.qutebrowser.qutebrowser$"#
-  open-on-workspace "internet"
+  open-on-workspace "internet "
 }
 
 window-rule {
   match at-startup=true app-id=r#"Cider$"#
-  open-on-workspace "music"
+  open-on-workspace "music 󰽱"
 }
 
 window-rule {
