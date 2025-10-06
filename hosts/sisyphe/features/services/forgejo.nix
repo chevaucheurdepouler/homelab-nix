@@ -27,6 +27,7 @@
       server = {
         DOMAIN = "git.rougebordeaux.xyz";
         ROOT_URL = "https://git.rougebordeaux.xyz";
+        SSH_DOMAIN = "git.rougebordeaux.xyz";
         HTTP_PORT = 3333;
       };
       actions = {
@@ -36,7 +37,7 @@
       mailer = {
         ENABLED = true;
       };
-      service.DISABLE_REGISTRATION = true;
+      service.DISABLE_REGISTRATION = false;
     };
     mailerPasswordFile = config.sops.secrets.smtp_password.path;
   };
@@ -56,6 +57,12 @@
       };
     };
   };
+
+  services.openssh.settings.AllowUsers = [
+    "homelab"
+    "forgejo"
+  ];
+  services.openssh.settings.UsePAM = true;
 
   /*
     sops.secrets.forgejo-runner-token = {
