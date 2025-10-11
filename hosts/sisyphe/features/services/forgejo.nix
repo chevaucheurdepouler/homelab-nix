@@ -42,6 +42,7 @@
     mailerPasswordFile = config.sops.secrets.smtp_password.path;
   };
 
+  # setup fail2ban for forgejo
   services.fail2ban = {
     enable = true;
     jails = {
@@ -58,34 +59,33 @@
     };
   };
 
+  # authorize ssh cloning
   services.openssh.settings.AllowUsers = [
     "homelab"
     "forgejo"
   ];
   services.openssh.settings.UsePAM = true;
 
-  /*
-    sops.secrets.forgejo-runner-token = {
-      owner = "forgejo";
+  # setup forgejo runner
+  sops.secrets.forgejo-runner-token = {
+    owner = "forgejo";
+  };
+  # TODO: setup token into nix-secrets-next project
+  services.gitea-actions-runner = {
+    package = pkgs.forgejo-actions-runner;
+    instances.default = {
+      enable = true;
+      name = "mint";
+      url = "https://git.rougebordeaux.xyz";
+      # Obtaining the path to the runner token file may differ
+      # tokenFile should be in format TOKEN=<secret>, since it's EnvironmentFile for systemd
+      tokenFile = config.sops.secrets.forgejo-runner-token.path;
+      labels = [
+        "ubuntu-latest:docker://node:24-bookworm"
+      ];
     };
-    services.gitea-actions-runner = {
-      package = pkgs.forgejo-actions-runner;
-      instances.default = {
-        enable = true;
-        name = "monolith";
-        url = "https://git.rougebordeaux.xyz";
-        # Obtaining the path to the runner token file may differ
-        # tokenFile should be in format TOKEN=<secret>, since it's EnvironmentFile for systemd
-        tokenFile = config.sops.secrets.forgejo-runner-token.path;
-        labels = [
-          "ubuntu-latest:docker://node:16-bullseye"
-          "ubuntu-22.04:docker://node:16-bullseye"
-          ## optionally provide native execution on the host:
-          # "native:host"
-        ];
-      };
-    };
-  */
+  };
+
   systemd.services.forgejo.preStart = ''
     create="${lib.getExe config.services.forgejo.package} admin user create"
     $create --admin --email "`cat ${config.sops.secrets.forgejoInitialMail.path}`" --username you --password "`cat ${config.sops.secrets.forgejoInitialPassword.path}`" &>/dev/null || true

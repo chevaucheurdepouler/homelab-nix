@@ -8,7 +8,7 @@ in
   options = {
     freshrss.url = mkOption {
       type = types.str;
-      default = "http://192.168.1.177:3005";
+      default = "http://journal.rougebordeaux.xyz";
     };
   };
 
