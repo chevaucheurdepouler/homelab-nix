@@ -3,7 +3,10 @@
   services.fail2ban = {
     enable = true;
     maxretry = 5;
-    ignoreIP = [ "192.168.1.0/24" ];
+    ignoreIP = [
+      "192.168.1.0/24"
+      "192.168.1.197"
+    ];
     extraPackages = [ ];
     action_abuseipdb = "abuseipdb";
     bantime = "24h";
