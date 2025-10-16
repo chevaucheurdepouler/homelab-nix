@@ -70,21 +70,23 @@
   sops.secrets.forgejo-runner-token = {
     owner = "forgejo";
   };
-  # TODO: setup token into nix-secrets-next project
-  services.gitea-actions-runner = {
-    package = pkgs.forgejo-actions-runner;
-    instances.default = {
-      enable = true;
-      name = "mint";
-      url = "https://git.rougebordeaux.xyz";
-      # Obtaining the path to the runner token file may differ
-      # tokenFile should be in format TOKEN=<secret>, since it's EnvironmentFile for systemd
-      tokenFile = config.sops.secrets.forgejo-runner-token.path;
-      labels = [
-        "ubuntu-latest:docker://node:24-bookworm"
-      ];
+  /*
+    # TODO: setup token into nix-secrets-next project
+    services.gitea-actions-runner = {
+      package = pkgs.forgejo-actions-runner;
+      instances.default = {
+        enable = true;
+        name = "mint";
+        url = "https://git.rougebordeaux.xyz";
+        # Obtaining the path to the runner token file may differ
+        # tokenFile should be in format TOKEN=<secret>, since it's EnvironmentFile for systemd
+        tokenFile = config.sops.secrets.forgejo-runner-token.path;
+        labels = [
+          "ubuntu-latest:docker://node:24-bookworm"
+        ];
+      };
     };
-  };
+  */
 
   systemd.services.forgejo.preStart = ''
     create="${lib.getExe config.services.forgejo.package} admin user create"
