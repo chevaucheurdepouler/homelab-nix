@@ -4,7 +4,7 @@
     # ./akkoma.nix
     # ./archivebox.nix
     ./homelab-dashboard.nix
-    ./nextcloud.nix
+    # ./nextcloud.nix
     # ./photoprism.nix
     ./grafana.nix
     ./forgejo.nix
