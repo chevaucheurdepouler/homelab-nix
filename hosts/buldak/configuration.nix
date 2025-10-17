@@ -319,6 +319,24 @@
     ];
   };
 
+  programs.light.enable = true;
+
+  services.actkbd = {
+    enable = true;
+    bindings = [
+      {
+        keys = [ 232 ];
+        events = [ "key" ];
+        command = "/run/wrappers/bin/light -A 1000";
+      }
+      {
+        keys = [ 233 ];
+        events = [ "key" ];
+        command = "/run/wrappers/bin/light -U 1000";
+      }
+    ];
+  };
+
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
