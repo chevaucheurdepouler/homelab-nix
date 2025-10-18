@@ -528,6 +528,22 @@
         "url": "https://git.rougebordeaux.xyz/misschloe/nix-secrets.git"
       }
     },
+    "nix-secrets-next": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1760780376,
+        "narHash": "sha256-K6jxWVQqLSMGs23wToqdWNA3kLHEeSzMKm4gkuRIhUI=",
+        "ref": "refs/heads/main",
+        "rev": "8c892b66302ff3e97078eb61be7edac11633c5c5",
+        "revCount": 2,
+        "type": "git",
+        "url": "https://git.rougebordeaux.xyz/misschloe/nix-secrets-next.git"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://git.rougebordeaux.xyz/misschloe/nix-secrets-next.git"
+      }
+    },
     "nixlib": {
       "locked": {
         "lastModified": 1736643958,
@@ -785,6 +801,7 @@
         "nix-darwin": "nix-darwin",
         "nix-flatpak": "nix-flatpak",
         "nix-secrets": "nix-secrets",
+        "nix-secrets-next": "nix-secrets-next",
         "nixos-generators": "nixos-generators",
         "nixpkgs": "nixpkgs_5",
         "nixpkgsSmall": "nixpkgsSmall",
