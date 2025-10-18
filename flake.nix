@@ -89,7 +89,7 @@
     }@inputs:
     let
       username = "misschloe777";
-      secrets = builtins.toString inputs.nix-secrets;
+      secrets = builtins.toString inputs.nix-secrets + builtins.toString inputs.nix-secrets-next;
 
       specialArgs = {
         inherit username;
