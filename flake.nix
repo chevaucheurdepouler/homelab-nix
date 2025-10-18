@@ -22,12 +22,10 @@
       flake = false;
     };
 
-    /*
-        nix-secrets-next = {
-          url = "git+https://git.rougebordeaux.xyz/harry123/nix-secrets-next.git";
-          flake = false;
-        };
-    */
+    nix-secrets-next = {
+      url = "git+https://git.rougebordeaux.xyz/misschloe/nix-secrets-next.git";
+      flake = false;
+    };
 
     miovim.url = "git+https://git.rougebordeaux.xyz/misschloe/miovim.git";
     nixos-generators = {
