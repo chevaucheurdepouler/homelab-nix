@@ -1,4 +1,5 @@
 {
+  secrets-next,
   config,
   lib,
   pkgs,
@@ -69,6 +70,7 @@
   # setup forgejo runner
   sops.secrets.forgejo-runner-token = {
     owner = "forgejo";
+    sopsFile = "${secrets-next}/secrets/bordel.yaml";
   };
   /*
     # TODO: setup token into nix-secrets-next project
