@@ -14,7 +14,7 @@
 
     alejandra = {
       url = "github:kamadorueda/alejandra/3.0.0";
-      follows = "nixpkgsUnstable";
+      inputs.nixpkgs.follows = "nixpkgsUnstable";
     };
 
     nix-secrets = {
