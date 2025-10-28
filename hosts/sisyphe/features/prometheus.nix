@@ -33,6 +33,7 @@
           ];
         };
       */
+
       redis = {
         enable = true;
       };
@@ -50,9 +51,18 @@
         enable = true;
         apiKeyFile = "/run/secrets/radarr";
       };
-      exportarr-sonarr.enable = true;
-      exportarr-prowlarr.enable = true;
-      exportarr-bazarr.enable = true;
+      exportarr-sonarr = {
+        enable = true;
+        apiKeyFile = "/run/secrets/sonarr";
+      };
+      exportarr-prowlarr = {
+        enable = true;
+        apiKeyFile = "/run/secrets/prowlarr";
+      };
+      exportarr-bazarr = {
+        enable = true;
+        apiKeyFile = "/run/secrets/bazarr";
+      };
       ping.enable = true;
       domain.enable = true;
       /*
@@ -65,7 +75,6 @@
       */
     };
     scrapeConfigs = [
-
       {
         job_name = "homelab-stats";
         static_configs = [

@@ -29,6 +29,7 @@ in
     # torrenting apps
     services.transmission = {
       enable = true;
+      package = pkgs.transmission_4;
       openFirewall = true;
       openRPCPort = true;
       credentialsFile = config.sops.secrets.transmission.path;

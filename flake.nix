@@ -278,6 +278,7 @@
 
       packages.miku-cursor-linux = pkgs.callPackage ./packages/miku-cursor.nix { };
       packages.fourget = pkgs.callPackage ./packages/4get.nix { };
+      packages.tetrio-desktop = pkgs.callPackage ./packages/tetrio.nix { };
 
       homeManager = home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs { };
