@@ -1,4 +1,4 @@
-{stdenv, fetchFromGitHub}: 
+{ stdenv, fetchFromGitHub }:
 stdenv.mkDerivation {
   pname = "miku-cursor-linux";
   version = "1.2.6";
@@ -18,9 +18,6 @@ stdenv.mkDerivation {
     cp -r * $out/share/icons/miku-cursor-linux
     install -m644 index.theme $out/share/icons/miku-cursor-linux/index.theme
 
-
-    
-    
     runHook postInstall
   '';
 
