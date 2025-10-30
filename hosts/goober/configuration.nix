@@ -104,6 +104,8 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     wget
+    dnsutils
+    whois
     dwl
     git
     tmux

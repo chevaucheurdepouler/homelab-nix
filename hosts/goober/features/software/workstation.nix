@@ -64,7 +64,7 @@
     # z3
     bitwarden
     kicad
-    ente-auth
+    # ente-auth
     ente-web
     # jetbrains.rider
     revolt-desktop
