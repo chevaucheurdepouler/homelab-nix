@@ -116,21 +116,14 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages =
-    with pkgs;
-    [
-      poweralertd
-      vscode
-      upower
-      matugen
-      networkmanagerapplet
-      nicotine-plus
-    ]
-    ++ [
-      pkgs.callPackage
-      ../../packages/tetrio.nix
-      { }
-    ];
+  environment.systemPackages = with pkgs; [
+    poweralertd
+    vscode
+    upower
+    matugen
+    networkmanagerapplet
+    nicotine-plus
+  ];
 
   services.upower = {
     enable = true;
