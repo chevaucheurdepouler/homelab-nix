@@ -21,7 +21,7 @@
 
     gvfs
     nil
-    bitwarden
+    bitwarden-desktop
   ];
 
   virtualisation.containers.enable = true;

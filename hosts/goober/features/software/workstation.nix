@@ -62,7 +62,7 @@
     # alt-ergo
     # cvc4
     # z3
-    bitwarden
+    bitwarden-desktop
     kicad
     # ente-auth
     ente-web

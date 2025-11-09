@@ -2,7 +2,7 @@
 
 {
   environment.systemPackages = with pkgs; [
-    glxinfo
+    mesa-demos
   ];
 
   boot.blacklistedKernelModules = [ "nouveau" ];
