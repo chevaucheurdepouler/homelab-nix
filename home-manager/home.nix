@@ -223,10 +223,8 @@
   };
 
   programs.git = {
-    userName = "misschloe777";
-    userEmail = "harryh@ik.me";
     enable = true;
-    extraConfig = {
+    settings = {
       credential.helper = "${pkgs.git.override { withLibsecret = true; }}/bin/git-credential-libsecret";
     };
   };
