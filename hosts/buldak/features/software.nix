@@ -2,7 +2,7 @@
 {
   environment.systemPackages = with pkgs; [
     zathura
-    bitwarden
+    bitwarden-desktop
     nil
     obs-studio
     osu-lazer-bin
