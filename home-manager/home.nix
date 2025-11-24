@@ -6,6 +6,10 @@
 }:
 
 {
+  fonts.fontconfig = {
+    enable = true;
+    antialiasing = true;
+  };
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "misschloe777";
@@ -227,6 +231,10 @@
     enable = true;
     settings = {
       credential.helper = "${pkgs.git.override { withLibsecret = true; }}/bin/git-credential-libsecret";
+      user = {
+        name = "clo";
+        email = "clo.h@gozmail.bzh";
+      };
     };
   };
 
@@ -404,6 +412,28 @@
     settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
   };
 
+  programs.less = {
+    enable = true;
+
+  };
+  programs.lf = {
+    enable = true;
+    previewer.keybinding = "i";
+    previewer.source = pkgs.writeShellScript "pv.sh" ''
+      #!/bin/sh
+
+      case "$1" in
+        *.tar*) tar tf "$1";;
+        *.zip) unzip -l "$1";;
+        *.rar) unrar l "$1";;
+        *.7z) 7z l "$1";;
+        *.pdf) pdftotext "$1" -;;
+        *.jpg) img2sixel "$1";;
+        *.png) img2sixel "$1";;
+        *) highlight -O ansi "$1";;
+      esac
+    '';
+  };
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
