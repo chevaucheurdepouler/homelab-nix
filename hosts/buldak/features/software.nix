@@ -11,6 +11,7 @@
     iamb
     qutebrowser
     ente-desktop
+    moonlight-qt
   ];
 
   virtualisation.containers.enable = true;
