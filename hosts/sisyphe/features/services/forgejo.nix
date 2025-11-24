@@ -6,7 +6,6 @@
   ...
 }:
 {
-  imports = [ ./forgejo-smtp.nix ];
   sops.secrets.smtp_address = { };
   sops.secrets.smtp_password = {
     owner = "forgejo";
@@ -30,18 +29,15 @@
         DOMAIN = "git.rougebordeaux.xyz";
         ROOT_URL = "https://git.rougebordeaux.xyz";
         SSH_DOMAIN = "git.rougebordeaux.xyz";
+        SSH_PORT = lib.head config.services.openssh.ports;
         HTTP_PORT = 3333;
       };
       actions = {
         ENABLED = true;
         DEFAULT_ACTIONS_URL = "github";
       };
-      mailer = {
-        ENABLED = true;
-      };
       service.DISABLE_REGISTRATION = false;
     };
-    mailerPasswordFile = config.sops.secrets.smtp_password.path;
   };
 
   # setup fail2ban for forgejo
@@ -66,7 +62,7 @@
     "homelab"
     "forgejo"
   ];
-  services.openssh.settings.UsePAM = true;
+  services.openssh.settings.AcceptEnv = "GIT_PROTOCOL";
 
   # setup forgejo runner
   sops.secrets.forgejo-runner-token = {
@@ -91,10 +87,10 @@
     };
   */
 
-  # systemd.services.forgejo.preStart = ''
-  #   create="${lib.getExe config.services.forgejo.package} admin user create"
-  #   $create --admin --email "`cat ${config.sops.secrets.forgejoInitialMail.path}`" --username you --password "`cat ${config.sops.secrets.forgejoInitialPassword.path}`" &>/dev/null || true
-  # '';
+  systemd.services.forgejo.preStart = ''
+    create="${lib.getExe config.services.forgejo.package} admin user create"
+    $create --admin --email "`cat ${config.sops.secrets.forgejoInitialMail.path}`" --username you --password "`cat ${config.sops.secrets.forgejoInitialPassword.path}`" &>/dev/null || true
+  '';
 
   services.caddy.virtualHosts."http://git.rougebordeaux.xyz".extraConfig = ''
     reverse_proxy :3333
