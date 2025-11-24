@@ -21,6 +21,13 @@
     ./features/default.nix
   ];
 
+  networking.nameservers = [
+    "80.67.169.12" # https://www.fdn.fr/actions/dns/
+    "80.67.169.40"
+    "2001:910:800::12"
+    "2001:910:800::40"
+  ];
+
   nixpkgs.config.allowUnfree = true;
   boot.loader = {
     efi.canTouchEfiVariables = true;
@@ -115,6 +122,7 @@
     wl-clipboard
     udiskie
     lutris
+    networkmanagerapplet
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -151,6 +159,8 @@
   nixpkgs.config.permittedInsecurePackages = [
     "libsoup-2.74.3"
   ];
+
+  nix.package = pkgs.lixPackageSets.stable.lix;
 
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.

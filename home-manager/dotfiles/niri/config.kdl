@@ -615,6 +615,7 @@ window-rule {
 
 window-rule {
   match at-startup=true app-id=r#"Cider$"#
+  open-maximized true
   open-on-workspace "music 󰽱"
 }
 

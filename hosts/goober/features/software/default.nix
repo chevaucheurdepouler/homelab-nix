@@ -6,7 +6,7 @@
     ./neovim.nix
     ./flatpak.nix
     ./discord.nix
-    ./ollama.nix
+    # ./ollama.nix
     ./steam.nix
     ./workstation.nix
   ];

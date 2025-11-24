@@ -19,16 +19,9 @@
       "cider-2"
     ];
 
-  musnix.enable = true;
-  musnix.rtcqs.enable = true;
   environment.systemPackages = with pkgs; [
     zathura
-    qutebrowser
-    # music editing software
-    reaper
-    surge
     cider-2
-
     libreoffice-qt
     hunspell
     hunspellDicts.fr-any
@@ -45,32 +38,17 @@
 
     # 3d modeling
     blender
-
-    beeper
     signal-desktop
     gajim
     weechat
 
     gvfs
-    xfce.thunar
 
-    # eclipses.eclipse-java # school wants us to use it...
     nil
-    # jetbrains.idea-ultimate
-
-    # why3
-    # alt-ergo
-    # cvc4
-    # z3
     bitwarden-desktop
-    kicad
-    # ente-auth
     ente-web
-    # jetbrains.rider
-    revolt-desktop
     exactaudiocopy
     picard
-    nextcloud-client
     i2pd
     nicotine-plus
     mpd
@@ -79,7 +57,6 @@
     # games
     tetrio-desktop
     osu-lazer-bin
-    ungoogled-chromium
     esptool
   ];
 

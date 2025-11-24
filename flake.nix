@@ -41,7 +41,6 @@
     nix-darwin.url = "github:LnL7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgsUnstable";
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=v0.4.1";
-    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     catppuccin.url = "github:catppuccin/nix";
     swww.url = "github:LGFae/swww";
     lix = {
@@ -49,15 +48,6 @@
       flake = false;
     };
 
-    lix-module = {
-      url = "https://git.lix.systems/lix-project/nixos-module/archive/2.93.2-1.tar.gz";
-      inputs.nixpkgs.follows = "nixpkgsUnstable";
-      inputs.lix.follows = "lix";
-    };
-    musnix = {
-      url = "github:musnix/musnix";
-      inputs.nixpkgs.follows = "nixpkgsUnstable";
-    };
     moonlight = {
       url = "github:moonlight-mod/moonlight/develop"; # Add `/develop` to the flake URL to use nightly.
       inputs.nixpkgs.follows = "nixpkgsUnstable";
@@ -81,10 +71,9 @@
       nix-flatpak,
       home-manager,
       zen-browser,
-      musnix,
-      lix-module,
       moonlight,
       auto-cpufreq,
+      miovim,
       ...
     }@inputs:
     let
@@ -125,9 +114,7 @@
           specialArgs = specialArgs;
           modules = [
             ./hosts/goober/configuration.nix
-            # lix-module.nixosModules.default
             nix-flatpak.nixosModules.nix-flatpak
-            musnix.nixosModules.musnix
             catppuccin.nixosModules.catppuccin
             home-manager.nixosModules.home-manager
             {
@@ -154,7 +141,6 @@
           specialArgs = specialArgs;
           modules = [
             ./hosts/buldak/configuration.nix
-            # lix-module.nixosModules.default
             auto-cpufreq.nixosModules.default
             catppuccin.nixosModules.catppuccin
             home-manager.nixosModules.home-manager
@@ -184,7 +170,6 @@
           specialArgs = specialArgs;
           modules = [
             ./hosts/workstation/configuration.nix
-            lix-module.nixosModules.default
             nix-flatpak.nixosModules.nix-flatpak
             catppuccin.nixosModules.catppuccin
             home-manager.nixosModules.home-manager

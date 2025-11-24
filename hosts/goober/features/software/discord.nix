@@ -7,7 +7,6 @@
 let
   discord = pkgs.discord.override {
     withMoonlight = true;
-    moonlight = inputs.moonlight.packages.${pkgs.system}.moonlight;
   };
 in
 {
