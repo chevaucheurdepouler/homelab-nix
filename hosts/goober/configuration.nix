@@ -1,7 +1,3 @@
-# Edit this configuration file to define what should be installed on
-# your system. Help is available in the configuration.nix(5) man page, on
-# https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
-
 {
   config,
   lib,
@@ -21,6 +17,37 @@
     ./features/default.nix
   ];
 
+  boot = {
+    loader = {
+      efi.canTouchEfiVariables = true;
+      grub = {
+        enable = true;
+        devices = [ "nodev" ];
+        efiSupport = true;
+        useOSProber = true;
+      };
+      timeout = 0;
+    };
+
+    plymouth = {
+      enable = true;
+      # theme = "catppuccin-mocha";
+      # themePackages = [
+      #   pkgs.catppuccin-plymouth
+      # ];
+    };
+
+    consoleLogLevel = 3;
+    initrd.verbose = false;
+    kernelParams = [
+      "quiet"
+      "splash"
+      "boot.shell_on_fail"
+      "udev.log_priority=3"
+      "rd.systemd.show_status=auto"
+    ];
+  };
+
   networking.nameservers = [
     "80.67.169.12" # https://www.fdn.fr/actions/dns/
     "80.67.169.40"
@@ -29,16 +56,6 @@
   ];
 
   nixpkgs.config.allowUnfree = true;
-  boot.loader = {
-    efi.canTouchEfiVariables = true;
-    grub = {
-      enable = true;
-      devices = [ "nodev" ];
-      efiSupport = true;
-      useOSProber = true;
-    };
-  };
-
   time.hardwareClockInLocalTime = true;
 
   networking.hostName = "goober"; # Define your hostname.
