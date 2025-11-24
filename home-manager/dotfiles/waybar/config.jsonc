@@ -5,8 +5,6 @@
   "modules-center": [],
   "modules-right": [
     "tray",
-    "bluetooth",
-    "network",
     "wireplumber",
     "clock",
     "privacy",
