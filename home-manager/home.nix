@@ -122,7 +122,7 @@
     ".config/hyfetch.json".source = dotfiles/hyfetch/hyfetch.json;
     ".config/niri".source = dotfiles/niri;
     ".config/mako".source = dotfiles/mako;
-    ".scripts/" = ./dotfiles/scripts;
+    ".scripts/".source = dotfiles/scripts;
   };
 
   # programs.matugen = {
