@@ -91,10 +91,10 @@
     };
   */
 
-  systemd.services.forgejo.preStart = ''
-    create="${lib.getExe config.services.forgejo.package} admin user create"
-    $create --admin --email "`cat ${config.sops.secrets.forgejoInitialMail.path}`" --username you --password "`cat ${config.sops.secrets.forgejoInitialPassword.path}`" &>/dev/null || true
-  '';
+  # systemd.services.forgejo.preStart = ''
+  #   create="${lib.getExe config.services.forgejo.package} admin user create"
+  #   $create --admin --email "`cat ${config.sops.secrets.forgejoInitialMail.path}`" --username you --password "`cat ${config.sops.secrets.forgejoInitialPassword.path}`" &>/dev/null || true
+  # '';
 
   services.caddy.virtualHosts."http://git.rougebordeaux.xyz".extraConfig = ''
     reverse_proxy :3333
