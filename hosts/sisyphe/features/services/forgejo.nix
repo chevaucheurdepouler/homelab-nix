@@ -63,6 +63,7 @@
     "forgejo"
   ];
   services.openssh.settings.AcceptEnv = "GIT_PROTOCOL";
+  networking.firewall.allowedTCPPorts = [ 22 ];
 
   # setup forgejo runner
   sops.secrets.forgejo-runner-token = {
