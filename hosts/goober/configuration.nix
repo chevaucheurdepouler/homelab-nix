@@ -26,7 +26,6 @@
         efiSupport = true;
         useOSProber = true;
       };
-      timeout = 0;
     };
 
     plymouth = {
