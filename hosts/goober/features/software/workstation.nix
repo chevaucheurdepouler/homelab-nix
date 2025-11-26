@@ -20,7 +20,9 @@
     ];
   fonts.fontDir.enable = true;
   environment.systemPackages = with pkgs; [
+    podman-compose
     zathura
+    pcsx2
     figma-linux
     cider-2
     libreoffice-qt

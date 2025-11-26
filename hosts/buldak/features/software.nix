@@ -12,6 +12,7 @@
     qutebrowser
     ente-desktop
     moonlight-qt
+    podman-compose
   ];
 
   virtualisation.containers.enable = true;
