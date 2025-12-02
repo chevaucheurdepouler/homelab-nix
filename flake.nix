@@ -2,8 +2,8 @@
   description = "the silliest NixOS config!";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
-    nixpkgsSmall.url = "github:NixOS/nixpkgs/nixos-25.05-small";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
+    nixpkgsSmall.url = "github:NixOS/nixpkgs/nixos-25.11-small";
     nixpkgsUnstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     sops-nix.url = "github:Mic92/sops-nix";
 
