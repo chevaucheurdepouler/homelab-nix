@@ -26,7 +26,7 @@
           servers = [
             {
               "sisyphe" = {
-                baseUrl = "http://nzb.sisyphe.normandy.rougebordeaux.xyz";
+                baseUrl = "http://nzb.sisyphe.bzh.rougebordeaux.xyz";
                 apiKeyFile = "/run/secrets/sabnbzd_apikey";
               };
             }

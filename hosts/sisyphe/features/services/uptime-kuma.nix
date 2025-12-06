@@ -12,7 +12,7 @@
     reverse_proxy :4321
   '';
 
-  services.caddy.virtualHosts."http://uptime.sisyphe.normandy.rougebordeaux.xyz".extraConfig = ''
+  services.caddy.virtualHosts."http://uptime.sisyphe.bzh.rougebordeaux.xyz".extraConfig = ''
     reverse_proxy :4321
   '';
 

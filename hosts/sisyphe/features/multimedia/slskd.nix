@@ -41,7 +41,7 @@ in
       };
     };
 
-    services.caddy.virtualHosts."http://slskd.sisyphe.normandy.rougebordeaux.xyz".extraConfig = ''
+    services.caddy.virtualHosts."http://slskd.sisyphe.bzh.rougebordeaux.xyz".extraConfig = ''
       reverse_proxy :5030
     '';
   };

@@ -65,31 +65,31 @@ in
   */
 
   services.caddy.virtualHosts = {
-    "http://radarr.sisyphe.normandy.rougebordeaux.xyz".extraConfig = ''
+    "http://radarr.sisyphe.bzh.rougebordeaux.xyz".extraConfig = ''
       reverse_proxy :7878
     '';
 
-    "http://sonarr.sisyphe.normandy.rougebordeaux.xyz".extraConfig = ''
+    "http://sonarr.sisyphe.bzh.rougebordeaux.xyz".extraConfig = ''
       reverse_proxy :8989
     '';
 
-    "http://sonarr-anime.sisyphe.normandy.rougebordeaux.xyz".extraConfig = ''
+    "http://sonarr-anime.sisyphe.bzh.rougebordeaux.xyz".extraConfig = ''
       reverse_proxy :8999
     '';
 
-    "http://prowlarr.sisyphe.normandy.rougebordeaux.xyz".extraConfig = ''
+    "http://prowlarr.sisyphe.bzh.rougebordeaux.xyz".extraConfig = ''
       reverse_proxy :9696
     '';
 
-    "http://katflix.sisyphe.normandy.rougebordeaux.xyz".extraConfig = ''
+    "http://katflix.sisyphe.bzh.rougebordeaux.xyz".extraConfig = ''
       reverse_proxy :5055
     '';
 
-    "http://bazarr.sisyphe.normandy.rougebordeaux.xyz".extraConfig = ''
+    "http://bazarr.sisyphe.bzh.rougebordeaux.xyz".extraConfig = ''
       reverse_proxy :6767
     '';
 
-    "http://bazarr-anime.sisyphe.normandy.rougebordeaux.xyz".extraConfig = ''
+    "http://bazarr-anime.sisyphe.bzh.rougebordeaux.xyz".extraConfig = ''
       reverse_proxy :6777
     '';
   };

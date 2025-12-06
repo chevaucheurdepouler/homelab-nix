@@ -46,7 +46,7 @@ in
       };
     };
 
-    services.caddy.virtualHosts."http://transmission.sisyphe.normandy.rougebordeaux.xyz".extraConfig =
+    services.caddy.virtualHosts."http://transmission.sisyphe.bzh.rougebordeaux.xyz".extraConfig =
       ''
         reverse_proxy :9091
       '';

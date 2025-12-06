@@ -8,7 +8,7 @@
         reverse_proxy :3030
       '';
 
-      "http://mc.sisyphe.normandy.rougebordeaux.xyz".extraConfig = ''
+      "http://mc.sisyphe.bzh.rougebordeaux.xyz".extraConfig = ''
         reverse_proxy :8443
       '';
     };
