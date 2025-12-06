@@ -56,6 +56,7 @@
     nicotine-plus
     mpd
     mpdas
+    beets
 
     # games
     tetrio-desktop
