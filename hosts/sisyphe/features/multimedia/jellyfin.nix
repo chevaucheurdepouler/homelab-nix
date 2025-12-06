@@ -15,17 +15,20 @@
     # hardware.opengl in 24.05
     enable = true;
     extraPackages = with pkgs; [
+      intel-ocl
       intel-media-driver
-      intel-vaapi-driver # previously vaapiIntel
-      libva-vdpau-driver
-      intel-compute-runtime # OpenCL filter support (hardware tonemapping and subtitle burn-in)
-      intel-media-sdk # QSV up to 11th gen
+      intel-compute-runtime-legacy1 # OpenCL filter support (hardware tonemapping and subtitle burn-in)
     ];
   };
 
   services.jellyfin = {
     enable = true;
     openFirewall = true;
+  };
+
+  systemd.services.jellyfin.environment.LIBVA_DRIVER_NAME = "iHD"; # or i965 for older GPUs
+  environment.sessionVariables = {
+    LIBVA_DRIVER_NAME = "iHD";
   };
 
   services.caddy.virtualHosts = {
