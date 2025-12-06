@@ -39,7 +39,7 @@ in
       format = "dotenv";
     };
 
-    services.caddy.virtualHosts."http://sisyphe.bzh.${cfg.baseUrl}".extraConfig = ''
+    services.caddy.virtualHosts."http://bzh.${cfg.baseUrl}".extraConfig = ''
       reverse_proxy :8082
     '';
 
@@ -180,7 +180,7 @@ in
               "Jellyseerr" = {
                 icon = "jellyseerr";
                 description = "Moteur de recherche de films/séries";
-                href = "http://katflix.sisyphe.bzh.${cfg.baseUrl}";
+                href = "http://katflix.bzh.${cfg.baseUrl}";
 
                 widget = {
                   type = "jellyseerr";
@@ -193,14 +193,14 @@ in
               "slskd" = {
                 icon = "slskd";
                 description = "Pour télécharger/partager de la musique";
-                href = "http://slskd.sisyphe.bzh.${cfg.baseUrl}";
+                href = "http://slskd.bzh.${cfg.baseUrl}";
               };
             }
             {
               "Prowlarr" = {
                 icon = "prowlarr";
                 description = "Indexe les différents sites de téléchargement";
-                href = "http://prowlarr.sisyphe.bzh.${cfg.baseUrl}";
+                href = "http://prowlarr.bzh.${cfg.baseUrl}";
                 widget = {
                   type = "prowlarr";
                   key = "{{HOMEPAGE_VAR_PROWLARR}}";
@@ -212,7 +212,7 @@ in
               "Sonarr" = {
                 icon = "sonarr";
                 description = "Moteur de recherche pour les séries";
-                href = "http://sonarr.sisyphe.bzh.${cfg.baseUrl}";
+                href = "http://sonarr.bzh.${cfg.baseUrl}";
                 widget = {
                   type = "sonarr";
                   url = "http://${ip}:8989";
@@ -224,7 +224,7 @@ in
               "Sonarr anime" = {
                 icon = "sonarr";
                 description = "Moteur de recherche pour les séries animées";
-                href = "http://sonarr-anime.sisyphe.bzh.${cfg.baseUrl}";
+                href = "http://sonarr-anime.bzh.${cfg.baseUrl}";
                 widget = {
                   type = "sonarr";
                   url = "";
@@ -236,7 +236,7 @@ in
               "Radarr" = {
                 icon = "radarr";
                 description = "Moteur de recherche pour les films";
-                href = "http://radarr.sisyphe.bzh.${cfg.baseUrl}";
+                href = "http://radarr.bzh.${cfg.baseUrl}";
                 widget = {
                   type = "radarr";
                   key = "{{HOMEPAGE_VAR_RADARR}}";
@@ -248,7 +248,7 @@ in
               "Bazarr" = {
                 icon = "bazarr";
                 description = "Vérifie les sous titres des films/séries.";
-                href = "http://bazarr.sisyphe.bzh.${cfg.baseUrl}";
+                href = "http://bazarr.bzh.${cfg.baseUrl}";
                 widget = {
                   type = "bazarr";
                   key = "{{HOMEPAGE_VAR_BAZARR}}";
@@ -260,7 +260,7 @@ in
               "Bazarr anime" = {
                 icon = "bazarr";
                 description = "Vérifie les sous titres des séries animées.";
-                href = "http://bazarr-anime.sisyphe.bzh.${cfg.baseUrl}";
+                href = "http://bazarr-anime.bzh.${cfg.baseUrl}";
                 widget = {
                   type = "bazarr";
                   key = "{{HOMEPAGE_VAR_BAZARRANIME}}";
@@ -273,7 +273,7 @@ in
               "Transmission" = {
                 icon = "transmission";
                 description = "s'occupe du téléchargement des fichiers";
-                href = "http://transmission.sisyphe.bzh.${cfg.baseUrl}";
+                href = "http://transmission.bzh.${cfg.baseUrl}";
                 widget = {
                   type = "transmission";
                   url = "http://${ip}:9091";
@@ -286,7 +286,7 @@ in
               "Sabnzbd" = {
                 icon = "sabnzbd";
                 description = "s'occupe de naviguer sur les réseaux usenet";
-                href = "http://nzb.sisyphe.bzh.rougebordeaux.xyz";
+                href = "http://nzb.bzh.rougebordeaux.xyz";
               };
             }
           ];
@@ -341,7 +341,7 @@ in
               "Grafana" = {
                 icon = "grafana";
                 description = "Visualiseur de graphiques";
-                href = "http://grafana.sisyphe.bzh.${cfg.baseUrl}";
+                href = "http://grafana.bzh.${cfg.baseUrl}";
               };
             }
             {
@@ -355,7 +355,7 @@ in
               "Uptime Kuma" = {
                 icon = "uptime-kuma";
                 description = "Surveille l'état des différents services";
-                href = "http://uptime.sisyphe.bzh.${cfg.baseUrl}";
+                href = "http://uptime.bzh.${cfg.baseUrl}";
               };
             }
             {

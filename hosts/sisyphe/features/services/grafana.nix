@@ -9,7 +9,7 @@
     };
   };
 
-  services.caddy.virtualHosts."http://grafana.sisyphe.bzh.rougebordeaux.xyz".extraConfig = ''
+  services.caddy.virtualHosts."http://grafana.bzh.rougebordeaux.xyz".extraConfig = ''
     reverse_proxy :3000
   '';
 }

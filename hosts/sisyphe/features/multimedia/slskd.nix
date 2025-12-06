@@ -18,7 +18,6 @@ in
     };
   };
   config = {
-
     environment.systemPackages = with pkgs; [
       slskd
     ];
@@ -35,13 +34,13 @@ in
       domain = null;
       settings = {
         shares.directories = [ "${cfg.directory}/clean" ];
-        soulseek.description = "i luv katz n mewsik";
+        soulseek.description = "i wuv katz n mewsik!!! cantz red messages im dum kity : sen messag to missbehaves for replies!!";
         directories.downloads = "${cfg.directory}/downloads";
         directories.incomplete = "${cfg.directory}/incomplete";
       };
     };
 
-    services.caddy.virtualHosts."http://slskd.sisyphe.bzh.rougebordeaux.xyz".extraConfig = ''
+    services.caddy.virtualHosts."http://slskd.bzh.rougebordeaux.xyz".extraConfig = ''
       reverse_proxy :5030
     '';
   };
