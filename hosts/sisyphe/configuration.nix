@@ -123,6 +123,7 @@ in
     pkg:
     builtins.elem (lib.getName pkg) [
       "unrar"
+      "intel-ocl"
     ];
 
   # log shouldnt eat all my hard drive
