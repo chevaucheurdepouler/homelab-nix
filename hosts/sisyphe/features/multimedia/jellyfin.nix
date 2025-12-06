@@ -1,9 +1,5 @@
 { pkgs, config, ... }:
 {
-  # 1. enable vaapi on OS-level
-  nixpkgs.config.packageOverrides = pkgs: {
-    vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
-  };
   environment.systemPackages = with pkgs; [
     jellyfin
     jellyfin-web
@@ -32,10 +28,6 @@
   };
 
   services.caddy.virtualHosts = {
-    "http://jellyfin.sisyphe.bzh.rougebordeaux.xyz".extraConfig = ''
-      reverse_proxy :8096
-    '';
-
     "http://media.rougebordeaux.xyz".extraConfig = ''
       reverse_proxy :8096
     '';
