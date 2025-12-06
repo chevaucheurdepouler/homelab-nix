@@ -1,10 +1,14 @@
-{ pkgs, config, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 {
   environment.systemPackages = with pkgs; [
     jellyfin
     jellyfin-web
     jellyfin-ffmpeg
-
   ];
 
   hardware.graphics = {
@@ -32,4 +36,10 @@
       reverse_proxy :8096
     '';
   };
+
+  nixpkgs.config.allowUnfreePredicate =
+    pkg:
+    builtins.elem (lib.getName pkg) [
+      "intel-ocl"
+    ];
 }
