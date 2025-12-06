@@ -23,7 +23,6 @@ in
   config = {
     sops.secrets.transmission = {
       sopsFile = "${secrets}/secrets/transmission.json";
-      path = "/var/lib/secrets/transmission/settings.json";
     };
 
     # torrenting apps
