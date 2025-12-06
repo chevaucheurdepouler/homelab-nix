@@ -18,6 +18,6 @@
     ethtool
     networkd-dispatcher
     transcrypt
-    libressl_4_0
+    libressl
   ];
 }
