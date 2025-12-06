@@ -18,6 +18,8 @@
     libheif
     libheif.out
     xwayland-satellite
+    libheif
+    libheif.out
     inputs.swww.packages.${pkgs.system}.swww
   ];
 
@@ -60,6 +62,7 @@
       });
     })
   ];
+  environment.pathsToLink = [ "share/thumbnailers" ];
 
   services.xserver.xkb = {
     layout = "fr";
