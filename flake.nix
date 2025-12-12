@@ -49,13 +49,14 @@
     };
 
     moonlight = {
-      url = "github:moonlight-mod/moonlight/develop"; # Add `/develop` to the flake URL to use nightly.
+      url = "github:moonlight-mod/moonlight/develop";
       inputs.nixpkgs.follows = "nixpkgsUnstable";
     };
     auto-cpufreq = {
       url = "github:AdnanHodzic/auto-cpufreq";
       inputs.nixpkgs.follows = "nixpkgsUnstable";
     };
+    affinity-nix.url = "github:mrshmllow/affinity-nix";
   };
 
   outputs =
@@ -71,6 +72,7 @@
       nix-flatpak,
       home-manager,
       zen-browser,
+      affinity-nix,
       moonlight,
       auto-cpufreq,
       miovim,

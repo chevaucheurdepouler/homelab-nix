@@ -18,6 +18,7 @@ in
 
   services.sonarr = {
     enable = true;
+    group = "multimedia";
     openFirewall = true;
   };
 
@@ -29,6 +30,7 @@ in
 
   services.prowlarr = {
     enable = true;
+    group = "multimedia";
     openFirewall = true;
   };
 
@@ -39,6 +41,7 @@ in
 
   services.bazarr = {
     enable = true;
+    group = "multimedia";
     openFirewall = true;
   };
   /*
