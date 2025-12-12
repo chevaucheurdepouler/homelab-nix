@@ -30,7 +30,6 @@ in
 
   services.prowlarr = {
     enable = true;
-    group = "multimedia";
     openFirewall = true;
   };
 
