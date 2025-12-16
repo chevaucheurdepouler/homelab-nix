@@ -1,6 +1,6 @@
 {
   pkgs,
-  affinity-nix,
+  inputs,
   lib,
   ...
 }:
@@ -66,7 +66,7 @@
       esptool
     ]
     ++ [
-      affinity-nix.packages.x86_64-linux.v3
+      inputs.affinity-nix.packages.${pkgs.system}.v3
     ];
 
   services.mpdscribble = {

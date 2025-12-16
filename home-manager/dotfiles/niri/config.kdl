@@ -581,7 +581,6 @@ environment {
 }
 
 // apps to launch at startup
-spawn-at-startup "discord"
 spawn-at-startup "footclient" "nvim" "~/Documents/Notes"
 spawn-at-startup "cider-2"
 

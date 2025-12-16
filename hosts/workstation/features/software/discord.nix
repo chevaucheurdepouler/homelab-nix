@@ -1,19 +1,18 @@
 {
   config,
   pkgs,
-  inputs,
+  moonlight,
   ...
 }:
 let
   moonlight-client = pkgs.discord.override {
     withMoonlight = true;
+    moonlight = moonlight.packages.${pkgs.system}.moonlight;
   };
 in
 {
   environment.systemPackages = with pkgs; [
     moonlight-client
-    inputs.moonlight.packages.${pkgs.system}.moonlight
-    vesktop
   ];
   # screen record support
   xdg = {

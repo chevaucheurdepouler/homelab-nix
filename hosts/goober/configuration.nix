@@ -59,6 +59,7 @@
 
   networking.hostName = "goober"; # Define your hostname.
   networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
+  networking.firewall.allowedTCPPorts = [ 2234 ];
 
   # Set your time zone.
   time.timeZone = "Europe/Paris";
