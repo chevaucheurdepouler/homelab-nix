@@ -33,7 +33,6 @@
           ];
         };
       */
-
       redis = {
         enable = true;
       };
@@ -43,6 +42,7 @@
       pihole = {
         enable = true;
         piholeHostname = "192.168.1.25";
+
       };
       php-fpm = {
         enable = true;

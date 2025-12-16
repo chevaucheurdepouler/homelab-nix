@@ -1,5 +1,11 @@
-{ ... }:
+{ secrets-next, ... }:
 {
+  sops.secrets."ldap_password" = {
+    sopsFile = "${secrets-next}/secrets/bordel.yaml";
+  };
+  sops.secrets."ldap_seed_file" = {
+    sopsFile = "${secrets-next}/secrets/bordel.yaml";
+  };
   services.lldap = {
     enable = true;
     settings = {
@@ -15,7 +21,18 @@
     instances = {
       default = {
         enable = true;
+        secrets.storageEncryptionKeyFile = "/etc/authelia/storageEncryptionKeyFile";
+        secrets.jwtSecretFile = "/etc/authelia/jwtSecretFile";
         settings = {
+          access_control = {
+            default_policy = "deny";
+            rules = [
+              {
+                "domain" = "*.rougebordeaux.xyz";
+                "policy" = "one_factor";
+              }
+            ];
+          };
         };
       };
     };

@@ -33,6 +33,11 @@ in
       environmentFile = config.sops.secrets.slskd.path;
       domain = null;
       settings = {
+        instance_name = "kitten";
+        metrics = {
+          enabled = true;
+          url = "/metrics";
+        };
         shares.directories = [ "${cfg.directory}/clean" ];
         soulseek.description = "i wuv katz n mewsik!!! cantz red messages im dum kity : sen messag to missbehaves for replies!!";
         directories.downloads = "${cfg.directory}/downloads";

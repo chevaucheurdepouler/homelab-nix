@@ -9,7 +9,9 @@
     ./backups-repos.nix
   ];
 
-  sops.secrets.borgRepoPassword = { };
+  sops.secrets.borgRepoPassword = {
+    owner = "";
+  };
   sops.secrets.borgRemoteServerPassword = {
     sopsFile = "${secrets}/secrets/backup.yaml";
   };
@@ -42,9 +44,9 @@
           "/srv/freshrss"
           "/srv/Minecraft"
         ];
-        postgresql_databases = [
-          { name = "nextcloud"; }
-        ];
+        # postgresql_databases = [
+        #   { name = "nextcloud"; }
+        # ];
         exclude_patterns = [ "/home/*/.cache" ];
         encryption_passcommand = "${pkgs.coreutils}/bin/cat /run/secrets/borgRemoteServerPassword";
         ssh_command = "ssh -o GlobalKnownHostsFile=${config.sops.secrets.borgOffsiteBackupHostKeys.path} -i ${config.sops.secrets.sshBorgOffsiteBackup.path}";
