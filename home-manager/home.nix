@@ -395,12 +395,40 @@
   #     extensions = {
   #       allActivites.enabled = true;
   #       alwaysFocus.enabled = true;
+  #       disableSentry.enabled = true;
+  #       noTrack.enabled = true;
+  #       noHideToken.enabled = true;
+  #       oneko.enabled = true;
+  #       pronouns.enabled = true;
+  #       uwuifier.enabled = true;
+  #       betterUploadButton.enabled = true;
+  #       betterCodeblocks.enabled = true;
+  #       trustAllDomains.enabled = true;
+  #       userpfp.enabled = true;
+  #       osuTyping.enabled = true;
+  #       onePingPerDM.enabled = true;
+  #
+  #       lastFmRpc = {
+  #         enabled = true;
+  #         config = {
+  #           apiKey = "";
+  #           username = "ariburnznfire";
+  #           nameFormat = "song-first";
+  #         };
+  #       };
   #
   #       betterEmbedsYT = {
   #         enabled = true;
   #         config = {
   #           fullDescription = false;
   #           expandDescription = true;
+  #         };
+  #       };
+  #
+  #       moonlight-css = {
+  #         enabled = true;
+  #         config = {
+  #           paths = [ "https://catppuccin.github.io/discord/dist/catppuccin-mocha.theme.css" ];
   #         };
   #       };
   #     };
