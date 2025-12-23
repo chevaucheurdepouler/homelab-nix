@@ -109,6 +109,7 @@
     pkg:
     builtins.elem (lib.getName pkg) [
       "vscode"
+      "clonehero"
     ];
 
   # Allow unfree packages
@@ -124,6 +125,7 @@
     networkmanagerapplet
     nicotine-plus
     libimobiledevice
+    clonehero
     usbutils
     ifuse # optional, to mount using 'ifuse'
 
