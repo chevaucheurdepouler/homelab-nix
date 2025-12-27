@@ -49,7 +49,7 @@
     };
 
     moonlight = {
-      url = "github:moonlight-mod/moonlight/develop";
+      url = "github:moonlight-mod/moonlight";
       inputs.nixpkgs.follows = "nixpkgsUnstable";
     };
     auto-cpufreq = {

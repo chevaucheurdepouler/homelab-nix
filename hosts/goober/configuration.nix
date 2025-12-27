@@ -83,6 +83,13 @@
     #"/swap".options = ["compress=zstd"];
   };
 
+  swapDevices = [
+    {
+      device = "/var/lib/swapfile";
+      size = 16 * 1024;
+    }
+  ];
+
   services.btrfs.autoScrub.enable = true;
   services.btrfs.autoScrub.interval = "weekly";
 
@@ -114,6 +121,7 @@
       "networkmanager"
       "podman"
       "dialout"
+      "gamemode"
     ];
 
     packages = with pkgs; [
@@ -178,6 +186,13 @@
   ];
 
   nix.package = pkgs.lixPackageSets.stable.lix;
+
+  services.sunshine = {
+    enable = true;
+    autoStart = true;
+    capSysAdmin = true; # only needed for Wayland -- omit this when using with Xorg
+    openFirewall = true;
+  };
 
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
