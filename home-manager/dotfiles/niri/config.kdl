@@ -371,6 +371,9 @@ binds {
     Mod+Ctrl+K     { move-window-up; }
     Mod+Ctrl+L     { move-column-right; }
 
+    Mod+Ctrl+Alt+Left { spawn "niri" "msg" "output" "HDMI-A-1" "transform" "90";}
+    Mod+Ctrl+Alt+Down { spawn "niri" "msg" "output" "HDMI-A-1" "transform" "normal";}
+
     // Alternative commands that move across workspaces when reaching
     // the first or last window in a column.
     // Mod+J     { focus-window-or-workspace-down; }
@@ -627,3 +630,5 @@ window-rule {
 switch-events {
   lid-close { spawn "swaylock" "--screenshots" "--clock" "--indicator" "--effect-blur" "7x5" "--effect-vignette" "0.5:0.5" "--fade-in" "0.2"; }
 }
+
+
