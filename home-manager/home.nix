@@ -337,7 +337,7 @@
     syntaxHighlighting.enable = true;
 
     shellAliases = {
-      ll = "ls -l";
+      ll = "ls -lh";
       edit = "sudo -e";
       update = "sudo nixos-rebuild switch";
       lg = "lazygit";
