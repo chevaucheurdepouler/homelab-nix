@@ -9,9 +9,6 @@
     ./backups-repos.nix
   ];
 
-  sops.secrets.borgRepoPassword = {
-    owner = "";
-  };
   sops.secrets.borgRemoteServerPassword = {
     sopsFile = "${secrets}/secrets/backup.yaml";
   };
@@ -24,14 +21,14 @@
     sopsFile = "${secrets}/secrets/backup.yaml";
   };
 
-  services.borgbackup.repos = {
-    borgPersonalServer = {
-      authorizedKeys = [
-        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHyeTAANyYqMFded6mJHWuhGVXROu3TqDV2b8icjolfO root@meowcats-silly-computer"
-      ];
-      path = "/srv/backups/localComputerBackups";
-    };
-  };
+  # services.borgbackup.repos = {
+  #   borgPersonalServer = {
+  #     authorizedKeys = [
+  #       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHyeTAANyYqMFded6mJHWuhGVXROu3TqDV2b8icjolfO root@meowcats-silly-computer"
+  #     ];
+  #     path = "/srv/backups/localComputerBackups";
+  #   };
+  # };
 
   services.borgmatic = {
     enable = true;
@@ -44,9 +41,6 @@
           "/srv/freshrss"
           "/srv/Minecraft"
         ];
-        # postgresql_databases = [
-        #   { name = "nextcloud"; }
-        # ];
         exclude_patterns = [ "/home/*/.cache" ];
         encryption_passcommand = "${pkgs.coreutils}/bin/cat /run/secrets/borgRemoteServerPassword";
         ssh_command = "ssh -o GlobalKnownHostsFile=${config.sops.secrets.borgOffsiteBackupHostKeys.path} -i ${config.sops.secrets.sshBorgOffsiteBackup.path}";
