@@ -52,6 +52,11 @@ in
   security.sudo.wheelNeedsPassword = false;
 
   environment.systemPackages = with pkgs; [
+    homepage-dashboard
+    ethtool
+    networkd-dispatcher
+    transcrypt
+    libressl
     git
     neovim
   ];
