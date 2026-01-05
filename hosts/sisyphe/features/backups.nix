@@ -40,6 +40,7 @@
           "/home"
           "/srv/freshrss"
           "/srv/Minecraft"
+          "/srv/media/Music"
         ];
         exclude_patterns = [
           "/home/*/.cache"
@@ -57,7 +58,7 @@
     enable = true;
     wantedBy = [ "timers.target" ];
     timerConfig = {
-      OnCalendar = "*-*-* 03:00:00";
+      OnCalendar = "*-*-* 15:00:00";
       Persistent = true;
       WakeSystem = true;
       Unit = "borgmatic.service";
