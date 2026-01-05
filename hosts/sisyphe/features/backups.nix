@@ -41,7 +41,13 @@
           "/srv/freshrss"
           "/srv/Minecraft"
         ];
-        exclude_patterns = [ "/home/*/.cache" ];
+        exclude_patterns = [
+          "/home/*/.cache"
+          "*/vim*.tmp"
+          "*.pyc"
+        ];
+        keep_weekly = 5;
+        exclude_cache = true;
         encryption_passcommand = "${pkgs.coreutils}/bin/cat /run/secrets/borgRemoteServerPassword";
         ssh_command = "ssh -o GlobalKnownHostsFile=${config.sops.secrets.borgOffsiteBackupHostKeys.path} -i ${config.sops.secrets.sshBorgOffsiteBackup.path}";
       };
