@@ -25,6 +25,17 @@
              port = http,https
            '';
       */
+      jellyfin = ''
+        backend = auto
+        enabled = true
+        port = 80,443
+        protocol = tcp
+        filter = jellyfin
+        maxretry = 3
+        bantime = 86400
+        findtime = 43200
+        logpath = ${config.services.jellyfin.logDir}/jellyfin*.log
+      '';
     };
   };
 
@@ -40,6 +51,10 @@
            journalmatch = _SYSTEMD_UNIT=phpfpm-nextcloud.service
          '';
     */
+    "fail2ban/filter.d/jellyfin.conf".text = ''
+            [Definition]
+      failregex = ^.*Authentication request for .* has been denied \(IP: "<ADDR>"\)\.
+    '';
   };
 
 }
