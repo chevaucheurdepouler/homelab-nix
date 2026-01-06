@@ -61,19 +61,18 @@ in
         };
       };
     };
-  services.samba-wsdd = {
-    enable = true;
-    openFirewall = true;
-  };
 
+    services.samba-wsdd = {
+      enable = true;
+      openFirewall = true;
+    };
 
-  services.avahi = {
-    enable = true;
-    publish.enable = true;
-    publish.userServices = true;
-    openFirewall = true;
+    services.avahi = {
+      enable = true;
+      publish.enable = true;
+      publish.userServices = true;
+      openFirewall = true;
+    };
   };
-  };
-
 
 }
