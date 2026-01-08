@@ -10,6 +10,7 @@
     enable = true;
     settings = {
       force_ldap_user_pass_reset = "always";
+      ldap_base_dn = "cn=pouler,ou=bassecour,dc=rougebordeaux,dc=xyz";
     };
     environment = {
       LLDAP_LDAP_USER_PASS_FILE = "/run/secrets/ldap_password";

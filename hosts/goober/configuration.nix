@@ -194,10 +194,22 @@
     openFirewall = true;
   };
 
+  fonts.packages = with pkgs; [
+    noto-fonts
+    noto-fonts-cjk-sans
+    noto-fonts-color-emoji
+    liberation_ttf
+    fira-code
+    fira-code-symbols
+    mplus-outline-fonts.githubRelease
+    dina-font
+    proggyfonts
+  ];
   fonts.fontconfig.defaultFonts.emoji = [
     "Apple Color Emoji"
   ];
   fonts.enableDefaultPackages = true;
+  fonts.fontconfig.useEmbeddedBitmaps = true;
 
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
