@@ -11,60 +11,43 @@
         ];
         port = 9002;
       };
-      borgmatic = {
-        enable = true;
-      };
+      # borgmatic = {
+      #   enable = true;
+      # };
       systemd = {
         enable = true;
       };
 
       # TODO: set up all services config
-      /*
-        sabnzbd = {
-          enable = true;
-
-          servers = [
-            {
-              "sisyphe" = {
-                baseUrl = "http://nzb.bzh.rougebordeaux.xyz";
-                apiKeyFile = "/run/secrets/sabnbzd_apikey";
-              };
-            }
-          ];
-        };
-      */
-      redis = {
-        enable = true;
-      };
-      postgres = {
-        enable = true;
-      };
-      pihole = {
-        enable = true;
-        piholeHostname = "192.168.1.25";
-
-      };
-      php-fpm = {
-        enable = true;
-      };
-      exportarr-radarr = {
-        enable = true;
-        apiKeyFile = "/run/secrets/radarr";
-      };
-      exportarr-sonarr = {
-        enable = true;
-        apiKeyFile = "/run/secrets/sonarr";
-      };
-      exportarr-prowlarr = {
-        enable = true;
-        apiKeyFile = "/run/secrets/prowlarr";
-      };
-      exportarr-bazarr = {
-        enable = true;
-        apiKeyFile = "/run/secrets/bazarr";
-      };
+      # redis = {
+      #   enable = true;
+      # };
+      # postgres = {
+      #   enable = true;
+      # };
+      # pihole = {
+      #   enable = true;
+      #   piholeHostname = "pi.hole";
+      # };
+      # exportarr-radarr = {
+      #   enable = true;
+      #   apiKeyFile = "/run/secrets/radarr";
+      # };
+      # exportarr-sonarr = {
+      #   enable = true;
+      #   apiKeyFile = "/run/secrets/sonarr";
+      # };
+      # exportarr-prowlarr = {
+      #   enable = true;
+      #   apiKeyFile = "/run/secrets/prowlarr";
+      # };
+      # exportarr-bazarr = {
+      #   enable = true;
+      #   apiKeyFile = "/run/secrets/bazarr";
+      # };
       ping.enable = true;
       domain.enable = true;
+      # tailscale.enable = true;
       /*
         TODO: need to fix secrets before
         nextcloud = {
