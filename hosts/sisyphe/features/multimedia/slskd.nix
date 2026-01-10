@@ -39,7 +39,7 @@ in
           url = "/metrics";
         };
         shares.directories = [ "${cfg.directory}/clean" ];
-        soulseek.description = "i wuv katz n mewsik!!! cantz red messages im dum kity : sen messag to missbehaves for replies!!";
+        soulseek.description = "bass slut since 2003!";
         directories.downloads = "${cfg.directory}/downloads";
         directories.incomplete = "${cfg.directory}/incomplete";
       };
