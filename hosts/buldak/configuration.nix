@@ -117,19 +117,25 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    poweralertd
-    vscode
-    upower
-    matugen
-    networkmanagerapplet
-    nicotine-plus
-    libimobiledevice
-    clonehero
-    usbutils
-    ifuse # optional, to mount using 'ifuse'
+  environment.systemPackages =
+    with pkgs;
+    [
+      poweralertd
+      unetbootin
+      vscode
+      upower
+      matugen
+      networkmanagerapplet
+      nicotine-plus
+      libimobiledevice
+      clonehero
+      usbutils
+      ifuse # optional, to mount using 'ifuse'
 
-  ];
+    ]
+    ++ [
+      inputs.affinity-nix.packages.${pkgs.system}.v3
+    ];
 
   services.upower = {
     enable = true;
@@ -341,6 +347,10 @@
         command = "/run/wrappers/bin/light -U 1000";
       }
     ];
+  };
+
+  hardware.graphics = {
+    enable = true;
   };
 
   # This value determines the NixOS release from which the default
