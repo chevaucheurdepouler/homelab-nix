@@ -39,9 +39,6 @@ in
         rpc-authentication-required = true;
         download-dir = "${cfg.directory}/Torrents";
         ratio-limit-enabled = true;
-        alt-speed-time-enabled = true;
-        alt-speed-time-begin = "480";
-        alt-speed-time-end = "1320";
       };
     };
 
