@@ -131,7 +131,7 @@
       clonehero
       usbutils
       ifuse # optional, to mount using 'ifuse'
-
+      pwvucontrol
     ]
     ++ [
       inputs.affinity-nix.packages.${pkgs.system}.v3
