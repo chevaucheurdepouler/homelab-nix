@@ -42,6 +42,7 @@ in
         soulseek.description = "bass slut since 2003!";
         directories.downloads = "${cfg.directory}/downloads";
         directories.incomplete = "${cfg.directory}/incomplete";
+        permissions.file.mode = 664;
       };
     };
 
