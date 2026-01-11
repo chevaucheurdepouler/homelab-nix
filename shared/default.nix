@@ -9,6 +9,7 @@
 
   imports = [
     ./ssh.nix
+    ./fonts.nix
   ];
   environment.systemPackages = with pkgs; [
     curl
