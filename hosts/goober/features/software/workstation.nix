@@ -46,13 +46,12 @@
       signal-desktop
       gajim
       weechat
-
       gvfs
-
       nil
       bitwarden-desktop
       ente-web
-      exactaudiocopy
+      # FIXME: cant fetch EAC because of cygwin mirrors
+      # exactaudiocopy
       picard
       i2pd
       nicotine-plus
