@@ -4,8 +4,28 @@
   pkgs,
   ...
 }:
+let
+  mpv = (
+    final: previous: {
+      mpv = {
+        scripts = with pkgs.mpvScripts; [
+          uosc
+          sponsorblock
+          mpv-notify-send
+          mpv-discord
+          youtube-upnext
+        ];
 
+        mpv = pkgs.mpv.override {
+          waylandSupport = true;
+          ffmpeg = pkgs.ffmpeg-full;
+        };
+      };
+    }
+  );
+in
 {
+  nixpkgs.overlays = [ mpv ];
   fonts.fontconfig = {
     enable = true;
     antialiasing = true;
@@ -303,22 +323,6 @@
 
   programs.mpv = {
     enable = true;
-    package = (
-      pkgs.mpv-unwrapped.wrapper {
-        scripts = with pkgs.mpvScripts; [
-          uosc
-          sponsorblock
-          mpv-notify-send
-          mpv-discord
-          youtube-upnext
-        ];
-
-        mpv = pkgs.mpv-unwrapped.override {
-          waylandSupport = true;
-          ffmpeg = pkgs.ffmpeg-full;
-        };
-      }
-    );
 
     profiles = {
       "high-quality" = {
@@ -442,8 +446,8 @@
 
   programs.less = {
     enable = true;
-
   };
+
   programs.lf = {
     enable = true;
     previewer.keybinding = "i";
