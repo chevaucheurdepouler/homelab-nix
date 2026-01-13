@@ -208,7 +208,7 @@
     proggyfonts
   ];
   fonts.fontconfig.defaultFonts.emoji = [
-    "Apple Color Emoji"
+    "Noto Color Emoji"
   ];
   fonts.enableDefaultPackages = true;
   fonts.fontconfig.useEmbeddedBitmaps = true;
