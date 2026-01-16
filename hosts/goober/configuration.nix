@@ -14,6 +14,7 @@
     ../../shared/client/tailscale.nix
     ../../shared/client/niri.nix
     ../../shared/client/nh.nix
+    ../../shared/fonts.nix
     ./features/default.nix
   ];
 
@@ -136,6 +137,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     wget
+    mprisence
     dnsutils
     whois
     dwl

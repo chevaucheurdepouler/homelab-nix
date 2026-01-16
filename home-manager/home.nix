@@ -4,28 +4,7 @@
   pkgs,
   ...
 }:
-let
-  mpv = (
-    final: previous: {
-      mpv = {
-        scripts = with pkgs.mpvScripts; [
-          uosc
-          sponsorblock
-          mpv-notify-send
-          mpv-discord
-          youtube-upnext
-        ];
-
-        mpv = pkgs.mpv.override {
-          waylandSupport = true;
-          ffmpeg = pkgs.ffmpeg-full;
-        };
-      };
-    }
-  );
-in
 {
-  nixpkgs.overlays = [ mpv ];
   fonts.fontconfig = {
     enable = true;
     antialiasing = true;
@@ -143,6 +122,7 @@ in
     ".config/niri".source = dotfiles/niri;
     ".config/mako".source = dotfiles/mako;
     ".scripts/".source = dotfiles/scripts;
+    ".config/mprisence".source = dotfiles/mprisence;
   };
 
   # programs.matugen = {
@@ -323,6 +303,15 @@ in
 
   programs.mpv = {
     enable = true;
+    package = pkgs.mpv.override {
+      scripts = with pkgs.mpvScripts; [
+        uosc
+        sponsorblock
+        mpv-notify-send
+        mpv-discord
+        youtube-upnext
+      ];
+    };
 
     profiles = {
       "high-quality" = {

@@ -1,0 +1,42 @@
+clear_on_pause = false
+interval = 2000
+allowed_players = ["mpv"]
+
+[template]
+detail = "{{title}}"
+
+[time]
+show = true
+as_elapsed = false
+
+[activity_type]
+use_content_type = true
+default = "watching"
+
+[cover]
+# List of file names (without extension) to search for local cover art.
+# Files are searched in the order listed.
+# Extensions like .jpg, .jpeg, .png, .gif are automatically checked.
+file_names = ["cover", "folder", "front", "album", "art"]
+
+[cover.provider]
+# Cover art providers (in order of preference)
+# "musicbrainz" - Fetch from MusicBrainz database
+# "catbox"     - Upload using Catbox (optionally via temp Litterbox)
+# "imgbb"      - Upload and host on ImgBB
+provider = ["musicbrainz", "catbox"]
+
+[cover.provider.catbox]
+# Upload files via catbox.moe. No API key is required, but you can set your user hash
+# if you want to delete uploads later.
+# user_hash = "your_catbox_user_hash"
+
+# When true, uploads go to the temporary Litterbox service rather than Catbox itself.
+# Valid values for litter_hours are 1, 12, 24, or 72 hours. Anything else is clamped to 24.
+use_litter = true
+litter_hours = 24
+
+[player.mpv]
+app_id = "1125075797942734928"
+icon = "https://upload.wikimedia.org/wikipedia/commons/7/73/Mpv_logo_%28official%29.png"
+allow_streaming = true
