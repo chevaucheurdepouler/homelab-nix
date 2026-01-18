@@ -14,7 +14,12 @@ in
     prowlarr
     jellyseerr
     bazarr
+    lidarr
   ];
+
+  services.lidarr = {
+    enable = true;
+  };
 
   services.sonarr = {
     enable = true;
