@@ -6,7 +6,7 @@
 
   systemd.user.services.mprisence = {
     enable = true;
-    wantedBy = "default.target";
+    wantedBy = [ "default.target" ];
     description = "Discord Rich Presence for MPRIS media players";
     serviceConfig = {
       Type = "simple";

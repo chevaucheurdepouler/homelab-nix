@@ -308,6 +308,7 @@
         uosc
         sponsorblock
         mpv-notify-send
+        mpris
         mpv-discord
         youtube-upnext
       ];
