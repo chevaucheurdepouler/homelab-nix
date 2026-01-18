@@ -103,6 +103,7 @@ in
       "radarr"
       "readarr"
       "sonarr"
+      "lidarr"
       "transmission"
       "jellyfin"
       "bazarr"
