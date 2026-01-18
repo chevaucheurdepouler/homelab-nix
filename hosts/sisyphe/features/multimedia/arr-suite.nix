@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  lib,
   ...
 }:
 
@@ -8,6 +9,12 @@ let
   cfg = config.arrSuite;
 in
 {
+  nixpkgs.config.allowUnfreePredicate =
+    pkg:
+    builtins.elem (lib.getName pkg) [
+      "symbola"
+    ];
+
   environment.systemPackages = with pkgs; [
     sonarr
     radarr
@@ -19,6 +26,8 @@ in
 
   services.lidarr = {
     enable = true;
+    group = "multimedia";
+    openFirewall = true;
   };
 
   services.sonarr = {
