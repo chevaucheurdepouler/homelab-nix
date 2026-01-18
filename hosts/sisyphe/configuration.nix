@@ -132,6 +132,7 @@ in
     builtins.elem (lib.getName pkg) [
       "unrar"
       "intel-ocl"
+      "symbola"
     ];
 
   # log shouldnt eat all my hard drive

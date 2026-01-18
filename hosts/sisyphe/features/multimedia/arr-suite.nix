@@ -9,12 +9,6 @@ let
   cfg = config.arrSuite;
 in
 {
-  nixpkgs.config.allowUnfreePredicate =
-    pkg:
-    builtins.elem (lib.getName pkg) [
-      "symbola"
-    ];
-
   environment.systemPackages = with pkgs; [
     sonarr
     radarr
