@@ -31,7 +31,7 @@ in
       enable = true;
       openFirewall = true;
       environmentFile = config.sops.secrets.slskd.path;
-      domain = "slskd.bzh.rougebordeaux.xyz";
+      domain = null;
       settings = {
         instance_name = "kitten";
         metrics = {
