@@ -24,6 +24,7 @@ in
           "hosts deny" = "0.0.0.0/0";
           "guest account" = "nobody";
           "map to guest" = "bad user";
+          "interfaces" = "tailscale0 ens18";
         };
         "music" = {
           path = "/srv/media/Music";
