@@ -20,7 +20,7 @@ in
       settings = {
         global = {
           security = "user";
-          "hosts allow" = "192.168.1.0 127.0.0.1 localhost 100.0.0.0";
+          "hosts allow" = "192.168.1. 127.0.0.1 localhost 100.";
           "hosts deny" = "0.0.0.0/0";
           "guest account" = "nobody";
           "map to guest" = "bad user";
