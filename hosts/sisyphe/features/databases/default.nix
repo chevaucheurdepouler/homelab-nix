@@ -11,6 +11,7 @@
     ensureDatabases = [
       "cloudreve"
       "forgejo"
+      "bitmagnet"
     ];
     authentication = pkgs.lib.mkOverride 10 ''
       #type database  DBuser  auth-method
