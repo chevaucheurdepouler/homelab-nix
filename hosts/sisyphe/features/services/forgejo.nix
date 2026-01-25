@@ -30,7 +30,7 @@
         ROOT_URL = "https://git.rougebordeaux.xyz";
         SSH_DOMAIN = "git.rougebordeaux.xyz";
         SSH_PORT = lib.head config.services.openssh.ports;
-        HTTP_PORT = 3333;
+        HTTP_PORT = 3344;
       };
       actions = {
         ENABLED = true;
@@ -94,6 +94,6 @@
   '';
 
   services.caddy.virtualHosts."http://git.rougebordeaux.xyz".extraConfig = ''
-    reverse_proxy :3333
+    reverse_proxy :3344
   '';
 }
