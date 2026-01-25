@@ -1,6 +1,6 @@
 { pkgs, secrets, ... }:
 {
-  sops.secrets.bitmagnet = { };
+  # sops.secrets.bitmagnet = { };
   services.bitmagnet = {
     enable = true;
     openFirewall = true;
