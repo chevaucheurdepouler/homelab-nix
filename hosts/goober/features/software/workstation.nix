@@ -26,7 +26,6 @@
       zathura
       pcsx2
       figma-linux
-      cider-2
       libreoffice-qt
       hunspell
       hunspellDicts.fr-any
@@ -63,6 +62,7 @@
       tetrio-desktop
       osu-lazer-bin
       esptool
+      nvidia-container-toolkit
     ]
     ++ [
       inputs.affinity-nix.packages.${pkgs.system}.v3
@@ -88,4 +88,8 @@
       defaultNetwork.settings.dns_enabled = true;
     };
   };
+
+  hardware.nvidia-container-toolkit.enable = true;
+  environment.etc."cdi/nvidia-container-toolkit.json".source =
+    "/run/cdi/nvidia-container-toolkit.json";
 }
