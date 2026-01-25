@@ -579,6 +579,11 @@ spawn-at-startup "poweralertd"
 spawn-at-startup "swww-daemon"
 spawn-at-startup "~/config/niri/start-bg.sh"
 
+xwayland-satellite {
+    // off
+    path "xwayland-satellite"
+}
+
 environment {
   DISPLAY ":0"
 }
