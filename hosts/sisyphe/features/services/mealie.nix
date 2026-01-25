@@ -5,4 +5,6 @@
     database.createLocally = true;
     settings = { };
   };
+
+  networking.firewall.allowedTCPPorts = [ 9000 ];
 }
