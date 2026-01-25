@@ -2,9 +2,11 @@
 {
   sops.secrets."ldap_password" = {
     sopsFile = "${secrets-next}/secrets/bordel.yaml";
+    owner = "lldap";
   };
   sops.secrets."ldap_seed_file" = {
     sopsFile = "${secrets-next}/secrets/bordel.yaml";
+    owner = "lldap";
   };
   services.lldap = {
     enable = true;
