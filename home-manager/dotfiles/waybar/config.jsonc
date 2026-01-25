@@ -11,8 +11,9 @@
     "battery"
   ],
   "clock": {
-    "format-alt": "{:%a, %d. %b  %H:%M}",
-    "locale": "fr"
+    "format-alt": "{:L%a, %d. %b  %H:%M}",
+    "timezone": "Europe/Paris",
+    "locale": "fr_FR.utf8"
   },
   "wireplumber": {
     "format": "{volume}% ",
