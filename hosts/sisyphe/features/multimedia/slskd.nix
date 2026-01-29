@@ -46,7 +46,7 @@ in
       };
       users.users.slskd.extraGroups = [
         config.services.lidarr.group
-        config.users.groups.multimedia
+        "multimedia"
       ];
     };
 

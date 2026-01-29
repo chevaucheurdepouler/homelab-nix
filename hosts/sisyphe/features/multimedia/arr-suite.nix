@@ -37,7 +37,7 @@ in
 
   users.users.lidarr.extraGroups = [
     config.services.slskd.group
-    config.users.groups.multimedia
+    "multimedia"
   ];
 
   services.sonarr = {
