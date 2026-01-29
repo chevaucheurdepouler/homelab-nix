@@ -7,7 +7,6 @@
     obs-studio
     osu-lazer-bin
     signal-desktop
-    cider-2
     iamb
     qutebrowser
     ente-desktop
