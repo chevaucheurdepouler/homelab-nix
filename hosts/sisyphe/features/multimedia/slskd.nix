@@ -44,11 +44,12 @@ in
         directories.incomplete = "${cfg.directory}/incomplete";
         permissions.file.mode = 774;
       };
-      users.users.slskd.extraGroups = [
-        config.services.lidarr.group
-        "multimedia"
-      ];
+
     };
+    users.users.slskd.extraGroups = [
+      config.services.lidarr.group
+      "multimedia"
+    ];
 
     systemd.tmpfiles.settings.srv-media-music."/srv/media/music".d = {
       user = config.services.lidarr.user;
