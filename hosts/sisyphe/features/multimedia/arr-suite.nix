@@ -14,7 +14,7 @@ let
       src = builtins.fetchurl {
         url = "http://lidarr.servarr.com/v1/update/nightly/updatefile?os=linux&runtime=netcore&arch=x64";
         name = "lidarr-nightly.tar.gz";
-        sha256 = "sha256-1oSFJtQ9/ICACFBFgp2kPzfP0dKitMg7vqAN7iT0KTA=";
+        sha256 = "sha256-BlOnnB311f1DBcOIR8AcrqSZlxV/P9U/GN1TfkHtQFE=";
       };
     }
   );
