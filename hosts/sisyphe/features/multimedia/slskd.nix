@@ -44,6 +44,16 @@ in
         directories.incomplete = "${cfg.directory}/incomplete";
         permissions.file.mode = 774;
       };
+      users.users.slskd.extraGroups = [
+        config.services.lidarr.group
+        config.users.groups.multimedia
+      ];
+    };
+
+    systemd.tmpfiles.settings.srv-media-music."/srv/media/music".d = {
+      user = config.services.lidarr.user;
+      group = config.users.groups.multimedia;
+      mode = "0755";
     };
 
     services.caddy.virtualHosts."http://slskd.bzh.rougebordeaux.xyz".extraConfig = ''

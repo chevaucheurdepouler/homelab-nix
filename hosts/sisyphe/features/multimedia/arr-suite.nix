@@ -31,10 +31,14 @@ in
 
   services.lidarr = {
     enable = true;
-    group = "multimedia";
     openFirewall = true;
     package = lidarr-nightly;
   };
+
+  users.users.lidarr.extraGroups = [
+    config.services.slskd.group
+    config.users.groups.multimedia
+  ];
 
   services.sonarr = {
     enable = true;
