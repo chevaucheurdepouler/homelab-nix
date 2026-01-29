@@ -12,7 +12,7 @@ let
     finalAttrs: previousAttrs: {
       version = "3.1.2.4902";
       src = builtins.fetchurl {
-        url = "https://release-assets.githubusercontent.com/github-production-release-asset/90468352/a24880e7-d09c-43e9-9781-84fed1271c8f?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-01-29T18%3A27%3A37Z&rscd=attachment%3B+filename%3DLidarr.develop.3.1.2.4902.linux-core-x64.tar.gz&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-01-29T17%3A27%3A35Z&ske=2026-01-29T18%3A27%3A37Z&sks=b&skv=2018-11-09&sig=W5SCFNzmN1pAPrUc%2F8XSxGAYJMJaj98FrwVwDMjF8Mg%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc2OTcxMTQ0OSwibmJmIjoxNzY5NzA3ODQ5LCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.dI_RS3-sJR5xImC-GLFZNv36Kc7nwR38u_s3wiMLycE&response-content-disposition=attachment%3B%20filename%3DLidarr.develop.3.1.2.4902.linux-core-x64.tar.gz&response-content-type=application%2Foctet-stream";
+        url = "http://lidarr.servarr.com/v1/update/develop/updatefile?os=linux&runtime=netcore&arch=x64";
         sha256 = "sha256-1oSFJtQ9/ICACFBFgp2kPzfP0dKitMg7vqAN7iT0KTA=";
       };
     }
