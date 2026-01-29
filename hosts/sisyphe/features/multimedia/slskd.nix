@@ -53,7 +53,7 @@ in
 
     systemd.tmpfiles.settings.srv-media-music."/srv/media/music".d = {
       user = config.services.lidarr.user;
-      group = config.users.groups.multimedia;
+      group = "multimedia";
       mode = "0755";
     };
 
