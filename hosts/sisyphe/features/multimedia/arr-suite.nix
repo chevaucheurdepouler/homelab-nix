@@ -13,6 +13,7 @@ let
       version = "3.1.2.4902";
       src = builtins.fetchurl {
         url = "http://lidarr.servarr.com/v1/update/develop/updatefile?os=linux&runtime=netcore&arch=x64";
+        name = "lidarr-nightly";
         sha256 = "sha256-1oSFJtQ9/ICACFBFgp2kPzfP0dKitMg7vqAN7iT0KTA=";
       };
     }
