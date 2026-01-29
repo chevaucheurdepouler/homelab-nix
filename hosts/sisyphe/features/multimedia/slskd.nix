@@ -42,7 +42,7 @@ in
         soulseek.description = "bass slut since 2003!";
         directories.downloads = "${cfg.directory}/downloads";
         directories.incomplete = "${cfg.directory}/incomplete";
-        permissions.file.mode = 774;
+        permissions.file.mode = 755;
       };
 
     };
@@ -51,8 +51,8 @@ in
       "multimedia"
     ];
 
-    systemd.tmpfiles.settings.srv-media-music."/srv/media/music".d = {
-      user = config.services.lidarr.user;
+    systemd.tmpfiles.settings.srv-media-music."/srv/media/Music".d = {
+      user = "homelab";
       group = "multimedia";
       mode = "0755";
     };
