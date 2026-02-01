@@ -90,5 +90,14 @@
     },
     "format": "{capacity}% {icon}",
     "format-icons": ["", "", "", "", ""]
+  },
+"niri/workspaces": {
+  "format": "{icon}",
+  "format-icons": {
+    "code": "",
+    "chat": "󱋊",
+    "music": "󰽱",
+    "internet": ""
   }
+}
 }

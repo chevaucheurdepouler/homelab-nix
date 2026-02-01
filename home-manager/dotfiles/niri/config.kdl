@@ -590,22 +590,26 @@ environment {
 
 // apps to launch at startup
 spawn-at-startup "footclient" "nvim" "~/Documents/Notes"
+spawn-at-startup "footclient" "hyfetch"
+spawn-at-startup "footclient" "jellyfin-tui"
+spawn-at-startup "discord"
+spawn-at-startup "zen"
 
 clipboard {
   disable-primary
 }
 
-workspace "code "
-workspace "internet "
-workspace "chat 󱋊"
-workspace "music 󰽱"
+workspace "code"
+workspace "internet"
+workspace "chat"
+workspace "music"
 
 window-rule {
   match at-startup=true app-id=r#"^discord$"#
   match at-startup=true app-id=r#"^vesktop$"#
   match at-startup=true app-id=r#"^Beeper$"#
   match at-startup=true app-id=r#"^cinny$"#
-  open-on-workspace "chat 󱋊"
+  open-on-workspace "chat"
 }
 
 window-rule {
@@ -616,13 +620,14 @@ window-rule {
 window-rule {
   match at-startup=true app-id=r#"zen-beta$"#
   match at-startup=true app-id=r#"org.qutebrowser.qutebrowser$"#
-  open-on-workspace "internet "
+  open-on-workspace "internet "
 }
 
 window-rule {
   match at-startup=true app-id=r#"Cider$"#
+  match at-startup=true title=r#"jellyfin terminal player - foot$"
   open-maximized true
-  open-on-workspace "music 󰽱"
+  open-on-workspace "music"
 }
 
 window-rule {

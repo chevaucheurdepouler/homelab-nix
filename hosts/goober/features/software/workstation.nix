@@ -16,7 +16,6 @@
       "tetrio-desktop"
       "beeper"
       "exact-audio-copy"
-      "cider-2"
     ];
   fonts.fontDir.enable = true;
   environment.systemPackages =

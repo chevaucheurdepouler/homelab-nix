@@ -27,6 +27,7 @@
   home.packages =
     with pkgs;
     [
+      jellyfin-tui
       forgejo-cli
       yt-dlp
       nerd-fonts.code-new-roman
