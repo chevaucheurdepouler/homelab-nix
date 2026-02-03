@@ -625,7 +625,7 @@ window-rule {
 
 window-rule {
   match at-startup=true app-id=r#"Cider$"#
-  match at-startup=true title=r#"jellyfin terminal player - foot$"
+  match at-startup=true title=r#"jellyfin terminal player - foot$"#
   open-maximized true
   open-on-workspace "music"
 }

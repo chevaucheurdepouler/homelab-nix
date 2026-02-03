@@ -27,6 +27,7 @@
   home.packages =
     with pkgs;
     [
+      protonup-ng
       jellyfin-tui
       forgejo-cli
       yt-dlp
@@ -459,4 +460,8 @@
   };
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  home.sessionVariables = {
+    STEAM_EXTRA_COMPAT_TOOLS_PATHS = "\\\${HOME}/.steam/root/compatibilitytools.d";
+  };
 }
