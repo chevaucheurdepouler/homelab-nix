@@ -23,6 +23,9 @@
     [
       podman-compose
       zathura
+      feishin
+      libpng
+      icu
       pcsx2
       figma-linux
       libreoffice-qt
