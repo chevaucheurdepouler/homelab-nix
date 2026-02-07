@@ -592,7 +592,7 @@ environment {
 spawn-at-startup "footclient" "nvim" "~/Documents/Notes"
 spawn-at-startup "footclient" "hyfetch"
 spawn-at-startup "footclient" "jellyfin-tui"
-spawn-at-startup "discord"
+// spawn-at-startup "discord"
 spawn-at-startup "zen"
 
 clipboard {
