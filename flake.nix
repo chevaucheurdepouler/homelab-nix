@@ -267,6 +267,7 @@
       packages.fourget = pkgs.callPackage ./packages/4get.nix { };
       packages.tetrio-desktop = pkgs.callPackage ./packages/tetrio.nix { };
       packages.iloader = pkgs.callPackage ./packages/iloader.nix { };
+      packages.hytale = pkgs.callPackage ./packages/hytale-f2p.nix { };
 
       homeManager = home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs { };
