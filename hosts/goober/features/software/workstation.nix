@@ -2,12 +2,32 @@
   pkgs,
   inputs,
   lib,
+  secrets-next,
   ...
 }:
 {
   # for java development on vscode
   programs.nix-ld.enable = true;
+  programs.obs-studio = {
+    enable = true;
 
+    # optional Nvidia hardware acceleration
+    package = (
+      pkgs.obs-studio.override {
+        cudaSupport = true;
+      }
+    );
+
+    plugins = with pkgs.obs-studio-plugins; [
+      wlrobs
+      obs-backgroundremoval
+      obs-pipewire-audio-capture
+      obs-vaapi # optional AMD hardware acceleration
+      obs-gstreamer
+      obs-vkcapture
+      droidcam-obs
+    ];
+  };
   nixpkgs.config.allowUnfreePredicate =
     pkg:
     builtins.elem (lib.getName pkg) [
@@ -36,16 +56,12 @@
       # video editing software
       #davinci-resolve
 
-      # recording software
-      obs-studio
-
       # drawing software
       krita
 
       # 3d modeling
       blender
       signal-desktop
-      gajim
       weechat
       gvfs
       nil
@@ -64,12 +80,19 @@
       tetrio-desktop
       osu-lazer-bin
       esptool
+
+      # needed for passing gpu to podman
       nvidia-container-toolkit
     ]
     ++ [
       inputs.affinity-nix.packages.${pkgs.system}.v3
     ];
 
+  # sops.secrets.lastfm_password = {
+  #
+  #   sopsFile = "${secrets-next}/secrets/backup.yaml";
+  # };
+  #
   services.mpdscribble = {
     enable = true;
     endpoints = {
@@ -80,6 +103,7 @@
     };
   };
 
+  # podman stuff
   virtualisation.containers.enable = true;
   virtualisation = {
     podman = {

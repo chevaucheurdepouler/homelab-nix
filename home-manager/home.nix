@@ -5,10 +5,10 @@
   ...
 }:
 {
-  fonts.fontconfig = {
-    enable = true;
-    antialiasing = true;
-  };
+  imports = [
+    inputs.sops-nix.homeManagerModules.sops
+  ];
+
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "misschloe777";
@@ -127,6 +127,9 @@
     ".config/mprisence".source = dotfiles/mprisence;
   };
 
+  # Let Home Manager install and manage itself.
+  programs.home-manager.enable = true;
+
   # programs.matugen = {
   #   enable = true;
   #   variant = "dark";
@@ -151,7 +154,7 @@
   #     };
   #   };
   # };
-  #
+
   programs.direnv = {
     enable = true;
     enableBashIntegration = true; # see note on other shells below
@@ -219,6 +222,7 @@
   #  /etc/profiles/per-user/harry123/etc/profile.d/hm-session-vars.sh
 
   home.sessionVariables = {
+    STEAM_EXTRA_COMPAT_TOOLS_PATHS = "\\\${HOME}/.steam/root/compatibilitytools.d";
     EDITOR = "nvim";
   };
 
@@ -256,7 +260,7 @@
       music = "${config.home.homeDirectory}/Musique";
       pictures = "${config.home.homeDirectory}/Images";
       extraConfig = {
-        XDG_SCREENSHOTS_DIR = "${config.home.homeDirectory}/Images/Captures\ d\'écrans";
+        SCREENSHOTS = "${config.home.homeDirectory}/Images/Captures\ d\'écrans";
       };
     };
   };
@@ -458,10 +462,15 @@
       esac
     '';
   };
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
 
-  home.sessionVariables = {
-    STEAM_EXTRA_COMPAT_TOOLS_PATHS = "\\\${HOME}/.steam/root/compatibilitytools.d";
+  fonts.fontconfig = {
+    enable = true;
+    antialiasing = true;
   };
+
+  # setting up secrets
+  # sops = {
+  #   age.keyFile = "${config.home.homeDirectory}/.config/sops/age/keys.txt";
+  #   secrets.lastfm_password = "";
+  # };
 }

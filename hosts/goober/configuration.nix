@@ -20,12 +20,13 @@
 
   boot = {
     loader = {
-      efi.canTouchEfiVariables = true;
+      # efi.canTouchEfiVariables = true;
       grub = {
         enable = true;
         devices = [ "nodev" ];
         efiSupport = true;
         useOSProber = true;
+        efiInstallAsRemovable = true;
       };
     };
 
@@ -218,6 +219,8 @@
     enable = true;
     binfmt = true;
   };
+  # some gaming clients need it...
+  hardware.graphics.enable32Bit = true;
 
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
