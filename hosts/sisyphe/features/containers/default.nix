@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./crafty-controller.nix
+    # ./crafty-controller.nix
     # ./flaresolverr.nix
     ./freshrss.nix
     # ./soularr.nix

@@ -3,7 +3,7 @@
   imports = [
     # ./akkoma.nix
     # ./archivebox.nix
-    ./homelab-dashboard.nix
+    # ./homelab-dashboard.nix
     # ./nextcloud.nix
     # ./photoprism.nix
     ./grafana.nix

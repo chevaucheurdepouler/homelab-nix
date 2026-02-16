@@ -11,6 +11,6 @@
     ./prometheus.nix
     ./samba-shares.nix
     ./tailscale.nix
-    ./bitmagnet.nix
+    # ./bitmagnet.nix
   ];
 }
