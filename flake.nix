@@ -12,11 +12,6 @@
       inputs.nixpkgs.follows = "nixpkgsUnstable";
     };
 
-    alejandra = {
-      url = "github:kamadorueda/alejandra/3.0.0";
-      inputs.nixpkgs.follows = "nixpkgsUnstable";
-    };
-
     nix-secrets = {
       url = "git+https://git.rougebordeaux.xyz/misschloe/nix-secrets.git"; # replace with your own repo
       flake = false;
@@ -49,7 +44,7 @@
     };
 
     moonlight = {
-      url = "github:moonlight-mod/moonlight/develop";
+      url = "github:moonlight-mod/moonlight";
       inputs.nixpkgs.follows = "nixpkgsUnstable";
     };
     auto-cpufreq = {
