@@ -10,6 +10,6 @@
     ./forgejo.nix
     # ./synapse-matrix.nix
     ./uptime-kuma.nix
-    ./mealie.nix
+    # ./mealie.nix
   ];
 }
