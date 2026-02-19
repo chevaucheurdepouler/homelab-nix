@@ -91,7 +91,6 @@ in
         22 # ssh
         80 # http
         443 # ssl
-        8080
       ];
       allowedUDPPorts = [ ];
     };

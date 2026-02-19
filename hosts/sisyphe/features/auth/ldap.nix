@@ -18,24 +18,24 @@
     };
   };
 
-  services.authelia = {
-    instances = {
-      default = {
-        enable = true;
-        secrets.storageEncryptionKeyFile = "/etc/authelia/storageEncryptionKeyFile";
-        secrets.jwtSecretFile = "/etc/authelia/jwtSecretFile";
-        settings = {
-          access_control = {
-            default_policy = "deny";
-            rules = [
-              {
-                "domain" = "*.rougebordeaux.xyz";
-                "policy" = "one_factor";
-              }
-            ];
-          };
-        };
-      };
-    };
-  };
+  # services.authelia = {
+  #   instances = {
+  #     default = {
+  #       enable = true;
+  #       secrets.storageEncryptionKeyFile = "/etc/authelia/storageEncryptionKeyFile";
+  #       secrets.jwtSecretFile = "/etc/authelia/jwtSecretFile";
+  #       settings = {
+  #         access_control = {
+  #           default_policy = "deny";
+  #           rules = [
+  #             {
+  #               "domain" = "*.rougebordeaux.xyz";
+  #               "policy" = "one_factor";
+  #             }
+  #           ];
+  #         };
+  #       };
+  #     };
+  #   };
+  # };
 }
